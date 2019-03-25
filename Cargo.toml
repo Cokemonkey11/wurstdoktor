@@ -1,0 +1,8 @@
+[package]
+name = "wurstdoktor"
+version = "0.1.0"
+authors = ["Blake"]
+edition = "2018"
+
+[dependencies]
+pom = "3.0.1"
