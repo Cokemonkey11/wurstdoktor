@@ -30,7 +30,8 @@ struct WurstFunction {
 #[derive(Debug, PartialEq)]
 enum WurstDok {
     Class(WurstClass),
-    FreeFunction(WurstFunction)
+    FreeFunction(WurstFunction),
+    Nothing
 }
 
 fn cruft() -> Parser<u8, ()> {
@@ -38,7 +39,7 @@ fn cruft() -> Parser<u8, ()> {
         !class_declaration() *
         !free_function() *
         take(1)
-    ).repeat(1..).discard()
+    ).discard()
 }
 
 fn class_fn() -> Parser<u8, WurstFunction> {
@@ -163,10 +164,13 @@ fn wurstdok() -> Parser<u8, WurstDok> {
 }
 
 fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
-    let elems = list(call(wurstdok), call(cruft).repeat(1..));
-
-    call(wurstdok).map(|e| vec![e]) |
-    call(cruft).repeat(1..) * elems - call(cruft).repeat(0..)
+    (
+        wurstdok() |
+        !end() *
+        take(1).map(|_| WurstDok::Nothing)
+    ).repeat(0..).map(|v| {
+        v.into_iter().filter(|w| w != &WurstDok::Nothing).collect()
+    })
 }
 
 fn main() -> Result<(), ()> {
@@ -225,7 +229,7 @@ mod tests {
                     WurstFunction {
                         doc: None,
                         extensor: None,
-                        name: "braap".into(),
+                        name: "goth".into(),
                         params: vec![WurstFnParam {
                             typ: "unit".into(),
                             name: "g".into()
