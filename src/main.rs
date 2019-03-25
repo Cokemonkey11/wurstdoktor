@@ -37,7 +37,7 @@ fn cruft() -> Parser<u8, ()> {
     (
         !class_declaration() *
         !free_function() *
-        skip(1)
+        take(1)
     ).repeat(1..).discard()
 }
 
@@ -112,12 +112,14 @@ fn doc() -> Parser<u8, Option<String>> {
 }
 
 fn function_params() -> Parser<u8, Vec<WurstFnParam>> {
-    one_of(b" \t\r\n").repeat(0..) * list(
+    one_of(b" \t\r\n").repeat(0..) *
+    list(
         // Parameters.
         none_of(b") ,").repeat(1..).convert(String::from_utf8) -
         sym(b' ').repeat(1..) +
         none_of(b") ,\r\n\t").repeat(1..).convert(String::from_utf8),
-        sym(b',') * one_of(b" \r\t\n").repeat(0..)
+        sym(b',') *
+        one_of(b" \r\t\n").repeat(0..)
     ).map(|v| v.into_iter().map(|(t, n)| WurstFnParam {
         typ: t,
         name: n
@@ -162,7 +164,9 @@ fn wurstdok() -> Parser<u8, WurstDok> {
 
 fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
     let elems = list(call(wurstdok), call(cruft).repeat(1..));
-    call(cruft).repeat(0..) * elems - call(cruft).repeat(0..)
+
+    call(wurstdok).map(|e| vec![e]) |
+    call(cruft).repeat(1..) * elems - call(cruft).repeat(0..)
 }
 
 fn main() -> Result<(), ()> {
@@ -197,6 +201,7 @@ mod tests {
     fn test_two_fns() -> Result<(), ()> {
         assert_eq!(
             wurstdoktor().parse(br#"
+                package test
                 public function braap(unit q)
                     q.kill()
 
