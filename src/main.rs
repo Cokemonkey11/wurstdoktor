@@ -164,7 +164,13 @@ fn wurstdok() -> Parser<u8, WurstDok> {
 }
 
 fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
-    (wurstdok() | !end() * take(1).map(|_| WurstDok::Nothing)).repeat(0..)
+    (
+        wurstdok() |
+        !end() *
+        take(1).map(|_| WurstDok::Nothing)
+    ).repeat(0..).map(|v| {
+        v.into_iter().filter(|w| w != &WurstDok::Nothing).collect()
+    })
 }
 
 fn main() -> Result<(), ()> {
@@ -223,7 +229,7 @@ mod tests {
                     WurstFunction {
                         doc: None,
                         extensor: None,
-                        name: "braap".into(),
+                        name: "goth".into(),
                         params: vec![WurstFnParam {
                             typ: "unit".into(),
                             name: "g".into()
