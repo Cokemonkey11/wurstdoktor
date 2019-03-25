@@ -164,7 +164,19 @@ fn wurstdok() -> Parser<u8, WurstDok> {
 }
 
 fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
-    ( wurstdok() | take(1).discard().map(|_| WurstDok::Nothing) ).repeat(1..)
+    (
+        (
+            wurstdok() |
+            take(1).map(|_| WurstDok::Nothing)
+        ) +
+        (
+            end().map(|_| vec![WurstDok::Nothing]) |
+            call(wurstdoktor)
+        )
+    ).map(|(w, mut ws)| {
+        ws.insert(0, w);
+        ws
+    })
 }
 
 fn main() -> Result<(), ()> {
