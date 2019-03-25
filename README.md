@@ -1,4 +1,4 @@
-A parser for public [wurstlang](wurstlang.org) docs.
+A parser for public [wurstlang](https://wurstlang.org) docs.
 
 - [x] Use [nom](https://crates.io/crates/nom) for parsing
 - [ ] Parse public classes
