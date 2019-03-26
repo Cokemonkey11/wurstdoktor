@@ -1,15 +1,43 @@
 extern crate pom;
+extern crate serde_yaml;
+
+#[macro_use] extern crate failure;
+#[macro_use] extern crate serde_derive;
+#[macro_use] extern crate structopt;
 
 use pom::parser::*;
 use pom::Parser;
 
-#[derive(Debug, PartialEq)]
+use structopt::StructOpt;
+
+use std::io::{self, Read};
+
+#[derive(Debug, Fail)]
+enum WurstdokError {
+    #[fail(display = "failed to parse - {:?}", err)]
+    ParseError {
+        err: pom::Error
+    },
+
+    #[fail(display = "failed to generate yaml - {:?}", err)]
+    YamlEmitError {
+        err: std::io::Error
+    }
+}
+
+/// Wurstdoktor consumes wurst code via stdin, and produces structured data for
+/// the public documentation found via stdout.
+#[derive(StructOpt, Debug)]
+#[structopt(name = "wurstdoktor")]
+struct Opt { }
+
+#[derive(Serialize, Debug, PartialEq)]
 struct WurstFnParam {
     typ: String,
     name: String
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Serialize, Debug, PartialEq)]
 struct WurstClass {
     doc: Option<String>,
     name: String,
@@ -18,7 +46,7 @@ struct WurstClass {
     fns: Vec<WurstFunction>
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Serialize, Debug, PartialEq)]
 struct WurstFunction {
     doc: Option<String>,
     extensor: Option<String>,
@@ -27,7 +55,7 @@ struct WurstFunction {
     returns: Option<String>
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Serialize, Debug, PartialEq)]
 enum WurstDok {
     Class(WurstClass),
     FreeFunction(WurstFunction),
@@ -173,26 +201,19 @@ fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
     })
 }
 
-fn main() -> Result<(), ()> {
-    let input = br#"
-package GameTimer
-import NoWurst
-import Basics
-import Timer
-timer gameTimer
+fn main() -> Result<(), failure::Error> {
+    let _ = Opt::from_args();
 
-public real currentTime
+    let mut buf = String::new();
+    std::io::stdin().lock().read_to_string(&mut buf)?;
 
-public function getElapsedGameTime() returns real
-	return gameTimer.getElapsed()
+    let arg = buf.into_bytes();
 
-init
-	gameTimer = CreateTimer()
-	gameTimer.start(100000, null)
-	CreateTimer().startPeriodic(ANIMATION_PERIOD) ->
-		currentTime += ANIMATION_PERIOD
-    "#;
-    println!("{:?}", wurstdoktor().parse(input));
+    let parser = wurstdoktor();
+
+    let parsed = parser.parse(&arg)?;
+
+    println!("{}", serde_yaml::to_string(&parsed)?);
 
     Ok(())
 }
@@ -200,6 +221,43 @@ init
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_fv_game_timer() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                package GameTimer
+                import NoWurst
+                import Basics
+                import Timer
+                timer gameTimer
+
+                public real currentTime
+
+                public function getElapsedGameTime() returns real
+                    return gameTimer.getElapsed()
+
+                init
+                    gameTimer = CreateTimer()
+                    gameTimer.start(100000, null)
+                    CreateTimer().startPeriodic(ANIMATION_PERIOD) ->
+                        currentTime += ANIMATION_PERIOD
+            "#),
+            Ok(vec![
+                WurstDok::FreeFunction(
+                    WurstFunction {
+                        doc: None,
+                        extensor: None,
+                        name: "getElapsedGameTime".into(),
+                        params: vec![],
+                        returns: Some("real".into())
+                    }
+                )
+            ])
+        );
+
+        Ok(())
+    }
 
     #[test]
     fn test_two_fns() -> Result<(), ()> {
