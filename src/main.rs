@@ -2,6 +2,7 @@ extern crate pom;
 extern crate serde_yaml;
 
 #[macro_use] extern crate failure;
+#[macro_use] extern crate lazy_static;
 #[macro_use] extern crate serde_derive;
 #[macro_use] extern crate structopt;
 
@@ -204,16 +205,22 @@ fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
 fn main() -> Result<(), failure::Error> {
     let _ = Opt::from_args();
 
-    let mut buf = String::new();
-    std::io::stdin().lock().read_to_string(&mut buf)?;
+    lazy_static! {
+        pub static ref STDIN_BUF: String = {
+            let mut buf = String::new();
 
-    let arg = buf.into_bytes();
+            std::io::stdin().lock().read_to_string(&mut buf).expect(
+                "Failed to read stdin!"
+            );
 
-    let parser = wurstdoktor();
+            buf
+        };
+    }
 
-    let parsed = parser.parse(&arg)?;
-
-    println!("{}", serde_yaml::to_string(&parsed)?);
+    println!(
+        "{}",
+        serde_yaml::to_string(&wurstdoktor().parse(STDIN_BUF.as_bytes())?)?
+    );
 
     Ok(())
 }
