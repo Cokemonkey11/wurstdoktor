@@ -1,0 +1,311 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_plus
+    params:
+      - typ: mat2
+        name: m
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_minus
+    params:
+      - typ: mat2
+        name: m
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_minus
+    params:
+      - typ: real
+        name: scalar
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_plus
+    params:
+      - typ: real
+        name: scalar
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_mult
+    params:
+      - typ: real
+        name: scalar
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: real
+    name: op_mult
+    params:
+      - typ: mat2
+        name: m
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_mult
+    params:
+      - typ: vec2
+        name: v
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: op_mult
+    params:
+      - typ: mat2
+        name: m
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: op_mult
+    params:
+      - typ: mat2
+        name: m
+    returns: mat2
+- FreeFunction:
+    doc: "Returns matrix' column by index as a vector or rises an error if doesn't exist."
+    extensor: mat2
+    name: col
+    params:
+      - typ: int
+        name: index
+    returns: vec2
+- FreeFunction:
+    doc: "Returns matrix' row by index as a vector or rises an error if doesn't exist."
+    extensor: mat2
+    name: row
+    params:
+      - typ: int
+        name: index
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: determinant
+    params: []
+    returns: real
+- FreeFunction:
+    doc: "Flips the matrix over its main diagonale.\nResult of transposing for rotation matrix is its inverse matrix."
+    extensor: mat2
+    name: transpose
+    params: []
+    returns: mat2
+- FreeFunction:
+    doc: "Finds inverse matrix.\nReturns tuple inverseresult22(bool success, mat2 matrix) where 'success' is true if the inverse matrix exists and 'matrix' is the inverse matrix.\nIf there's no inverse matrix 'success' is false and 'matrix' is zero matrix."
+    extensor: mat2
+    name: inverse
+    params: []
+    returns: inverseresult22
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: toString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: Creates rotation matrix from angle.
+    extensor: angle
+    name: toRotation
+    params: []
+    returns: mat2
+- FreeFunction:
+    doc: Creates scaling 2x2 matrix from a vector.
+    extensor: vec2
+    name: toScaling
+    params: []
+    returns: mat2
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_plus
+    params:
+      - typ: mat3
+        name: m
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_plus
+    params:
+      - typ: real
+        name: scalar
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_minus
+    params:
+      - typ: mat3
+        name: m
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_minus
+    params:
+      - typ: real
+        name: scalar
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_mult
+    params:
+      - typ: real
+        name: scalar
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: real
+    name: op_mult
+    params:
+      - typ: mat3
+        name: m
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_mult
+    params:
+      - typ: vec3
+        name: v
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: op_mult
+    params:
+      - typ: mat3
+        name: m
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: op_mult
+    params:
+      - typ: mat3
+        name: m
+    returns: mat3
+- FreeFunction:
+    doc: "Returns matrix' column by index as a vector or rises an error if doesn't exist."
+    extensor: mat3
+    name: col
+    params:
+      - typ: int
+        name: index
+    returns: vec3
+- FreeFunction:
+    doc: "Returns matrix' row by index as a vector or rises an error if doesn't exist."
+    extensor: mat3
+    name: row
+    params:
+      - typ: int
+        name: index
+    returns: vec3
+- FreeFunction:
+    doc: The sum of the main diagonal terms.
+    extensor: mat3
+    name: trace
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: determinant
+    params: []
+    returns: real
+- FreeFunction:
+    doc: "Flips the matrix over its main diagonale.\nResult of transposing for rotation matrix is its inverse matrix."
+    extensor: mat3
+    name: transpose
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: "Finds inverse matrix.\nReturns tuple inverseresult33(bool success, mat3 matrix) where 'success' is true if the inverse matrix exists and 'matrix' is the inverse matrix.\nIf there's no inverse matrix 'success' is false and 'matrix' is zero matrix."
+    extensor: mat3
+    name: inverse
+    params: []
+    returns: inverseresult33
+- FreeFunction:
+    doc: Extracts Euler-angles (Tait-Bryan) in radians from rotation matrix. Order of the result is X-Y-Z.
+    extensor: mat3
+    name: toEuler
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: toString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: Creates 3x3 rotation matrix from axis and angle.
+    extensor: vec3
+    name: toRotation
+    params:
+      - typ: angle
+        name: angl
+    returns: mat3
+- FreeFunction:
+    doc: Creates 3x3 rotation matrix from axis and angle.
+    extensor: angle
+    name: toRotation
+    params:
+      - typ: vec3
+        name: axis
+    returns: mat3
+- FreeFunction:
+    doc: Creates 3x3 rotation matrix around X-axis from angle.
+    extensor: angle
+    name: toRotationX
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: Creates 3x3 rotation matrix around Y-axis from angle.
+    extensor: angle
+    name: toRotationY
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: Creates 3x3 rotation matrix around Z-axis from angle.
+    extensor: angle
+    name: toRotationZ
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: Creates  3x3 scaling matrix from a vector.
+    extensor: vec3
+    name: toScaling
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: "Creates translation 3x3 matrix from a vector that represents an offset.\nUse it with vec3 that represents 2D point."
+    extensor: vec2
+    name: toTranslation
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: ~
+    extensor: mat2
+    name: assertEquals
+    params:
+      - typ: mat2
+        name: expected
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: mat3
+    name: assertEquals
+    params:
+      - typ: mat3
+        name: expected
+    returns: ~

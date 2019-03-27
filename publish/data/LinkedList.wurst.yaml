@@ -1,0 +1,37 @@
+---
+- Class:
+    doc: ~
+    name: "LinkedList<T>\n\tprivate"
+    extends: ~
+    implements: []
+    fns: []
+- Class:
+    doc: ~
+    name: "LLIterator<T>\n\tLLEntry<T>\tdummy\n\tLLEntry<T>\tcurrent\n\tLinkedList<T>"
+    extends: ~
+    implements: []
+    fns: []
+- Class:
+    doc: ~
+    name: "LLBackIterator<T>\n\tLLEntry<T>"
+    extends: ~
+    implements: []
+    fns: []
+- FreeFunction:
+    doc: ~
+    extensor: LinkedList<real>
+    name: sort
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: LinkedList<int>
+    name: sort
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: group
+    name: asList
+    params: []
+    returns: LinkedList<unit>

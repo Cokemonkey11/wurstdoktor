@@ -1,0 +1,137 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: texttag
+    name: center
+    params:
+      - typ: vec3
+        name: pos
+      - typ: string
+        name: message
+      - typ: real
+        name: size
+    returns: texttag
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createCenteredTexttag
+    params:
+      - typ: vec3
+        name: pos
+      - typ: string
+        name: message
+      - typ: real
+        name: size
+    returns: texttag
+- FreeFunction:
+    doc: Returns the width of the string
+    extensor: string
+    name: getWidth
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: char
+    params:
+      - typ: string
+        name: s
+    returns: char
+- FreeFunction:
+    doc: ~
+    extensor: char
+    name: toString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: char
+    name: toInt
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: char
+    name: getWidth
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: string
+    name: toChar
+    params: []
+    returns: char
+- FreeFunction:
+    doc: ~
+    extensor: string
+    name: toCharList
+    params: []
+    returns: LinkedList<char>
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: toChar
+    params: []
+    returns: char
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: charToIndex
+    params:
+      - typ: char
+        name: c
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: charFromIndex
+    params:
+      - typ: int
+        name: index
+    returns: char
+- FreeFunction:
+    doc: "Splits the string by another string\n\t\"this..is..an..example\" split by the string \"..\" splits into a list containing four strings [\"this\", \"is\", \"an\", \"example\"]"
+    extensor: string
+    name: split
+    params:
+      - typ: string
+        name: splitBy
+    returns: LinkedList<string>
+- FreeFunction:
+    doc: Joins elements from a string list into one string using a separator
+    extensor: LinkedList<string>
+    name: joinBy
+    params:
+      - typ: string
+        name: separator
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: LinkedList<T>
+    name: joinBy<T>
+    params:
+      - typ: ToStringClosure<T>
+        name: cls
+      - typ: string
+        name: separator
+    returns: string
+- FreeFunction:
+    doc: Joins elements from a string list into one string
+    extensor: LinkedList<string>
+    name: join
+    params: []
+    returns: string
+- FreeFunction:
+    doc: "Replaces consecutive repeats of the same string with a single instance\n\tTurns \"strstr\" into \"str\""
+    extensor: string
+    name: reduce
+    params:
+      - typ: string
+        name: reduced
+    returns: string
+- FreeFunction:
+    doc: "Replaces consecutive repeats of the whitespace character with a single instance\n\tTurns \"  \" into \" \""
+    extensor: string
+    name: reduce
+    params: []
+    returns: string

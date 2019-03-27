@@ -1,0 +1,7 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: BufferMode
+    name: toString
+    params: []
+    returns: string

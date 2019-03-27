@@ -1,0 +1,15 @@
+---
+- Class:
+    doc: ~
+    name: "DebugFile\n\tstatic"
+    extends: ~
+    implements: []
+    fns: []
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: sendLineToConsole
+    params:
+      - typ: string
+        name: s
+    returns: ~

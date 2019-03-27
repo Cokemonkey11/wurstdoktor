@@ -1,0 +1,203 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: setWaterBaseColor
+    params:
+      - typ: colorA
+        name: color
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: setTerrainType
+    params:
+      - typ: int
+        name: ttype
+      - typ: int
+        name: variation
+      - typ: int
+        name: area
+      - typ: int
+        name: shape
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: getTerrainType
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: getTerrainVariance
+    params: []
+    returns: int
+- FreeFunction:
+    doc: "Applies a single terrain deformation to closest tile. Is not immediate.\n\tReports shows that this may cause desync with Mac players."
+    extensor: vec2
+    name: addTerrainHeight
+    params:
+      - typ: real
+        name: val
+    returns: terraindeformation
+- FreeFunction:
+    doc: Fills 32x32 rect around vec2 with given pathing type
+    extensor: vec2
+    name: setTerrainPathable
+    params:
+      - typ: pathingtype
+        name: ttype
+      - typ: bool
+        name: flag
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainPathable
+    params:
+      - typ: pathingtype
+        name: ttype
+    returns: bool
+- FreeFunction:
+    doc: Returns center of the Tile which given vec2 belongs to.
+    extensor: vec2
+    name: toTileCenter
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: Returns the (not normalised) terrain-normal at the given point
+    extensor: vec2
+    name: getTerrainNormal
+    params:
+      - typ: real
+        name: sampleRadius
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainDeepWater
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainShallowWater
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainLand
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainPlatform
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: isTerrainWalkable
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: tile
+    params:
+      - typ: int
+        name: x
+      - typ: int
+        name: y
+    returns: tile
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: tile
+    params:
+      - typ: real
+        name: x
+      - typ: real
+        name: y
+    returns: tile
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: getX
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: getY
+    params: []
+    returns: real
+- FreeFunction:
+    doc: Returns the tile which given vec2 belongs to.
+    extensor: vec2
+    name: getTile
+    params: []
+    returns: tile
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: toVec2
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: setType
+    params:
+      - typ: int
+        name: ttype
+      - typ: int
+        name: variation
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: setType
+    params:
+      - typ: int
+        name: ttype
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: getHeight
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: addHeight
+    params:
+      - typ: real
+        name: val
+    returns: terraindeformation
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: getType
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: tile
+    name: getVariance
+    params: []
+    returns: int
+- FreeFunction:
+    doc: Fills the entire tile (128x128 rect around tile pos) with given type
+    extensor: tile
+    name: setPathing
+    params:
+      - typ: pathingtype
+        name: ttype
+      - typ: bool
+        name: flag
+    returns: ~

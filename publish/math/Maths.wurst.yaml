@@ -1,0 +1,31 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: hypot
+    params:
+      - typ: real
+        name: dx
+      - typ: real
+        name: dy
+    returns: real
+- FreeFunction:
+    doc: Returns the angle of a height-slope
+    extensor: ~
+    name: getSlopeAngle
+    params:
+      - typ: real
+        name: z1
+      - typ: real
+        name: z2
+      - typ: real
+        name: dist
+    returns: angle
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: moduloInt
+    params:
+      - typ: int
+        name: divisor
+    returns: int

@@ -1,0 +1,107 @@
+---
+- FreeFunction:
+    doc: get the real representation of this angle in degrees
+    extensor: angle
+    name: degrees
+    params: []
+    returns: real
+- FreeFunction:
+    doc: get the real representation of this angle in radians
+    extensor: angle
+    name: radians
+    params: []
+    returns: real
+- FreeFunction:
+    doc: interpret this real as an angle given in degrees
+    extensor: real
+    name: asAngleDegrees
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: interpret this real as an angle given in degrees
+    extensor: real
+    name: fromDeg
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: interpret this real as an angle given in degrees
+    extensor: real
+    name: fromRad
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: interpret this int as an angle given in degrees
+    extensor: int
+    name: fromRad
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: interpret this int as an angle given in radians
+    extensor: int
+    name: asAngleRadians
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: interpret this real as an angle given in radians
+    extensor: real
+    name: asAngleRadians
+    params: []
+    returns: angle
+- FreeFunction:
+    doc: get the sine of this angle
+    extensor: angle
+    name: sin
+    params: []
+    returns: real
+- FreeFunction:
+    doc: get the cosine of this angle
+    extensor: angle
+    name: cos
+    params: []
+    returns: real
+- FreeFunction:
+    doc: get the tangent of this angle
+    extensor: angle
+    name: tan
+    params: []
+    returns: real
+- FreeFunction:
+    doc: adds two angles
+    extensor: angle
+    name: op_plus
+    params:
+      - typ: angle
+        name: other
+    returns: angle
+- FreeFunction:
+    doc: substracts two angles
+    extensor: angle
+    name: op_minus
+    params:
+      - typ: angle
+        name: other
+    returns: angle
+- FreeFunction:
+    doc: multiplies the angle with the given scalar
+    extensor: angle
+    name: op_mult
+    params:
+      - typ: real
+        name: scalar
+    returns: angle
+- FreeFunction:
+    doc: multiplies with the given angle
+    extensor: real
+    name: op_mult
+    params:
+      - typ: angle
+        name: ang
+    returns: angle
+- FreeFunction:
+    doc: divides the angle by the given scalar
+    extensor: angle
+    name: op_divReal
+    params:
+      - typ: real
+        name: scalar
+    returns: angle

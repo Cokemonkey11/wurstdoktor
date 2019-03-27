@@ -1,0 +1,45 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: int2fourchar
+    params:
+      - typ: int
+        name: value
+    returns: string
+- FreeFunction:
+    doc: Convert a integer id value into a 4-letter id code.
+    extensor: ~
+    name: toRawCode
+    params:
+      - typ: int
+        name: value
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: fourchar2int
+    params:
+      - typ: string
+        name: value
+    returns: int
+- FreeFunction:
+    doc: converts a 4-letter id code to an integer
+    extensor: ~
+    name: fromRawCode
+    params:
+      - typ: string
+        name: value
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: string
+    name: fromRawCode
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: toRawCode
+    params: []
+    returns: string

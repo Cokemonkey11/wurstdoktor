@@ -1,0 +1,7 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getElapsedGameTime
+    params: []
+    returns: real

@@ -1,0 +1,511 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: destr
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec3
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec2
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec2
+        name: pos
+      - typ: real
+        name: scale
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec3
+        name: pos
+      - typ: real
+        name: scale
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec2
+        name: pos
+      - typ: real
+        name: scale
+      - typ: angle
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec3
+        name: pos
+      - typ: real
+        name: scale
+      - typ: angle
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: string
+        name: path
+      - typ: widget
+        name: target
+      - typ: string
+        name: attachPointName
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: vec3
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: vec2
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: flashEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: widget
+        name: target
+      - typ: string
+        name: attachPointName
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec2
+        name: pos
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: string
+        name: path
+      - typ: vec3
+        name: pos
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: string
+        name: path
+      - typ: widget
+        name: target
+      - typ: string
+        name: attachPointName
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: vec2
+        name: pos
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: vec3
+        name: pos
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: addEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: widget
+        name: target
+      - typ: string
+        name: attachPointName
+    returns: effect
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setColorByPlayer
+    params:
+      - typ: player
+        name: whichPlayer
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setColor
+    params:
+      - typ: int
+        name: r
+      - typ: int
+        name: g
+      - typ: int
+        name: b
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setAlpha
+    params:
+      - typ: int
+        name: alpha
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setScale
+    params:
+      - typ: real
+        name: scale
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setPosition
+    params:
+      - typ: real
+        name: x
+      - typ: real
+        name: y
+      - typ: real
+        name: z
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setHeight
+    params:
+      - typ: real
+        name: height
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setTimeScale
+    params:
+      - typ: real
+        name: timeScale
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setTime
+    params:
+      - typ: real
+        name: time
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setOrientation
+    params:
+      - typ: real
+        name: yaw
+      - typ: real
+        name: pitch
+      - typ: real
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setOrientation
+    params:
+      - typ: mat3
+        name: matrix
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setOrientation
+    params:
+      - typ: quat
+        name: quaternion
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setYaw
+    params:
+      - typ: real
+        name: yaw
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setPitch
+    params:
+      - typ: real
+        name: pitch
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setRoll
+    params:
+      - typ: real
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setX
+    params:
+      - typ: real
+        name: x
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setY
+    params:
+      - typ: real
+        name: y
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setZ
+    params:
+      - typ: real
+        name: z
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setPositionLoc
+    params:
+      - typ: location
+        name: loc
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getAbilityEffect
+    params:
+      - typ: int
+        name: abilityId
+      - typ: effecttype
+        name: effType
+      - typ: int
+        name: index
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: getLocalX
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: getLocalY
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: getLocalZ
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setPos
+    params:
+      - typ: vec3
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setPos
+    params:
+      - typ: vec2
+        name: pos
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: getPos3
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: getPos
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setColor
+    params:
+      - typ: color
+        name: color
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: setColor
+    params:
+      - typ: colorA
+        name: color
+    returns: ~
+- FreeFunction:
+    doc: "Change the orientation of the special effect.\nyaw  : x-axis\npitch: y-axis\nroll : z-axis"
+    extensor: effect
+    name: setOrientation
+    params:
+      - typ: angle
+        name: yaw
+      - typ: angle
+        name: pitch
+      - typ: angle
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: Change the angle of the special effect around the x-axis.
+    extensor: effect
+    name: setYaw
+    params:
+      - typ: angle
+        name: yaw
+    returns: ~
+- FreeFunction:
+    doc: "Change the  of the special effect around the y-axis.\nWarning: As of 1.29.2, setPitch has issues for values between 1.57-4.7 radians or 90-270 degrees. It is recommended to use setOrientation."
+    extensor: effect
+    name: setPitch
+    params:
+      - typ: angle
+        name: pitch
+    returns: ~
+- FreeFunction:
+    doc: Change the angle of the special effect around z-axis.
+    extensor: effect
+    name: setRoll
+    params:
+      - typ: angle
+        name: roll
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: playAnimation
+    params:
+      - typ: animtype
+        name: whichAnim
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: playAnimation
+    params:
+      - typ: animtype
+        name: whichAnim
+      - typ: real
+        name: timeScale
+    returns: ~
+- FreeFunction:
+    doc: Returns the name of the animation type.
+    extensor: animtype
+    name: getName
+    params: []
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: addSubAnimation
+    params:
+      - typ: subanimtype
+        name: whichSubAnim
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: clearSubAnimations
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: effect
+    name: removeSubAnimation
+    params:
+      - typ: subanimtype
+        name: whichSubAnim
+    returns: ~

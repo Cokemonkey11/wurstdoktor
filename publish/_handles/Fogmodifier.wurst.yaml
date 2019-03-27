@@ -1,0 +1,139 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createFogModifier
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: fogstate
+        name: whichState
+      - typ: vec2
+        name: center
+      - typ: real
+        name: radius
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createBlackMask
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: vec2
+        name: center
+      - typ: real
+        name: radius
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createFogOfWar
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: vec2
+        name: center
+      - typ: real
+        name: radius
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createVision
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: vec2
+        name: center
+      - typ: real
+        name: radius
+      - typ: bool
+        name: useSharedVision
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createFogModifier
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: fogstate
+        name: whichState
+      - typ: rect
+        name: where
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createBlackMask
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: rect
+        name: where
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createFogOfWar
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: rect
+        name: where
+      - typ: bool
+        name: useSharedVision
+      - typ: bool
+        name: afterUnits
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createVision
+    params:
+      - typ: player
+        name: forWhichPlayer
+      - typ: rect
+        name: where
+      - typ: bool
+        name: useSharedVision
+    returns: fogmodifier
+- FreeFunction:
+    doc: ~
+    extensor: fogmodifier
+    name: destr
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: fogmodifier
+    name: start
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: fogmodifier
+    name: stop
+    params: []
+    returns: ~

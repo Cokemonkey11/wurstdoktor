@@ -1,0 +1,89 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerUnitEvent
+    params:
+      - typ: playerunitevent
+        name: p
+      - typ: code
+        name: c
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerUnitEvent
+    params:
+      - typ: playerunitevent
+        name: p
+      - typ: code
+        name: filter
+      - typ: code
+        name: c
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerUnitEvent
+    params:
+      - typ: playerunitevent
+        name: p
+      - typ: code
+        name: filter
+      - typ: code
+        name: condition
+      - typ: code
+        name: action
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerUnitEventForPlayer
+    params:
+      - typ: playerunitevent
+        name: p
+      - typ: code
+        name: c
+      - typ: player
+        name: pl
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getPlayerUnitEventTrigger
+    params:
+      - typ: playerunitevent
+        name: p
+    returns: trigger
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerEvent
+    params:
+      - typ: playerevent
+        name: p
+      - typ: code
+        name: c
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerPlayerEvent
+    params:
+      - typ: playerevent
+        name: p
+      - typ: code
+        name: condition
+      - typ: code
+        name: action
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: registerSpellEffectEvent
+    params:
+      - typ: int
+        name: abil
+      - typ: code
+        name: onCast
+    returns: ~

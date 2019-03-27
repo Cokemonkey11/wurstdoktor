@@ -1,0 +1,77 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createDialog
+    params: []
+    returns: dialog
+- FreeFunction:
+    doc: ~
+    extensor: dialog
+    name: addButton
+    params:
+      - typ: string
+        name: buttonText
+    returns: button
+- FreeFunction:
+    doc: "Hotkey: use ASCII numbers of the capital letter."
+    extensor: dialog
+    name: addButton
+    params:
+      - typ: string
+        name: buttonText
+      - typ: int
+        name: hotkey
+    returns: button
+- FreeFunction:
+    doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player."
+    extensor: dialog
+    name: addQuitButton
+    params:
+      - typ: boolean
+        name: doScoreScreen
+      - typ: string
+        name: buttonText
+    returns: button
+- FreeFunction:
+    doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player.\nHotkey: use ASCII numbers of the capital letter."
+    extensor: dialog
+    name: addQuitButton
+    params:
+      - typ: boolean
+        name: doScoreScreen
+      - typ: string
+        name: buttonText
+      - typ: int
+        name: hotkey
+    returns: button
+- FreeFunction:
+    doc: Removes all buttons from a dialog
+    extensor: dialog
+    name: clear
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: dialog
+    name: destr
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: "Toggles visibility of the dialog for a player. Dialogs are invisible by default\nDialogs cannot be shown at map initialization"
+    extensor: dialog
+    name: display
+    params:
+      - typ: player
+        name: whichPlayer
+      - typ: boolean
+        name: flag
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: dialog
+    name: setMessage
+    params:
+      - typ: string
+        name: messageText
+    returns: ~

@@ -1,0 +1,13 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: Race
+    name: toObjectString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: AttacksEnabled
+    name: toObjectInt
+    params: []
+    returns: int

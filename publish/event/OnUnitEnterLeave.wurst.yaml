@@ -1,0 +1,23 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getEnterLeaveUnit
+    params: []
+    returns: unit
+- FreeFunction:
+    doc: Adds a callback that is run when a unit enters the map
+    extensor: ~
+    name: onEnter
+    params:
+      - typ: code
+        name: c
+    returns: ~
+- FreeFunction:
+    doc: Adds a callback that is run when a unit leaves the map
+    extensor: ~
+    name: onLeave
+    params:
+      - typ: code
+        name: c
+    returns: ~

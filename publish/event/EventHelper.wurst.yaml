@@ -1,0 +1,119 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: registerUnitInRangeSource
+    params:
+      - typ: unit
+        name: whichUnit
+      - typ: real
+        name: range
+      - typ: boolexpr
+        name: filter
+    returns: event
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: registerUnitInRangeSource
+    params:
+      - typ: unit
+        name: whichUnit
+      - typ: real
+        name: range
+    returns: event
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: getSource
+    params: []
+    returns: unit
+- FreeFunction:
+    doc: ~
+    extensor: unit
+    name: clearRegister
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getSpellTargetPos
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getOrderPos
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: getOrderTargetPos
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: registerRectEnterEventSource
+    params:
+      - typ: rect
+        name: r
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: registerRectLeaveEventSource
+    params:
+      - typ: rect
+        name: r
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: getSourceRect
+    params: []
+    returns: rect
+- FreeFunction:
+    doc: ~
+    extensor: trigger
+    name: unregisterRectEvent
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: region
+    name: setRegionData
+    params:
+      - typ: int
+        name: data
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: region
+    name: loadRegionData
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: region
+    name: removeRegionData
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: eventid
+    name: isPlayerunitEvent
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: eventid
+    name: isKeyboardEvent
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: eventid
+    name: isMouseEvent
+    params: []
+    returns: boolean

@@ -1,0 +1,31 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: inPlayable
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: inPlayable
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: inBounds
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: inBounds
+    params: []
+    returns: boolean
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: randomPointOnMap
+    params: []
+    returns: vec2

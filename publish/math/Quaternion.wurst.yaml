@@ -1,0 +1,269 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: op_plus
+    params:
+      - typ: quat
+        name: q
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: op_plus
+    params:
+      - typ: real
+        name: scalar
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: real
+    name: op_plus
+    params:
+      - typ: quat
+        name: q
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: op_minus
+    params:
+      - typ: quat
+        name: q
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: op_minus
+    params:
+      - typ: real
+        name: scalar
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: op_mult
+    params:
+      - typ: real
+        name: scalar
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: real
+    name: op_mult
+    params:
+      - typ: quat
+        name: q
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: dot
+    params:
+      - typ: quat
+        name: q
+    returns: real
+- FreeFunction:
+    doc: Represents the composition of two rotations.
+    extensor: quat
+    name: cross
+    params:
+      - typ: quat
+        name: q
+    returns: quat
+- FreeFunction:
+    doc: Represents the same rotation in opposite direction.
+    extensor: quat
+    name: conj
+    params: []
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: length
+    params: []
+    returns: real
+- FreeFunction:
+    doc: Returns zero quaternion if lenght is zero.
+    extensor: quat
+    name: norm
+    params: []
+    returns: quat
+- FreeFunction:
+    doc: Quaternion to power of alpha.
+    extensor: quat
+    name: exp
+    params:
+      - typ: real
+        name: alpha
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: toMatrix
+    params: []
+    returns: mat3
+- FreeFunction:
+    doc: Extracts X-axis from a quaternion that represents rotation.
+    extensor: quat
+    name: getX
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: Extracts Y-axis as a vector from a quaternion that represents rotation.
+    extensor: quat
+    name: getY
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: Extracts Z-axis as a vector from a quaternion that represents rotation.
+    extensor: quat
+    name: getZ
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: "Linear interpolation.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: lerp
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Linear interpolation.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: lerpShort
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Linear interpolation.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: lerpLong
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Normalized linear interpolation.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: nlerp
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Normalized linear interpolation.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: nlerpShort
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Normalized linear interpolation.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+    extensor: quat
+    name: nlerpLong
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Spherical linear interpolation. Interpolates between two rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+    extensor: quat
+    name: slerp
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Spherical linear interpolation. Interpolates between two rotations.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+    extensor: quat
+    name: slerpShort
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: "Spherical linear interpolation. Interpolates between two rotations.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+    extensor: quat
+    name: slerpLong
+    params:
+      - typ: quat
+        name: q
+      - typ: real
+        name: p
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: toString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: "Gimbal lock detection.\nReturns 1 for north, -1 for south, 0 if no gimbal lock."
+    extensor: quat
+    name: getGimbalPole
+    params: []
+    returns: int
+- FreeFunction:
+    doc: Extracts Euler-angles (Tait-Bryan) in radians from a quaternion. Order of the result is X-Y-Z.
+    extensor: quat
+    name: toEuler
+    params: []
+    returns: vec3
+- FreeFunction:
+    doc: Creates a quaternion from rotation axis and angle.
+    extensor: vec3
+    name: toQuat
+    params:
+      - typ: angle
+        name: angl
+    returns: quat
+- FreeFunction:
+    doc: Creates a quaternion from rotation axis and angle.
+    extensor: angle
+    name: toQuat
+    params:
+      - typ: vec3
+        name: axis
+    returns: quat
+- FreeFunction:
+    doc: Rotates a vector by a quaternion.
+    extensor: vec3
+    name: rotate
+    params:
+      - typ: quat
+        name: q
+    returns: vec3
+- FreeFunction:
+    doc: Extracts quaternion from a rotation matrix.
+    extensor: mat3
+    name: toQuat
+    params: []
+    returns: quat
+- FreeFunction:
+    doc: ~
+    extensor: quat
+    name: assertEquals
+    params:
+      - typ: quat
+        name: expected
+    returns: ~

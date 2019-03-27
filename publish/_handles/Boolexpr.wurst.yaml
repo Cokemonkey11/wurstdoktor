@@ -1,0 +1,23 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: boolexpr
+    name: or_
+    params:
+      - typ: boolexpr
+        name: operandB
+    returns: boolexpr
+- FreeFunction:
+    doc: ~
+    extensor: boolexpr
+    name: and_
+    params:
+      - typ: boolexpr
+        name: operandB
+    returns: boolexpr
+- FreeFunction:
+    doc: ~
+    extensor: boolexpr
+    name: destr
+    params: []
+    returns: ~

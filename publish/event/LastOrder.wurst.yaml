@@ -1,0 +1,25 @@
+---
+- FreeFunction:
+    doc: Clears all recorded orders for this unit
+    extensor: unit
+    name: clearLastOrders
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: "Returns the lasz recorded order for this unit.\n\tTo access further back orders, use .prev"
+    extensor: unit
+    name: getLastOrder
+    params: []
+    returns: Order
+- Class:
+    doc: ~
+    name: "Order\n\tOrder"
+    extends: ~
+    implements: []
+    fns: []
+- FreeFunction:
+    doc: ~
+    extensor: unit
+    name: abortOrder
+    params: []
+    returns: boolean

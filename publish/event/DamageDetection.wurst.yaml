@@ -1,0 +1,29 @@
+---
+- FreeFunction:
+    doc: Add a Action to the damage Event.
+    extensor: ~
+    name: addOnDamageFunc
+    params:
+      - typ: code
+        name: c
+    returns: ~
+- FreeFunction:
+    doc: Add a Condition(Action) to the damage Event.
+    extensor: ~
+    name: addOnDamageFunc
+    params:
+      - typ: boolexpr
+        name: cf
+    returns: ~
+- FreeFunction:
+    doc: Disables the damage events
+    extensor: ~
+    name: disableDamageDetect
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: Enables the damage events
+    extensor: ~
+    name: enableDamageDetect
+    params: []
+    returns: ~

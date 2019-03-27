@@ -1,0 +1,25 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: OrderedStringBuffer
+    name: transfer
+    params:
+      - typ: HashBuffer
+        name: sink
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: OrderedStringBuffer
+    name: populateFromFile
+    params:
+      - typ: FileReader
+        name: reader
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: FileWriter
+    name: populateFromBuffer
+    params:
+      - typ: OrderedStringBuffer
+        name: buffer
+    returns: ~

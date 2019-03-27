@@ -1,0 +1,173 @@
+---
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createDestructable
+    params:
+      - typ: int
+        name: id
+      - typ: vec3
+        name: pos
+      - typ: angle
+        name: direction
+      - typ: real
+        name: scale
+      - typ: int
+        name: variation
+    returns: destructable
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: createDestructable
+    params:
+      - typ: int
+        name: id
+      - typ: vec2
+        name: pos
+      - typ: angle
+        name: direction
+      - typ: real
+        name: scale
+      - typ: int
+        name: variation
+    returns: destructable
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getPos
+    params: []
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getX
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getY
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: kill
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getTypeId
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setAnimation
+    params:
+      - typ: string
+        name: anim
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: remove
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setInvulnerable
+    params:
+      - typ: bool
+        name: flag
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getInvulnerable
+    params: []
+    returns: bool
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setLife
+    params:
+      - typ: real
+        name: life
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getLife
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setMaxLife
+    params:
+      - typ: real
+        name: max
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getMaxLife
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: restoreLife
+    params:
+      - typ: real
+        name: life
+      - typ: boolean
+        name: birth
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: queueAnimation
+    params:
+      - typ: string
+        name: anim
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setAnimationSpeed
+    params:
+      - typ: real
+        name: speedFactor
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: show
+    params:
+      - typ: bool
+        name: flag
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getOccluderHeight
+    params: []
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: setOccluderHeight
+    params:
+      - typ: real
+        name: height
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: destructable
+    name: getName
+    params: []
+    returns: string

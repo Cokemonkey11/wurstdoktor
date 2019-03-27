@@ -1,0 +1,7 @@
+---
+- FreeFunction:
+    doc: If autoFinish is false you need to call this function manually
+    extensor: ~
+    name: finishPreload
+    params: []
+    returns: ~

@@ -1,0 +1,305 @@
+---
+- FreeFunction:
+    doc: Look at linear
+    extensor: ~
+    name: linear
+    params:
+      - typ: vec2
+        name: start
+      - typ: vec2
+        name: stop
+      - typ: real
+        name: p
+    returns: vec2
+- FreeFunction:
+    doc: "Linear Interpolation\n\tSample Usage:\n\tAddSpecialEffect(TEST_SFX,linear(P1X,P2X,p),linear(P1Y,P2Y,p))"
+    extensor: ~
+    name: linear
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: bezier3
+    params:
+      - typ: vec3
+        name: mid
+      - typ: vec3
+        name: stop
+      - typ: real
+        name: p
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: bezier3
+    params:
+      - typ: vec2
+        name: mid
+      - typ: vec2
+        name: stop
+      - typ: real
+        name: p
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: bezier4
+    params:
+      - typ: vec3
+        name: mid1
+      - typ: vec3
+        name: mid2
+      - typ: vec3
+        name: stop
+      - typ: real
+        name: p
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: bezier4
+    params:
+      - typ: vec2
+        name: mid1
+      - typ: vec2
+        name: mid2
+      - typ: vec2
+        name: stop
+      - typ: real
+        name: p
+    returns: vec2
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: lerp
+    params:
+      - typ: vec3
+        name: target
+      - typ: real
+        name: alpha
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: lerp
+    params:
+      - typ: vec2
+        name: target
+      - typ: real
+        name: alpha
+    returns: vec2
+- FreeFunction:
+    doc: "3-Point-Bezier Interpolation\n\tSample Usage:\n\tAddSpecialEffect(TEST_SFX, bezier3(P1X, P3X, P2X, p), bezier3(P1Y, P3Y, P2Y, p))"
+    extensor: ~
+    name: bezier3
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: bezier_3
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: derivBezier3
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: derivBezier_3
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: derivBezier3
+    params:
+      - typ: vec3
+        name: mid
+      - typ: vec3
+        name: stop
+      - typ: real
+        name: p
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: derivBezier3
+    params:
+      - typ: vec2
+        name: mid
+      - typ: vec2
+        name: stop
+      - typ: real
+        name: p
+    returns: vec2
+- FreeFunction:
+    doc: "4-Point-Bezier Interpolation\n\tSample Usage:\n\tAddSpecialEffect(TEST_SFX,bezier4(P1X,P3X,P4X,P2X,t),bezier4(P1Y,P3Y,P4Y,P2Y,t))"
+    extensor: ~
+    name: bezier4
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid1
+      - typ: real
+        name: mid2
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: derivBezier4
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid1
+      - typ: real
+        name: mid2
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: derivBezier_4
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: mid1
+      - typ: real
+        name: mid2
+      - typ: real
+        name: stop
+      - typ: real
+        name: p
+    returns: real
+- FreeFunction:
+    doc: ~
+    extensor: vec3
+    name: derivBezier4
+    params:
+      - typ: vec3
+        name: mid1
+      - typ: vec3
+        name: mid2
+      - typ: vec3
+        name: stop
+      - typ: real
+        name: p
+    returns: vec3
+- FreeFunction:
+    doc: ~
+    extensor: vec2
+    name: derivBezier4
+    params:
+      - typ: vec2
+        name: mid1
+      - typ: vec2
+        name: mid2
+      - typ: vec2
+        name: stop
+      - typ: real
+        name: p
+    returns: vec2
+- FreeFunction:
+    doc: Hermite Interpolation
+    extensor: ~
+    name: hermite
+    params:
+      - typ: real
+        name: start
+      - typ: real
+        name: stop
+      - typ: real
+        name: tangent1
+      - typ: real
+        name: tangent2
+      - typ: real
+        name: s
+    returns: real
+- FreeFunction:
+    doc: Returns the intan of p2
+    extensor: ~
+    name: inTan
+    params:
+      - typ: real
+        name: p1
+      - typ: real
+        name: p2
+      - typ: real
+        name: p3
+      - typ: real
+        name: p
+      - typ: real
+        name: c
+      - typ: real
+        name: b
+    returns: real
+- FreeFunction:
+    doc: Returns the outtan of p2
+    extensor: ~
+    name: outTan
+    params:
+      - typ: real
+        name: p1
+      - typ: real
+        name: p2
+      - typ: real
+        name: p3
+      - typ: real
+        name: p
+      - typ: real
+        name: c
+      - typ: real
+        name: b
+    returns: real
