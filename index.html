@@ -15,8 +15,10 @@
             $('div').text('hello');
 
             $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
+                console.log("suc");
                 $('div').append(JSON.stringify(jsyaml.load(data)));
             }).fail(() => {
+                console.log("halt");
                 $('div').append("fail");
             });
         });
