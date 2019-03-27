@@ -12,25 +12,35 @@
 </head>
 
 <body>
-    <div>
+    <div class="loading">
+        Loading...
+    </div>
+    <div class="contents">
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.0/js-yaml.min.js"></script>
     <script type="text/javascript">
         $(document).ready(() => {
-            $('div').text('hello');
+            $('.loading').hide();
 
-            $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
-                jsyaml.load(data).forEach((fnOrClass) => {
-                    Object.entries(fnOrClass).forEach(([fnOrClass, details]) => {
-                        const icon = `<i class="fas ${fnOrClass === "FreeFunction" ? "fa-square-root-alt" : "object-group"}"></i>`;
-                        $('div').append(`<h1>${icon} ${details.extensor !== null ? details.extensor + "." : ""}${details.name}</h1><p>${details.doc}</p>`)
-                    })
+            [
+                "publish/event/DamageDetection.wurst.yaml",
+                "publish/math/Angle.wurst.yaml",
+                "publish/util/Knockback3.wurst.yaml",
+            ].forEach((uri) => {
+                $.get(uri, (data) => {
+                    $('.contents').append(`<h1>${uri}</h1>`);
+
+                    jsyaml.load(data).forEach((fnOrClass) => {
+                        Object.entries(fnOrClass).forEach(([fnOrClass, details]) => {
+                            const icon = `<i class="fas ${fnOrClass === "FreeFunction" ? "fa-square-root-alt" : "object-group"}"></i>`;
+                            $('.contents').append(`<h2>${icon} ${details.extensor !== null ? details.extensor + "." : ""}${details.name}</h2><p>${details.doc}</p>`)
+                        })
+                    });
+                }).fail(() => {
+                    console.error("halt");
                 });
-                // $('div').append(JSON.stringify(jsyaml.load(data)));
-            }).fail(() => {
-                console.error("halt");
             });
         });
     </script>
