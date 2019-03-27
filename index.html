@@ -16,6 +16,8 @@
 
             $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
                 $('div').append(jsyaml.load(data));
+            }).fail(() => {
+                $('div').append("fail");
             });
         });
     </script>
