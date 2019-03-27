@@ -1,2 +1,97 @@
 ---
-[]
+- FreeFunction:
+    doc: "Execute an action after a certain time.\n\tThe callback object is automatically destroyed.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doAfter(10.0) ->\n\t|\t print(\"10 seconds later\")"
+    extensor: timer
+    name: doAfter
+    params:
+      - typ: real
+        name: timeToWait
+      - typ: CallbackSingle
+        name: cb
+    returns: CallbackSingle
+- FreeFunction:
+    doc: "Execute an action after a certain time.\n\tThe callback object is automatically destroyed.\n\n\tExample use:\n\t| doAfter(10.0) ->\n\t|\t print(\"10 seconds later\")"
+    extensor: ~
+    name: doAfter
+    params:
+      - typ: real
+        name: timeToWait
+      - typ: CallbackSingle
+        name: cb
+    returns: CallbackSingle
+- FreeFunction:
+    doc: "Execute an action with a 0-second timer delay.\n\tThe callback object is destroyed afterwards."
+    extensor: ~
+    name: nullTimer
+    params:
+      - typ: CallbackSingle
+        name: cb
+    returns: CallbackSingle
+- FreeFunction:
+    doc: "Execute an action periodically.\n\tThe callback has to be destroyed manually.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodically(0.5) cb ->\n\t|\t if i > 10\n\t|\t\tdestroy cb"
+    extensor: timer
+    name: doPeriodically
+    params:
+      - typ: real
+        name: time
+      - typ: CallbackPeriodic
+        name: cb
+    returns: CallbackPeriodic
+- FreeFunction:
+    doc: "Execute an action periodically.\n\tThe callback has to be destroyed manually.\n\n\tExample use:\n\t| doPeriodically(0.5) cb ->\n\t|\t if i > 10\n\t|\t\tdestroy cb"
+    extensor: ~
+    name: doPeriodically
+    params:
+      - typ: real
+        name: time
+      - typ: CallbackPeriodic
+        name: cb
+    returns: CallbackPeriodic
+- FreeFunction:
+    doc: "execute an action periodically, with a limited amount of calls\n\tThe callback object is destroyed after the action has been executed callAmount times.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodicallyCounted(0.5, 100) cb ->\n\t|\t doSomething()"
+    extensor: timer
+    name: doPeriodicallyCounted
+    params:
+      - typ: real
+        name: time
+      - typ: int
+        name: callAmount
+      - typ: CallbackCounted
+        name: cb
+    returns: CallbackCounted
+- FreeFunction:
+    doc: "execute an action periodically, with a limited amount of calls\n\tThe callback object is destroyed after the action has been executed callAmount times.\n\n\tExample use:\n\t| doPeriodicallyCounted(0.5, 100) cb ->\n\t|\t doSomething()"
+    extensor: ~
+    name: doPeriodicallyCounted
+    params:
+      - typ: real
+        name: time
+      - typ: int
+        name: callAmount
+      - typ: CallbackCounted
+        name: cb
+    returns: CallbackCounted
+- FreeFunction:
+    doc: "execute an action periodically, with a limited duration\n\tThe callback object is destroyed afterwards.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodicallyCounted(0.5, 10.) ->\n\t|\t doSomething()"
+    extensor: timer
+    name: doPeriodicallyTimed
+    params:
+      - typ: real
+        name: interval
+      - typ: real
+        name: timerDuration
+      - typ: CallbackCounted
+        name: cb
+    returns: CallbackCounted
+- FreeFunction:
+    doc: "execute an action periodically, with a limited duration\n\tThe callback object is destroyed afterwards.\n\n\tExample use:\n\t| doPeriodicallyCounted(0.5, 10.) ->\n\t|\t doSomething()"
+    extensor: ~
+    name: doPeriodicallyTimed
+    params:
+      - typ: real
+        name: interval
+      - typ: real
+        name: timerDuration
+      - typ: CallbackCounted
+        name: cb
+    returns: CallbackCounted

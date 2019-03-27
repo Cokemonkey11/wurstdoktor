@@ -1,2 +1,151 @@
 ---
-[]
+- FreeFunction:
+    doc: ~
+    extensor: byte4
+    name: select
+    params:
+      - typ: int
+        name: pos
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: byte4
+    name: put
+    params:
+      - typ: int
+        name: pos
+      - typ: int
+        name: value
+    returns: byte4
+- FreeFunction:
+    doc: ~
+    extensor: byte4
+    name: toInt
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: toUnsigned
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: byte1
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: byte2
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: byte3
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: byte4
+    params:
+      - typ: int
+        name: isNegative
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: bytes
+    params: []
+    returns: byte4
+- FreeFunction:
+    doc: ~
+    extensor: string
+    name: fromBitString
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: toBitString
+    params: []
+    returns: string
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: not8
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: not32
+    params: []
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: and8
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: and32
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: or8
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: or32
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: xor8
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: xor32
+    params:
+      - typ: int
+        name: other
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: shiftl
+    params:
+      - typ: int
+        name: amount
+    returns: int
+- FreeFunction:
+    doc: ~
+    extensor: int
+    name: shiftr
+    params:
+      - typ: int
+        name: amount
+    returns: int

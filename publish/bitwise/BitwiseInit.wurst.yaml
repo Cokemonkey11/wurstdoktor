@@ -1,2 +1,19 @@
 ---
-[]
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: initLbyte
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: initRbyte
+    params: []
+    returns: ~
+- FreeFunction:
+    doc: ~
+    extensor: ~
+    name: initShift
+    params: []
+    returns: ~
