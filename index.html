@@ -2,6 +2,13 @@
 <html>
 <head>
     <title>Docs test</title>
+
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous"
+    />
 </head>
 
 <body>
@@ -16,7 +23,13 @@
 
             $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
                 console.log("suc");
-                $('div').append(JSON.stringify(jsyaml.load(data)));
+                jsyaml.load(data).forEach((fnOrClass) => {
+                    Object.entries(fnOrClass).forEach(([fnOrClass, details]) => {
+                        const icon = `<i class="fas ${fnOrClass === FreeFunction ? "fa-square-root-alt" : "object-group"}"></i>`;
+                        $('div').append(`<h1>${icon} ${details.extensor !== null ? details.extensor + "." : ""}${details.name}</h1><p>${details.doc}</p>`)
+                    })
+                });
+                // $('div').append(JSON.stringify(jsyaml.load(data)));
             }).fail(() => {
                 console.log("halt");
                 $('div').append("fail");
