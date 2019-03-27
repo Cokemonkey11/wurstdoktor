@@ -22,17 +22,15 @@
             $('div').text('hello');
 
             $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
-                console.log("suc");
                 jsyaml.load(data).forEach((fnOrClass) => {
                     Object.entries(fnOrClass).forEach(([fnOrClass, details]) => {
-                        const icon = `<i class="fas ${fnOrClass === FreeFunction ? "fa-square-root-alt" : "object-group"}"></i>`;
+                        const icon = `<i class="fas ${fnOrClass === "FreeFunction" ? "fa-square-root-alt" : "object-group"}"></i>`;
                         $('div').append(`<h1>${icon} ${details.extensor !== null ? details.extensor + "." : ""}${details.name}</h1><p>${details.doc}</p>`)
                     })
                 });
                 // $('div').append(JSON.stringify(jsyaml.load(data)));
             }).fail(() => {
-                console.log("halt");
-                $('div').append("fail");
+                console.error("halt");
             });
         });
     </script>
