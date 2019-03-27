@@ -13,6 +13,10 @@
     <script type="text/javascript">
         $(document).ready(() => {
             $('div').text('hello');
+
+            $.get("publish/event/DamageDetection.wurst.yaml", (data) => {
+                $('div').append(jsyaml.load(data));
+            });
         });
     </script>
 </body>
