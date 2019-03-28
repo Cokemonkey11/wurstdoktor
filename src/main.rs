@@ -7,7 +7,6 @@ extern crate serde_yaml;
 #[macro_use] extern crate structopt;
 
 use pom::parser::*;
-use pom::Parser;
 
 use structopt::StructOpt;
 
@@ -63,7 +62,7 @@ enum WurstDok {
     Nothing
 }
 
-fn cruft() -> Parser<u8, ()> {
+fn cruft<'a>() -> Parser<'a, u8, ()> {
     (
         !class_declaration() *
         !free_function() *
@@ -71,11 +70,13 @@ fn cruft() -> Parser<u8, ()> {
     ).discard()
 }
 
-fn class_fn() -> Parser<u8, WurstFunction> {
+static PRIVATE: &'static [u8] = b"private";
+
+fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
     (
         doc() + (
             // Only match non-private free functions.
-            !seq(b"private") *
+            !seq(PRIVATE) *
             seq(b"function ") *
             // Optionally match extension fns.
             (
@@ -99,7 +100,7 @@ fn class_fn() -> Parser<u8, WurstFunction> {
     })
 }
 
-fn class_declaration() -> Parser<u8, (Option<String>, String)> {
+fn class_declaration<'a>() -> Parser<'a, u8, (Option<String>, String)> {
     doc() + (
         // Only match public classes.
         seq(b"public class ") *
@@ -107,7 +108,7 @@ fn class_declaration() -> Parser<u8, (Option<String>, String)> {
     )
 }
 
-fn class() -> Parser<u8, WurstClass> {
+fn class<'a>() -> Parser<'a, u8, WurstClass> {
     (
         class_declaration() +
         call(cruft).repeat(1..) *
@@ -124,7 +125,7 @@ fn class() -> Parser<u8, WurstClass> {
     })
 }
 
-fn doc() -> Parser<u8, Option<String>> {
+fn doc<'a>() -> Parser<'a, u8, Option<String>> {
     (
         one_of(b" \n\t\r").repeat(0..) *
         seq(b"/**") *
@@ -141,7 +142,7 @@ fn doc() -> Parser<u8, Option<String>> {
     ).opt()
 }
 
-fn function_params() -> Parser<u8, Vec<WurstFnParam>> {
+fn function_params<'a>() -> Parser<'a, u8, Vec<WurstFnParam>> {
     one_of(b" \t\r\n").repeat(0..) *
     list(
         // Parameters.
@@ -156,7 +157,7 @@ fn function_params() -> Parser<u8, Vec<WurstFnParam>> {
     }).collect())
 }
 
-fn free_function() -> Parser<u8, WurstDok> {
+fn free_function<'a>() -> Parser<'a, u8, WurstDok> {
     (
         doc() -
         one_of(b"\r\n\t ").repeat(0..) +
@@ -188,11 +189,11 @@ fn free_function() -> Parser<u8, WurstDok> {
     }))
 }
 
-fn wurstdok() -> Parser<u8, WurstDok> {
+fn wurstdok<'a>() -> Parser<'a, u8, WurstDok> {
     class().map(|c| WurstDok::Class(c)) | free_function()
 }
 
-fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
+fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
     (
         wurstdok() |
         !end() *
@@ -205,17 +206,15 @@ fn wurstdoktor() -> Parser<u8, Vec<WurstDok>> {
 fn main() -> Result<(), failure::Error> {
     let _ = Opt::from_args();
 
-    lazy_static! {
-        pub static ref STDIN_BUF: String = {
-            let mut buf = String::new();
+    let STDIN_BUF: String = {
+        let mut buf = String::new();
 
-            std::io::stdin().lock().read_to_string(&mut buf).expect(
-                "Failed to read stdin!"
-            );
+        std::io::stdin().lock().read_to_string(&mut buf).expect(
+            "Failed to read stdin!"
+        );
 
-            buf
-        };
-    }
+        buf
+    };
 
     println!(
         "{}",
