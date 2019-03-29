@@ -1,9 +1,9 @@
 extern crate pom;
 extern crate serde_yaml;
+extern crate structopt;
 
-extern crate failure;
+#[macro_use] extern crate failure;
 #[macro_use] extern crate serde_derive;
-#[macro_use] extern crate structopt;
 
 use pom::parser::*;
 
@@ -11,11 +11,31 @@ use structopt::StructOpt;
 
 use std::io::Read;
 
+#[derive(Debug, Fail)]
+#[fail(display = "Wurstdoktor error")]
+#[allow(dead_code)]
+enum WurstdoktorError {
+    #[fail(display = "can't use sqlite without the feature enabled")]
+    SqliteUnavailable,
+
+    #[fail(display = "couldn't decide which format to write")]
+    BadOutputArguments,
+}
+
 /// Wurstdoktor consumes wurst code via stdin, and produces structured data for
 /// the public documentation found via stdout.
 #[derive(StructOpt, Debug)]
 #[structopt(name = "wurstdoktor")]
-struct Opt { }
+struct Opt {
+    #[structopt(long = "yaml", group = "outfmt")]
+    yaml: bool,
+
+    #[structopt(long = "sqlite", group = "outfmt")]
+    sqlite: bool,
+
+    #[structopt(long = "sqlitedb", group = "outfmt")]
+    sqlitedb: bool,
+}
 
 #[derive(Serialize, Debug, PartialEq)]
 struct WurstFnParam {
@@ -190,7 +210,7 @@ fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
 }
 
 fn main() -> Result<(), failure::Error> {
-    let _ = Opt::from_args();
+    let opt = Opt::from_args();
 
     let stdin_buf: String = {
         let mut buf = String::new();
@@ -202,12 +222,150 @@ fn main() -> Result<(), failure::Error> {
         buf
     };
 
-    println!(
-        "{}",
-        serde_yaml::to_string(&wurstdoktor().parse(stdin_buf.as_bytes())?)?
-    );
+    let result: Result<(), failure::Error> = match (
+        opt.yaml, opt.sqlite, opt.sqlitedb
+    ) {
+        (false, false, true) => {
+            #[cfg(feature = "sqlitedb")]
+            {
+                let connection = rusqlite::Connection::open_in_memory()?;
 
-    Ok(())
+                connection.execute(
+                    "CREATE TABLE functions (id INTEGER PRIMARY KEY, doc TEXT, extensor TEXT, name TEXT, returns TEXT)",
+                    rusqlite::NO_PARAMS
+                )?;
+                connection.execute(
+                    "CREATE TABLE classes (doc TEXT, name TEXT, extends TEXT, implements BLOB, fns BLOB)",
+                    rusqlite::NO_PARAMS
+                )?;
+                connection.execute(
+                    "CREATE TABLE params (foreign_fn INTEGER, typ TEXT, name TEXT)",
+                    rusqlite::NO_PARAMS
+                )?;
+
+                for v in wurstdoktor().parse(stdin_buf.as_bytes())?.into_iter() {
+                    match v {
+                        WurstDok::Class(class) => {
+                            connection.execute_named(
+                                "INSERT INTO classes (doc, name, extends, implements, fns) VALUES (:doc, :name, :extends, :implements, :fns)",
+                                &serde_rusqlite::to_params_named(&class)?.to_slice()
+                            )?;
+                        },
+                        WurstDok::FreeFunction(func) => {
+                            connection.execute(
+                                "INSERT INTO functions (doc, extensor, name, returns) VALUES (?, ?, ?, ?)",
+                                &serde_rusqlite::to_params(
+                                    &(func.doc, func.extensor, func.name, func.returns)
+                                )?.to_slice()
+                            )?;
+
+                            let id = connection.last_insert_rowid();
+
+                            for param in func.params {
+                                connection.execute(
+                                    "INSERT INTO params (foreign_fn, typ, name) VALUES (?, ?, ?)",
+                                    &serde_rusqlite::to_params(
+                                        &(id, param.typ, param.name)
+                                    )?.to_slice()
+                                )?;
+                            }
+                        },
+                        _ => unreachable!(),
+                    }
+                }
+
+                // Write the database to file using the backup API.
+                rusqlite::Connection::backup(
+                    &connection,
+                    rusqlite::DatabaseName::Main,
+                    "./sqlite.db",
+                    None
+                )?;
+
+                Ok(())
+            }
+            #[cfg(not(feature = "sqlitedb"))]
+            {
+                Err(WurstdoktorError::SqliteUnavailable.into())
+            }
+        },
+        (false, true, false) => {
+            {
+                let mut incr = 1;
+
+                println!("BEGIN TRANSACTION;");
+                println!(
+                    "CREATE TABLE functions (id INTEGER PRIMARY KEY, doc TEXT, extensor TEXT, name TEXT, returns TEXT);"
+                );
+                println!(
+                    "CREATE TABLE classes (doc TEXT, name TEXT, extends TEXT, implements BLOB, fns BLOB);"
+                );
+                println!(
+                    "CREATE TABLE params (foreign_fn INTEGER, typ TEXT, name TEXT);"
+                );
+
+                for v in wurstdoktor().parse(stdin_buf.as_bytes())?.into_iter() {
+                    match v {
+                        WurstDok::Class(class) => {
+                            println!(
+                                "INSERT INTO classes (doc, name, extends, implements, fns) VALUES ({}, {}, {}, {:?}, {:?});",
+                                class.doc.unwrap_or("NULL".into()),
+                                class.name,
+                                class.extends.unwrap_or("NULL".into()),
+                                class.implements,
+                                class.fns
+                            );
+                        },
+                        WurstDok::FreeFunction(func) => {
+                            println!(
+                                "INSERT INTO functions (doc, extensor, name, returns) VALUES ({}, {}, {}, {});",
+                                func.doc.unwrap_or("NULL".into()),
+                                func.extensor.unwrap_or("NULL".into()),
+                                func.name,
+                                func.returns.unwrap_or("NULL".into())
+                            );
+
+                            incr += 1;
+
+                            for param in func.params {
+                                println!(
+                                    "INSERT INTO params (foreign_fn, typ, name) VALUES ({}, {}, {});",
+                                    incr, param.typ, param.name
+                                );
+                            }
+                        },
+                        _ => unreachable!(),
+                    }
+                }
+
+                println!("COMMIT;");
+
+                Ok(())
+            }
+        },
+        (_, false, false) => {
+            println!(
+                "{}",
+                serde_yaml::to_string(
+                    &wurstdoktor().parse(stdin_buf.as_bytes())?
+                )?
+            );
+
+            Ok(())
+        },
+        _ => {
+            Err(WurstdoktorError::BadOutputArguments.into())
+        }
+    };
+
+    match result {
+        Err(err) => {
+            println!("Error: {}", err);
+
+            Err(err)
+        },
+        Ok(()) => Ok(()),
+    }
 }
 
 #[cfg(test)]
