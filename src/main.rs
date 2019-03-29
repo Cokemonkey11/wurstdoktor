@@ -27,12 +27,15 @@ enum WurstdoktorError {
 #[derive(StructOpt, Debug)]
 #[structopt(name = "wurstdoktor")]
 struct Opt {
+    /// Write the parsed contents as YAML (default).
     #[structopt(long = "yaml", group = "outfmt")]
     yaml: bool,
 
+    /// Write the parsed contents as SQL commands.
     #[structopt(long = "sqlite", group = "outfmt")]
     sqlite: bool,
 
+    /// Write the parsed contents as a sqlite database (needs sqlitedb feature).
     #[structopt(long = "sqlitedb", group = "outfmt")]
     sqlitedb: bool,
 }
