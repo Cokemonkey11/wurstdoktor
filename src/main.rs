@@ -1,8 +1,7 @@
 extern crate pom;
 extern crate serde_yaml;
 
-#[macro_use] extern crate failure;
-#[macro_use] extern crate lazy_static;
+extern crate failure;
 #[macro_use] extern crate serde_derive;
 #[macro_use] extern crate structopt;
 
@@ -10,20 +9,7 @@ use pom::parser::*;
 
 use structopt::StructOpt;
 
-use std::io::{self, Read};
-
-#[derive(Debug, Fail)]
-enum WurstdokError {
-    #[fail(display = "failed to parse - {:?}", err)]
-    ParseError {
-        err: pom::Error
-    },
-
-    #[fail(display = "failed to generate yaml - {:?}", err)]
-    YamlEmitError {
-        err: std::io::Error
-    }
-}
+use std::io::Read;
 
 /// Wurstdoktor consumes wurst code via stdin, and produces structured data for
 /// the public documentation found via stdout.
@@ -206,7 +192,7 @@ fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
 fn main() -> Result<(), failure::Error> {
     let _ = Opt::from_args();
 
-    let STDIN_BUF: String = {
+    let stdin_buf: String = {
         let mut buf = String::new();
 
         std::io::stdin().lock().read_to_string(&mut buf).expect(
@@ -218,7 +204,7 @@ fn main() -> Result<(), failure::Error> {
 
     println!(
         "{}",
-        serde_yaml::to_string(&wurstdoktor().parse(STDIN_BUF.as_bytes())?)?
+        serde_yaml::to_string(&wurstdoktor().parse(stdin_buf.as_bytes())?)?
     );
 
     Ok(())
