@@ -127,7 +127,7 @@
                 "publish/_handles/ForceTests.wurst.yaml"
             ].forEach((uri) => {
                 $.get(uri, (data) => {
-                    $('.contents').append(`<h1><i class="fas folder-open"></i> ${uri}</h1>`);
+                    $('.contents').append(`<h1><i class="fas fa-folder-open"></i> ${uri}</h1>`);
 
                     jsyaml.load(data).forEach((probably_package) => {
                         Object.entries(probably_package).forEach(([probably_package, details]) => {
