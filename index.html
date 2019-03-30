@@ -34,6 +34,9 @@
         .path {
             font-family: monospace;
         }
+        .fnname {
+            font-family: monospace;
+        }
     </style>
 </head>
 
@@ -188,9 +191,9 @@
 
                             details.free_fns.forEach((fn) => {
                                 const icon = `<i class="fas fa-square-root-alt"></i>`;
-                                $(`.pkg-${details.name}`).append(`<h3>${icon} ${fn.extensor !== null ? fn.extensor + "." : ""}${fn.name}()</h3>`);
+                                $(`.pkg-${details.name}`).append(`<h3 class="fnname">${icon} ${fn.extensor !== null ? fn.extensor + "." : ""}${fn.name}()</h3>`);
                                 // TODO: params
-                                $(`.pkg-${details.name}`).append(`<p>${fn.doc}</p>`);
+                                fn.icon !== null ? $(`.pkg-${details.name}`).append(`<p>${fn.doc}</p>`) : null;
                             });
                         })
                     });
