@@ -134,7 +134,7 @@
                             // Package name and doc.
                             $('.contents').append(`<h2> <i class="fas fa-archive"></i> ${details.name}</h2>`);
                             console.log(`"${details.name}"`);
-                            $('.contents').append(`<div class="package pkg-${details.name}</div>`);
+                            $('.contents').append(`<div class="package pkg-${details.name}"></div>`);
                             console.log(".");
                             $(`.pkg-${details.name}`).append(`<p><i class="fas fa-folder-open"></i> ${uri}</p>`);
                             details.doc !== null ? $(`.pkg-${details.name}`).append(`<p>${details.doc}</p>`) : null;
