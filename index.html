@@ -193,7 +193,7 @@
                                 const icon = `<i class="fas fa-square-root-alt"></i>`;
                                 $(`.pkg-${details.name}`).append(`<h3 class="fnname">${icon} ${fn.extensor !== null ? fn.extensor + "." : ""}${fn.name}()</h3>`);
                                 // TODO: params
-                                fn.icon !== null ? $(`.pkg-${details.name}`).append(`<p>${fn.doc}</p>`) : null;
+                                fn.doc !== null ? $(`.pkg-${details.name}`).append(`<p>${fn.doc}</p>`) : null;
                             });
                         })
                     });
