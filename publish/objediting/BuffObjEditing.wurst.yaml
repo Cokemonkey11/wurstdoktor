@@ -1,0 +1,52 @@
+---
+- Package:
+    doc: ~
+    name: BuffObjEditing
+    classes: []
+    free_fns:
+      - doc: Creates an ability and buff based on Tornado aura that allows to display a buff on units without side effects
+        extensor: ~
+        name: createDummyBuffObject
+        params:
+          - typ: string
+            name: name
+          - typ: string
+            name: tooltip
+          - typ: string
+            name: iconpath
+        returns: buffTuple
+      - doc: Creates an ability and buff  based on Tornado aura that allows to display a buff on units without side effects
+        extensor: ~
+        name: createDummyBuffObject
+        params:
+          - typ: string
+            name: name
+          - typ: string
+            name: tooltip
+          - typ: string
+            name: iconpath
+          - typ: string
+            name: effectPath
+        returns: buffTuple
+      - doc: Creates an ability and buff  based on Tornado aura that allows to display a buff on units without side effects
+        extensor: ~
+        name: createDummyBuffObject
+        params:
+          - typ: string
+            name: name
+          - typ: string
+            name: tooltip
+          - typ: string
+            name: iconpath
+          - typ: string
+            name: effectPath
+          - typ: string
+            name: attachmentPoint
+        returns: buffTuple
+      - doc: ~
+        extensor: ~
+        name: compiletime
+        params:
+          - typ: buffTuple
+            name: buffT
+        returns: buffTuple

@@ -1,577 +1,511 @@
 ---
-- FreeFunction:
-    doc: + Operator vec2
-    extensor: vec2
-    name: op_plus
-    params:
-      - typ: vec2
-        name: v
-    returns: vec2
-- FreeFunction:
-    doc: + Operator vec3
-    extensor: vec2
-    name: op_plus
-    params:
-      - typ: vec3
-        name: v
-    returns: vec2
-- FreeFunction:
-    doc: "- Operator"
-    extensor: vec2
-    name: op_minus
-    params:
-      - typ: vec2
-        name: v
-    returns: vec2
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: vec2
-    name: op_mult
-    params:
-      - typ: real
-        name: factor
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: real
-    name: op_mult
-    params:
-      - typ: vec2
-        name: vec
-    returns: vec2
-- FreeFunction:
-    doc: dot product Operator
-    extensor: vec2
-    name: op_mult
-    params:
-      - typ: vec2
-        name: v
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: op_div
-    params:
-      - typ: real
-        name: factor
-    returns: vec2
-- FreeFunction:
-    doc: Add two reals to the coordiantes of this vector
-    extensor: vec2
-    name: add
-    params:
-      - typ: real
-        name: x
-      - typ: real
-        name: y
-    returns: vec2
-- FreeFunction:
-    doc: Get the dot-product
-    extensor: vec2
-    name: dot
-    params:
-      - typ: vec2
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Normalize this vector
-    extensor: vec2
-    name: norm
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: Rotate this vector
-    extensor: vec2
-    name: rotate
-    params:
-      - typ: angle
-        name: angl
-    returns: vec2
-- FreeFunction:
-    doc: Convert this vector to a 3d vector with z = 0.
-    extensor: vec2
-    name: toVec3
-    params: []
-    returns: vec3
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: getTerrainZ
-    params: []
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: getTerrainZ
-    params: []
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getTerrainZ
-    params:
-      - typ: vec2
-        name: pos
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getTerrainZ
-    params:
-      - typ: real
-        name: x
-      - typ: real
-        name: y
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: withTerrainZ
-    params: []
-    returns: vec3
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: withTerrainZ
-    params:
-      - typ: real
-        name: zoffset
-    returns: vec3
-- FreeFunction:
-    doc: Set the length of this vector
-    extensor: vec2
-    name: setLength
-    params:
-      - typ: real
+    name: Vectors
+    classes: []
+    free_fns:
+      - doc: + Operator vec2
+        extensor: vec2
+        name: op_plus
+        params:
+          - typ: vec2
+            name: v
+        returns: vec2
+      - doc: + Operator vec3
+        extensor: vec2
+        name: op_plus
+        params:
+          - typ: vec3
+            name: v
+        returns: vec2
+      - doc: "- Operator"
+        extensor: vec2
+        name: op_minus
+        params:
+          - typ: vec2
+            name: v
+        returns: vec2
+      - doc: ~
+        extensor: vec2
+        name: op_mult
+        params:
+          - typ: real
+            name: factor
+        returns: vec2
+      - doc: ~
+        extensor: real
+        name: op_mult
+        params:
+          - typ: vec2
+            name: vec
+        returns: vec2
+      - doc: dot product Operator
+        extensor: vec2
+        name: op_mult
+        params:
+          - typ: vec2
+            name: v
+        returns: vec2
+      - doc: ~
+        extensor: vec2
+        name: op_div
+        params:
+          - typ: real
+            name: factor
+        returns: vec2
+      - doc: Add two reals to the coordiantes of this vector
+        extensor: vec2
+        name: add
+        params:
+          - typ: real
+            name: x
+          - typ: real
+            name: y
+        returns: vec2
+      - doc: Get the dot-product
+        extensor: vec2
+        name: dot
+        params:
+          - typ: vec2
+            name: v
+        returns: real
+      - doc: Normalize this vector
+        extensor: vec2
+        name: norm
+        params: []
+        returns: vec2
+      - doc: Rotate this vector
+        extensor: vec2
+        name: rotate
+        params:
+          - typ: angle
+            name: angl
+        returns: vec2
+      - doc: Convert this vector to a 3d vector with z = 0.
+        extensor: vec2
+        name: toVec3
+        params: []
+        returns: vec3
+      - doc: ~
+        extensor: vec2
+        name: getTerrainZ
+        params: []
+        returns: real
+      - doc: ~
+        extensor: vec3
+        name: getTerrainZ
+        params: []
+        returns: real
+      - doc: ~
+        extensor: ~
+        name: getTerrainZ
+        params:
+          - typ: vec2
+            name: pos
+        returns: real
+      - doc: ~
+        extensor: ~
+        name: getTerrainZ
+        params:
+          - typ: real
+            name: x
+          - typ: real
+            name: y
+        returns: real
+      - doc: ~
+        extensor: vec2
+        name: withTerrainZ
+        params: []
+        returns: vec3
+      - doc: ~
+        extensor: vec2
+        name: withTerrainZ
+        params:
+          - typ: real
+            name: zoffset
+        returns: vec3
+      - doc: Set the length of this vector
+        extensor: vec2
+        name: setLength
+        params:
+          - typ: real
+            name: length
+        returns: vec2
+      - doc: Get the length of this vector
+        extensor: vec2
         name: length
-    returns: vec2
-- FreeFunction:
-    doc: Get the length of this vector
-    extensor: vec2
-    name: length
-    params: []
-    returns: real
-- FreeFunction:
-    doc: Get the squared length of this vector
-    extensor: vec2
-    name: lengthSq
-    params: []
-    returns: real
-- FreeFunction:
-    doc: Is this vector inside the given circle
-    extensor: vec2
-    name: inRange
-    params:
-      - typ: vec2
-        name: v2
-      - typ: real
-        name: radius
-    returns: boolean
-- FreeFunction:
-    doc: Get a String-representation of this Vector (for debugging)
-    extensor: vec2
-    name: toString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: "Get this vetor's angle to another one"
-    extensor: vec2
-    name: angleTo
-    params:
-      - typ: vec2
-        name: v
-    returns: angle
-- FreeFunction:
-    doc: Get a polar offset from this vector
-    extensor: vec2
-    name: polarOffset
-    params:
-      - typ: angle
-        name: ang
-      - typ: real
-        name: dist
-    returns: vec2
-- FreeFunction:
-    doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
-    extensor: vec2
-    name: normalizedPointerTo
-    params:
-      - typ: vec2
-        name: target
-    returns: vec2
-- FreeFunction:
-    doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
-    extensor: vec2
-    name: moveTowards
-    params:
-      - typ: vec2
-        name: target
-      - typ: real
-        name: dist
-    returns: vec2
-- FreeFunction:
-    doc: Get a 3d Vector with the original xy and the given z coordinate
-    extensor: vec2
-    name: withZ
-    params:
-      - typ: real
-        name: z
-    returns: vec3
-- FreeFunction:
-    doc: Get distance to another vector
-    extensor: vec2
-    name: distanceTo
-    params:
-      - typ: vec2
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get squared distance to another vector
-    extensor: vec2
-    name: distanceToSq
-    params:
-      - typ: vec2
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get squared distance to a line segment
-    extensor: vec2
-    name: distanceToSegmentSq
-    params:
-      - typ: vec2
-        name: v1
-      - typ: vec2
-        name: v2
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: withRadiusRect
-    params:
-      - typ: real
-        name: nominalRadius
-    returns: rect
-- FreeFunction:
-    doc: Checks whether the point is in a triangle defined by 3 points.
-    extensor: vec2
-    name: isInTriangle
-    params:
-      - typ: vec2
-        name: p1
-      - typ: vec2
-        name: p2
-      - typ: vec2
-        name: p3
-    returns: bool
-- FreeFunction:
-    doc: + Operator
-    extensor: vec3
-    name: op_plus
-    params:
-      - typ: vec3
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: + Operator
-    extensor: vec3
-    name: op_plus
-    params:
-      - typ: vec2
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: "- Operator"
-    extensor: vec3
-    name: op_minus
-    params:
-      - typ: vec3
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: "- Operator"
-    extensor: vec3
-    name: op_minus
-    params:
-      - typ: vec2
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: op_mult
-    params:
-      - typ: real
-        name: factor
-    returns: vec3
-- FreeFunction:
-    doc: dot Operator
-    extensor: real
-    name: op_mult
-    params:
-      - typ: vec3
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: add 3 realvalues to the coordinates of this Vector
-    extensor: vec3
-    name: add
-    params:
-      - typ: real
-        name: x
-      - typ: real
-        name: y
-      - typ: real
-        name: z
-    returns: vec3
-- FreeFunction:
-    doc: Get the dot-product
-    extensor: vec3
-    name: dot
-    params:
-      - typ: vec3
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Normalize this Vector
-    extensor: vec3
-    name: norm
-    params: []
-    returns: vec3
-- FreeFunction:
-    doc: Rotate this vector around an axis
-    extensor: vec3
-    name: rotate
-    params:
-      - typ: vec3
-        name: axis
-      - typ: real
-        name: radians
-    returns: vec3
-- FreeFunction:
-    doc: Sets the length of the given Vector
-    extensor: vec3
-    name: setLengthSq
-    params:
-      - typ: real
+        params: []
+        returns: real
+      - doc: Get the squared length of this vector
+        extensor: vec2
         name: lengthSq
-    returns: vec3
-- FreeFunction:
-    doc: Sets the length of the given Vector
-    extensor: vec3
-    name: setLength
-    params:
-      - typ: real
+        params: []
+        returns: real
+      - doc: Is this vector inside the given circle
+        extensor: vec2
+        name: inRange
+        params:
+          - typ: vec2
+            name: v2
+          - typ: real
+            name: radius
+        returns: boolean
+      - doc: Get a String-representation of this Vector (for debugging)
+        extensor: vec2
+        name: toString
+        params: []
+        returns: string
+      - doc: "Get this vetor's angle to another one"
+        extensor: vec2
+        name: angleTo
+        params:
+          - typ: vec2
+            name: v
+        returns: angle
+      - doc: Get a polar offset from this vector
+        extensor: vec2
+        name: polarOffset
+        params:
+          - typ: angle
+            name: ang
+          - typ: real
+            name: dist
+        returns: vec2
+      - doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
+        extensor: vec2
+        name: normalizedPointerTo
+        params:
+          - typ: vec2
+            name: target
+        returns: vec2
+      - doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
+        extensor: vec2
+        name: moveTowards
+        params:
+          - typ: vec2
+            name: target
+          - typ: real
+            name: dist
+        returns: vec2
+      - doc: Get a 3d Vector with the original xy and the given z coordinate
+        extensor: vec2
+        name: withZ
+        params:
+          - typ: real
+            name: z
+        returns: vec3
+      - doc: Get distance to another vector
+        extensor: vec2
+        name: distanceTo
+        params:
+          - typ: vec2
+            name: v
+        returns: real
+      - doc: Get squared distance to another vector
+        extensor: vec2
+        name: distanceToSq
+        params:
+          - typ: vec2
+            name: v
+        returns: real
+      - doc: Get squared distance to a line segment
+        extensor: vec2
+        name: distanceToSegmentSq
+        params:
+          - typ: vec2
+            name: v1
+          - typ: vec2
+            name: v2
+        returns: real
+      - doc: ~
+        extensor: vec2
+        name: withRadiusRect
+        params:
+          - typ: real
+            name: nominalRadius
+        returns: rect
+      - doc: Checks whether the point is in a triangle defined by 3 points.
+        extensor: vec2
+        name: isInTriangle
+        params:
+          - typ: vec2
+            name: p1
+          - typ: vec2
+            name: p2
+          - typ: vec2
+            name: p3
+        returns: bool
+      - doc: + Operator
+        extensor: vec3
+        name: op_plus
+        params:
+          - typ: vec3
+            name: v
+        returns: vec3
+      - doc: + Operator
+        extensor: vec3
+        name: op_plus
+        params:
+          - typ: vec2
+            name: v
+        returns: vec3
+      - doc: "- Operator"
+        extensor: vec3
+        name: op_minus
+        params:
+          - typ: vec3
+            name: v
+        returns: vec3
+      - doc: "- Operator"
+        extensor: vec3
+        name: op_minus
+        params:
+          - typ: vec2
+            name: v
+        returns: vec3
+      - doc: ~
+        extensor: vec3
+        name: op_mult
+        params:
+          - typ: real
+            name: factor
+        returns: vec3
+      - doc: dot Operator
+        extensor: real
+        name: op_mult
+        params:
+          - typ: vec3
+            name: v
+        returns: vec3
+      - doc: add 3 realvalues to the coordinates of this Vector
+        extensor: vec3
+        name: add
+        params:
+          - typ: real
+            name: x
+          - typ: real
+            name: y
+          - typ: real
+            name: z
+        returns: vec3
+      - doc: Get the dot-product
+        extensor: vec3
+        name: dot
+        params:
+          - typ: vec3
+            name: v
+        returns: real
+      - doc: Normalize this Vector
+        extensor: vec3
+        name: norm
+        params: []
+        returns: vec3
+      - doc: Rotate this vector around an axis
+        extensor: vec3
+        name: rotate
+        params:
+          - typ: vec3
+            name: axis
+          - typ: real
+            name: radians
+        returns: vec3
+      - doc: Sets the length of the given Vector
+        extensor: vec3
+        name: setLengthSq
+        params:
+          - typ: real
+            name: lengthSq
+        returns: vec3
+      - doc: Sets the length of the given Vector
+        extensor: vec3
+        name: setLength
+        params:
+          - typ: real
+            name: length
+        returns: vec3
+      - doc: Get the length of this Vector
+        extensor: vec3
         name: length
-    returns: vec3
-- FreeFunction:
-    doc: Get the length of this Vector
-    extensor: vec3
-    name: length
-    params: []
-    returns: real
-- FreeFunction:
-    doc: Get the squared length of this Vector
-    extensor: vec3
-    name: lengthSquared
-    params: []
-    returns: real
-- FreeFunction:
-    doc: Get the cross-product
-    extensor: vec3
-    name: cross
-    params:
-      - typ: vec3
-        name: v
-    returns: vec3
-- FreeFunction:
-    doc: Project this vector onto the given directional vector
-    extensor: vec3
-    name: project
-    params:
-      - typ: vec3
+        params: []
+        returns: real
+      - doc: Get the squared length of this Vector
+        extensor: vec3
+        name: lengthSquared
+        params: []
+        returns: real
+      - doc: Get the cross-product
+        extensor: vec3
+        name: cross
+        params:
+          - typ: vec3
+            name: v
+        returns: vec3
+      - doc: Project this vector onto the given directional vector
+        extensor: vec3
+        name: project
+        params:
+          - typ: vec3
+            name: direction
+        returns: vec3
+      - doc: Convert a vec3 to a vec2 (z-coordinate gets removed)
+        extensor: vec3
+        name: toVec2
+        params: []
+        returns: vec2
+      - doc: Is this vector inside the given circle
+        extensor: vec3
+        name: inRange
+        params:
+          - typ: vec3
+            name: v2
+          - typ: real
+            name: radius
+        returns: boolean
+      - doc: Get the distance to another Vector
+        extensor: vec3
+        name: distanceTo
+        params:
+          - typ: vec3
+            name: v
+        returns: real
+      - doc: Get the distance to another Vector
+        extensor: vec3
+        name: distanceTo2d
+        params:
+          - typ: vec3
+            name: v
+        returns: real
+      - doc: Get the distance to another Vector
+        extensor: vec3
+        name: distanceTo2d
+        params:
+          - typ: vec2
+            name: v
+        returns: real
+      - doc: Get the squared distance to another Vector
+        extensor: vec3
+        name: distanceTo2dSq
+        params:
+          - typ: vec2
+            name: v
+        returns: real
+      - doc: Get the squared distance to another Vector
+        extensor: vec3
+        name: distanceToSq
+        params:
+          - typ: vec3
+            name: v
+        returns: real
+      - doc: Get a String-represantation of the vector (for debugging)
+        extensor: vec3
+        name: toString
+        params: []
+        returns: string
+      - doc: Rotate this vector around an axis
+        extensor: vec3
+        name: rotate
+        params:
+          - typ: vec3
+            name: axis
+          - typ: angle
+            name: ang
+        returns: vec3
+      - doc: Offset this vector in 2d space
+        extensor: vec3
+        name: offset2d
+        params:
+          - typ: angle
+            name: ang
+          - typ: real
+            name: dist
+        returns: vec3
+      - doc: Get the angle to a 2d vector
+        extensor: vec3
+        name: angleTo2d
+        params:
+          - typ: vec2
+            name: v
+        returns: angle
+      - doc: ~
+        extensor: vec3
+        name: angleTo2d
+        params:
+          - typ: vec3
+            name: v
+        returns: angle
+      - doc: Get a polarprojection of this Vector
+        extensor: vec3
+        name: polarProject
+        params:
+          - typ: real
+            name: distance
+          - typ: angle
+            name: angleGround
+          - typ: angle
+            name: angleAir
+        returns: vec3
+      - doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
+        extensor: vec3
+        name: normalizedPointerTo
+        params:
+          - typ: vec3
+            name: target
+        returns: vec3
+      - doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
+        extensor: vec3
+        name: moveTowards
+        params:
+          - typ: vec3
+            name: target
+          - typ: real
+            name: dist
+        returns: vec3
+      - doc: returns a vector of the given length pointing into the direction of this angle
+        extensor: angle
+        name: toVec
+        params:
+          - typ: real
+            name: len
+        returns: vec2
+      - doc: returns a vector of length 1 pointing into the direction of this angle
+        extensor: angle
         name: direction
-    returns: vec3
-- FreeFunction:
-    doc: Convert a vec3 to a vec2 (z-coordinate gets removed)
-    extensor: vec3
-    name: toVec2
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: Is this vector inside the given circle
-    extensor: vec3
-    name: inRange
-    params:
-      - typ: vec3
-        name: v2
-      - typ: real
-        name: radius
-    returns: boolean
-- FreeFunction:
-    doc: Get the distance to another Vector
-    extensor: vec3
-    name: distanceTo
-    params:
-      - typ: vec3
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get the distance to another Vector
-    extensor: vec3
-    name: distanceTo2d
-    params:
-      - typ: vec3
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get the distance to another Vector
-    extensor: vec3
-    name: distanceTo2d
-    params:
-      - typ: vec2
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get the squared distance to another Vector
-    extensor: vec3
-    name: distanceTo2dSq
-    params:
-      - typ: vec2
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get the squared distance to another Vector
-    extensor: vec3
-    name: distanceToSq
-    params:
-      - typ: vec3
-        name: v
-    returns: real
-- FreeFunction:
-    doc: Get a String-represantation of the vector (for debugging)
-    extensor: vec3
-    name: toString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: Rotate this vector around an axis
-    extensor: vec3
-    name: rotate
-    params:
-      - typ: vec3
-        name: axis
-      - typ: angle
-        name: ang
-    returns: vec3
-- FreeFunction:
-    doc: Offset this vector in 2d space
-    extensor: vec3
-    name: offset2d
-    params:
-      - typ: angle
-        name: ang
-      - typ: real
-        name: dist
-    returns: vec3
-- FreeFunction:
-    doc: Get the angle to a 2d vector
-    extensor: vec3
-    name: angleTo2d
-    params:
-      - typ: vec2
-        name: v
-    returns: angle
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: angleTo2d
-    params:
-      - typ: vec3
-        name: v
-    returns: angle
-- FreeFunction:
-    doc: Get a polarprojection of this Vector
-    extensor: vec3
-    name: polarProject
-    params:
-      - typ: real
-        name: distance
-      - typ: angle
-        name: angleGround
-      - typ: angle
-        name: angleAir
-    returns: vec3
-- FreeFunction:
-    doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
-    extensor: vec3
-    name: normalizedPointerTo
-    params:
-      - typ: vec3
-        name: target
-    returns: vec3
-- FreeFunction:
-    doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
-    extensor: vec3
-    name: moveTowards
-    params:
-      - typ: vec3
-        name: target
-      - typ: real
-        name: dist
-    returns: vec3
-- FreeFunction:
-    doc: returns a vector of the given length pointing into the direction of this angle
-    extensor: angle
-    name: toVec
-    params:
-      - typ: real
-        name: len
-    returns: vec2
-- FreeFunction:
-    doc: returns a vector of length 1 pointing into the direction of this angle
-    extensor: angle
-    name: direction
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: "returns a vector of length 'dist' pointing into the direction of this angle"
-    extensor: angle
-    name: direction
-    params:
-      - typ: real
-        name: dist
-    returns: vec2
-- FreeFunction:
-    doc: returns the angle of this vector
-    extensor: vec2
-    name: getAngle
-    params: []
-    returns: angle
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: assertEquals
-    params:
-      - typ: vec2
-        name: expected
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: assertEquals
-    params:
-      - typ: vec3
-        name: expected
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: isInTriangle2d
-    params:
-      - typ: vec3
-        name: p1
-      - typ: vec3
-        name: p2
-      - typ: vec3
-        name: p3
-    returns: bool
+        params: []
+        returns: vec2
+      - doc: "returns a vector of length 'dist' pointing into the direction of this angle"
+        extensor: angle
+        name: direction
+        params:
+          - typ: real
+            name: dist
+        returns: vec2
+      - doc: returns the angle of this vector
+        extensor: vec2
+        name: getAngle
+        params: []
+        returns: angle
+      - doc: ~
+        extensor: vec2
+        name: assertEquals
+        params:
+          - typ: vec2
+            name: expected
+        returns: ~
+      - doc: ~
+        extensor: vec3
+        name: assertEquals
+        params:
+          - typ: vec3
+            name: expected
+        returns: ~
+      - doc: ~
+        extensor: vec3
+        name: isInTriangle2d
+        params:
+          - typ: vec3
+            name: p1
+          - typ: vec3
+            name: p2
+          - typ: vec3
+            name: p3
+        returns: bool

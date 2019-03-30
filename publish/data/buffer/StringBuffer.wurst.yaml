@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: StringBuffer
+    classes: []
+    free_fns: []

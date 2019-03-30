@@ -1,15 +1,13 @@
 ---
-- Class:
+- Package:
     doc: ~
-    name: "DebugFile\n\tstatic"
-    extends: ~
-    implements: []
-    fns: []
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: sendLineToConsole
-    params:
-      - typ: string
-        name: s
-    returns: ~
+    name: DebugFile
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: sendLineToConsole
+        params:
+          - typ: string
+            name: s
+        returns: ~

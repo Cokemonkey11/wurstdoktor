@@ -1,79 +1,74 @@
 ---
-- Class:
+- Package:
     doc: ~
-    name: "Sim3DSound\n\tprivate"
-    extends: ~
-    implements: []
-    fns: []
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: bindSoundToUnit
-    params:
-      - typ: sound
-        name: s
-      - typ: unit
-        name: u
-      - typ: real
-        name: minD
-      - typ: real
-        name: maxD
-      - typ: real
-        name: distCut
-    returns: Sim3DSound
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: bindSoundToPoint
-    params:
-      - typ: sound
-        name: s
-      - typ: real
-        name: x
-      - typ: real
-        name: y
-      - typ: real
-        name: minD
-      - typ: real
-        name: maxD
-      - typ: real
-        name: distCut
-    returns: Sim3DSound
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: bindSoundToUnitForPlayer
-    params:
-      - typ: player
-        name: p
-      - typ: sound
-        name: s
-      - typ: unit
-        name: u
-      - typ: real
-        name: minD
-      - typ: real
-        name: maxD
-      - typ: real
-        name: distCut
-    returns: Sim3DSound
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: bindSoundToPointForPlayer
-    params:
-      - typ: player
-        name: p
-      - typ: sound
-        name: s
-      - typ: real
-        name: x
-      - typ: real
-        name: y
-      - typ: real
-        name: minD
-      - typ: real
-        name: maxD
-      - typ: real
-        name: distCut
-    returns: Sim3DSound
+    name: Simulate3dSound
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: bindSoundToUnit
+        params:
+          - typ: sound
+            name: s
+          - typ: unit
+            name: u
+          - typ: real
+            name: minD
+          - typ: real
+            name: maxD
+          - typ: real
+            name: distCut
+        returns: Sim3DSound
+      - doc: ~
+        extensor: ~
+        name: bindSoundToPoint
+        params:
+          - typ: sound
+            name: s
+          - typ: real
+            name: x
+          - typ: real
+            name: y
+          - typ: real
+            name: minD
+          - typ: real
+            name: maxD
+          - typ: real
+            name: distCut
+        returns: Sim3DSound
+      - doc: ~
+        extensor: ~
+        name: bindSoundToUnitForPlayer
+        params:
+          - typ: player
+            name: p
+          - typ: sound
+            name: s
+          - typ: unit
+            name: u
+          - typ: real
+            name: minD
+          - typ: real
+            name: maxD
+          - typ: real
+            name: distCut
+        returns: Sim3DSound
+      - doc: ~
+        extensor: ~
+        name: bindSoundToPointForPlayer
+        params:
+          - typ: player
+            name: p
+          - typ: sound
+            name: s
+          - typ: real
+            name: x
+          - typ: real
+            name: y
+          - typ: real
+            name: minD
+          - typ: real
+            name: maxD
+          - typ: real
+            name: distCut
+        returns: Sim3DSound

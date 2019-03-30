@@ -1,151 +1,142 @@
 ---
-- FreeFunction:
-    doc: "Executes the given closure for every unit in this group,\n\tremoving the units from the group as processed"
-    extensor: group
-    name: forEachFrom
-    params:
-      - typ: ForGroupCallback
-        name: cb
-    returns: ~
-- FreeFunction:
-    doc: "Executes the given closure for every unit in this group,\n\tkeeping all units in the group"
-    extensor: group
-    name: forEachIn
-    params:
-      - typ: ForGroupCallback
-        name: cb
-    returns: ~
-- FreeFunction:
-    doc: "Executes the given closure for every unit of the given type.\n\tRemember that names of custom units are \"custom_[typeId]\""
-    extensor: ~
-    name: forUnitsOfType
-    params:
-      - typ: string
-        name: unitname
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: forUnitsOfTypeCounted
-    params:
-      - typ: string
-        name: unitname
-      - typ: int
-        name: count
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for every unit of the given player
-    extensor: ~
-    name: forUnitsOfPlayer
-    params:
-      - typ: player
-        name: p
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for every existing unit
-    extensor: ~
-    name: forUnitsAll
-    params:
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for every unit in the given rect
-    extensor: ~
-    name: forUnitsInRect
-    params:
-      - typ: rect
-        name: r
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: forUnitsInRectCounted
-    params:
-      - typ: rect
-        name: r
-      - typ: int
-        name: count
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for every unit in range of the given position
-    extensor: ~
-    name: forUnitsInRange
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: radius
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: forUnitsInRangeCounted
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: radius
-      - typ: int
-        name: count
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for every unit selected by the given player
-    extensor: ~
-    name: forUnitsSelected
-    params:
-      - typ: player
-        name: p
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: "Executes the given closure for the closest unit inside the given range of the given position,\n\tmatching the provided filter. If there is no unit in range, the closure will be run with \"null\""
-    extensor: ~
-    name: forNearestUnit
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: range
-      - typ: filterfunc
-        name: filter
-      - typ: ForGroupCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: Executes the given closure for all destructables in the given rect
-    extensor: ~
-    name: forDestructablesInRect
-    params:
-      - typ: rect
-        name: r
-      - typ: ForGroupCallbackD
-        name: cb
-    returns: ~
-- FreeFunction:
-    doc: "Executes the given closure for the closes destructable in the given rect.\n\tIf there is no destructable in range, the closure will be run with \"null\""
-    extensor: ~
-    name: forNearestDestructable
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: range
-      - typ: ForGroupCallbackD
-        name: c
-    returns: ~
+    name: ClosureForGroups
+    classes: []
+    free_fns:
+      - doc: "Executes the given closure for every unit in this group,\n\tremoving the units from the group as processed"
+        extensor: group
+        name: forEachFrom
+        params:
+          - typ: ForGroupCallback
+            name: cb
+        returns: ~
+      - doc: "Executes the given closure for every unit in this group,\n\tkeeping all units in the group"
+        extensor: group
+        name: forEachIn
+        params:
+          - typ: ForGroupCallback
+            name: cb
+        returns: ~
+      - doc: "Executes the given closure for every unit of the given type.\n\tRemember that names of custom units are \"custom_[typeId]\""
+        extensor: ~
+        name: forUnitsOfType
+        params:
+          - typ: string
+            name: unitname
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: forUnitsOfTypeCounted
+        params:
+          - typ: string
+            name: unitname
+          - typ: int
+            name: count
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for every unit of the given player
+        extensor: ~
+        name: forUnitsOfPlayer
+        params:
+          - typ: player
+            name: p
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for every existing unit
+        extensor: ~
+        name: forUnitsAll
+        params:
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for every unit in the given rect
+        extensor: ~
+        name: forUnitsInRect
+        params:
+          - typ: rect
+            name: r
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: forUnitsInRectCounted
+        params:
+          - typ: rect
+            name: r
+          - typ: int
+            name: count
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for every unit in range of the given position
+        extensor: ~
+        name: forUnitsInRange
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: radius
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: forUnitsInRangeCounted
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: radius
+          - typ: int
+            name: count
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for every unit selected by the given player
+        extensor: ~
+        name: forUnitsSelected
+        params:
+          - typ: player
+            name: p
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: "Executes the given closure for the closest unit inside the given range of the given position,\n\tmatching the provided filter. If there is no unit in range, the closure will be run with \"null\""
+        extensor: ~
+        name: forNearestUnit
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: range
+          - typ: filterfunc
+            name: filter
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: Executes the given closure for all destructables in the given rect
+        extensor: ~
+        name: forDestructablesInRect
+        params:
+          - typ: rect
+            name: r
+          - typ: ForGroupCallbackD
+            name: cb
+        returns: ~
+      - doc: "Executes the given closure for the closes destructable in the given rect.\n\tIf there is no destructable in range, the closure will be run with \"null\""
+        extensor: ~
+        name: forNearestDestructable
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: range
+          - typ: ForGroupCallbackD
+            name: c
+        returns: ~

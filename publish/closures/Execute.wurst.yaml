@@ -1,29 +1,31 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: execute
-    params:
-      - typ: ForForceCallback
-        name: c
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: try
-    params:
-      - typ: ForForceCallback
-        name: c
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: executeWhile
-    params:
-      - typ: int
-        name: resetCount
-      - typ: LimitedExecuteCondition
-        name: condition
-      - typ: LimitedExecuteAction
-        name: action
-    returns: ~
+    name: Execute
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: execute
+        params:
+          - typ: ForForceCallback
+            name: c
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: try
+        params:
+          - typ: ForForceCallback
+            name: c
+        returns: boolean
+      - doc: ~
+        extensor: ~
+        name: executeWhile
+        params:
+          - typ: int
+            name: resetCount
+          - typ: LimitedExecuteCondition
+            name: condition
+          - typ: LimitedExecuteAction
+            name: action
+        returns: ~

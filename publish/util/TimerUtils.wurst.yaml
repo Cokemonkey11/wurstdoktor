@@ -1,27 +1,28 @@
 ---
-- FreeFunction:
-    doc: Attach Data to this timer
-    extensor: timer
-    name: setData
-    params:
-      - typ: int
-        name: data
-    returns: ~
-- FreeFunction:
-    doc: Retrieve the data attached to this timer
-    extensor: timer
-    name: getData
-    params: []
-    returns: int
-- FreeFunction:
-    doc: "Get a new timer. Use this instead of \"CreateTimer\".\nYou can attach data to the timer with .setData and retrieve it with .getData\nIf you're done with the timer, release it with .release"
-    extensor: ~
-    name: getTimer
-    params: []
-    returns: timer
-- FreeFunction:
-    doc: "Release the timer. Use this instead of \"DestroyTimer\" !"
-    extensor: timer
-    name: release
-    params: []
-    returns: ~
+- Package:
+    doc: ~
+    name: TimerUtils
+    classes: []
+    free_fns:
+      - doc: Attach Data to this timer
+        extensor: timer
+        name: setData
+        params:
+          - typ: int
+            name: data
+        returns: ~
+      - doc: Retrieve the data attached to this timer
+        extensor: timer
+        name: getData
+        params: []
+        returns: int
+      - doc: "Get a new timer. Use this instead of \"CreateTimer\".\nYou can attach data to the timer with .setData and retrieve it with .getData\nIf you're done with the timer, release it with .release"
+        extensor: ~
+        name: getTimer
+        params: []
+        returns: timer
+      - doc: "Release the timer. Use this instead of \"DestroyTimer\" !"
+        extensor: timer
+        name: release
+        params: []
+        returns: ~

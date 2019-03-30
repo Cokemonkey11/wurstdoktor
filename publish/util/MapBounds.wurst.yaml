@@ -1,31 +1,31 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: vec2
-    name: inPlayable
-    params: []
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: inPlayable
-    params: []
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: vec2
-    name: inBounds
-    params: []
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: vec3
-    name: inBounds
-    params: []
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: randomPointOnMap
-    params: []
-    returns: vec2
+    name: MapBounds
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: vec2
+        name: inPlayable
+        params: []
+        returns: boolean
+      - doc: ~
+        extensor: vec3
+        name: inPlayable
+        params: []
+        returns: boolean
+      - doc: ~
+        extensor: vec2
+        name: inBounds
+        params: []
+        returns: boolean
+      - doc: ~
+        extensor: vec3
+        name: inBounds
+        params: []
+        returns: boolean
+      - doc: ~
+        extensor: ~
+        name: randomPointOnMap
+        params: []
+        returns: vec2

@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: NetworkConfig
+    classes: []
+    free_fns: []

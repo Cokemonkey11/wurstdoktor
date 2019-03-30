@@ -1,0 +1,11 @@
+---
+- Package:
+    doc: ~
+    name: ChannelAbilityPreset
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: Targettype
+        name: toString
+        params: []
+        returns: string

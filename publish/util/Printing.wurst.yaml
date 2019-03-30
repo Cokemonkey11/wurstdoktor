@@ -1,129 +1,115 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: Loglevel
-    name: getTag
-    params: []
-    returns: string
-- Class:
-    doc: ~
-    name: "Log\n\t/**"
-    extends: ~
-    implements: []
-    fns: []
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: print
-    params:
-      - typ: string
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: print
-    params:
-      - typ: int
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: print
-    params:
-      - typ: real
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: print
-    params:
-      - typ: bool
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: printLog
-    params:
-      - typ: Loglevel
-        name: loglvl
-      - typ: string
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: printLog
-    params:
-      - typ: player
-        name: showTo
-      - typ: Loglevel
-        name: loglvl
-      - typ: string
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: printTimed
-    params:
-      - typ: string
-        name: msg
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: Prints a simple message that is shown for the given duration
-    extensor: ~
-    name: print
-    params:
-      - typ: string
-        name: msg
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: printTimedToPlayer
-    params:
-      - typ: string
-        name: msg
-      - typ: real
-        name: duration
-      - typ: player
-        name: p
-    returns: ~
-- FreeFunction:
-    doc: Prints a timed message that is shown to the player for the given duration
-    extensor: player
-    name: print
-    params:
-      - typ: string
-        name: msg
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: Prints a simple message that is shown to the player
-    extensor: player
-    name: print
-    params:
-      - typ: string
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: Prints a simple message after clearing all messages that is shown to the player for the given duration
-    extensor: ~
-    name: printTimedToPlayerClear
-    params:
-      - typ: string
-        name: msg
-      - typ: real
-        name: duration
-      - typ: player
-        name: p
-    returns: ~
+    name: Printing
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: Loglevel
+        name: getTag
+        params: []
+        returns: string
+      - doc: ~
+        extensor: ~
+        name: print
+        params:
+          - typ: string
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: print
+        params:
+          - typ: int
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: print
+        params:
+          - typ: real
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: print
+        params:
+          - typ: bool
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: printLog
+        params:
+          - typ: Loglevel
+            name: loglvl
+          - typ: string
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: printLog
+        params:
+          - typ: player
+            name: showTo
+          - typ: Loglevel
+            name: loglvl
+          - typ: string
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: printTimed
+        params:
+          - typ: string
+            name: msg
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: Prints a simple message that is shown for the given duration
+        extensor: ~
+        name: print
+        params:
+          - typ: string
+            name: msg
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: printTimedToPlayer
+        params:
+          - typ: string
+            name: msg
+          - typ: real
+            name: duration
+          - typ: player
+            name: p
+        returns: ~
+      - doc: Prints a timed message that is shown to the player for the given duration
+        extensor: player
+        name: print
+        params:
+          - typ: string
+            name: msg
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: Prints a simple message that is shown to the player
+        extensor: player
+        name: print
+        params:
+          - typ: string
+            name: msg
+        returns: ~
+      - doc: Prints a simple message after clearing all messages that is shown to the player for the given duration
+        extensor: ~
+        name: printTimedToPlayerClear
+        params:
+          - typ: string
+            name: msg
+          - typ: real
+            name: duration
+          - typ: player
+            name: p
+        returns: ~

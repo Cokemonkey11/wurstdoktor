@@ -1,31 +1,32 @@
 ---
-- FreeFunction:
-    doc: the empty bitset
-    extensor: ~
-    name: emptyBitset
-    params: []
-    returns: bitset
-- FreeFunction:
-    doc: checks if bitset contains value v
-    extensor: bitset
-    name: contains
-    params:
-      - typ: int
-        name: v
-    returns: boolean
-- FreeFunction:
-    doc: adds value v to the bitset
-    extensor: bitset
-    name: add
-    params:
-      - typ: int
-        name: v
-    returns: bitset
-- FreeFunction:
-    doc: removes value v from the bitset
-    extensor: bitset
-    name: remove
-    params:
-      - typ: int
-        name: v
-    returns: bitset
+- Package:
+    doc: ~
+    name: BitSet
+    classes: []
+    free_fns:
+      - doc: the empty bitset
+        extensor: ~
+        name: emptyBitset
+        params: []
+        returns: bitset
+      - doc: checks if bitset contains value v
+        extensor: bitset
+        name: contains
+        params:
+          - typ: int
+            name: v
+        returns: boolean
+      - doc: adds value v to the bitset
+        extensor: bitset
+        name: add
+        params:
+          - typ: int
+            name: v
+        returns: bitset
+      - doc: removes value v from the bitset
+        extensor: bitset
+        name: remove
+        params:
+          - typ: int
+            name: v
+        returns: bitset

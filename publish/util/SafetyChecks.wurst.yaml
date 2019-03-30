@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: SafetyChecks
+    classes: []
+    free_fns: []

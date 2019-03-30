@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: LinkedListModule
+    classes: []
+    free_fns: []

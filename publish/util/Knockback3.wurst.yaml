@@ -1,0 +1,6 @@
+---
+- Package:
+    doc: "Use the `Knockback3.add(..)` functions to apply 3D knockback to units.\n\tUsing angles:\n\t\timport Knockback3\n\t\t...\n\t\tlet u = ...\n\t\tKnockback3.add(u, 1000., 0 .fromDeg(), 45 .fromDeg())\n\n\tUsing a target position:\n\t\tlet caster = GetSpellAbilityUnit()\n\t\tlet target = getSpellTargetPos()\n\n\t\tKnockback3.add(caster, target, 500.)\n\n\tConfigure this system by overriding the @configurable globals and setting\n\tthe static class members:\n\n\t\tKnockback3.gravity = 25.\n\n\tBy default, this package allows units to collide with destructables and\n\tdestroy them. To disable this feature, make the global\n\tdestroyDestructableSpeedThreshold a very high value:\n\n\t   Knockback3.destroyDestructableSpeedThreshold = 999999999.\n\n\tThis value defaults to 300."
+    name: Knockback3
+    classes: []
+    free_fns: []

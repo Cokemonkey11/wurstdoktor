@@ -1,19 +1,21 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: initLbyte
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: initRbyte
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: initShift
-    params: []
-    returns: ~
+    name: BitwiseInit
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: initLbyte
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: initRbyte
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: initShift
+        params: []
+        returns: ~

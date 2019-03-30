@@ -1,19 +1,21 @@
 ---
-- FreeFunction:
-    doc: "Returns a reusable group from the GroupUtils stack is possible.\n\tCreates new groups if none are found on the reusable stack.\n\tIf that is not possible, returns a non-recyclable group and displays a warning."
-    extensor: ~
-    name: getGroup
-    params: []
-    returns: group
-- FreeFunction:
-    doc: "Recycles a group if it is created through GroupUtils, otherwise just destroys it.\n\tDoesn't affect ENUM_GROUP."
-    extensor: group
-    name: release
-    params: []
-    returns: ~
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: group
-    name: recyclableIterator
-    params: []
-    returns: group
+    name: GroupUtils
+    classes: []
+    free_fns:
+      - doc: "Returns a reusable group from the GroupUtils stack is possible.\n\tCreates new groups if none are found on the reusable stack.\n\tIf that is not possible, returns a non-recyclable group and displays a warning."
+        extensor: ~
+        name: getGroup
+        params: []
+        returns: group
+      - doc: "Recycles a group if it is created through GroupUtils, otherwise just destroys it.\n\tDoesn't affect ENUM_GROUP."
+        extensor: group
+        name: release
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: group
+        name: recyclableIterator
+        params: []
+        returns: group

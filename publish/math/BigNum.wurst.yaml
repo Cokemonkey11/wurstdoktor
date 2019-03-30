@@ -1,0 +1,15 @@
+---
+- Package:
+    doc: ~
+    name: BigNum
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: log
+        params:
+          - typ: real
+            name: py
+          - typ: real
+            name: pbase
+        returns: real

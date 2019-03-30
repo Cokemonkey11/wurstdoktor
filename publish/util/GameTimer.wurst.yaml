@@ -1,7 +1,11 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: getElapsedGameTime
-    params: []
-    returns: real
+    name: GameTimer
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: getElapsedGameTime
+        params: []
+        returns: real

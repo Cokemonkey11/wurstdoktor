@@ -1,0 +1,11 @@
+---
+- Package:
+    doc: ~
+    name: AbilityObjEditing
+    classes: []
+    free_fns:
+      - doc: Makes an ability able to be cast by a dummy
+        extensor: AbilityDefinition
+        name: setDummyAbility
+        params: []
+        returns: AbilityDefinition

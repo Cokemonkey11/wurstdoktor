@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: Wurst
+    classes: []
+    free_fns: []
