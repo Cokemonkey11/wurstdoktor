@@ -162,7 +162,7 @@
 
                             $(`.pkg-${details.name}`).append(`<p class="path"><i class="fas fa-folder-open"></i> ${uri}</p>`);
                             details.doc !== null ? $(`.pkg-${details.name}`).append(
-                                `${details.doc.split("\n").map((line) => "<p>" + line + "</p>").join('')}`
+                                `${details.doc.split("\n\n").map((line) => "<p>" + line + "</p>").join('')}`
                             ) : null;
 
                             $(`.pkg-${details.name}`).hide();
