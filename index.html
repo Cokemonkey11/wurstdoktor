@@ -160,8 +160,8 @@
                             $(`.ctr-${details.name}`).append(`<h2 class="packname hdr-${details.name}"> <i class="fas fa-archive"></i> ${details.name}</h2>`);
                             $(`.ctr-${details.name}`).append(`<div class="package pkg-${details.name}"></div>`);
 
-                            $(`.pkg-${details.name}`).append(`<p><i class="fas fa-folder-open"></i> ${uri}</p>`);
-                            details.doc !== null ? $(`.pkg-${details.name}`).append(`<p class="path">${details.doc}</p>`) : null;
+                            $(`.pkg-${details.name}`).append(`<p class="path"><i class="fas fa-folder-open"></i> ${uri}</p>`);
+                            details.doc !== null ? $(`.pkg-${details.name}`).append(`<p>${details.doc}</p>`) : null;
 
                             $(`.pkg-${details.name}`).hide();
                             $(`.hdr-${details.name}`).click(() => {
