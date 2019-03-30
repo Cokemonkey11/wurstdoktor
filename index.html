@@ -9,6 +9,16 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous"
     />
+
+    <style type="text/css">
+        .contents {
+            max-width: 50em;
+            margin: 0.5em auto;
+        }
+        .packname {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -164,7 +174,7 @@
                         })
                     });
                 }).fail((e) => {
-                    console.error(`halt ${JSON.stringify(e)}`);
+                    console.error(`halt ${JSON.stringify(e.status)}`);
                 });
             });
         });
