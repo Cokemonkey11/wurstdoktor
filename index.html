@@ -161,7 +161,9 @@
                             $(`.ctr-${details.name}`).append(`<div class="package pkg-${details.name}"></div>`);
 
                             $(`.pkg-${details.name}`).append(`<p class="path"><i class="fas fa-folder-open"></i> ${uri}</p>`);
-                            details.doc !== null ? $(`.pkg-${details.name}`).append(`<p>${details.doc}</p>`) : null;
+                            details.doc !== null ? $(`.pkg-${details.name}`).append(
+                                `${details.doc.split("\n").map((line) => "<p>" + line + "</p>").join('')}`
+                            ) : null;
 
                             $(`.pkg-${details.name}`).hide();
                             $(`.hdr-${details.name}`).click(() => {
