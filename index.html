@@ -18,6 +18,11 @@
         .packname {
             cursor: pointer;
         }
+        .packcontainer {
+            margin: 1em;
+            background-color: #ddd;
+            border-radius: 0.5em;
+        }
     </style>
 </head>
 
@@ -142,8 +147,11 @@
                     jsyaml.load(data).forEach((package) => {
                         Object.entries(package).forEach(([package, details]) => {
                             // Package name and doc.
-                            $('.contents').append(`<h2 class="packname hdr-${details.name}"> <i class="fas fa-archive"></i> ${details.name}</h2>`);
-                            $('.contents').append(`<div class="package pkg-${details.name}"></div>`);
+                            $('.contents').append(`<div class="packcontainer ctr-${details.name}"></div>`);
+
+                            $(`.ctr-${details.name}`).append(`<h2 class="packname hdr-${details.name}"> <i class="fas fa-archive"></i> ${details.name}</h2>`);
+                            $(`.ctr-${details.name}`).append(`<div class="package pkg-${details.name}"></div>`);
+
                             $(`.pkg-${details.name}`).append(`<p><i class="fas fa-folder-open"></i> ${uri}</p>`);
                             details.doc !== null ? $(`.pkg-${details.name}`).append(`<p>${details.doc}</p>`) : null;
 
