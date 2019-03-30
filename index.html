@@ -23,13 +23,18 @@
             padding: 0.5em 1em;
             background-color: #eee;
             border-radius: 0.5em;
-            box-shadow: 0px 1px -1px 3px #000;
         }
         .status-coal > h2 {
             color: #666;
         }
+        .status-bronze {
+            box-shadow: 0px 1px 2px -1px #444;
+        }
         .status-bronze > h2 {
             color: #444;
+        }
+        .status-silver {
+            box-shadow: 0px 2px 3px -1px #222;
         }
         .status-silver > h2 {
             color: #222;
@@ -67,21 +72,21 @@
                 ["publish/closures/ClosureEvents.wurst.yaml",                  "bronze"],
                 ["publish/closures/ClosureEventsTests.wurst.yaml",             "coal"],
                 ["publish/closures/ClosureForGroups.wurst.yaml",               "silver"],
-                ["publish/closures/ClosureTimers.wurst.yaml",                  "bronze"],
+                ["publish/closures/ClosureTimers.wurst.yaml",                  "silver"],
                 ["publish/closures/Execute.wurst.yaml",                        "bronze"],
                 ["publish/data/BitSet.wurst.yaml",                             "bronze"],
-                ["publish/data/buffer/Buffer.wurst.yaml",                      "bronze"],
+                ["publish/data/buffer/Buffer.wurst.yaml",                      "coal"],
                 ["publish/data/buffer/BufferAdapters.wurst.yaml",              "bronze"],
                 ["publish/data/buffer/BufferInterface.wurst.yaml",             "bronze"],
                 ["publish/data/buffer/BufferTests.wurst.yaml",                 "coal"],
-                ["publish/data/buffer/HashBuffer.wurst.yaml",                  "bronze"],
-                ["publish/data/buffer/OrderedStringBuffer.wurst.yaml",         "bronze"],
-                ["publish/data/buffer/StringBuffer.wurst.yaml",                "bronze"],
-                ["publish/data/HashList.wurst.yaml",                           "bronze"],
+                ["publish/data/buffer/HashBuffer.wurst.yaml",                  "coal"],
+                ["publish/data/buffer/OrderedStringBuffer.wurst.yaml",         "coal"],
+                ["publish/data/buffer/StringBuffer.wurst.yaml",                "coal"],
+                ["publish/data/HashList.wurst.yaml",                           "coal"],
                 ["publish/data/HashListTests.wurst.yaml",                      "coal"],
-                ["publish/data/HashMap.wurst.yaml",                            "bronze"],
+                ["publish/data/HashMap.wurst.yaml",                            "coal"],
                 ["publish/data/HashMapTests.wurst.yaml",                       "coal"],
-                ["publish/data/HashSet.wurst.yaml",                            "bronze"],
+                ["publish/data/HashSet.wurst.yaml",                            "coal"],
                 ["publish/data/HashSetTests.wurst.yaml",                       "coal"],
                 ["publish/data/LinkedList.wurst.yaml",                         "bronze"],
                 ["publish/data/LinkedListModule.wurst.yaml",                   "bronze"],
