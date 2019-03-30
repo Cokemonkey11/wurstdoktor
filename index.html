@@ -25,6 +25,9 @@
             border-radius: 0.5em;
             box-shadow: 0px 1px -1px 3px #000;
         }
+        .status-coal > h2 {
+            color: #666;
+        }
         .status-bronze > h2 {
             color: #444;
         }
@@ -52,34 +55,38 @@
     <script type="text/javascript">
         $(document).ready(() => {
             $('.contents').append(`<h1>Wurstdoktor</h1>`);
+            $('.contents').append(`<button type="button" class="unfold">Unfold all</button>`);
+            $('.unfold').click(() => {
+                $('.package').slideDown();
+            });
 
             [
                 ["publish/bitwise/Bitwise.wurst.yaml",                         "bronze"],
                 ["publish/bitwise/BitwiseInit.wurst.yaml",                     "bronze"],
-                ["publish/bitwise/BitwiseTests.wurst.yaml",                    "bronze"],
+                ["publish/bitwise/BitwiseTests.wurst.yaml",                    "coal"],
                 ["publish/closures/ClosureEvents.wurst.yaml",                  "bronze"],
-                ["publish/closures/ClosureEventsTests.wurst.yaml",             "bronze"],
-                ["publish/closures/ClosureForGroups.wurst.yaml",               "bronze"],
+                ["publish/closures/ClosureEventsTests.wurst.yaml",             "coal"],
+                ["publish/closures/ClosureForGroups.wurst.yaml",               "silver"],
                 ["publish/closures/ClosureTimers.wurst.yaml",                  "bronze"],
                 ["publish/closures/Execute.wurst.yaml",                        "bronze"],
                 ["publish/data/BitSet.wurst.yaml",                             "bronze"],
                 ["publish/data/buffer/Buffer.wurst.yaml",                      "bronze"],
                 ["publish/data/buffer/BufferAdapters.wurst.yaml",              "bronze"],
                 ["publish/data/buffer/BufferInterface.wurst.yaml",             "bronze"],
-                ["publish/data/buffer/BufferTests.wurst.yaml",                 "bronze"],
+                ["publish/data/buffer/BufferTests.wurst.yaml",                 "coal"],
                 ["publish/data/buffer/HashBuffer.wurst.yaml",                  "bronze"],
                 ["publish/data/buffer/OrderedStringBuffer.wurst.yaml",         "bronze"],
                 ["publish/data/buffer/StringBuffer.wurst.yaml",                "bronze"],
                 ["publish/data/HashList.wurst.yaml",                           "bronze"],
-                ["publish/data/HashListTests.wurst.yaml",                      "bronze"],
+                ["publish/data/HashListTests.wurst.yaml",                      "coal"],
                 ["publish/data/HashMap.wurst.yaml",                            "bronze"],
-                ["publish/data/HashMapTests.wurst.yaml",                       "bronze"],
+                ["publish/data/HashMapTests.wurst.yaml",                       "coal"],
                 ["publish/data/HashSet.wurst.yaml",                            "bronze"],
-                ["publish/data/HashSetTests.wurst.yaml",                       "bronze"],
+                ["publish/data/HashSetTests.wurst.yaml",                       "coal"],
                 ["publish/data/LinkedList.wurst.yaml",                         "bronze"],
                 ["publish/data/LinkedListModule.wurst.yaml",                   "bronze"],
-                ["publish/data/LinkedListModuleTests.wurst.yaml",              "bronze"],
-                ["publish/data/LinkedListTests.wurst.yaml",                    "bronze"],
+                ["publish/data/LinkedListModuleTests.wurst.yaml",              "coal"],
+                ["publish/data/LinkedListTests.wurst.yaml",                    "coal"],
                 ["publish/data/Table.wurst.yaml",                              "bronze"],
                 ["publish/dummy/DummyCaster.wurst.yaml",                       "bronze"],
                 ["publish/dummy/DummyRecycler.wurst.yaml",                     "bronze"],
@@ -102,9 +109,9 @@
                 ["publish/math/Interpolation.wurst.yaml",                      "bronze"],
                 ["publish/math/Maths.wurst.yaml",                              "bronze"],
                 ["publish/math/Matrices.wurst.yaml",                           "bronze"],
-                ["publish/math/MatricesTests.wurst.yaml",                      "bronze"],
+                ["publish/math/MatricesTests.wurst.yaml",                      "coal"],
                 ["publish/math/Quaternion.wurst.yaml",                         "bronze"],
-                ["publish/math/QuaternionTests.wurst.yaml",                    "bronze"],
+                ["publish/math/QuaternionTests.wurst.yaml",                    "coal"],
                 ["publish/math/Raycast.wurst.yaml",                            "bronze"],
                 ["publish/math/Vectors.wurst.yaml",                            "bronze"],
                 ["publish/network/GamecacheBuffer.wurst.yaml",                 "bronze"],
@@ -141,7 +148,7 @@
                 ["publish/util/SoundUtils.wurst.yaml",                         "bronze"],
                 ["publish/util/StandardTextTags.wurst.yaml",                   "bronze"],
                 ["publish/util/StringUtils.wurst.yaml",                        "bronze"],
-                ["publish/util/StringUtilsTests.wurst.yaml",                   "bronze"],
+                ["publish/util/StringUtilsTests.wurst.yaml",                   "coal"],
                 ["publish/util/TerrainUtils.wurst.yaml",                       "bronze"],
                 ["publish/util/TimerUtils.wurst.yaml",                         "bronze"],
                 ["publish/util/UnitIndexer.wurst.yaml",                        "bronze"],
@@ -153,7 +160,7 @@
                 ["publish/_handles/Effect.wurst.yaml",                         "bronze"],
                 ["publish/_handles/Fogmodifier.wurst.yaml",                    "bronze"],
                 ["publish/_handles/Force.wurst.yaml",                          "bronze"],
-                ["publish/_handles/ForceTests.wurst.yaml",                     "bronze"],
+                ["publish/_handles/ForceTests.wurst.yaml",                     "coal"],
             ].forEach(([uri, status]) => {
                 $.get(uri, (data) => {
                     $('.loading').hide();
