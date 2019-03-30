@@ -132,11 +132,11 @@
                     jsyaml.load(data).forEach((probably_package) => {
                         Object.entries(probably_package).forEach(([probably_package, details]) => {
                             // Package name and doc.
-                            $('.contents').append(`<h2> <i class="fas archive"></i> ${details.name}</h2>`);
+                            $('.contents').append(`<h2> <i class="fas fa-archive"></i> ${details.name}</h2>`);
                             details.doc ? $('.contents').append(`<p>${details.doc}</p>`) : null;
 
                             details.classes.forEach((cls) => {
-                                const icon = `<i class="fas object-group"></i>`;
+                                const icon = `<i class="fas fa-object-group"></i>`;
                                 $('.contents').append(`<h3>${icon} ${cls.name}</h3>`);
                                 $('.contents').append(`<p>${cls.doc}</p>`);
 
@@ -156,8 +156,8 @@
                             });
                         })
                     });
-                }).fail(() => {
-                    console.error("halt");
+                }).fail((e) => {
+                    console.error(`halt ${e}`);
                 });
             });
         });
