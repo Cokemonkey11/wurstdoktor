@@ -56,6 +56,14 @@ struct WurstClass {
 }
 
 #[derive(Serialize, Debug, PartialEq)]
+struct WurstPackage {
+    doc: Option<String>,
+    name: String,
+    classes: Vec<WurstClass>,
+    free_fns: Vec<WurstFunction>,
+}
+
+#[derive(Serialize, Debug, PartialEq)]
 struct WurstFunction {
     doc: Option<String>,
     extensor: Option<String>,
@@ -66,9 +74,15 @@ struct WurstFunction {
 
 #[derive(Serialize, Debug, PartialEq)]
 enum WurstDok {
+    Package(WurstPackage),
     Class(WurstClass),
     FreeFunction(WurstFunction),
     Nothing
+}
+
+enum FunctionOrClassTemporary {
+    Function(WurstFunction),
+    Class(WurstClass),
 }
 
 fn cruft<'a>() -> Parser<'a, u8, ()> {
@@ -113,14 +127,15 @@ fn class_declaration<'a>() -> Parser<'a, u8, (Option<String>, String)> {
     doc() + (
         // Only match public classes.
         seq(b"public class ") *
-        none_of(b" (,").repeat(1..).convert(String::from_utf8)
+        none_of(b" (,").repeat(1..).convert(String::from_utf8) -
+        sym(b'\n')
     )
 }
 
 fn class<'a>() -> Parser<'a, u8, WurstClass> {
     (
         class_declaration() +
-        call(cruft).repeat(1..) *
+        cruft().repeat(0..) *
         list(
             call(class_fn),
             call(cruft).repeat(1..)
@@ -131,6 +146,54 @@ fn class<'a>() -> Parser<'a, u8, WurstClass> {
         extends: None,
         implements: vec![],
         fns: f
+    })
+}
+
+fn package_declaration<'a>() -> Parser<'a, u8, String> {
+    seq(b"package ") *
+    none_of(b" (,\n\r").repeat(1..).convert(String::from_utf8) -
+    sym(b'\n')
+}
+
+fn package<'a>() -> Parser<'a, u8, WurstPackage> {
+    (
+        doc() + (
+            package_declaration() +
+            cruft().repeat(0..) *
+            list(
+                class().map(|c| FunctionOrClassTemporary::Class(c)) |
+                free_function().map(|f| FunctionOrClassTemporary::Function(f)),
+                cruft().repeat(0..)
+            ) - cruft().repeat(0..)
+        )
+    ).map(|(doc, (package_name, members))| {
+        let (classes, fns) = members.into_iter().fold(
+            (vec![], vec![]),
+            |acc, x| match x {
+                FunctionOrClassTemporary::Class(class) => {
+                    (
+                        acc.0.into_iter().chain(
+                            vec![class].into_iter()
+                        ).collect(),
+                        acc.1
+                    )
+                },
+                FunctionOrClassTemporary::Function(func) => {
+                    (
+                        acc.0,
+                        acc.1.into_iter().chain(
+                            vec![func].into_iter()
+                        ).collect()
+                    )
+                },
+            }
+        );
+        WurstPackage {
+            doc: doc,
+            name: package_name,
+            classes: classes,
+            free_fns: fns,
+        }
     })
 }
 
@@ -166,7 +229,7 @@ fn function_params<'a>() -> Parser<'a, u8, Vec<WurstFnParam>> {
     }).collect())
 }
 
-fn free_function<'a>() -> Parser<'a, u8, WurstDok> {
+fn free_function<'a>() -> Parser<'a, u8, WurstFunction> {
     (
         doc() -
         one_of(b"\r\n\t ").repeat(0..) +
@@ -189,17 +252,19 @@ fn free_function<'a>() -> Parser<'a, u8, WurstDok> {
             none_of(b" ,\n").repeat(1..).convert(String::from_utf8)
         ).opt() -
         one_of(b" \r\t\n").repeat(0..)
-    ).map(|(((d, (e, n)), p), r)| WurstDok::FreeFunction( WurstFunction {
+    ).map(|(((d, (e, n)), p), r)| WurstFunction {
         doc: d,
         extensor: e,
         name: n,
         params: p,
         returns: r
-    }))
+    })
 }
 
 fn wurstdok<'a>() -> Parser<'a, u8, WurstDok> {
-    class().map(|c| WurstDok::Class(c)) | free_function()
+    package().map(|p| WurstDok::Package(p)) |
+    class().map(|c| WurstDok::Class(c)) |
+    free_function().map(|f| WurstDok::FreeFunction(f))
 }
 
 fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
@@ -397,13 +462,68 @@ mod tests {
                         currentTime += ANIMATION_PERIOD
             "#),
             Ok(vec![
-                WurstDok::FreeFunction(
-                    WurstFunction {
+                WurstDok::Package(
+                    WurstPackage {
                         doc: None,
-                        extensor: None,
-                        name: "getElapsedGameTime".into(),
-                        params: vec![],
-                        returns: Some("real".into())
+                        name: "GameTimer".into(),
+                        classes: vec![],
+                        free_fns: vec![
+                            WurstFunction {
+                                doc: None,
+                                extensor: None,
+                                name: "getElapsedGameTime".into(),
+                                params: vec![],
+                                returns: Some("real".into())
+                            }
+                        ]
+                    }
+                )
+            ])
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_pkg_two_fns() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                /** A test package that fucks the what. */
+                package test
+                public function braap(unit q)
+                    q.kill()
+
+                public function goth(unit g)
+                    g.remove()
+            "#),
+            Ok(vec![
+                WurstDok::Package(
+                    WurstPackage {
+                        doc: Some("A test package that fucks the what.".into()),
+                        name: "test".into(),
+                        classes: vec![],
+                        free_fns: vec![
+                            WurstFunction {
+                                doc: None,
+                                extensor: None,
+                                name: "braap".into(),
+                                params: vec![WurstFnParam {
+                                    typ: "unit".into(),
+                                    name: "q".into()
+                                }],
+                                returns: None
+                            },
+                            WurstFunction {
+                                doc: None,
+                                extensor: None,
+                                name: "goth".into(),
+                                params: vec![WurstFnParam {
+                                    typ: "unit".into(),
+                                    name: "g".into()
+                                }],
+                                returns: None
+                            }
+                        ],
                     }
                 )
             ])
@@ -416,7 +536,7 @@ mod tests {
     fn test_two_fns() -> Result<(), ()> {
         assert_eq!(
             wurstdoktor().parse(br#"
-                package test
+                /** Okay. */
                 public function braap(unit q)
                     q.kill()
 
@@ -426,7 +546,7 @@ mod tests {
             Ok(vec![
                 WurstDok::FreeFunction(
                     WurstFunction {
-                        doc: None,
+                        doc: Some("Okay.".into()),
                         extensor: None,
                         name: "braap".into(),
                         params: vec![WurstFnParam {
@@ -460,8 +580,7 @@ mod tests {
             free_function().parse(br#"
                 public function braap(unit q)
             "#),
-            Ok(WurstDok::FreeFunction(
-                WurstFunction {
+            Ok(WurstFunction {
                     doc: None,
                     extensor: None,
                     name: "braap".into(),
@@ -473,7 +592,7 @@ mod tests {
                     ],
                     returns: None
                 }
-            ))
+            )
         );
         Ok(())
     }

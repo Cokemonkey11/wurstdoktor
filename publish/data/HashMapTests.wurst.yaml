@@ -1,2 +1,6 @@
 ---
-[]
+- Package:
+    doc: ~
+    name: HashMapTests
+    classes: []
+    free_fns: []

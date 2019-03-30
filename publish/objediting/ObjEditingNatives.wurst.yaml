@@ -1,259 +1,243 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: compileError
-    params:
-      - typ: string
-        name: msg
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: createObjectDefinition
-    params:
-      - typ: string
-        name: fileType
-      - typ: int
-        name: newId
-      - typ: int
-        name: deriveFrom
-    returns: ObjectDefinition
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setInt
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setBoolean
-    params:
-      - typ: string
-        name: modification
-      - typ: boolean
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setString
-    params:
-      - typ: string
-        name: modification
-      - typ: string
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setReal
-    params:
-      - typ: string
-        name: modification
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setUnreal
-    params:
-      - typ: string
-        name: modification
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlInt
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlString
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: string
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlReal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlUnreal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlDataInt
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: dataPointer
-      - typ: int
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlDataString
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: dataPointer
-      - typ: string
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlDataReal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: dataPointer
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlDataUnreal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: dataPointer
-      - typ: real
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLvlDataBoolean
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: lvl
-      - typ: int
-        name: dataPointer
-      - typ: boolean
-        name: value
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLevelsDataString
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: maxLevel
-      - typ: int
-        name: dataPointer
-      - typ: StringLevelClosure
-        name: lc
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLevelsDataInt
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: maxLevel
-      - typ: int
-        name: dataPointer
-      - typ: IntLevelClosure
-        name: lc
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLevelsDataUnreal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: maxLevel
-      - typ: int
-        name: dataPointer
-      - typ: RealLevelClosure
-        name: lc
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLevelsDataReal
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: maxLevel
-      - typ: int
-        name: dataPointer
-      - typ: RealLevelClosure
-        name: lc
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ObjectDefinition
-    name: setLevelsDataBoolean
-    params:
-      - typ: string
-        name: modification
-      - typ: int
-        name: maxLevel
-      - typ: int
-        name: dataPointer
-      - typ: BooleanLevelClosure
-        name: lc
-    returns: ~
+    name: ObjEditingNatives
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: compileError
+        params:
+          - typ: string
+            name: msg
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: createObjectDefinition
+        params:
+          - typ: string
+            name: fileType
+          - typ: int
+            name: newId
+          - typ: int
+            name: deriveFrom
+        returns: ObjectDefinition
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setInt
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setBoolean
+        params:
+          - typ: string
+            name: modification
+          - typ: boolean
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setString
+        params:
+          - typ: string
+            name: modification
+          - typ: string
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setReal
+        params:
+          - typ: string
+            name: modification
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setUnreal
+        params:
+          - typ: string
+            name: modification
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlInt
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlString
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: string
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlReal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlUnreal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlDataInt
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: dataPointer
+          - typ: int
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlDataString
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: dataPointer
+          - typ: string
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlDataReal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: dataPointer
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlDataUnreal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: dataPointer
+          - typ: real
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLvlDataBoolean
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: lvl
+          - typ: int
+            name: dataPointer
+          - typ: boolean
+            name: value
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLevelsDataString
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: maxLevel
+          - typ: int
+            name: dataPointer
+          - typ: StringLevelClosure
+            name: lc
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLevelsDataInt
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: maxLevel
+          - typ: int
+            name: dataPointer
+          - typ: IntLevelClosure
+            name: lc
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLevelsDataUnreal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: maxLevel
+          - typ: int
+            name: dataPointer
+          - typ: RealLevelClosure
+            name: lc
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLevelsDataReal
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: maxLevel
+          - typ: int
+            name: dataPointer
+          - typ: RealLevelClosure
+            name: lc
+        returns: ~
+      - doc: ~
+        extensor: ObjectDefinition
+        name: setLevelsDataBoolean
+        params:
+          - typ: string
+            name: modification
+          - typ: int
+            name: maxLevel
+          - typ: int
+            name: dataPointer
+          - typ: BooleanLevelClosure
+            name: lc
+        returns: ~

@@ -1,7 +1,11 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: BufferMode
-    name: toString
-    params: []
-    returns: string
+    name: BufferInterface
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: BufferMode
+        name: toString
+        params: []
+        returns: string

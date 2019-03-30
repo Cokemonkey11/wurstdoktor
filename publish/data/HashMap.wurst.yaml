@@ -1,0 +1,6 @@
+---
+- Package:
+    doc: ~
+    name: HashMap
+    classes: []
+    free_fns: []

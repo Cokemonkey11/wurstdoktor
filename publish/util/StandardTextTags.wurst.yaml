@@ -1,95 +1,91 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: standardTextTag
-    params:
-      - typ: vec2
-        name: pos
-      - typ: string
-        name: text
-    returns: texttag
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 Critical\n\tStrike ability."
-    extensor: ~
-    name: createCriticalStrikeTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: damage
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
-    extensor: ~
-    name: createGoldBountyTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: bounty
-      - typ: player
-        name: killer
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
-    extensor: ~
-    name: createGoldBountyTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: bounty
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
-    extensor: ~
-    name: createLumberBountyTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: bounty
-      - typ: player
-        name: killer
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
-    extensor: ~
-    name: createLumberBountyTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: bounty
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 Mana Burn\n\tability."
-    extensor: ~
-    name: createManaBurnTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: damage
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 attack\n\tmiss indication."
-    extensor: ~
-    name: createMissTextTag
-    params:
-      - typ: unit
-        name: u
-    returns: ~
-- FreeFunction:
-    doc: "Create a texttag that matches the style of the standard warcraft 3 Shadow\n\tStrike ability."
-    extensor: ~
-    name: createShadowStrikeTextTag
-    params:
-      - typ: unit
-        name: u
-      - typ: int
-        name: damage
-      - typ: bool
-        name: isInitialDamage
-    returns: ~
+    name: StandardTextTags
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: standardTextTag
+        params:
+          - typ: vec2
+            name: pos
+          - typ: string
+            name: text
+        returns: texttag
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 Critical\n\tStrike ability."
+        extensor: ~
+        name: createCriticalStrikeTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: damage
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
+        extensor: ~
+        name: createGoldBountyTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: bounty
+          - typ: player
+            name: killer
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
+        extensor: ~
+        name: createGoldBountyTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: bounty
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
+        extensor: ~
+        name: createLumberBountyTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: bounty
+          - typ: player
+            name: killer
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
+        extensor: ~
+        name: createLumberBountyTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: bounty
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 Mana Burn\n\tability."
+        extensor: ~
+        name: createManaBurnTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: damage
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 attack\n\tmiss indication."
+        extensor: ~
+        name: createMissTextTag
+        params:
+          - typ: unit
+            name: u
+        returns: ~
+      - doc: "Create a texttag that matches the style of the standard warcraft 3 Shadow\n\tStrike ability."
+        extensor: ~
+        name: createShadowStrikeTextTag
+        params:
+          - typ: unit
+            name: u
+          - typ: int
+            name: damage
+          - typ: bool
+            name: isInitialDamage
+        returns: ~

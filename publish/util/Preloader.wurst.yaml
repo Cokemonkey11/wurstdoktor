@@ -1,7 +1,11 @@
 ---
-- FreeFunction:
-    doc: If autoFinish is false you need to call this function manually
-    extensor: ~
-    name: finishPreload
-    params: []
-    returns: ~
+- Package:
+    doc: ~
+    name: Preloader
+    classes: []
+    free_fns:
+      - doc: If autoFinish is false you need to call this function manually
+        extensor: ~
+        name: finishPreload
+        params: []
+        returns: ~

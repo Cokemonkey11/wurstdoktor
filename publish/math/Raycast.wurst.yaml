@@ -1,101 +1,96 @@
 ---
-- FreeFunction:
-    doc: "Projects the point onto a ray.\nReturns tuple result2d(intersects, point, distance)."
-    extensor: vec2
-    name: project
-    params:
-      - typ: ray2d
-        name: ray
-    returns: result2d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and a line defined by 2 points.\nReturns tuple result2d(intersects, point, distance)."
-    extensor: ray2d
-    name: castToLine
-    params:
-      - typ: vec2
-        name: p1
-      - typ: vec2
-        name: p2
-    returns: result2d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and another ray.\nReturns tuple result2d(intersects, point, distance)."
-    extensor: ray2d
-    name: castToRay
-    params:
-      - typ: vec2
-        name: origin
-      - typ: vec2
-        name: direction
-    returns: result2d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and a line segment defined by 2 points.\nReturns tuple result2d(intersects, point, distance)."
-    extensor: ray2d
-    name: castToSegment
-    params:
-      - typ: vec2
-        name: p1
-      - typ: vec2
-        name: p2
-    returns: result2d
-- FreeFunction:
-    doc: "Finds the intersection point(s) of the ray and a circle.\nReturns tuple doubleresult2d(first, second)."
-    extensor: ray2d
-    name: castToCircle
-    params:
-      - typ: vec2
-        name: center
-      - typ: real
-        name: radius
-    returns: doubleresult2d
-- FreeFunction:
-    doc: "Projects the point onto a ray.\nReturns tuple result3d(intersects, point, distance, backface) where 'backface' is always false."
-    extensor: vec3
-    name: project
-    params:
-      - typ: ray3d
-        name: ray
-    returns: result3d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and a plane where\npoint - a point on the plane\nnormal - a vector perpendicular to the plane\nReturns tuple result3d(intersects, point, distance, backface)."
-    extensor: ray3d
-    name: castToPlane
-    params:
-      - typ: vec3
-        name: point
-      - typ: vec3
-        name: normal
-    returns: result3d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and a plane disk where\ncenter - the center of the disk\nnormal - a vector perpendicular to the disk's plane\nradius - the disk's radius\nReturns tuple result3d(intersects, point, distance, backface)."
-    extensor: ray3d
-    name: castToDisk
-    params:
-      - typ: vec3
-        name: center
-      - typ: vec3
-        name: normal
-      - typ: real
-        name: radius
-    returns: result3d
-- FreeFunction:
-    doc: "Finds the intersection point(s) of the ray and a sphere.\nReturns tuple doubleresult3d(first, second)."
-    extensor: ray3d
-    name: castToSphere
-    params:
-      - typ: vec3
-        name: center
-      - typ: real
-        name: radius
-    returns: doubleresult3d
-- FreeFunction:
-    doc: "Finds the intersection point of the ray and a triangle in 3D space defined by 3 points.\nReturns tuple result3d(intersects, point, distance, backface) where 'backface' depends on the order of the given points."
-    extensor: ray3d
-    name: castToTriangle
-    params:
-      - typ: vec3
-        name: p1
-      - typ: vec3
-        name: p2
-      - typ: vec3
-        name: p3
-    returns: result3d
+- Package:
+    doc: ~
+    name: Raycast
+    classes: []
+    free_fns:
+      - doc: "Projects the point onto a ray.\nReturns tuple result2d(intersects, point, distance)."
+        extensor: vec2
+        name: project
+        params:
+          - typ: ray2d
+            name: ray
+        returns: result2d
+      - doc: "Finds the intersection point of the ray and a line defined by 2 points.\nReturns tuple result2d(intersects, point, distance)."
+        extensor: ray2d
+        name: castToLine
+        params:
+          - typ: vec2
+            name: p1
+          - typ: vec2
+            name: p2
+        returns: result2d
+      - doc: "Finds the intersection point of the ray and another ray.\nReturns tuple result2d(intersects, point, distance)."
+        extensor: ray2d
+        name: castToRay
+        params:
+          - typ: vec2
+            name: origin
+          - typ: vec2
+            name: direction
+        returns: result2d
+      - doc: "Finds the intersection point of the ray and a line segment defined by 2 points.\nReturns tuple result2d(intersects, point, distance)."
+        extensor: ray2d
+        name: castToSegment
+        params:
+          - typ: vec2
+            name: p1
+          - typ: vec2
+            name: p2
+        returns: result2d
+      - doc: "Finds the intersection point(s) of the ray and a circle.\nReturns tuple doubleresult2d(first, second)."
+        extensor: ray2d
+        name: castToCircle
+        params:
+          - typ: vec2
+            name: center
+          - typ: real
+            name: radius
+        returns: doubleresult2d
+      - doc: "Projects the point onto a ray.\nReturns tuple result3d(intersects, point, distance, backface) where 'backface' is always false."
+        extensor: vec3
+        name: project
+        params:
+          - typ: ray3d
+            name: ray
+        returns: result3d
+      - doc: "Finds the intersection point of the ray and a plane where\npoint - a point on the plane\nnormal - a vector perpendicular to the plane\nReturns tuple result3d(intersects, point, distance, backface)."
+        extensor: ray3d
+        name: castToPlane
+        params:
+          - typ: vec3
+            name: point
+          - typ: vec3
+            name: normal
+        returns: result3d
+      - doc: "Finds the intersection point of the ray and a plane disk where\ncenter - the center of the disk\nnormal - a vector perpendicular to the disk's plane\nradius - the disk's radius\nReturns tuple result3d(intersects, point, distance, backface)."
+        extensor: ray3d
+        name: castToDisk
+        params:
+          - typ: vec3
+            name: center
+          - typ: vec3
+            name: normal
+          - typ: real
+            name: radius
+        returns: result3d
+      - doc: "Finds the intersection point(s) of the ray and a sphere.\nReturns tuple doubleresult3d(first, second)."
+        extensor: ray3d
+        name: castToSphere
+        params:
+          - typ: vec3
+            name: center
+          - typ: real
+            name: radius
+        returns: doubleresult3d
+      - doc: "Finds the intersection point of the ray and a triangle in 3D space defined by 3 points.\nReturns tuple result3d(intersects, point, distance, backface) where 'backface' depends on the order of the given points."
+        extensor: ray3d
+        name: castToTriangle
+        params:
+          - typ: vec3
+            name: p1
+          - typ: vec3
+            name: p2
+          - typ: vec3
+            name: p3
+        returns: result3d

@@ -1,479 +1,431 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: ~
-    name: getCameraBoundMin
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getCameraBoundMax
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getCameraTargetPosition
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getCameraTargetPosition3
-    params: []
-    returns: vec3
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getCameraEyePosition
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: getCameraEyePosition3
-    params: []
-    returns: vec3
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: setCameraPosition
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: setCameraQuickPosition
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: setCameraBounds
-    params:
-      - typ: vec2
-        name: bottomLeft
-      - typ: vec2
-        name: topRight
-      - typ: vec2
-        name: topLeft
-      - typ: vec2
-        name: bottomRight
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: panCameraTo
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: panCameraToTimed
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: "Pans the camera to pos.x, pos.y and absolute height pos.z\n\tIf pos.z > pos.getTerrainZ, the camera will not drop below\n\tthe terrain on its path."
-    extensor: ~
-    name: panCameraTo
-    params:
-      - typ: vec3
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: panCameraToTimed
-    params:
-      - typ: vec3
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: setCameraRotateMode
-    params:
-      - typ: vec2
-        name: pos
-      - typ: angle
-        name: toSweep
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: "Runs the camera through the cinematic camera\n\tspecified in cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
-    extensor: ~
-    name: setCinematicCamera
-    params:
-      - typ: string
-        name: cameraModelFile
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerafield
-    name: set
-    params:
-      - typ: real
-        name: value
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerafield
-    name: adjust
-    params:
-      - typ: real
-        name: offset
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerafield
-    name: get
-    params: []
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: camerafield
-    name: getFieldSwap
-    params:
-      - typ: camerasetup
-        name: whichSetup
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: camerafield
-    name: setCameraField
-    params:
-      - typ: player
-        name: whichPlayer
-      - typ: real
-        name: value
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: setField
-    params:
-      - typ: camerafield
-        name: whichField
-      - typ: real
-        name: value
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: getField
-    params:
-      - typ: camerafield
-        name: whichField
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: setDestPosition
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: getDestPosition
-    params: []
-    returns: vec2
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: apply
-    params:
-      - typ: boolean
-        name: doPan
-      - typ: boolean
-        name: panTimed
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: applyWithZ
-    params:
-      - typ: real
-        name: zDestOffset
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: applyForceDuration
-    params:
-      - typ: boolean
-        name: doPan
-      - typ: real
-        name: forceDuration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: applyForceDurationWithZ
-    params:
-      - typ: real
-        name: zDestOffset
-      - typ: real
-        name: forceDuration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: apply
-    params:
-      - typ: boolean
-        name: doPan
-      - typ: player
-        name: whichPlayer
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: camerasetup
-    name: getFieldSwap
-    params:
-      - typ: camerafield
-        name: whichField
-    returns: real
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: cameraSetupApply
-    params:
-      - typ: boolean
-        name: doPan
-      - typ: camerasetup
-        name: whichSetup
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraField
-    params:
-      - typ: camerafield
-        name: whichField
-      - typ: real
-        name: value
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraTargetControllerNoZ
-    params:
-      - typ: unit
-        name: whichUnit
-      - typ: vec2
-        name: offset
-      - typ: boolean
-        name: inheritOrientation
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraPosition
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: panCameraTo
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: panCameraTo
-    params:
-      - typ: vec3
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: panCameraToTimed
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: panCameraToTimed
-    params:
-      - typ: vec3
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: "Pans the camera depending on how far pos is from the current\n\tcamera target:\n\t- If the distance is larger than\n\t  bj_SMARTPAN_TRESHOLD_SNAP, the camera snaps instantenously\n\t- If the distance is larger than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera pans over the specified duration\n\t- If the distance is smaller than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera doesn't move at all."
-    extensor: player
-    name: smartCameraPan
-    params:
-      - typ: vec2
-        name: pos
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: "Runs the camera for the player through the cinematic camera\n\tspecified in  cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
-    extensor: player
-    name: setCinematicCamera
-    params:
-      - typ: string
-        name: cameraModelFile
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: resetToGameCamera
-    params:
-      - typ: real
-        name: duration
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: cameraSetSourceNoise
-    params:
-      - typ: real
-        name: magnitude
-      - typ: real
-        name: velocity
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: cameraSetTargetNoise
-    params:
-      - typ: real
-        name: magnitude
-      - typ: real
-        name: velocity
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: cameraSetEQNoise
-    params:
-      - typ: real
-        name: magnitude
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: cameraClearNoise
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraBoundsToRect
-    params:
-      - typ: rect
-        name: r
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: adjustCameraBounds
-    params:
-      - typ: integer
-        name: adjustMethod
-      - typ: real
-        name: dxWest
-      - typ: real
-        name: dxEast
-      - typ: real
-        name: dyNorth
-      - typ: real
-        name: dySouth
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraQuickPosition
-    params:
-      - typ: vec2
-        name: pos
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: stopCamera
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: player
-    name: setCameraOrientController
-    params:
-      - typ: unit
-        name: whichUnit
-      - typ: vec2
-        name: offset
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: unit
-    name: setCameraTargetController
-    params:
-      - typ: vec2
-        name: offset
-      - typ: boolean
-        name: inheritOrientation
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: unit
-    name: setCameraOrientController
-    params:
-      - typ: vec2
-        name: offset
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: unit
-    name: setCameraOrientControllerForPlayer
-    params:
-      - typ: vec2
-        name: offset
-      - typ: player
-        name: whichPlayer
-    returns: ~
+    name: Camera
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: getCameraBoundMin
+        params: []
+        returns: vec2
+      - doc: ~
+        extensor: ~
+        name: getCameraBoundMax
+        params: []
+        returns: vec2
+      - doc: ~
+        extensor: ~
+        name: getCameraTargetPosition
+        params: []
+        returns: vec2
+      - doc: ~
+        extensor: ~
+        name: getCameraTargetPosition3
+        params: []
+        returns: vec3
+      - doc: ~
+        extensor: ~
+        name: getCameraEyePosition
+        params: []
+        returns: vec2
+      - doc: ~
+        extensor: ~
+        name: getCameraEyePosition3
+        params: []
+        returns: vec3
+      - doc: ~
+        extensor: ~
+        name: setCameraPosition
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: setCameraQuickPosition
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: setCameraBounds
+        params:
+          - typ: vec2
+            name: bottomLeft
+          - typ: vec2
+            name: topRight
+          - typ: vec2
+            name: topLeft
+          - typ: vec2
+            name: bottomRight
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: panCameraTo
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: panCameraToTimed
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: "Pans the camera to pos.x, pos.y and absolute height pos.z\n\tIf pos.z > pos.getTerrainZ, the camera will not drop below\n\tthe terrain on its path."
+        extensor: ~
+        name: panCameraTo
+        params:
+          - typ: vec3
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: panCameraToTimed
+        params:
+          - typ: vec3
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: setCameraRotateMode
+        params:
+          - typ: vec2
+            name: pos
+          - typ: angle
+            name: toSweep
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: "Runs the camera through the cinematic camera\n\tspecified in cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
+        extensor: ~
+        name: setCinematicCamera
+        params:
+          - typ: string
+            name: cameraModelFile
+        returns: ~
+      - doc: ~
+        extensor: camerafield
+        name: set
+        params:
+          - typ: real
+            name: value
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerafield
+        name: adjust
+        params:
+          - typ: real
+            name: offset
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerafield
+        name: get
+        params: []
+        returns: real
+      - doc: ~
+        extensor: camerafield
+        name: getFieldSwap
+        params:
+          - typ: camerasetup
+            name: whichSetup
+        returns: real
+      - doc: ~
+        extensor: camerafield
+        name: setCameraField
+        params:
+          - typ: player
+            name: whichPlayer
+          - typ: real
+            name: value
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: setField
+        params:
+          - typ: camerafield
+            name: whichField
+          - typ: real
+            name: value
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: getField
+        params:
+          - typ: camerafield
+            name: whichField
+        returns: real
+      - doc: ~
+        extensor: camerasetup
+        name: setDestPosition
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: getDestPosition
+        params: []
+        returns: vec2
+      - doc: ~
+        extensor: camerasetup
+        name: apply
+        params:
+          - typ: boolean
+            name: doPan
+          - typ: boolean
+            name: panTimed
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: applyWithZ
+        params:
+          - typ: real
+            name: zDestOffset
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: applyForceDuration
+        params:
+          - typ: boolean
+            name: doPan
+          - typ: real
+            name: forceDuration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: applyForceDurationWithZ
+        params:
+          - typ: real
+            name: zDestOffset
+          - typ: real
+            name: forceDuration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: apply
+        params:
+          - typ: boolean
+            name: doPan
+          - typ: player
+            name: whichPlayer
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: camerasetup
+        name: getFieldSwap
+        params:
+          - typ: camerafield
+            name: whichField
+        returns: real
+      - doc: ~
+        extensor: player
+        name: cameraSetupApply
+        params:
+          - typ: boolean
+            name: doPan
+          - typ: camerasetup
+            name: whichSetup
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraField
+        params:
+          - typ: camerafield
+            name: whichField
+          - typ: real
+            name: value
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraTargetControllerNoZ
+        params:
+          - typ: unit
+            name: whichUnit
+          - typ: vec2
+            name: offset
+          - typ: boolean
+            name: inheritOrientation
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraPosition
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: panCameraTo
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: panCameraTo
+        params:
+          - typ: vec3
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: panCameraToTimed
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: panCameraToTimed
+        params:
+          - typ: vec3
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: "Pans the camera depending on how far pos is from the current\n\tcamera target:\n\t- If the distance is larger than\n\t  bj_SMARTPAN_TRESHOLD_SNAP, the camera snaps instantenously\n\t- If the distance is larger than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera pans over the specified duration\n\t- If the distance is smaller than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera doesn't move at all."
+        extensor: player
+        name: smartCameraPan
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: "Runs the camera for the player through the cinematic camera\n\tspecified in  cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
+        extensor: player
+        name: setCinematicCamera
+        params:
+          - typ: string
+            name: cameraModelFile
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: resetToGameCamera
+        params:
+          - typ: real
+            name: duration
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: cameraSetSourceNoise
+        params:
+          - typ: real
+            name: magnitude
+          - typ: real
+            name: velocity
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: cameraSetTargetNoise
+        params:
+          - typ: real
+            name: magnitude
+          - typ: real
+            name: velocity
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: cameraSetEQNoise
+        params:
+          - typ: real
+            name: magnitude
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: cameraClearNoise
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraBoundsToRect
+        params:
+          - typ: rect
+            name: r
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: adjustCameraBounds
+        params:
+          - typ: integer
+            name: adjustMethod
+          - typ: real
+            name: dxWest
+          - typ: real
+            name: dxEast
+          - typ: real
+            name: dyNorth
+          - typ: real
+            name: dySouth
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraQuickPosition
+        params:
+          - typ: vec2
+            name: pos
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: stopCamera
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: player
+        name: setCameraOrientController
+        params:
+          - typ: unit
+            name: whichUnit
+          - typ: vec2
+            name: offset
+        returns: ~
+      - doc: ~
+        extensor: unit
+        name: setCameraTargetController
+        params:
+          - typ: vec2
+            name: offset
+          - typ: boolean
+            name: inheritOrientation
+        returns: ~
+      - doc: ~
+        extensor: unit
+        name: setCameraOrientController
+        params:
+          - typ: vec2
+            name: offset
+        returns: ~
+      - doc: ~
+        extensor: unit
+        name: setCameraOrientControllerForPlayer
+        params:
+          - typ: vec2
+            name: offset
+          - typ: player
+            name: whichPlayer
+        returns: ~

@@ -1,25 +1,21 @@
 ---
-- FreeFunction:
-    doc: Clears all recorded orders for this unit
-    extensor: unit
-    name: clearLastOrders
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: "Returns the lasz recorded order for this unit.\n\tTo access further back orders, use .prev"
-    extensor: unit
-    name: getLastOrder
-    params: []
-    returns: Order
-- Class:
-    doc: ~
-    name: "Order\n\tOrder"
-    extends: ~
-    implements: []
-    fns: []
-- FreeFunction:
-    doc: ~
-    extensor: unit
-    name: abortOrder
-    params: []
-    returns: boolean
+- Package:
+    doc: "If you import this package in any of your packages, each order\n\tany unit makes will be recorded and up to ORDERS_TO_HOLD will be saved.\n\tYou can access these old orders and reissue them using .getLastOrder()"
+    name: LastOrder
+    classes: []
+    free_fns:
+      - doc: Clears all recorded orders for this unit
+        extensor: unit
+        name: clearLastOrders
+        params: []
+        returns: ~
+      - doc: "Returns the lasz recorded order for this unit.\n\tTo access further back orders, use .prev"
+        extensor: unit
+        name: getLastOrder
+        params: []
+        returns: Order
+      - doc: ~
+        extensor: unit
+        name: abortOrder
+        params: []
+        returns: boolean

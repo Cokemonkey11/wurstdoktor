@@ -1,197 +1,174 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: player
-    name: getNameColored
-    params: []
-    returns: string
-- FreeFunction:
-    doc: Returns the name of the player color
-    extensor: playercolor
-    name: getName
-    params: []
-    returns: string
-- FreeFunction:
-    doc: Returns the color associated with the playercolor
-    extensor: playercolor
-    name: toColor
-    params: []
-    returns: color
-- FreeFunction:
-    doc: Add an alpha value to a simple color tuple
-    extensor: color
-    name: withAlpha
-    params:
-      - typ: int
-        name: a
-    returns: colorA
-- FreeFunction:
-    doc: ~
-    extensor: colorA
-    name: withoutAlpha
-    params: []
-    returns: color
-- FreeFunction:
-    doc: Get a colorA tuple from a hexstring
-    extensor: ~
-    name: fromHexString
-    params:
-      - typ: string
-        name: number
-    returns: colorA
-- FreeFunction:
-    doc: ~
-    extensor: color
-    name: normalize
-    params: []
-    returns: color
-- FreeFunction:
-    doc: ~
-    extensor: color
-    name: lerp
-    params:
-      - typ: color
-        name: target
-      - typ: real
-        name: smoothness
-    returns: color
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: makeColor
-    params:
-      - typ: int
-        name: colo
-    returns: colorA
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: fromPlayerColor
-    params:
-      - typ: playercolor
-        name: pc
-    returns: color
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: fromPlayer
-    params:
-      - typ: player
-        name: p
-    returns: color
-- FreeFunction:
-    doc: ~
-    extensor: colorA
-    name: mix
-    params:
-      - typ: colorA
-        name: c2
-      - typ: real
-        name: s
-    returns: colorA
-- FreeFunction:
-    doc: Set a units color to the tuplevalues with alpha
-    extensor: unit
-    name: setVertexColor
-    params:
-      - typ: colorA
-        name: col
-    returns: ~
-- FreeFunction:
-    doc: Set a units color to the tuplevalues without alpha
-    extensor: unit
-    name: setVertexColor
-    params:
-      - typ: color
-        name: col
-    returns: ~
-- FreeFunction:
-    doc: Returns a string that is in the wc3 hexcolor format (|caarrggbb)
-    extensor: colorA
-    name: toColorString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: Returns a string that is in the wc3 hexcolor format (|crrggbb)
-    extensor: color
-    name: toColorString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: "Returns the tuple in string format color(r,g,b)"
-    extensor: color
-    name: toString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: "Returns the tuple in string format colorA(r,g,b,a)"
-    extensor: colorA
-    name: toString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: Converts and int to a hexnumber
-    extensor: ~
-    name: toHex
-    params:
-      - typ: int
-        name: number
-    returns: string
-- FreeFunction:
-    doc: Converts a twochar string to an int
-    extensor: ~
-    name: toDec
-    params:
-      - typ: string
-        name: twochar
-    returns: int
-- FreeFunction:
-    doc: Gets the name of the color. Only works on player colors. See PLAYER_COLORS.
-    extensor: color
-    name: getName
-    params: []
-    returns: string
-- FreeFunction:
-    doc: "Returns the player that corresponds to described color. Returns null if a\n\tbad string is provided. See PLAYER_COLOR_NAMES for options. Returns players\n\tbased on starting color, not current color (does not respect SetPlayerColor)"
-    extensor: ~
-    name: toPlayerFromColorName
-    params:
-      - typ: string
-        name: colorName
-    returns: player
-- FreeFunction:
-    doc: Returns the color that the string describes. Only works on player colors.
-    extensor: string
-    name: toColor
-    params: []
-    returns: color
-- FreeFunction:
-    doc: Returns the player color that the string describes. Only works on player colors.
-    extensor: string
-    name: toPlayerColor
-    params: []
-    returns: playercolor
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: testColors
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: testColorNames
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: testPlayerColorConversion
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: testPlayerFromColorName
-    params: []
-    returns: ~
+    name: Colors
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: player
+        name: getNameColored
+        params: []
+        returns: string
+      - doc: Returns the name of the player color
+        extensor: playercolor
+        name: getName
+        params: []
+        returns: string
+      - doc: Returns the color associated with the playercolor
+        extensor: playercolor
+        name: toColor
+        params: []
+        returns: color
+      - doc: Add an alpha value to a simple color tuple
+        extensor: color
+        name: withAlpha
+        params:
+          - typ: int
+            name: a
+        returns: colorA
+      - doc: ~
+        extensor: colorA
+        name: withoutAlpha
+        params: []
+        returns: color
+      - doc: Get a colorA tuple from a hexstring
+        extensor: ~
+        name: fromHexString
+        params:
+          - typ: string
+            name: number
+        returns: colorA
+      - doc: ~
+        extensor: color
+        name: normalize
+        params: []
+        returns: color
+      - doc: ~
+        extensor: color
+        name: lerp
+        params:
+          - typ: color
+            name: target
+          - typ: real
+            name: smoothness
+        returns: color
+      - doc: ~
+        extensor: ~
+        name: makeColor
+        params:
+          - typ: int
+            name: colo
+        returns: colorA
+      - doc: ~
+        extensor: ~
+        name: fromPlayerColor
+        params:
+          - typ: playercolor
+            name: pc
+        returns: color
+      - doc: ~
+        extensor: ~
+        name: fromPlayer
+        params:
+          - typ: player
+            name: p
+        returns: color
+      - doc: ~
+        extensor: colorA
+        name: mix
+        params:
+          - typ: colorA
+            name: c2
+          - typ: real
+            name: s
+        returns: colorA
+      - doc: Set a units color to the tuplevalues with alpha
+        extensor: unit
+        name: setVertexColor
+        params:
+          - typ: colorA
+            name: col
+        returns: ~
+      - doc: Set a units color to the tuplevalues without alpha
+        extensor: unit
+        name: setVertexColor
+        params:
+          - typ: color
+            name: col
+        returns: ~
+      - doc: Returns a string that is in the wc3 hexcolor format (|caarrggbb)
+        extensor: colorA
+        name: toColorString
+        params: []
+        returns: string
+      - doc: Returns a string that is in the wc3 hexcolor format (|crrggbb)
+        extensor: color
+        name: toColorString
+        params: []
+        returns: string
+      - doc: "Returns the tuple in string format color(r,g,b)"
+        extensor: color
+        name: toString
+        params: []
+        returns: string
+      - doc: "Returns the tuple in string format colorA(r,g,b,a)"
+        extensor: colorA
+        name: toString
+        params: []
+        returns: string
+      - doc: Converts and int to a hexnumber
+        extensor: ~
+        name: toHex
+        params:
+          - typ: int
+            name: number
+        returns: string
+      - doc: Converts a twochar string to an int
+        extensor: ~
+        name: toDec
+        params:
+          - typ: string
+            name: twochar
+        returns: int
+      - doc: Gets the name of the color. Only works on player colors. See PLAYER_COLORS.
+        extensor: color
+        name: getName
+        params: []
+        returns: string
+      - doc: "Returns the player that corresponds to described color. Returns null if a\n\tbad string is provided. See PLAYER_COLOR_NAMES for options. Returns players\n\tbased on starting color, not current color (does not respect SetPlayerColor)"
+        extensor: ~
+        name: toPlayerFromColorName
+        params:
+          - typ: string
+            name: colorName
+        returns: player
+      - doc: Returns the color that the string describes. Only works on player colors.
+        extensor: string
+        name: toColor
+        params: []
+        returns: color
+      - doc: Returns the player color that the string describes. Only works on player colors.
+        extensor: string
+        name: toPlayerColor
+        params: []
+        returns: playercolor
+      - doc: ~
+        extensor: ~
+        name: testColors
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: testColorNames
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: testPlayerColorConversion
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: testPlayerFromColorName
+        params: []
+        returns: ~

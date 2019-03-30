@@ -1,23 +1,25 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: boolexpr
-    name: or_
-    params:
-      - typ: boolexpr
-        name: operandB
-    returns: boolexpr
-- FreeFunction:
-    doc: ~
-    extensor: boolexpr
-    name: and_
-    params:
-      - typ: boolexpr
-        name: operandB
-    returns: boolexpr
-- FreeFunction:
-    doc: ~
-    extensor: boolexpr
-    name: destr
-    params: []
-    returns: ~
+    name: Boolexpr
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: boolexpr
+        name: or_
+        params:
+          - typ: boolexpr
+            name: operandB
+        returns: boolexpr
+      - doc: ~
+        extensor: boolexpr
+        name: and_
+        params:
+          - typ: boolexpr
+            name: operandB
+        returns: boolexpr
+      - doc: ~
+        extensor: boolexpr
+        name: destr
+        params: []
+        returns: ~

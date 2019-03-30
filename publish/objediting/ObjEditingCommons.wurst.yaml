@@ -1,13 +1,16 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: Race
-    name: toObjectString
-    params: []
-    returns: string
-- FreeFunction:
-    doc: ~
-    extensor: AttacksEnabled
-    name: toObjectInt
-    params: []
-    returns: int
+    name: ObjEditingCommons
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: Race
+        name: toObjectString
+        params: []
+        returns: string
+      - doc: ~
+        extensor: AttacksEnabled
+        name: toObjectInt
+        params: []
+        returns: int

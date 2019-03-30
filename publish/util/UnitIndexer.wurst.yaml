@@ -1,0 +1,57 @@
+---
+- Package:
+    doc: ~
+    name: UnitIndexer
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: ~
+        name: shouldIndex
+        params:
+          - typ: unit
+            name: _u
+        returns: boolean
+      - doc: ~
+        extensor: unit
+        name: getIndex
+        params: []
+        returns: int
+      - doc: ~
+        extensor: unit
+        name: toUnitIndex
+        params: []
+        returns: UnitIndex
+      - doc: "Returns the currently indexing unit.\n\tThat's the last indexed unit or \n\tthe one about to be deindexed."
+        extensor: ~
+        name: getIndexingUnit
+        params: []
+        returns: unit
+      - doc: ~
+        extensor: ~
+        name: getIndexedUnit
+        params: []
+        returns: unit
+      - doc: ~
+        extensor: ~
+        name: getDeindexedUnit
+        params: []
+        returns: unit
+      - doc: "Adds a function to be called before a unit is deindexed.\n\tUse the getIndexingUnit() function to refer to the deindexing unit."
+        extensor: ~
+        name: onUnitDeindex
+        params:
+          - typ: code
+            name: func
+        returns: ~
+      - doc: "Adds a function to be called after a unit is indexed.\n\tUse the getIndexingUnit() function to refer to the indexed unit."
+        extensor: ~
+        name: onUnitIndex
+        params:
+          - typ: code
+            name: func
+        returns: ~
+      - doc: "Deindexes a unit.\n\tReturns whether the unit was originally indexed."
+        extensor: unit
+        name: deindex
+        params: []
+        returns: bool

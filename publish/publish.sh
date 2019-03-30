@@ -2,6 +2,10 @@
 
 set -euxo pipefail
 
+pushd ..
+cargo build --release
+popd
+
 find ../../WurstStdlib2/ -name '*.wurst' | \
     head -n 100 | \
     xargs -I {} bash -c " \

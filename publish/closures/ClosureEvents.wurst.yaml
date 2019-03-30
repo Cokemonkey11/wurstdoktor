@@ -1,23 +1,25 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: eventid
-    name: toIntId
-    params: []
-    returns: int
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: unregisterEventsForUnit
-    params:
-      - typ: unit
-        name: u
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: ~
-    name: unregisterEvents
-    params:
-      - typ: int
-        name: id
-    returns: ~
+    name: ClosureEvents
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: eventid
+        name: toIntId
+        params: []
+        returns: int
+      - doc: ~
+        extensor: ~
+        name: unregisterEventsForUnit
+        params:
+          - typ: unit
+            name: u
+        returns: ~
+      - doc: ~
+        extensor: ~
+        name: unregisterEvents
+        params:
+          - typ: int
+            name: id
+        returns: ~

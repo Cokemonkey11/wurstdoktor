@@ -1,97 +1,90 @@
 ---
-- FreeFunction:
+- Package:
     doc: ~
-    extensor: force
-    name: destr
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: addPlayer
-    params:
-      - typ: player
-        name: whichPlayer
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: removePlayer
-    params:
-      - typ: player
-        name: whichPlayer
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: clear
-    params: []
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: enumPlayers
-    params:
-      - typ: boolexpr
-        name: filter
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: enumPlayersCounted
-    params:
-      - typ: boolexpr
-        name: filter
-      - typ: int
-        name: countLimit
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: enumAllies
-    params:
-      - typ: player
-        name: whichPlayer
-      - typ: boolexpr
-        name: filter
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: enumEnemies
-    params:
-      - typ: player
-        name: whichPlayer
-      - typ: boolexpr
-        name: filter
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: forEach
-    params:
-      - typ: code
-        name: callback
-    returns: ~
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: getRandomPlayer
-    params: []
-    returns: player
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: containsUnit
-    params:
-      - typ: unit
-        name: whichUnit
-    returns: boolean
-- FreeFunction:
-    doc: ~
-    extensor: force
-    name: containsPlayer
-    params:
-      - typ: player
-        name: whichPlayer
-    returns: boolean
+    name: Force
+    classes: []
+    free_fns:
+      - doc: ~
+        extensor: force
+        name: destr
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: addPlayer
+        params:
+          - typ: player
+            name: whichPlayer
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: removePlayer
+        params:
+          - typ: player
+            name: whichPlayer
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: clear
+        params: []
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: enumPlayers
+        params:
+          - typ: boolexpr
+            name: filter
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: enumPlayersCounted
+        params:
+          - typ: boolexpr
+            name: filter
+          - typ: int
+            name: countLimit
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: enumAllies
+        params:
+          - typ: player
+            name: whichPlayer
+          - typ: boolexpr
+            name: filter
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: enumEnemies
+        params:
+          - typ: player
+            name: whichPlayer
+          - typ: boolexpr
+            name: filter
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: forEach
+        params:
+          - typ: code
+            name: callback
+        returns: ~
+      - doc: ~
+        extensor: force
+        name: getRandomPlayer
+        params: []
+        returns: player
+      - doc: ~
+        extensor: force
+        name: containsUnit
+        params:
+          - typ: unit
+            name: whichUnit
+        returns: boolean
+      - doc: ~
+        extensor: force
+        name: containsPlayer
+        params:
+          - typ: player
+            name: whichPlayer
+        returns: boolean
