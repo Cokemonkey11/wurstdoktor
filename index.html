@@ -25,17 +25,135 @@
             $('.loading').hide();
 
             [
-                "publish/event/DamageDetection.wurst.yaml",
-                "publish/math/Angle.wurst.yaml",
+                "publish/bitwise/Bitwise.wurst.yaml                                                                                                                                                                                      [44/1907]",
+                "publish/bitwise/BitwiseInit.wurst.yaml",
+                "publish/bitwise/BitwiseTests.wurst.yaml",
+                "publish/closures/ClosureEvents.wurst.yaml",
+                "publish/closures/ClosureEventsTests.wurst.yaml",
+                "publish/closures/ClosureForGroups.wurst.yaml",
                 "publish/closures/ClosureTimers.wurst.yaml",
+                "publish/closures/Execute.wurst.yaml",
+                "publish/data/BitSet.wurst.yaml",
+                "publish/data/buffer/Buffer.wurst.yaml",
+                "publish/data/buffer/BufferAdapters.wurst.yaml",
+                "publish/data/buffer/BufferInterface.wurst.yaml",
+                "publish/data/buffer/BufferTests.wurst.yaml",
+                "publish/data/buffer/HashBuffer.wurst.yaml",
+                "publish/data/buffer/OrderedStringBuffer.wurst.yaml",
+                "publish/data/buffer/StringBuffer.wurst.yaml",
+                "publish/data/HashList.wurst.yaml",
+                "publish/data/HashListTests.wurst.yaml",
+                "publish/data/HashMap.wurst.yaml",
+                "publish/data/HashMapTests.wurst.yaml",
+                "publish/data/HashSet.wurst.yaml",
+                "publish/data/HashSetTests.wurst.yaml",
+                "publish/data/LinkedList.wurst.yaml",
+                "publish/data/LinkedListModule.wurst.yaml",
+                "publish/data/LinkedListModuleTests.wurst.yaml",
+                "publish/data/LinkedListTests.wurst.yaml",
+                "publish/data/Table.wurst.yaml",
+                "publish/dummy/DummyCaster.wurst.yaml",
+                "publish/dummy/DummyRecycler.wurst.yaml",
+                "publish/dummy/Fx.wurst.yaml",
+                "publish/dummy/InstantDummyCaster.wurst.yaml",
+                "publish/event/DamageDetection.wurst.yaml",
+                "publish/event/DamageType.wurst.yaml",
+                "publish/event/EventHelper.wurst.yaml",
+                "publish/event/LastOrder.wurst.yaml",
+                "publish/event/OnUnitEnterLeave.wurst.yaml",
+                "publish/event/RegisterEvents.wurst.yaml",
+                "publish/file/DebugFile.wurst.yaml",
+                "publish/file/legacy/IOTaskExecutor.wurst.yaml",
+                "publish/file/legacy/LocalFiles.wurst.yaml",
+                "publish/file/legacy/MultifileIO.wurst.yaml",
+                "publish/file/Persistable.wurst.yaml",
+                "publish/file/PreloadIO.wurst.yaml",
+                "publish/math/Angle.wurst.yaml",
+                "publish/math/BigNum.wurst.yaml",
+                "publish/math/Interpolation.wurst.yaml",
+                "publish/math/Maths.wurst.yaml",
+                "publish/math/Matrices.wurst.yaml",
+                "publish/math/MatricesTests.wurst.yaml",
+                "publish/math/Quaternion.wurst.yaml",
+                "publish/math/QuaternionTests.wurst.yaml",
+                "publish/math/Raycast.wurst.yaml",
+                "publish/math/Vectors.wurst.yaml",
+                "publish/network/GamecacheBuffer.wurst.yaml",
+                "publish/network/GamecacheKeys.wurst.yaml",
+                "publish/network/Metadata.wurst.yaml",
+                "publish/network/Network.wurst.yaml",
+                "publish/network/NetworkConfig.wurst.yaml",
+                "publish/network/StringEncoder.wurst.yaml",
+                "publish/network/SyncSimple.wurst.yaml",
+                "publish/objediting/AbilityObjEditing.wurst.yaml",
+                "publish/objediting/BuffObjEditing.wurst.yaml",
+                "publish/objediting/DestructableObjEditing.wurst.yaml",
+                "publish/objediting/ItemObjEditing.wurst.yaml",
+                "publish/objediting/ObjectIds.wurst.yaml",
+                "publish/objediting/ObjEditingCommons.wurst.yaml",
+                "publish/objediting/ObjEditingNatives.wurst.yaml",
+                "publish/objediting/presets/ChannelAbilityPreset.wurst.yaml",
+                "publish/objediting/presets/HeroPreset.wurst.yaml",
+                "publish/objediting/presets/ObjectIdGenerator.wurst.yaml",
+                "publish/objediting/presets/OrderStringFactory.wurst.yaml",
+                "publish/objediting/TargetsAllowed.wurst.yaml",
+                "publish/objediting/UnitObjEditing.wurst.yaml",
+                "publish/objediting/UpgradeObjEditing.wurst.yaml",
+                "publish/util/Colors.wurst.yaml",
+                "publish/util/DialogBox.wurst.yaml",
+                "publish/util/GameTimer.wurst.yaml",
+                "publish/util/GroupUtils.wurst.yaml",
+                "publish/util/Knockback3.wurst.yaml",
+                "publish/util/MapBounds.wurst.yaml",
+                "publish/util/Preloader.wurst.yaml",
+                "publish/util/Printing.wurst.yaml",
+                "publish/util/SafetyChecks.wurst.yaml",
+                "publish/util/Simulate3dSound.wurst.yaml",
+                "publish/util/SoundUtils.wurst.yaml",
+                "publish/util/StandardTextTags.wurst.yaml",
+                "publish/util/StringUtils.wurst.yaml",
+                "publish/util/StringUtilsTests.wurst.yaml",
+                "publish/util/TerrainUtils.wurst.yaml",
+                "publish/util/TimerUtils.wurst.yaml",
+                "publish/util/UnitIndexer.wurst.yaml",
+                "publish/Wurst.wurst.yaml",
+                "publish/_handles/Boolexpr.wurst.yaml",
+                "publish/_handles/Camera.wurst.yaml",
+                "publish/_handles/Destructable.wurst.yaml",
+                "publish/_handles/Dialog.wurst.yaml",
+                "publish/_handles/Effect.wurst.yaml",
+                "publish/_handles/Fogmodifier.wurst.yaml",
+                "publish/_handles/Force.wurst.yaml",
+                "publish/_handles/ForceTests.wurst.yaml"
             ].forEach((uri) => {
                 $.get(uri, (data) => {
-                    $('.contents').append(`<h1>${uri}</h1>`);
+                    $('.contents').append(`<h1><i class="fas folder-open"></i> ${uri}</h1>`);
 
-                    jsyaml.load(data).forEach((fnOrClass) => {
-                        Object.entries(fnOrClass).forEach(([fnOrClass, details]) => {
-                            const icon = `<i class="fas ${fnOrClass === "FreeFunction" ? "fa-square-root-alt" : "object-group"}"></i>`;
-                            $('.contents').append(`<h2>${icon} ${details.extensor !== null ? details.extensor + "." : ""}${details.name}</h2><p>${details.doc}</p>`)
+                    jsyaml.load(data).forEach((probably_package) => {
+                        Object.entries(probably_package).forEach(([probably_package, details]) => {
+                            // Package name and doc.
+                            $('.contents').append(`<h2> <i class="fas archive"></i> ${details.name}</h2>`);
+                            details.doc ? $('.contents').append(`<p>${details.doc}</p>`) : null;
+
+                            details.classes.forEach((cls) => {
+                                const icon = `<i class="fas object-group"></i>`;
+                                $('.contents').append(`<h3>${icon} ${cls.name}</h3>`);
+                                $('.contents').append(`<p>${cls.doc}</p>`);
+
+                                cls.fns.forEach((fn) => {
+                                    const icon = `<i class="fas fa-square-root-alt"></i>`;
+                                    $('.contents').append(`<h4>${icon} ${fn.extensor !== null ? fn.extensor + "." : ""}${fn.name}()</h4>`);
+                                    // TODO: params
+                                    $('.contents').append(`<p>${fn.doc}</p>`);
+                                });
+                            });
+
+                            details.free_fns.forEach((fn) => {
+                                const icon = `<i class="fas fa-square-root-alt"></i>`;
+                                $('.contents').append(`<h3>${icon} ${fn.extensor !== null ? fn.extensor + "." : ""}${fn.name}()</h3>`);
+                                // TODO: params
+                                $('.contents').append(`<p>${fn.doc}</p>`);
+                            });
                         })
                     });
                 }).fail(() => {
