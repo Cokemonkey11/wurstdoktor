@@ -3,8 +3,10 @@
     doc: ~
     name: Boolexpr
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: boolexpr
         name: or_
         params:
@@ -12,6 +14,7 @@
             name: operandB
         returns: boolexpr
       - doc: ~
+        static_: false
         extensor: boolexpr
         name: and_
         params:
@@ -19,6 +22,7 @@
             name: operandB
         returns: boolexpr
       - doc: ~
+        static_: false
         extensor: boolexpr
         name: destr
         params: []

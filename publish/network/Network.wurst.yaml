@@ -3,4 +3,10 @@
     doc: ~
     name: Network
     classes: []
+    enums:
+      - doc: ~
+        name: NetworkResult
+        variants:
+          - SUCCESS
+          - ABORTED
     free_fns: []

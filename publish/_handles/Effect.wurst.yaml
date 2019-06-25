@@ -3,13 +3,16 @@
     doc: ~
     name: Effect
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: effect
         name: destr
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -19,6 +22,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -28,6 +32,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -39,6 +44,7 @@
             name: scale
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -50,25 +56,13 @@
             name: scale
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
           - typ: string
             name: path
           - typ: vec2
-            name: pos
-          - typ: real
-            name: scale
-          - typ: angle
-            name: roll
-        returns: ~
-      - doc: ~
-        extensor: ~
-        name: flashEffect
-        params:
-          - typ: string
-            name: path
-          - typ: vec3
             name: pos
           - typ: real
             name: scale
@@ -76,6 +70,21 @@
             name: roll
         returns: ~
       - doc: ~
+        static_: false
+        extensor: ~
+        name: flashEffect
+        params:
+          - typ: string
+            name: path
+          - typ: vec3
+            name: pos
+          - typ: real
+            name: scale
+          - typ: angle
+            name: roll
+        returns: ~
+      - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -87,6 +96,7 @@
             name: attachPointName
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -98,6 +108,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -109,6 +120,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: flashEffect
         params:
@@ -122,6 +134,7 @@
             name: attachPointName
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -131,6 +144,7 @@
             name: pos
         returns: effect
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -140,6 +154,7 @@
             name: pos
         returns: effect
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -151,6 +166,7 @@
             name: attachPointName
         returns: effect
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -162,6 +178,7 @@
             name: pos
         returns: effect
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -173,6 +190,7 @@
             name: pos
         returns: effect
       - doc: ~
+        static_: false
         extensor: ~
         name: addEffect
         params:
@@ -186,6 +204,7 @@
             name: attachPointName
         returns: effect
       - doc: ~
+        static_: false
         extensor: effect
         name: setColorByPlayer
         params:
@@ -193,6 +212,7 @@
             name: whichPlayer
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setColor
         params:
@@ -204,6 +224,7 @@
             name: b
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setAlpha
         params:
@@ -211,6 +232,7 @@
             name: alpha
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setScale
         params:
@@ -218,6 +240,7 @@
             name: scale
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setPosition
         params:
@@ -229,6 +252,7 @@
             name: z
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setHeight
         params:
@@ -236,6 +260,7 @@
             name: height
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setTimeScale
         params:
@@ -243,6 +268,7 @@
             name: timeScale
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setTime
         params:
@@ -250,6 +276,7 @@
             name: time
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setOrientation
         params:
@@ -261,6 +288,7 @@
             name: roll
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setOrientation
         params:
@@ -268,6 +296,7 @@
             name: matrix
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setOrientation
         params:
@@ -275,6 +304,7 @@
             name: quaternion
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setYaw
         params:
@@ -282,6 +312,7 @@
             name: yaw
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setPitch
         params:
@@ -289,6 +320,7 @@
             name: pitch
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setRoll
         params:
@@ -296,6 +328,7 @@
             name: roll
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setX
         params:
@@ -303,6 +336,7 @@
             name: x
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setY
         params:
@@ -310,6 +344,7 @@
             name: y
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setZ
         params:
@@ -317,6 +352,7 @@
             name: z
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setPositionLoc
         params:
@@ -324,6 +360,7 @@
             name: loc
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: getAbilityEffect
         params:
@@ -335,21 +372,25 @@
             name: index
         returns: string
       - doc: ~
+        static_: false
         extensor: effect
         name: getLocalX
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: effect
         name: getLocalY
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: effect
         name: getLocalZ
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: effect
         name: setPos
         params:
@@ -357,6 +398,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setPos
         params:
@@ -364,16 +406,19 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: getPos3
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: effect
         name: getPos
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: effect
         name: setColor
         params:
@@ -381,6 +426,7 @@
             name: color
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: setColor
         params:
@@ -388,6 +434,7 @@
             name: color
         returns: ~
       - doc: "Change the orientation of the special effect.\nyaw  : x-axis\npitch: y-axis\nroll : z-axis"
+        static_: false
         extensor: effect
         name: setOrientation
         params:
@@ -399,6 +446,7 @@
             name: roll
         returns: ~
       - doc: Change the angle of the special effect around the x-axis.
+        static_: false
         extensor: effect
         name: setYaw
         params:
@@ -406,6 +454,7 @@
             name: yaw
         returns: ~
       - doc: "Change the  of the special effect around the y-axis.\nWarning: As of 1.29.2, setPitch has issues for values between 1.57-4.7 radians or 90-270 degrees. It is recommended to use setOrientation."
+        static_: false
         extensor: effect
         name: setPitch
         params:
@@ -413,6 +462,7 @@
             name: pitch
         returns: ~
       - doc: Change the angle of the special effect around z-axis.
+        static_: false
         extensor: effect
         name: setRoll
         params:
@@ -420,6 +470,7 @@
             name: roll
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: playAnimation
         params:
@@ -427,6 +478,7 @@
             name: whichAnim
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: playAnimation
         params:
@@ -436,11 +488,13 @@
             name: timeScale
         returns: ~
       - doc: Returns the name of the animation type.
+        static_: false
         extensor: animtype
         name: getName
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: effect
         name: addSubAnimation
         params:
@@ -448,14 +502,36 @@
             name: whichSubAnim
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: clearSubAnimations
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: effect
         name: removeSubAnimation
         params:
           - typ: subanimtype
             name: whichSubAnim
+        returns: ~
+      - doc: Get effect scale.
+        static_: false
+        extensor: effect
+        name: getScale
+        params: []
+        returns: real
+      - doc: Set effect 3D scale
+        static_: false
+        extensor: effect
+        name: setScale
+        params:
+          - typ: vec3
+            name: scaleVector
+        returns: ~
+      - doc: Reset effect scale.
+        static_: false
+        extensor: effect
+        name: resetScale
+        params: []
         returns: ~

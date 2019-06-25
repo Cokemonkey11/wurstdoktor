@@ -3,8 +3,10 @@
     doc: ~
     name: BufferInterface
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: BufferMode
         name: toString
         params: []

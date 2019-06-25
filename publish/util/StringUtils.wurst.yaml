@@ -3,8 +3,10 @@
     doc: ~
     name: StringUtils
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: texttag
         name: center
         params:
@@ -16,6 +18,7 @@
             name: size
         returns: texttag
       - doc: ~
+        static_: false
         extensor: ~
         name: createCenteredTexttag
         params:
@@ -27,11 +30,13 @@
             name: size
         returns: texttag
       - doc: Returns the width of the string
+        static_: false
         extensor: string
         name: getWidth
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: ~
         name: char
         params:
@@ -39,36 +44,43 @@
             name: s
         returns: char
       - doc: ~
+        static_: false
         extensor: char
         name: toString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: char
         name: toInt
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: char
         name: getWidth
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: string
         name: toChar
         params: []
         returns: char
       - doc: ~
+        static_: false
         extensor: string
         name: toCharList
         params: []
         returns: LinkedList<char>
       - doc: ~
+        static_: false
         extensor: int
         name: toChar
         params: []
         returns: char
       - doc: ~
+        static_: false
         extensor: ~
         name: charToIndex
         params:
@@ -76,6 +88,7 @@
             name: c
         returns: int
       - doc: ~
+        static_: false
         extensor: ~
         name: charFromIndex
         params:
@@ -83,34 +96,15 @@
             name: index
         returns: char
       - doc: "Splits the string by another string\n\t\"this..is..an..example\" split by the string \"..\" splits into a list containing four strings [\"this\", \"is\", \"an\", \"example\"]"
+        static_: false
         extensor: string
         name: split
         params:
           - typ: string
             name: splitBy
         returns: LinkedList<string>
-      - doc: Joins elements from a string list into one string using a separator
-        extensor: LinkedList<string>
-        name: joinBy
-        params:
-          - typ: string
-            name: separator
-        returns: string
-      - doc: ~
-        extensor: LinkedList<T>
-        name: joinBy<T>
-        params:
-          - typ: ToStringClosure<T>
-            name: cls
-          - typ: string
-            name: separator
-        returns: string
-      - doc: Joins elements from a string list into one string
-        extensor: LinkedList<string>
-        name: join
-        params: []
-        returns: string
       - doc: "Replaces consecutive repeats of the same string with a single instance\n\tTurns \"strstr\" into \"str\""
+        static_: false
         extensor: string
         name: reduce
         params:
@@ -118,7 +112,40 @@
             name: reduced
         returns: string
       - doc: "Replaces consecutive repeats of the whitespace character with a single instance\n\tTurns \"  \" into \" \""
+        static_: false
         extensor: string
         name: reduce
         params: []
+        returns: string
+      - doc: "Custom Function which can split strings and runs callback for each string.\n\tIt can run even with no delimiter present (with single element).\n\tExample usage:\n\t\"H001,H002\".forEachIn(\",\") ->\n\t\tdoSomething()"
+        static_: false
+        extensor: string
+        name: forEachIn
+        params:
+          - typ: string
+            name: delim
+          - typ: ForStringSplitCallback
+            name: cb
+        returns: ~
+      - doc: Checks whether a string is a number or not.
+        static_: false
+        extensor: string
+        name: isNumber
+        params: []
+        returns: bool
+      - doc: "Checks whether a string is valid in terms of max WC3 string length for various usages (Ability Description, Quest Description,...)."
+        static_: false
+        extensor: string
+        name: isValidDescription
+        params: []
+        returns: bool
+      - doc: Replaces all occurences of any character from given charlist by a given replacement string.
+        static_: false
+        extensor: string
+        name: replaceChars
+        params:
+          - typ: string
+            name: charset
+          - typ: string
+            name: replacementChar
         returns: string

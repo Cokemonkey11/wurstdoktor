@@ -1,15 +1,18 @@
 ---
 - Package:
-    doc: ~
+    doc: This package is deprecated
     name: DamageType
     classes: []
+    enums: []
     free_fns:
-      - doc: "In the context of a damage detection handler, get the type of damage dealt.\n\tReturns one of:\n\n\t\tDamageType.CODE\n\t\tDamageType.ATTACK\n\t\tDamageType.SPELL\n\t\tDamageType.NULLED\n\n\tBe sure that if you use the `DamageType` package, that all subscribers of\n\t`DamageDetection` also `import DamageType`, or you may experience race\n\tconditions.\n\n\tExample Usage:\n\n\t\timport DamageDetection\n\t\timport DamageType\n\n\t\tinit\n\t\t\taddOnDamageFunc() ->\n\t\t\t\tswitch getDamageType()\n\t\t\t\t\tcase ATTACK\n\t\t\t\t\t\tprint(GetEventDamageSource().getName() + \" attacked \" + GetTriggerUnit().getName())\n\t\t\t\t\tcase SPELL\n\t\t\t\t\t\tprint(GetEventDamageSource().getName() + \" used a spell on \" + GetTriggerUnit().getName())\n\t\t\t\t\tdefault"
+      - doc: ~
+        static_: false
         extensor: ~
         name: getDamageType
         params: []
         returns: DamageType
-      - doc: "Deal an exact amount of damage to `target`, crediting kill experience and\n\tgold bounty to `attacker`.\n\n\tBe sure that if you use the `DamageType` package, that all subscribers of\n\t`DamageDetection` also `import DamageType`, or you may experience race\n\tconditions."
+      - doc: ~
+        static_: false
         extensor: ~
         name: dealCodeDamage
         params:

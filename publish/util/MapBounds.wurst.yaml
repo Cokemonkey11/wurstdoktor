@@ -3,28 +3,34 @@
     doc: ~
     name: MapBounds
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: vec2
         name: inPlayable
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec3
         name: inPlayable
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec2
         name: inBounds
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec3
         name: inBounds
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: ~
         name: randomPointOnMap
         params: []

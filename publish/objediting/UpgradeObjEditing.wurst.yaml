@@ -3,4 +3,19 @@
     doc: ~
     name: UpgradeObjEditing
     classes: []
+    enums:
+      - doc: ~
+        name: UpgradeClass
+        variants:
+          - NONE
+          - Armor
+          - Artillery
+          - Melee
+          - Ranged
+          - Caster
+      - doc: ~
+        name: UpgradeEffectType
+        variants:
+          - NONE
+          - AbilityLevelBonus
     free_fns: []

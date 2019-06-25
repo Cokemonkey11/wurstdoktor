@@ -3,18 +3,22 @@
     doc: ~
     name: BitwiseInit
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: initLbyte
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: initRbyte
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: initShift
         params: []

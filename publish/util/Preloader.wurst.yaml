@@ -3,8 +3,10 @@
     doc: ~
     name: Preloader
     classes: []
+    enums: []
     free_fns:
       - doc: If autoFinish is false you need to call this function manually
+        static_: false
         extensor: ~
         name: finishPreload
         params: []

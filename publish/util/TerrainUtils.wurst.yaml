@@ -3,8 +3,10 @@
     doc: ~
     name: TerrainUtils
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: setWaterBaseColor
         params:
@@ -12,6 +14,7 @@
             name: color
         returns: ~
       - doc: ~
+        static_: false
         extensor: vec2
         name: setTerrainType
         params:
@@ -25,16 +28,19 @@
             name: shape
         returns: ~
       - doc: ~
+        static_: false
         extensor: vec2
         name: getTerrainType
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: vec2
         name: getTerrainVariance
         params: []
         returns: int
       - doc: "Applies a single terrain deformation to closest tile. Is not immediate.\n\tReports shows that this may cause desync with Mac players."
+        static_: false
         extensor: vec2
         name: addTerrainHeight
         params:
@@ -42,6 +48,7 @@
             name: val
         returns: terraindeformation
       - doc: Fills 32x32 rect around vec2 with given pathing type
+        static_: false
         extensor: vec2
         name: setTerrainPathable
         params:
@@ -51,6 +58,7 @@
             name: flag
         returns: ~
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainPathable
         params:
@@ -58,11 +66,13 @@
             name: ttype
         returns: bool
       - doc: Returns center of the Tile which given vec2 belongs to.
+        static_: false
         extensor: vec2
         name: toTileCenter
         params: []
         returns: vec2
       - doc: Returns the (not normalised) terrain-normal at the given point
+        static_: false
         extensor: vec2
         name: getTerrainNormal
         params:
@@ -70,31 +80,37 @@
             name: sampleRadius
         returns: vec3
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainDeepWater
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainShallowWater
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainLand
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainPlatform
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: vec2
         name: isTerrainWalkable
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: ~
         name: tile
         params:
@@ -104,6 +120,7 @@
             name: y
         returns: tile
       - doc: ~
+        static_: false
         extensor: ~
         name: tile
         params:
@@ -113,26 +130,31 @@
             name: y
         returns: tile
       - doc: ~
+        static_: false
         extensor: tile
         name: getX
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: tile
         name: getY
         params: []
         returns: real
       - doc: Returns the tile which given vec2 belongs to.
+        static_: false
         extensor: vec2
         name: getTile
         params: []
         returns: tile
       - doc: ~
+        static_: false
         extensor: tile
         name: toVec2
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: tile
         name: setType
         params:
@@ -142,6 +164,7 @@
             name: variation
         returns: ~
       - doc: ~
+        static_: false
         extensor: tile
         name: setType
         params:
@@ -149,11 +172,13 @@
             name: ttype
         returns: ~
       - doc: ~
+        static_: false
         extensor: tile
         name: getHeight
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: tile
         name: addHeight
         params:
@@ -161,16 +186,19 @@
             name: val
         returns: terraindeformation
       - doc: ~
+        static_: false
         extensor: tile
         name: getType
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: tile
         name: getVariance
         params: []
         returns: int
       - doc: Fills the entire tile (128x128 rect around tile pos) with given type
+        static_: false
         extensor: tile
         name: setPathing
         params:

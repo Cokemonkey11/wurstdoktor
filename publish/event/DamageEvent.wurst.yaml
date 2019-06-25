@@ -1,0 +1,25 @@
+---
+- Package:
+    doc: ~
+    name: DamageEvent
+    classes: []
+    enums: []
+    free_fns:
+      - doc: ~
+        static_: false
+        extensor: ~
+        name: getDamageTypeName
+        params:
+          - typ: DamageType
+            name: t
+        returns: string
+      - doc: ~
+        static_: false
+        extensor: ~
+        name: getDamageDesignation
+        params:
+          - typ: DamageType
+            name: t
+          - typ: DamageElement
+            name: e
+        returns: string

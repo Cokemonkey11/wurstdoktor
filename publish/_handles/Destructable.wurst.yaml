@@ -3,8 +3,10 @@
     doc: ~
     name: Destructable
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: createDestructable
         params:
@@ -20,6 +22,7 @@
             name: variation
         returns: destructable
       - doc: ~
+        static_: false
         extensor: ~
         name: createDestructable
         params:
@@ -35,31 +38,37 @@
             name: variation
         returns: destructable
       - doc: ~
+        static_: false
         extensor: destructable
         name: getPos
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: destructable
         name: getX
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: destructable
         name: getY
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: destructable
         name: kill
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getTypeId
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: destructable
         name: setAnimation
         params:
@@ -67,11 +76,13 @@
             name: anim
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: remove
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: setInvulnerable
         params:
@@ -79,11 +90,13 @@
             name: flag
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getInvulnerable
         params: []
         returns: bool
       - doc: ~
+        static_: false
         extensor: destructable
         name: setLife
         params:
@@ -91,11 +104,13 @@
             name: life
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getLife
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: destructable
         name: setMaxLife
         params:
@@ -103,11 +118,13 @@
             name: max
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getMaxLife
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: destructable
         name: restoreLife
         params:
@@ -117,6 +134,7 @@
             name: birth
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: queueAnimation
         params:
@@ -124,6 +142,7 @@
             name: anim
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: setAnimationSpeed
         params:
@@ -131,6 +150,7 @@
             name: speedFactor
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: show
         params:
@@ -138,11 +158,13 @@
             name: flag
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getOccluderHeight
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: destructable
         name: setOccluderHeight
         params:
@@ -150,6 +172,7 @@
             name: height
         returns: ~
       - doc: ~
+        static_: false
         extensor: destructable
         name: getName
         params: []

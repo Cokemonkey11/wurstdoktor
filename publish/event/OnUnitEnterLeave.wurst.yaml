@@ -3,13 +3,16 @@
     doc: ~
     name: OnUnitEnterLeave
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: getEnterLeaveUnit
         params: []
         returns: unit
       - doc: Adds a callback that is run when a unit enters the map
+        static_: false
         extensor: ~
         name: onEnter
         params:
@@ -17,6 +20,7 @@
             name: c
         returns: ~
       - doc: Adds a callback that is run when a unit leaves the map
+        static_: false
         extensor: ~
         name: onLeave
         params:

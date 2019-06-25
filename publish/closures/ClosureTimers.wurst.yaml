@@ -3,8 +3,10 @@
     doc: ~
     name: ClosureTimers
     classes: []
+    enums: []
     free_fns:
       - doc: "Execute an action after a certain time.\n\tThe callback object is automatically destroyed.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doAfter(10.0) ->\n\t|\t print(\"10 seconds later\")"
+        static_: false
         extensor: timer
         name: doAfter
         params:
@@ -14,6 +16,7 @@
             name: cb
         returns: CallbackSingle
       - doc: "Execute an action after a certain time.\n\tThe callback object is automatically destroyed.\n\n\tExample use:\n\t| doAfter(10.0) ->\n\t|\t print(\"10 seconds later\")"
+        static_: false
         extensor: ~
         name: doAfter
         params:
@@ -23,6 +26,7 @@
             name: cb
         returns: CallbackSingle
       - doc: "Execute an action with a 0-second timer delay.\n\tThe callback object is destroyed afterwards."
+        static_: false
         extensor: ~
         name: nullTimer
         params:
@@ -30,6 +34,7 @@
             name: cb
         returns: CallbackSingle
       - doc: "Execute an action periodically.\n\tThe callback has to be destroyed manually.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodically(0.5) cb ->\n\t|\t if i > 10\n\t|\t\tdestroy cb"
+        static_: false
         extensor: timer
         name: doPeriodically
         params:
@@ -39,6 +44,7 @@
             name: cb
         returns: CallbackPeriodic
       - doc: "Execute an action periodically.\n\tThe callback has to be destroyed manually.\n\n\tExample use:\n\t| doPeriodically(0.5) cb ->\n\t|\t if i > 10\n\t|\t\tdestroy cb"
+        static_: false
         extensor: ~
         name: doPeriodically
         params:
@@ -48,6 +54,7 @@
             name: cb
         returns: CallbackPeriodic
       - doc: "execute an action periodically, with a limited amount of calls\n\tThe callback object is destroyed after the action has been executed callAmount times.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodicallyCounted(0.5, 100) cb ->\n\t|\t doSomething()"
+        static_: false
         extensor: timer
         name: doPeriodicallyCounted
         params:
@@ -59,6 +66,7 @@
             name: cb
         returns: CallbackCounted
       - doc: "execute an action periodically, with a limited amount of calls\n\tThe callback object is destroyed after the action has been executed callAmount times.\n\n\tExample use:\n\t| doPeriodicallyCounted(0.5, 100) cb ->\n\t|\t doSomething()"
+        static_: false
         extensor: ~
         name: doPeriodicallyCounted
         params:
@@ -70,6 +78,7 @@
             name: cb
         returns: CallbackCounted
       - doc: "execute an action periodically, with a limited duration\n\tThe callback object is destroyed afterwards.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doPeriodicallyCounted(0.5, 10.) ->\n\t|\t doSomething()"
+        static_: false
         extensor: timer
         name: doPeriodicallyTimed
         params:
@@ -81,6 +90,7 @@
             name: cb
         returns: CallbackCounted
       - doc: "execute an action periodically, with a limited duration\n\tThe callback object is destroyed afterwards.\n\n\tExample use:\n\t| doPeriodicallyCounted(0.5, 10.) ->\n\t|\t doSomething()"
+        static_: false
         extensor: ~
         name: doPeriodicallyTimed
         params:

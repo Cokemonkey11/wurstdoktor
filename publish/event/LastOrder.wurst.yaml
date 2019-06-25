@@ -3,18 +3,28 @@
     doc: "If you import this package in any of your packages, each order\n\tany unit makes will be recorded and up to ORDERS_TO_HOLD will be saved.\n\tYou can access these old orders and reissue them using .getLastOrder()"
     name: LastOrder
     classes: []
+    enums:
+      - doc: ~
+        name: OrderType
+        variants:
+          - TARGET
+          - POINT
+          - IMMEDIATE
     free_fns:
       - doc: Clears all recorded orders for this unit
+        static_: false
         extensor: unit
         name: clearLastOrders
         params: []
         returns: ~
       - doc: "Returns the lasz recorded order for this unit.\n\tTo access further back orders, use .prev"
+        static_: false
         extensor: unit
         name: getLastOrder
         params: []
         returns: Order
       - doc: ~
+        static_: false
         extensor: unit
         name: abortOrder
         params: []

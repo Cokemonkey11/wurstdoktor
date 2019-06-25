@@ -1,0 +1,135 @@
+---
+- Package:
+    doc: ~
+    name: ClosureFrames
+    classes: []
+    enums: []
+    free_fns:
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onCheckboxCheck
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onCheckboxUncheck
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onClick
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onDialogAccept
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onDialogCancel
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onEditboxEnter
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onEditboxChange
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseDoubleClick
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseDown
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseEnter
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseLeave
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseUp
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onMouseWheel
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onPopupMenuItemChange
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onSliderValueChange
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener
+      - doc: ~
+        static_: false
+        extensor: framehandle
+        name: onSpriteAnimUpdate
+        params:
+          - typ: FrameHandleListener
+            name: listener
+        returns: FrameHandleListener

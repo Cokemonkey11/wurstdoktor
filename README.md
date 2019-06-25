@@ -1,5 +1,7 @@
 A parser for public [wurstlang](https://wurstlang.org) docs.
 
+[Read the published docs here.](https://cokemonkey11.github.io/wurstdoktor/)
+
 # Usage
 
 * `cargo run -- --help`
@@ -13,6 +15,7 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 
 - [x] Use [pom](https://crates.io/crates/pom) for parsing
 - [x] Parse package-level docs
+- [x] Parse public enums
 - [ ] Parse public classes
 - [ ] version and publish to crates.io
 - [ ] Parse public interfaces
@@ -25,3 +28,4 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [x] emit sqlitedb with feature gate
 - [ ] emit json
 - [ ] consume published stdlib2 doktor
+- [ ] support non-function public class members

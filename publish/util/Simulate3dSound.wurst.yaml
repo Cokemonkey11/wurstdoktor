@@ -3,8 +3,10 @@
     doc: ~
     name: Simulate3dSound
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: bindSoundToUnit
         params:
@@ -20,6 +22,7 @@
             name: distCut
         returns: Sim3DSound
       - doc: ~
+        static_: false
         extensor: ~
         name: bindSoundToPoint
         params:
@@ -37,6 +40,7 @@
             name: distCut
         returns: Sim3DSound
       - doc: ~
+        static_: false
         extensor: ~
         name: bindSoundToUnitForPlayer
         params:
@@ -54,6 +58,7 @@
             name: distCut
         returns: Sim3DSound
       - doc: ~
+        static_: false
         extensor: ~
         name: bindSoundToPointForPlayer
         params:

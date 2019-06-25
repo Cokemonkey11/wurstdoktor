@@ -3,8 +3,10 @@
     doc: ~
     name: UnitIndexer
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: shouldIndex
         params:
@@ -12,31 +14,37 @@
             name: _u
         returns: boolean
       - doc: ~
+        static_: false
         extensor: unit
         name: getIndex
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: unit
         name: toUnitIndex
         params: []
         returns: UnitIndex
       - doc: "Returns the currently indexing unit.\n\tThat's the last indexed unit or \n\tthe one about to be deindexed."
+        static_: false
         extensor: ~
         name: getIndexingUnit
         params: []
         returns: unit
       - doc: ~
+        static_: false
         extensor: ~
         name: getIndexedUnit
         params: []
         returns: unit
       - doc: ~
+        static_: false
         extensor: ~
         name: getDeindexedUnit
         params: []
         returns: unit
       - doc: "Adds a function to be called before a unit is deindexed.\n\tUse the getIndexingUnit() function to refer to the deindexing unit."
+        static_: false
         extensor: ~
         name: onUnitDeindex
         params:
@@ -44,6 +52,7 @@
             name: func
         returns: ~
       - doc: "Adds a function to be called after a unit is indexed.\n\tUse the getIndexingUnit() function to refer to the indexed unit."
+        static_: false
         extensor: ~
         name: onUnitIndex
         params:
@@ -51,6 +60,7 @@
             name: func
         returns: ~
       - doc: "Deindexes a unit.\n\tReturns whether the unit was originally indexed."
+        static_: false
         extensor: unit
         name: deindex
         params: []

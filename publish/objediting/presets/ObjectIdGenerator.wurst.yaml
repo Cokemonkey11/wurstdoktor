@@ -3,4 +3,5 @@
     doc: ~
     name: ObjectIdGenerator
     classes: []
+    enums: []
     free_fns: []

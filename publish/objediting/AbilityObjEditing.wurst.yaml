@@ -3,8 +3,24 @@
     doc: ~
     name: AbilityObjEditing
     classes: []
+    enums:
+      - doc: ~
+        name: AllowWhenFull
+        variants:
+          - NEVER
+          - LIFE_ONLY
+          - MANA_ONLY
+          - ALWAYS
+      - doc: ~
+        name: StackingType
+        variants:
+          - DAMAGE
+          - MOVEMENT
+          - ATTACK_RATE
+          - KILL_UNIT
     free_fns:
       - doc: Makes an ability able to be cast by a dummy
+        static_: false
         extensor: AbilityDefinition
         name: setDummyAbility
         params: []

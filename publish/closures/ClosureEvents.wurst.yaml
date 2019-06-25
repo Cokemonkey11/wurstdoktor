@@ -3,13 +3,16 @@
     doc: ~
     name: ClosureEvents
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: eventid
         name: toIntId
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: ~
         name: unregisterEventsForUnit
         params:
@@ -17,6 +20,7 @@
             name: u
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: unregisterEvents
         params:

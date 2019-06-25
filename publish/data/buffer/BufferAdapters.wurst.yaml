@@ -3,8 +3,10 @@
     doc: ~
     name: BufferAdapters
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: OrderedStringBuffer
         name: transfer
         params:
@@ -12,6 +14,7 @@
             name: sink
         returns: ~
       - doc: ~
+        static_: false
         extensor: OrderedStringBuffer
         name: populateFromFile
         params:
@@ -19,6 +22,7 @@
             name: reader
         returns: ~
       - doc: ~
+        static_: false
         extensor: FileWriter
         name: populateFromBuffer
         params:

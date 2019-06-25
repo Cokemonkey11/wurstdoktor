@@ -3,8 +3,10 @@
     doc: ~
     name: ObjectIds
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: int2fourchar
         params:
@@ -12,6 +14,7 @@
             name: value
         returns: string
       - doc: Convert a integer id value into a 4-letter id code.
+        static_: false
         extensor: ~
         name: toRawCode
         params:
@@ -19,6 +22,7 @@
             name: value
         returns: string
       - doc: ~
+        static_: false
         extensor: ~
         name: fourchar2int
         params:
@@ -26,6 +30,7 @@
             name: value
         returns: int
       - doc: converts a 4-letter id code to an integer
+        static_: false
         extensor: ~
         name: fromRawCode
         params:
@@ -33,11 +38,13 @@
             name: value
         returns: int
       - doc: ~
+        static_: false
         extensor: string
         name: fromRawCode
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: toRawCode
         params: []

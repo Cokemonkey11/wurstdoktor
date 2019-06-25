@@ -3,8 +3,10 @@
     doc: ~
     name: EventHelper
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: trigger
         name: registerUnitInRangeSource
         params:
@@ -16,6 +18,7 @@
             name: filter
         returns: event
       - doc: ~
+        static_: false
         extensor: trigger
         name: registerUnitInRangeSource
         params:
@@ -25,31 +28,37 @@
             name: range
         returns: event
       - doc: ~
+        static_: false
         extensor: trigger
         name: getSource
         params: []
         returns: unit
       - doc: ~
+        static_: false
         extensor: unit
         name: clearRegister
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: getSpellTargetPos
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getOrderPos
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getOrderTargetPos
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: trigger
         name: registerRectEnterEventSource
         params:
@@ -57,6 +66,7 @@
             name: r
         returns: ~
       - doc: ~
+        static_: false
         extensor: trigger
         name: registerRectLeaveEventSource
         params:
@@ -64,16 +74,19 @@
             name: r
         returns: ~
       - doc: ~
+        static_: false
         extensor: trigger
         name: getSourceRect
         params: []
         returns: rect
       - doc: ~
+        static_: false
         extensor: trigger
         name: unregisterRectEvent
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: region
         name: setRegionData
         params:
@@ -81,26 +94,31 @@
             name: data
         returns: ~
       - doc: ~
+        static_: false
         extensor: region
         name: loadRegionData
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: region
         name: removeRegionData
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: eventid
         name: isPlayerunitEvent
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: eventid
         name: isKeyboardEvent
         params: []
         returns: boolean
       - doc: ~
+        static_: false
         extensor: eventid
         name: isMouseEvent
         params: []

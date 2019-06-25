@@ -3,4 +3,12 @@
     doc: ~
     name: GamecacheBuffer
     classes: []
+    enums:
+      - doc: ~
+        name: BufferType
+        variants:
+          - INTEGER
+          - REAL
+          - BOOLEAN
+          - /**
     free_fns: []

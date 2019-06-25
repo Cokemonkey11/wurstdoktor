@@ -3,13 +3,37 @@
     doc: ~
     name: ObjEditingCommons
     classes: []
+    enums:
+      - doc: ~
+        name: Race
+        variants:
+          - Commoner
+          - Creeps
+          - Critters
+          - Demon
+          - Human
+          - Naga
+          - Nightelf
+          - Orc
+          - Other
+          - Undead
+          - Unknown
+      - doc: ~
+        name: AttacksEnabled
+        variants:
+          - None
+          - AttackOneOnly
+          - AttackTwoOnly
+          - Both
     free_fns:
       - doc: ~
+        static_: false
         extensor: Race
         name: toObjectString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: AttacksEnabled
         name: toObjectInt
         params: []

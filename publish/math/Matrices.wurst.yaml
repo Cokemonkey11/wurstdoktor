@@ -3,8 +3,10 @@
     doc: ~
     name: Matrices
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_plus
         params:
@@ -12,6 +14,7 @@
             name: m
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_minus
         params:
@@ -19,6 +22,7 @@
             name: m
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_minus
         params:
@@ -26,6 +30,7 @@
             name: scalar
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_plus
         params:
@@ -33,6 +38,7 @@
             name: scalar
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_mult
         params:
@@ -40,6 +46,7 @@
             name: scalar
         returns: mat2
       - doc: ~
+        static_: false
         extensor: real
         name: op_mult
         params:
@@ -47,6 +54,7 @@
             name: m
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_mult
         params:
@@ -54,6 +62,7 @@
             name: v
         returns: vec2
       - doc: ~
+        static_: false
         extensor: vec2
         name: op_mult
         params:
@@ -61,6 +70,7 @@
             name: m
         returns: vec2
       - doc: ~
+        static_: false
         extensor: mat2
         name: op_mult
         params:
@@ -68,6 +78,7 @@
             name: m
         returns: mat2
       - doc: "Returns matrix' column by index as a vector or rises an error if doesn't exist."
+        static_: false
         extensor: mat2
         name: col
         params:
@@ -75,6 +86,7 @@
             name: index
         returns: vec2
       - doc: "Returns matrix' row by index as a vector or rises an error if doesn't exist."
+        static_: false
         extensor: mat2
         name: row
         params:
@@ -82,36 +94,43 @@
             name: index
         returns: vec2
       - doc: ~
+        static_: false
         extensor: mat2
         name: determinant
         params: []
         returns: real
       - doc: "Flips the matrix over its main diagonale.\nResult of transposing for rotation matrix is its inverse matrix."
+        static_: false
         extensor: mat2
         name: transpose
         params: []
         returns: mat2
       - doc: "Finds inverse matrix.\nReturns tuple inverseresult22(bool success, mat2 matrix) where 'success' is true if the inverse matrix exists and 'matrix' is the inverse matrix.\nIf there's no inverse matrix 'success' is false and 'matrix' is zero matrix."
+        static_: false
         extensor: mat2
         name: inverse
         params: []
         returns: inverseresult22
       - doc: ~
+        static_: false
         extensor: mat2
         name: toString
         params: []
         returns: string
       - doc: Creates rotation matrix from angle.
+        static_: false
         extensor: angle
         name: toRotation
         params: []
         returns: mat2
       - doc: Creates scaling 2x2 matrix from a vector.
+        static_: false
         extensor: vec2
         name: toScaling
         params: []
         returns: mat2
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_plus
         params:
@@ -119,6 +138,7 @@
             name: m
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_plus
         params:
@@ -126,6 +146,7 @@
             name: scalar
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_minus
         params:
@@ -133,6 +154,7 @@
             name: m
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_minus
         params:
@@ -140,6 +162,7 @@
             name: scalar
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_mult
         params:
@@ -147,6 +170,7 @@
             name: scalar
         returns: mat3
       - doc: ~
+        static_: false
         extensor: real
         name: op_mult
         params:
@@ -154,6 +178,7 @@
             name: m
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_mult
         params:
@@ -161,6 +186,7 @@
             name: v
         returns: vec3
       - doc: ~
+        static_: false
         extensor: vec3
         name: op_mult
         params:
@@ -168,6 +194,7 @@
             name: m
         returns: vec3
       - doc: ~
+        static_: false
         extensor: mat3
         name: op_mult
         params:
@@ -175,6 +202,7 @@
             name: m
         returns: mat3
       - doc: "Returns matrix' column by index as a vector or rises an error if doesn't exist."
+        static_: false
         extensor: mat3
         name: col
         params:
@@ -182,6 +210,7 @@
             name: index
         returns: vec3
       - doc: "Returns matrix' row by index as a vector or rises an error if doesn't exist."
+        static_: false
         extensor: mat3
         name: row
         params:
@@ -189,36 +218,43 @@
             name: index
         returns: vec3
       - doc: The sum of the main diagonal terms.
+        static_: false
         extensor: mat3
         name: trace
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: mat3
         name: determinant
         params: []
         returns: real
       - doc: "Flips the matrix over its main diagonale.\nResult of transposing for rotation matrix is its inverse matrix."
+        static_: false
         extensor: mat3
         name: transpose
         params: []
         returns: mat3
       - doc: "Finds inverse matrix.\nReturns tuple inverseresult33(bool success, mat3 matrix) where 'success' is true if the inverse matrix exists and 'matrix' is the inverse matrix.\nIf there's no inverse matrix 'success' is false and 'matrix' is zero matrix."
+        static_: false
         extensor: mat3
         name: inverse
         params: []
         returns: inverseresult33
       - doc: Extracts Euler-angles (Tait-Bryan) in radians from rotation matrix. Order of the result is X-Y-Z.
+        static_: false
         extensor: mat3
         name: toEuler
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: mat3
         name: toString
         params: []
         returns: string
       - doc: Creates 3x3 rotation matrix from axis and angle.
+        static_: false
         extensor: vec3
         name: toRotation
         params:
@@ -226,6 +262,7 @@
             name: angl
         returns: mat3
       - doc: Creates 3x3 rotation matrix from axis and angle.
+        static_: false
         extensor: angle
         name: toRotation
         params:
@@ -233,31 +270,37 @@
             name: axis
         returns: mat3
       - doc: Creates 3x3 rotation matrix around X-axis from angle.
+        static_: false
         extensor: angle
         name: toRotationX
         params: []
         returns: mat3
       - doc: Creates 3x3 rotation matrix around Y-axis from angle.
+        static_: false
         extensor: angle
         name: toRotationY
         params: []
         returns: mat3
       - doc: Creates 3x3 rotation matrix around Z-axis from angle.
+        static_: false
         extensor: angle
         name: toRotationZ
         params: []
         returns: mat3
       - doc: Creates  3x3 scaling matrix from a vector.
+        static_: false
         extensor: vec3
         name: toScaling
         params: []
         returns: mat3
       - doc: "Creates translation 3x3 matrix from a vector that represents an offset.\nUse it with vec3 that represents 2D point."
+        static_: false
         extensor: vec2
         name: toTranslation
         params: []
         returns: mat3
       - doc: ~
+        static_: false
         extensor: mat2
         name: assertEquals
         params:
@@ -265,6 +308,7 @@
             name: expected
         returns: ~
       - doc: ~
+        static_: false
         extensor: mat3
         name: assertEquals
         params:

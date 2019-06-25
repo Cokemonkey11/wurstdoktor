@@ -3,8 +3,26 @@
     doc: ~
     name: ChannelAbilityPreset
     classes: []
+    enums:
+      - doc: ~
+        name: Option
+        variants:
+          - VISIBLE
+          - TARGETIMAGE
+          - PHYSICALSPELL
+          - UNIVERSALSPELL
+          - UNIQUECAST
+      - doc: ~
+        name: Targettype
+        variants:
+          - NONE
+          - UNIT
+          - POINT
+          - POINTUNIT
+          - PASSIVE
     free_fns:
       - doc: ~
+        static_: false
         extensor: Targettype
         name: toString
         params: []

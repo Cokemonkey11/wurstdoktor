@@ -3,23 +3,28 @@
     doc: ~
     name: Colors
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: player
         name: getNameColored
         params: []
         returns: string
       - doc: Returns the name of the player color
+        static_: false
         extensor: playercolor
         name: getName
         params: []
         returns: string
       - doc: Returns the color associated with the playercolor
+        static_: false
         extensor: playercolor
         name: toColor
         params: []
         returns: color
       - doc: Add an alpha value to a simple color tuple
+        static_: false
         extensor: color
         name: withAlpha
         params:
@@ -27,11 +32,13 @@
             name: a
         returns: colorA
       - doc: ~
+        static_: false
         extensor: colorA
         name: withoutAlpha
         params: []
         returns: color
       - doc: Get a colorA tuple from a hexstring
+        static_: false
         extensor: ~
         name: fromHexString
         params:
@@ -39,11 +46,13 @@
             name: number
         returns: colorA
       - doc: ~
+        static_: false
         extensor: color
         name: normalize
         params: []
         returns: color
       - doc: ~
+        static_: false
         extensor: color
         name: lerp
         params:
@@ -53,6 +62,7 @@
             name: smoothness
         returns: color
       - doc: ~
+        static_: false
         extensor: ~
         name: makeColor
         params:
@@ -60,6 +70,7 @@
             name: colo
         returns: colorA
       - doc: ~
+        static_: false
         extensor: ~
         name: fromPlayerColor
         params:
@@ -67,6 +78,7 @@
             name: pc
         returns: color
       - doc: ~
+        static_: false
         extensor: ~
         name: fromPlayer
         params:
@@ -74,6 +86,7 @@
             name: p
         returns: color
       - doc: ~
+        static_: false
         extensor: colorA
         name: mix
         params:
@@ -83,6 +96,7 @@
             name: s
         returns: colorA
       - doc: Set a units color to the tuplevalues with alpha
+        static_: false
         extensor: unit
         name: setVertexColor
         params:
@@ -90,6 +104,7 @@
             name: col
         returns: ~
       - doc: Set a units color to the tuplevalues without alpha
+        static_: false
         extensor: unit
         name: setVertexColor
         params:
@@ -97,26 +112,31 @@
             name: col
         returns: ~
       - doc: Returns a string that is in the wc3 hexcolor format (|caarrggbb)
+        static_: false
         extensor: colorA
         name: toColorString
         params: []
         returns: string
       - doc: Returns a string that is in the wc3 hexcolor format (|crrggbb)
+        static_: false
         extensor: color
         name: toColorString
         params: []
         returns: string
       - doc: "Returns the tuple in string format color(r,g,b)"
+        static_: false
         extensor: color
         name: toString
         params: []
         returns: string
       - doc: "Returns the tuple in string format colorA(r,g,b,a)"
+        static_: false
         extensor: colorA
         name: toString
         params: []
         returns: string
       - doc: Converts and int to a hexnumber
+        static_: false
         extensor: ~
         name: toHex
         params:
@@ -124,6 +144,7 @@
             name: number
         returns: string
       - doc: Converts a twochar string to an int
+        static_: false
         extensor: ~
         name: toDec
         params:
@@ -131,11 +152,13 @@
             name: twochar
         returns: int
       - doc: Gets the name of the color. Only works on player colors. See PLAYER_COLORS.
+        static_: false
         extensor: color
         name: getName
         params: []
         returns: string
       - doc: "Returns the player that corresponds to described color. Returns null if a\n\tbad string is provided. See PLAYER_COLOR_NAMES for options. Returns players\n\tbased on starting color, not current color (does not respect SetPlayerColor)"
+        static_: false
         extensor: ~
         name: toPlayerFromColorName
         params:
@@ -143,31 +166,37 @@
             name: colorName
         returns: player
       - doc: Returns the color that the string describes. Only works on player colors.
+        static_: false
         extensor: string
         name: toColor
         params: []
         returns: color
       - doc: Returns the player color that the string describes. Only works on player colors.
+        static_: false
         extensor: string
         name: toPlayerColor
         params: []
         returns: playercolor
       - doc: ~
+        static_: false
         extensor: ~
         name: testColors
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: testColorNames
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: testPlayerColorConversion
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: testPlayerFromColorName
         params: []

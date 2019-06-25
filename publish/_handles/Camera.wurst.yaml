@@ -3,38 +3,46 @@
     doc: ~
     name: Camera
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraBoundMin
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraBoundMax
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraTargetPosition
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraTargetPosition3
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraEyePosition
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: ~
         name: getCameraEyePosition3
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: ~
         name: setCameraPosition
         params:
@@ -42,6 +50,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: setCameraQuickPosition
         params:
@@ -49,6 +58,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: setCameraBounds
         params:
@@ -62,6 +72,7 @@
             name: bottomRight
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: panCameraTo
         params:
@@ -69,6 +80,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: panCameraToTimed
         params:
@@ -78,6 +90,7 @@
             name: duration
         returns: ~
       - doc: "Pans the camera to pos.x, pos.y and absolute height pos.z\n\tIf pos.z > pos.getTerrainZ, the camera will not drop below\n\tthe terrain on its path."
+        static_: false
         extensor: ~
         name: panCameraTo
         params:
@@ -85,6 +98,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: panCameraToTimed
         params:
@@ -94,6 +108,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: setCameraRotateMode
         params:
@@ -105,6 +120,7 @@
             name: duration
         returns: ~
       - doc: "Runs the camera through the cinematic camera\n\tspecified in cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
+        static_: false
         extensor: ~
         name: setCinematicCamera
         params:
@@ -112,6 +128,7 @@
             name: cameraModelFile
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerafield
         name: set
         params:
@@ -121,6 +138,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerafield
         name: adjust
         params:
@@ -130,11 +148,13 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerafield
         name: get
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: camerafield
         name: getFieldSwap
         params:
@@ -142,6 +162,7 @@
             name: whichSetup
         returns: real
       - doc: ~
+        static_: false
         extensor: camerafield
         name: setCameraField
         params:
@@ -153,6 +174,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: setField
         params:
@@ -164,6 +186,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: getField
         params:
@@ -171,6 +194,7 @@
             name: whichField
         returns: real
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: setDestPosition
         params:
@@ -180,11 +204,13 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: getDestPosition
         params: []
         returns: vec2
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: apply
         params:
@@ -194,6 +220,7 @@
             name: panTimed
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: applyWithZ
         params:
@@ -201,6 +228,7 @@
             name: zDestOffset
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: applyForceDuration
         params:
@@ -210,6 +238,7 @@
             name: forceDuration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: applyForceDurationWithZ
         params:
@@ -219,6 +248,7 @@
             name: forceDuration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: apply
         params:
@@ -230,6 +260,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: camerasetup
         name: getFieldSwap
         params:
@@ -237,6 +268,23 @@
             name: whichField
         returns: real
       - doc: ~
+        static_: false
+        extensor: camerasetup
+        name: applyForceDurationSmooth
+        params:
+          - typ: boolean
+            name: doPan
+          - typ: real
+            name: forcedDuration
+          - typ: real
+            name: easeInDuration
+          - typ: real
+            name: easeOutDuration
+          - typ: real
+            name: smoothFactor
+        returns: ~
+      - doc: ~
+        static_: false
         extensor: player
         name: cameraSetupApply
         params:
@@ -248,6 +296,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraField
         params:
@@ -259,6 +308,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraTargetControllerNoZ
         params:
@@ -270,6 +320,7 @@
             name: inheritOrientation
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraPosition
         params:
@@ -277,6 +328,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: panCameraTo
         params:
@@ -284,6 +336,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: panCameraTo
         params:
@@ -291,6 +344,7 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: panCameraToTimed
         params:
@@ -300,6 +354,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: panCameraToTimed
         params:
@@ -309,6 +364,7 @@
             name: duration
         returns: ~
       - doc: "Pans the camera depending on how far pos is from the current\n\tcamera target:\n\t- If the distance is larger than\n\t  bj_SMARTPAN_TRESHOLD_SNAP, the camera snaps instantenously\n\t- If the distance is larger than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera pans over the specified duration\n\t- If the distance is smaller than bj_SMARTPAN_TRESHOLD_PAN, the\n\t  camera doesn't move at all."
+        static_: false
         extensor: player
         name: smartCameraPan
         params:
@@ -318,6 +374,7 @@
             name: duration
         returns: ~
       - doc: "Runs the camera for the player through the cinematic camera\n\tspecified in  cameraModelFile. Existing cameras are available\n\tvia Objects.cameraXXX paths\""
+        static_: false
         extensor: player
         name: setCinematicCamera
         params:
@@ -325,6 +382,7 @@
             name: cameraModelFile
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: resetToGameCamera
         params:
@@ -332,6 +390,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: cameraSetSourceNoise
         params:
@@ -341,6 +400,7 @@
             name: velocity
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: cameraSetTargetNoise
         params:
@@ -350,6 +410,7 @@
             name: velocity
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: cameraSetEQNoise
         params:
@@ -357,11 +418,13 @@
             name: magnitude
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: cameraClearNoise
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraBoundsToRect
         params:
@@ -369,6 +432,7 @@
             name: r
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: adjustCameraBounds
         params:
@@ -384,6 +448,7 @@
             name: dySouth
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraQuickPosition
         params:
@@ -391,11 +456,13 @@
             name: pos
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: stopCamera
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: player
         name: setCameraOrientController
         params:
@@ -405,6 +472,7 @@
             name: offset
         returns: ~
       - doc: ~
+        static_: false
         extensor: unit
         name: setCameraTargetController
         params:
@@ -414,6 +482,7 @@
             name: inheritOrientation
         returns: ~
       - doc: ~
+        static_: false
         extensor: unit
         name: setCameraOrientController
         params:
@@ -421,6 +490,7 @@
             name: offset
         returns: ~
       - doc: ~
+        static_: false
         extensor: unit
         name: setCameraOrientControllerForPlayer
         params:

@@ -3,8 +3,10 @@
     doc: ~
     name: StandardTextTags
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: standardTextTag
         params:
@@ -14,6 +16,7 @@
             name: text
         returns: texttag
       - doc: "Create a texttag that matches the style of the standard warcraft 3 Critical\n\tStrike ability."
+        static_: false
         extensor: ~
         name: createCriticalStrikeTextTag
         params:
@@ -23,6 +26,7 @@
             name: damage
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
+        static_: false
         extensor: ~
         name: createGoldBountyTextTag
         params:
@@ -34,6 +38,7 @@
             name: killer
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 gold\n\tbounty."
+        static_: false
         extensor: ~
         name: createGoldBountyTextTag
         params:
@@ -43,6 +48,7 @@
             name: bounty
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
+        static_: false
         extensor: ~
         name: createLumberBountyTextTag
         params:
@@ -54,6 +60,7 @@
             name: killer
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 lumber\n\tbounty."
+        static_: false
         extensor: ~
         name: createLumberBountyTextTag
         params:
@@ -63,6 +70,7 @@
             name: bounty
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 Mana Burn\n\tability."
+        static_: false
         extensor: ~
         name: createManaBurnTextTag
         params:
@@ -72,6 +80,7 @@
             name: damage
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 attack\n\tmiss indication."
+        static_: false
         extensor: ~
         name: createMissTextTag
         params:
@@ -79,6 +88,7 @@
             name: u
         returns: ~
       - doc: "Create a texttag that matches the style of the standard warcraft 3 Shadow\n\tStrike ability."
+        static_: false
         extensor: ~
         name: createShadowStrikeTextTag
         params:

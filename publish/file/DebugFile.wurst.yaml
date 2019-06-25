@@ -3,8 +3,10 @@
     doc: ~
     name: DebugFile
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: sendLineToConsole
         params:

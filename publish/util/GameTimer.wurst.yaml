@@ -3,8 +3,10 @@
     doc: ~
     name: GameTimer
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: getElapsedGameTime
         params: []

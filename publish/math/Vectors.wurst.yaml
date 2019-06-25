@@ -3,8 +3,10 @@
     doc: ~
     name: Vectors
     classes: []
+    enums: []
     free_fns:
       - doc: + Operator vec2
+        static_: false
         extensor: vec2
         name: op_plus
         params:
@@ -12,6 +14,7 @@
             name: v
         returns: vec2
       - doc: + Operator vec3
+        static_: false
         extensor: vec2
         name: op_plus
         params:
@@ -19,6 +22,7 @@
             name: v
         returns: vec2
       - doc: "- Operator"
+        static_: false
         extensor: vec2
         name: op_minus
         params:
@@ -26,6 +30,7 @@
             name: v
         returns: vec2
       - doc: ~
+        static_: false
         extensor: vec2
         name: op_mult
         params:
@@ -33,6 +38,7 @@
             name: factor
         returns: vec2
       - doc: ~
+        static_: false
         extensor: real
         name: op_mult
         params:
@@ -40,6 +46,7 @@
             name: vec
         returns: vec2
       - doc: dot product Operator
+        static_: false
         extensor: vec2
         name: op_mult
         params:
@@ -47,6 +54,7 @@
             name: v
         returns: vec2
       - doc: ~
+        static_: false
         extensor: vec2
         name: op_div
         params:
@@ -54,6 +62,7 @@
             name: factor
         returns: vec2
       - doc: Add two reals to the coordiantes of this vector
+        static_: false
         extensor: vec2
         name: add
         params:
@@ -63,6 +72,7 @@
             name: y
         returns: vec2
       - doc: Get the dot-product
+        static_: false
         extensor: vec2
         name: dot
         params:
@@ -70,11 +80,13 @@
             name: v
         returns: real
       - doc: Normalize this vector
+        static_: false
         extensor: vec2
         name: norm
         params: []
         returns: vec2
       - doc: Rotate this vector
+        static_: false
         extensor: vec2
         name: rotate
         params:
@@ -82,21 +94,25 @@
             name: angl
         returns: vec2
       - doc: Convert this vector to a 3d vector with z = 0.
+        static_: false
         extensor: vec2
         name: toVec3
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: vec2
         name: getTerrainZ
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: vec3
         name: getTerrainZ
         params: []
         returns: real
       - doc: ~
+        static_: false
         extensor: ~
         name: getTerrainZ
         params:
@@ -104,6 +120,7 @@
             name: pos
         returns: real
       - doc: ~
+        static_: false
         extensor: ~
         name: getTerrainZ
         params:
@@ -113,11 +130,13 @@
             name: y
         returns: real
       - doc: ~
+        static_: false
         extensor: vec2
         name: withTerrainZ
         params: []
         returns: vec3
       - doc: ~
+        static_: false
         extensor: vec2
         name: withTerrainZ
         params:
@@ -125,6 +144,7 @@
             name: zoffset
         returns: vec3
       - doc: Set the length of this vector
+        static_: false
         extensor: vec2
         name: setLength
         params:
@@ -132,16 +152,19 @@
             name: length
         returns: vec2
       - doc: Get the length of this vector
+        static_: false
         extensor: vec2
         name: length
         params: []
         returns: real
       - doc: Get the squared length of this vector
+        static_: false
         extensor: vec2
         name: lengthSq
         params: []
         returns: real
       - doc: Is this vector inside the given circle
+        static_: false
         extensor: vec2
         name: inRange
         params:
@@ -151,11 +174,13 @@
             name: radius
         returns: boolean
       - doc: Get a String-representation of this Vector (for debugging)
+        static_: false
         extensor: vec2
         name: toString
         params: []
         returns: string
       - doc: "Get this vetor's angle to another one"
+        static_: false
         extensor: vec2
         name: angleTo
         params:
@@ -163,6 +188,7 @@
             name: v
         returns: angle
       - doc: Get a polar offset from this vector
+        static_: false
         extensor: vec2
         name: polarOffset
         params:
@@ -172,6 +198,7 @@
             name: dist
         returns: vec2
       - doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
+        static_: false
         extensor: vec2
         name: normalizedPointerTo
         params:
@@ -179,6 +206,7 @@
             name: target
         returns: vec2
       - doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
+        static_: false
         extensor: vec2
         name: moveTowards
         params:
@@ -188,6 +216,7 @@
             name: dist
         returns: vec2
       - doc: Get a 3d Vector with the original xy and the given z coordinate
+        static_: false
         extensor: vec2
         name: withZ
         params:
@@ -195,6 +224,7 @@
             name: z
         returns: vec3
       - doc: Get distance to another vector
+        static_: false
         extensor: vec2
         name: distanceTo
         params:
@@ -202,6 +232,7 @@
             name: v
         returns: real
       - doc: Get squared distance to another vector
+        static_: false
         extensor: vec2
         name: distanceToSq
         params:
@@ -209,6 +240,7 @@
             name: v
         returns: real
       - doc: Get squared distance to a line segment
+        static_: false
         extensor: vec2
         name: distanceToSegmentSq
         params:
@@ -218,6 +250,7 @@
             name: v2
         returns: real
       - doc: ~
+        static_: false
         extensor: vec2
         name: withRadiusRect
         params:
@@ -225,6 +258,7 @@
             name: nominalRadius
         returns: rect
       - doc: Checks whether the point is in a triangle defined by 3 points.
+        static_: false
         extensor: vec2
         name: isInTriangle
         params:
@@ -236,6 +270,7 @@
             name: p3
         returns: bool
       - doc: + Operator
+        static_: false
         extensor: vec3
         name: op_plus
         params:
@@ -243,6 +278,7 @@
             name: v
         returns: vec3
       - doc: + Operator
+        static_: false
         extensor: vec3
         name: op_plus
         params:
@@ -250,6 +286,7 @@
             name: v
         returns: vec3
       - doc: "- Operator"
+        static_: false
         extensor: vec3
         name: op_minus
         params:
@@ -257,6 +294,7 @@
             name: v
         returns: vec3
       - doc: "- Operator"
+        static_: false
         extensor: vec3
         name: op_minus
         params:
@@ -264,6 +302,7 @@
             name: v
         returns: vec3
       - doc: ~
+        static_: false
         extensor: vec3
         name: op_mult
         params:
@@ -271,6 +310,7 @@
             name: factor
         returns: vec3
       - doc: dot Operator
+        static_: false
         extensor: real
         name: op_mult
         params:
@@ -278,6 +318,7 @@
             name: v
         returns: vec3
       - doc: add 3 realvalues to the coordinates of this Vector
+        static_: false
         extensor: vec3
         name: add
         params:
@@ -289,6 +330,7 @@
             name: z
         returns: vec3
       - doc: Get the dot-product
+        static_: false
         extensor: vec3
         name: dot
         params:
@@ -296,11 +338,13 @@
             name: v
         returns: real
       - doc: Normalize this Vector
+        static_: false
         extensor: vec3
         name: norm
         params: []
         returns: vec3
       - doc: Rotate this vector around an axis
+        static_: false
         extensor: vec3
         name: rotate
         params:
@@ -310,6 +354,7 @@
             name: radians
         returns: vec3
       - doc: Sets the length of the given Vector
+        static_: false
         extensor: vec3
         name: setLengthSq
         params:
@@ -317,6 +362,7 @@
             name: lengthSq
         returns: vec3
       - doc: Sets the length of the given Vector
+        static_: false
         extensor: vec3
         name: setLength
         params:
@@ -324,16 +370,19 @@
             name: length
         returns: vec3
       - doc: Get the length of this Vector
+        static_: false
         extensor: vec3
         name: length
         params: []
         returns: real
       - doc: Get the squared length of this Vector
+        static_: false
         extensor: vec3
         name: lengthSquared
         params: []
         returns: real
       - doc: Get the cross-product
+        static_: false
         extensor: vec3
         name: cross
         params:
@@ -341,6 +390,7 @@
             name: v
         returns: vec3
       - doc: Project this vector onto the given directional vector
+        static_: false
         extensor: vec3
         name: project
         params:
@@ -348,11 +398,13 @@
             name: direction
         returns: vec3
       - doc: Convert a vec3 to a vec2 (z-coordinate gets removed)
+        static_: false
         extensor: vec3
         name: toVec2
         params: []
         returns: vec2
       - doc: Is this vector inside the given circle
+        static_: false
         extensor: vec3
         name: inRange
         params:
@@ -362,6 +414,7 @@
             name: radius
         returns: boolean
       - doc: Get the distance to another Vector
+        static_: false
         extensor: vec3
         name: distanceTo
         params:
@@ -369,6 +422,7 @@
             name: v
         returns: real
       - doc: Get the distance to another Vector
+        static_: false
         extensor: vec3
         name: distanceTo2d
         params:
@@ -376,6 +430,7 @@
             name: v
         returns: real
       - doc: Get the distance to another Vector
+        static_: false
         extensor: vec3
         name: distanceTo2d
         params:
@@ -383,6 +438,7 @@
             name: v
         returns: real
       - doc: Get the squared distance to another Vector
+        static_: false
         extensor: vec3
         name: distanceTo2dSq
         params:
@@ -390,6 +446,7 @@
             name: v
         returns: real
       - doc: Get the squared distance to another Vector
+        static_: false
         extensor: vec3
         name: distanceToSq
         params:
@@ -397,11 +454,13 @@
             name: v
         returns: real
       - doc: Get a String-represantation of the vector (for debugging)
+        static_: false
         extensor: vec3
         name: toString
         params: []
         returns: string
       - doc: Rotate this vector around an axis
+        static_: false
         extensor: vec3
         name: rotate
         params:
@@ -411,6 +470,7 @@
             name: ang
         returns: vec3
       - doc: Offset this vector in 2d space
+        static_: false
         extensor: vec3
         name: offset2d
         params:
@@ -420,6 +480,7 @@
             name: dist
         returns: vec3
       - doc: Get the angle to a 2d vector
+        static_: false
         extensor: vec3
         name: angleTo2d
         params:
@@ -427,6 +488,7 @@
             name: v
         returns: angle
       - doc: ~
+        static_: false
         extensor: vec3
         name: angleTo2d
         params:
@@ -434,6 +496,7 @@
             name: v
         returns: angle
       - doc: Get a polarprojection of this Vector
+        static_: false
         extensor: vec3
         name: polarProject
         params:
@@ -445,6 +508,7 @@
             name: angleAir
         returns: vec3
       - doc: "returns a vector of length 1 which points into the direction of target,\n\twhen this vector and target are equal, then the pointer will point to the right"
+        static_: false
         extensor: vec3
         name: normalizedPointerTo
         params:
@@ -452,6 +516,7 @@
             name: target
         returns: vec3
       - doc: "move a vector towards a given other vector, if the current vector\n\tis equal to the target vector, then the vector will move to the right.\n\t(this emulated the behavior of using polarOffset for this task)"
+        static_: false
         extensor: vec3
         name: moveTowards
         params:
@@ -461,6 +526,7 @@
             name: dist
         returns: vec3
       - doc: returns a vector of the given length pointing into the direction of this angle
+        static_: false
         extensor: angle
         name: toVec
         params:
@@ -468,11 +534,13 @@
             name: len
         returns: vec2
       - doc: returns a vector of length 1 pointing into the direction of this angle
+        static_: false
         extensor: angle
         name: direction
         params: []
         returns: vec2
       - doc: "returns a vector of length 'dist' pointing into the direction of this angle"
+        static_: false
         extensor: angle
         name: direction
         params:
@@ -480,11 +548,13 @@
             name: dist
         returns: vec2
       - doc: returns the angle of this vector
+        static_: false
         extensor: vec2
         name: getAngle
         params: []
         returns: angle
       - doc: ~
+        static_: false
         extensor: vec2
         name: assertEquals
         params:
@@ -492,6 +562,7 @@
             name: expected
         returns: ~
       - doc: ~
+        static_: false
         extensor: vec3
         name: assertEquals
         params:
@@ -499,6 +570,7 @@
             name: expected
         returns: ~
       - doc: ~
+        static_: false
         extensor: vec3
         name: isInTriangle2d
         params:

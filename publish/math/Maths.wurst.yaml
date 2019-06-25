@@ -3,8 +3,10 @@
     doc: ~
     name: Maths
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: hypot
         params:
@@ -14,6 +16,7 @@
             name: dy
         returns: real
       - doc: Returns the angle of a height-slope
+        static_: false
         extensor: ~
         name: getSlopeAngle
         params:
@@ -25,6 +28,7 @@
             name: dist
         returns: angle
       - doc: ~
+        static_: false
         extensor: int
         name: moduloInt
         params:

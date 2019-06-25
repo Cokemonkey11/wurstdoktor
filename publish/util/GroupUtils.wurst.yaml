@@ -3,18 +3,22 @@
     doc: ~
     name: GroupUtils
     classes: []
+    enums: []
     free_fns:
       - doc: "Returns a reusable group from the GroupUtils stack is possible.\n\tCreates new groups if none are found on the reusable stack.\n\tIf that is not possible, returns a non-recyclable group and displays a warning."
+        static_: false
         extensor: ~
         name: getGroup
         params: []
         returns: group
       - doc: "Recycles a group if it is created through GroupUtils, otherwise just destroys it.\n\tDoesn't affect ENUM_GROUP."
+        static_: false
         extensor: group
         name: release
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: group
         name: recyclableIterator
         params: []

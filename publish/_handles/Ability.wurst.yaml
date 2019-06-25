@@ -1,0 +1,367 @@
+---
+- Package:
+    doc: ~
+    name: Ability
+    classes: []
+    enums: []
+    free_fns:
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitybooleanfield
+            name: field
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityintegerfield
+            name: field
+        returns: int
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityrealfield
+            name: field
+        returns: real
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitystringfield
+            name: field
+        returns: string
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitybooleanlevelfield
+            name: field
+          - typ: int
+            name: level
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityintegerlevelfield
+            name: field
+          - typ: int
+            name: level
+        returns: int
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityreallevelfield
+            name: field
+          - typ: int
+            name: level
+        returns: real
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitystringlevelfield
+            name: field
+          - typ: int
+            name: level
+        returns: string
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitybooleanlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityintegerlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+        returns: int
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilityreallevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+        returns: real
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: getField
+        params:
+          - typ: abilitystringlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+        returns: string
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitybooleanfield
+            name: field
+          - typ: bool
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityintegerfield
+            name: field
+          - typ: int
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityrealfield
+            name: field
+          - typ: real
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitystringfield
+            name: field
+          - typ: string
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitybooleanlevelfield
+            name: field
+          - typ: int
+            name: level
+          - typ: bool
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityintegerlevelfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityreallevelfield
+            name: field
+          - typ: int
+            name: level
+          - typ: real
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitystringlevelfield
+            name: field
+          - typ: int
+            name: level
+          - typ: string
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitybooleanlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+          - typ: bool
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityintegerlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+          - typ: int
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilityreallevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+          - typ: real
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: setField
+        params:
+          - typ: abilitystringlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: index
+          - typ: string
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: addField
+        params:
+          - typ: abilitybooleanlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: bool
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: addField
+        params:
+          - typ: abilityintegerlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: addField
+        params:
+          - typ: abilityreallevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: real
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: addField
+        params:
+          - typ: abilitystringlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: string
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: removeField
+        params:
+          - typ: abilitybooleanlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: bool
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: removeField
+        params:
+          - typ: abilityintegerlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: int
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: removeField
+        params:
+          - typ: abilityreallevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: real
+            name: value
+        returns: bool
+      - doc: ~
+        static_: false
+        extensor: ability
+        name: removeField
+        params:
+          - typ: abilitystringlevelarrayfield
+            name: field
+          - typ: int
+            name: level
+          - typ: string
+            name: value
+        returns: bool

@@ -3,8 +3,10 @@
     doc: ~
     name: Execute
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: execute
         params:
@@ -12,6 +14,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: try
         params:
@@ -19,6 +22,7 @@
             name: c
         returns: boolean
       - doc: ~
+        static_: false
         extensor: ~
         name: executeWhile
         params:

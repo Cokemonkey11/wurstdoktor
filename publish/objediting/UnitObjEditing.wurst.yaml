@@ -3,33 +3,109 @@
     doc: ~
     name: UnitObjEditing
     classes: []
+    enums:
+      - doc: ~
+        name: MovementType
+        variants:
+          - None
+          - Foot
+          - Horse
+          - Fly
+          - Hover
+          - Float
+          - Amphipic
+      - doc: ~
+        name: ArmorType
+        variants:
+          - Normal
+          - Small
+          - Medium
+          - Large
+          - Fortified
+          - Hero
+          - Divine
+          - Unarmored
+      - doc: ~
+        name: AttackType
+        variants:
+          - Unknown
+          - Normal
+          - Pierce
+          - Siege
+          - Spells
+          - Chaos
+          - Magic
+          - Hero
+      - doc: ~
+        name: WeaponSound
+        variants:
+          - Nothing
+          - AxeMediumChop
+          - MetalHeavyBash
+          - MetalHeavyChop
+          - MetalHeavySlice
+          - MetalLightChop
+          - MetalLightSlice
+          - MetalMediumBash
+          - MetalMediumChop
+          - MetalMediumSlice
+          - RockHeavyBash
+          - WoodHeavyBash
+          - WoodLightBash
+          - WoodMediumBash
+      - doc: ~
+        name: ArmorSoundType
+        variants:
+          - Ethereal
+          - Metal
+          - Flesh
+          - Stone
+          - Wood
+      - doc: ~
+        name: WeaponType
+        variants:
+          - None
+          - Normal
+          - Instant
+          - Artillery
+          - ArtilleryLine
+          - Missile
+          - MissileSplash
+          - MissileBounce
+          - MissileLine
     free_fns:
       - doc: ~
+        static_: false
         extensor: WeaponType
         name: toObjectString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: WeaponSound
         name: toString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: ArmorSoundType
         name: toString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: ArmorType
         name: toObjectString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: AttackType
         name: toObjectString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: MovementType
         name: toObjectString
         params: []

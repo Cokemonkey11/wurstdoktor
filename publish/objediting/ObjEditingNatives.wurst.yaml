@@ -3,8 +3,10 @@
     doc: ~
     name: ObjEditingNatives
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: compileError
         params:
@@ -12,6 +14,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: createObjectDefinition
         params:
@@ -23,6 +26,7 @@
             name: deriveFrom
         returns: ObjectDefinition
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setInt
         params:
@@ -32,6 +36,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setBoolean
         params:
@@ -41,6 +46,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setString
         params:
@@ -50,6 +56,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setReal
         params:
@@ -59,6 +66,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setUnreal
         params:
@@ -68,6 +76,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlInt
         params:
@@ -79,6 +88,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlString
         params:
@@ -90,6 +100,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlReal
         params:
@@ -101,6 +112,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlUnreal
         params:
@@ -112,6 +124,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlDataInt
         params:
@@ -125,6 +138,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlDataString
         params:
@@ -138,6 +152,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlDataReal
         params:
@@ -151,6 +166,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlDataUnreal
         params:
@@ -164,6 +180,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLvlDataBoolean
         params:
@@ -177,6 +194,7 @@
             name: value
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLevelsDataString
         params:
@@ -190,6 +208,7 @@
             name: lc
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLevelsDataInt
         params:
@@ -203,6 +222,7 @@
             name: lc
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLevelsDataUnreal
         params:
@@ -216,6 +236,7 @@
             name: lc
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLevelsDataReal
         params:
@@ -229,6 +250,7 @@
             name: lc
         returns: ~
       - doc: ~
+        static_: false
         extensor: ObjectDefinition
         name: setLevelsDataBoolean
         params:

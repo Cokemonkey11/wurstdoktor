@@ -3,19 +3,47 @@
     doc: ~
     name: LinkedList
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: LinkedList<real>
         name: sort
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: LinkedList<int>
         name: sort
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: group
         name: asList
         params: []
         returns: LinkedList<unit>
+      - doc: Joins elements from a string list into one string using a separator
+        static_: false
+        extensor: LinkedList<string>
+        name: joinBy
+        params:
+          - typ: string
+            name: separator
+        returns: string
+      - doc: ~
+        static_: false
+        extensor: LinkedList<T>
+        name: joinBy<T>
+        params:
+          - typ: ToStringClosure<T>
+            name: cls
+          - typ: string
+            name: separator
+        returns: string
+      - doc: Joins elements from a string list into one string
+        static_: false
+        extensor: LinkedList<string>
+        name: join
+        params: []
+        returns: string

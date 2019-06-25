@@ -3,13 +3,16 @@
     doc: ~
     name: BitSet
     classes: []
+    enums: []
     free_fns:
       - doc: the empty bitset
+        static_: false
         extensor: ~
         name: emptyBitset
         params: []
         returns: bitset
       - doc: checks if bitset contains value v
+        static_: false
         extensor: bitset
         name: contains
         params:
@@ -17,6 +20,7 @@
             name: v
         returns: boolean
       - doc: adds value v to the bitset
+        static_: false
         extensor: bitset
         name: add
         params:
@@ -24,6 +28,7 @@
             name: v
         returns: bitset
       - doc: removes value v from the bitset
+        static_: false
         extensor: bitset
         name: remove
         params:

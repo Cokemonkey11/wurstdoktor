@@ -3,8 +3,10 @@
     doc: ~
     name: Bitwise
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: byte4
         name: select
         params:
@@ -12,6 +14,7 @@
             name: pos
         returns: int
       - doc: ~
+        static_: false
         extensor: byte4
         name: put
         params:
@@ -21,31 +24,37 @@
             name: value
         returns: byte4
       - doc: ~
+        static_: false
         extensor: byte4
         name: toInt
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: toUnsigned
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: byte1
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: byte2
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: byte3
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: byte4
         params:
@@ -53,31 +62,37 @@
             name: isNegative
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: bytes
         params: []
         returns: byte4
       - doc: ~
+        static_: false
         extensor: string
         name: fromBitString
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: toBitString
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: int
         name: not8
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: not32
         params: []
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: and8
         params:
@@ -85,6 +100,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: and32
         params:
@@ -92,6 +108,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: or8
         params:
@@ -99,6 +116,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: or32
         params:
@@ -106,6 +124,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: xor8
         params:
@@ -113,6 +132,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: xor32
         params:
@@ -120,6 +140,7 @@
             name: other
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: shiftl
         params:
@@ -127,6 +148,7 @@
             name: amount
         returns: int
       - doc: ~
+        static_: false
         extensor: int
         name: shiftr
         params:

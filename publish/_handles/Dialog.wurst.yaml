@@ -3,13 +3,16 @@
     doc: ~
     name: Dialog
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: createDialog
         params: []
         returns: dialog
       - doc: ~
+        static_: false
         extensor: dialog
         name: addButton
         params:
@@ -17,6 +20,7 @@
             name: buttonText
         returns: button
       - doc: "Hotkey: use ASCII numbers of the capital letter."
+        static_: false
         extensor: dialog
         name: addButton
         params:
@@ -26,6 +30,7 @@
             name: hotkey
         returns: button
       - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player."
+        static_: false
         extensor: dialog
         name: addQuitButton
         params:
@@ -35,6 +40,7 @@
             name: buttonText
         returns: button
       - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player.\nHotkey: use ASCII numbers of the capital letter."
+        static_: false
         extensor: dialog
         name: addQuitButton
         params:
@@ -46,16 +52,19 @@
             name: hotkey
         returns: button
       - doc: Removes all buttons from a dialog
+        static_: false
         extensor: dialog
         name: clear
         params: []
         returns: ~
       - doc: ~
+        static_: false
         extensor: dialog
         name: destr
         params: []
         returns: ~
       - doc: "Toggles visibility of the dialog for a player. Dialogs are invisible by default\nDialogs cannot be shown at map initialization"
+        static_: false
         extensor: dialog
         name: display
         params:
@@ -65,6 +74,7 @@
             name: flag
         returns: ~
       - doc: ~
+        static_: false
         extensor: dialog
         name: setMessage
         params:

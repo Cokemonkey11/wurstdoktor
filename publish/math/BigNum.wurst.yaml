@@ -3,8 +3,10 @@
     doc: ~
     name: BigNum
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: log
         params:

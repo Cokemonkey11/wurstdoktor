@@ -3,8 +3,10 @@
     doc: ~
     name: ClosureForGroups
     classes: []
+    enums: []
     free_fns:
       - doc: "Executes the given closure for every unit in this group,\n\tremoving the units from the group as processed"
+        static_: false
         extensor: group
         name: forEachFrom
         params:
@@ -12,6 +14,7 @@
             name: cb
         returns: ~
       - doc: "Executes the given closure for every unit in this group,\n\tkeeping all units in the group"
+        static_: false
         extensor: group
         name: forEachIn
         params:
@@ -19,6 +22,7 @@
             name: cb
         returns: ~
       - doc: "Executes the given closure for every unit of the given type.\n\tRemember that names of custom units are \"custom_[typeId]\""
+        static_: false
         extensor: ~
         name: forUnitsOfType
         params:
@@ -28,6 +32,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: forUnitsOfTypeCounted
         params:
@@ -39,6 +44,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for every unit of the given player
+        static_: false
         extensor: ~
         name: forUnitsOfPlayer
         params:
@@ -48,6 +54,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for every existing unit
+        static_: false
         extensor: ~
         name: forUnitsAll
         params:
@@ -55,6 +62,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for every unit in the given rect
+        static_: false
         extensor: ~
         name: forUnitsInRect
         params:
@@ -64,6 +72,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: forUnitsInRectCounted
         params:
@@ -75,6 +84,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for every unit in range of the given position
+        static_: false
         extensor: ~
         name: forUnitsInRange
         params:
@@ -86,6 +96,35 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
+        extensor: ~
+        name: forUnitsInRange
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: radius
+          - typ: ForGroupCallback
+            name: c
+          - typ: bool
+            name: collisionSizeFiltering
+        returns: ~
+      - doc: "Executes the given closure for every unit in range of the given position \n\tWith collisionSizeFiltering true it will take the units' collision into account."
+        static_: false
+        extensor: ~
+        name: forUnitsInRange
+        params:
+          - typ: vec2
+            name: pos
+          - typ: real
+            name: radius
+          - typ: bool
+            name: collisionSizeFiltering
+          - typ: ForGroupCallback
+            name: c
+        returns: ~
+      - doc: ~
+        static_: false
         extensor: ~
         name: forUnitsInRangeCounted
         params:
@@ -99,6 +138,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for every unit selected by the given player
+        static_: false
         extensor: ~
         name: forUnitsSelected
         params:
@@ -108,6 +148,7 @@
             name: c
         returns: ~
       - doc: "Executes the given closure for the closest unit inside the given range of the given position,\n\tmatching the provided filter. If there is no unit in range, the closure will be run with \"null\""
+        static_: false
         extensor: ~
         name: forNearestUnit
         params:
@@ -121,6 +162,7 @@
             name: c
         returns: ~
       - doc: Executes the given closure for all destructables in the given rect
+        static_: false
         extensor: ~
         name: forDestructablesInRect
         params:
@@ -130,6 +172,7 @@
             name: cb
         returns: ~
       - doc: "Executes the given closure for the closes destructable in the given rect.\n\tIf there is no destructable in range, the closure will be run with \"null\""
+        static_: false
         extensor: ~
         name: forNearestDestructable
         params:

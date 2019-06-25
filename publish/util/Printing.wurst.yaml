@@ -3,13 +3,24 @@
     doc: ~
     name: Printing
     classes: []
+    enums:
+      - doc: ~
+        name: Loglevel
+        variants:
+          - TRACE
+          - DEBUG
+          - INFO
+          - WARNING
+          - ERROR
     free_fns:
       - doc: ~
+        static_: false
         extensor: Loglevel
         name: getTag
         params: []
         returns: string
       - doc: ~
+        static_: false
         extensor: ~
         name: print
         params:
@@ -17,6 +28,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: print
         params:
@@ -24,6 +36,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: print
         params:
@@ -31,6 +44,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: print
         params:
@@ -38,6 +52,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: printLog
         params:
@@ -47,6 +62,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: printLog
         params:
@@ -58,6 +74,7 @@
             name: msg
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: printTimed
         params:
@@ -67,6 +84,7 @@
             name: duration
         returns: ~
       - doc: Prints a simple message that is shown for the given duration
+        static_: false
         extensor: ~
         name: print
         params:
@@ -76,6 +94,7 @@
             name: duration
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: printTimedToPlayer
         params:
@@ -87,6 +106,7 @@
             name: p
         returns: ~
       - doc: Prints a timed message that is shown to the player for the given duration
+        static_: false
         extensor: player
         name: print
         params:
@@ -96,6 +116,7 @@
             name: duration
         returns: ~
       - doc: Prints a simple message that is shown to the player
+        static_: false
         extensor: player
         name: print
         params:
@@ -103,6 +124,7 @@
             name: msg
         returns: ~
       - doc: Prints a simple message after clearing all messages that is shown to the player for the given duration
+        static_: false
         extensor: ~
         name: printTimedToPlayerClear
         params:

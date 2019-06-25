@@ -3,8 +3,10 @@
     doc: ~
     name: RegisterEvents
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerUnitEvent
         params:
@@ -14,6 +16,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerUnitEvent
         params:
@@ -25,6 +28,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerUnitEvent
         params:
@@ -38,6 +42,7 @@
             name: action
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerUnitEventForPlayer
         params:
@@ -49,6 +54,7 @@
             name: pl
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: getPlayerUnitEventTrigger
         params:
@@ -56,6 +62,7 @@
             name: p
         returns: trigger
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerEvent
         params:
@@ -65,6 +72,7 @@
             name: c
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: registerPlayerEvent
         params:
@@ -76,6 +84,7 @@
             name: action
         returns: ~
       - doc: ~
+        static_: false
         extensor: ~
         name: registerSpellEffectEvent
         params:

@@ -3,8 +3,10 @@
     doc: ~
     name: Quaternion
     classes: []
+    enums: []
     free_fns:
       - doc: ~
+        static_: false
         extensor: quat
         name: op_plus
         params:
@@ -12,6 +14,7 @@
             name: q
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: op_plus
         params:
@@ -19,6 +22,7 @@
             name: scalar
         returns: quat
       - doc: ~
+        static_: false
         extensor: real
         name: op_plus
         params:
@@ -26,6 +30,7 @@
             name: q
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: op_minus
         params:
@@ -33,6 +38,7 @@
             name: q
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: op_minus
         params:
@@ -40,6 +46,7 @@
             name: scalar
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: op_mult
         params:
@@ -47,6 +54,7 @@
             name: scalar
         returns: quat
       - doc: ~
+        static_: false
         extensor: real
         name: op_mult
         params:
@@ -54,6 +62,7 @@
             name: q
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: dot
         params:
@@ -61,6 +70,7 @@
             name: q
         returns: real
       - doc: Represents the composition of two rotations.
+        static_: false
         extensor: quat
         name: cross
         params:
@@ -68,21 +78,25 @@
             name: q
         returns: quat
       - doc: Represents the same rotation in opposite direction.
+        static_: false
         extensor: quat
         name: conj
         params: []
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: length
         params: []
         returns: real
       - doc: Returns zero quaternion if lenght is zero.
+        static_: false
         extensor: quat
         name: norm
         params: []
         returns: quat
       - doc: Quaternion to power of alpha.
+        static_: false
         extensor: quat
         name: exp
         params:
@@ -90,26 +104,31 @@
             name: alpha
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: toMatrix
         params: []
         returns: mat3
       - doc: Extracts X-axis from a quaternion that represents rotation.
+        static_: false
         extensor: quat
         name: getX
         params: []
         returns: vec3
       - doc: Extracts Y-axis as a vector from a quaternion that represents rotation.
+        static_: false
         extensor: quat
         name: getY
         params: []
         returns: vec3
       - doc: Extracts Z-axis as a vector from a quaternion that represents rotation.
+        static_: false
         extensor: quat
         name: getZ
         params: []
         returns: vec3
       - doc: "Linear interpolation.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: lerp
         params:
@@ -119,6 +138,7 @@
             name: p
         returns: quat
       - doc: "Linear interpolation.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: lerpShort
         params:
@@ -128,6 +148,7 @@
             name: p
         returns: quat
       - doc: "Linear interpolation.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: lerpLong
         params:
@@ -137,6 +158,7 @@
             name: p
         returns: quat
       - doc: "Normalized linear interpolation.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: nlerp
         params:
@@ -146,6 +168,7 @@
             name: p
         returns: quat
       - doc: "Normalized linear interpolation.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: nlerpShort
         params:
@@ -155,6 +178,7 @@
             name: p
         returns: quat
       - doc: "Normalized linear interpolation.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1."
+        static_: false
         extensor: quat
         name: nlerpLong
         params:
@@ -164,6 +188,7 @@
             name: p
         returns: quat
       - doc: "Spherical linear interpolation. Interpolates between two rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+        static_: false
         extensor: quat
         name: slerp
         params:
@@ -173,6 +198,7 @@
             name: p
         returns: quat
       - doc: "Spherical linear interpolation. Interpolates between two rotations.\nAlways chooses the SHORTEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+        static_: false
         extensor: quat
         name: slerpShort
         params:
@@ -182,6 +208,7 @@
             name: p
         returns: quat
       - doc: "Spherical linear interpolation. Interpolates between two rotations.\nAlways chooses the LONGEST way between rotations.\nq - targeted quaternion. p - progress from 0 to 1.\nSlerp is the least efficient approach in performance so try to avoid using it, unless you need constant angular velocity. Nlerp is better solution in most cases."
+        static_: false
         extensor: quat
         name: slerpLong
         params:
@@ -191,21 +218,25 @@
             name: p
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: toString
         params: []
         returns: string
       - doc: "Gimbal lock detection.\nReturns 1 for north, -1 for south, 0 if no gimbal lock."
+        static_: false
         extensor: quat
         name: getGimbalPole
         params: []
         returns: int
       - doc: Extracts Euler-angles (Tait-Bryan) in radians from a quaternion. Order of the result is X-Y-Z.
+        static_: false
         extensor: quat
         name: toEuler
         params: []
         returns: vec3
       - doc: Creates a quaternion from rotation axis and angle.
+        static_: false
         extensor: vec3
         name: toQuat
         params:
@@ -213,6 +244,7 @@
             name: angl
         returns: quat
       - doc: Creates a quaternion from rotation axis and angle.
+        static_: false
         extensor: angle
         name: toQuat
         params:
@@ -220,6 +252,7 @@
             name: axis
         returns: quat
       - doc: Rotates a vector by a quaternion.
+        static_: false
         extensor: vec3
         name: rotate
         params:
@@ -227,11 +260,13 @@
             name: q
         returns: vec3
       - doc: Extracts quaternion from a rotation matrix.
+        static_: false
         extensor: mat3
         name: toQuat
         params: []
         returns: quat
       - doc: ~
+        static_: false
         extensor: quat
         name: assertEquals
         params:

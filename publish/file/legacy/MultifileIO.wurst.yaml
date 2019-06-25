@@ -3,4 +3,10 @@
     doc: ~
     name: MultifileIO
     classes: []
+    enums:
+      - doc: ~
+        name: FileLoadStatus
+        variants:
+          - SUCCESS
+          - NOT_ENABLED
     free_fns: []
