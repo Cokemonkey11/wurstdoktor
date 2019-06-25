@@ -10,5 +10,4 @@
           - INTEGER
           - REAL
           - BOOLEAN
-          - /**
     free_fns: []

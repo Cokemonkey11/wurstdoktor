@@ -322,7 +322,7 @@ fn eenum<'a>() -> Parser<'a, u8, WurstEnum> {
         one_of(b" \r\t\n").repeat(1..) +
         (
             one_of(b" \t").repeat(0..) *
-            none_of(b" \t\r\n").repeat(1..) -
+            none_of(b" \t\r\n/").repeat(1..) -
             one_of(b"\r\n").repeat(1..)
         ).convert(String::from_utf8).repeat(1..) -
         one_of(b" \r\t\n").repeat(0..)
@@ -608,6 +608,57 @@ mod tests {
                         name: "Test".into(),
                         classes: vec![],
                         free_fns: vec![],
+                        enums: vec![
+                            WurstEnum {
+                                doc: Some("Dude".into()),
+                                name: "Q".into(),
+                                variants: vec![
+                                    "Variant".into(),
+                                ]
+                            }
+                        ]
+                    }
+                ),
+            ])
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_enum_pkg_with_extension_fn() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                package Test
+                /**
+                    Dude
+                */
+                public enum Q
+                    Variant
+
+                /**
+                    Where's my car?
+                */
+                public function A.x() returns int
+                    return 0
+
+            "#),
+            Ok(vec![
+                WurstDok::Package(
+                    WurstPackage {
+                        doc: None,
+                        name: "Test".into(),
+                        classes: vec![],
+                        free_fns: vec![
+                            WurstFunction {
+                                extensor: Some("A".into()),
+                                returns: Some("int".into()),
+                                doc: Some("Where's my car?".into()),
+                                params: vec![],
+                                name: "x".into(),
+                                static_: false,
+                            }
+                        ],
                         enums: vec![
                             WurstEnum {
                                 doc: Some("Dude".into()),

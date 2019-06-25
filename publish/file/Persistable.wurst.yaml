@@ -12,12 +12,10 @@
           - FAIL_FILE_CORRUPT
           - FAIL_DESERIALIZE
           - FAIL_NO_PLAYER
-          - /**
       - doc: ~
         name: SaveStatus
         variants:
           - SUCCESS
           - FAIL_NOT_ENABLED
           - FAIL_NO_PLAYER
-          - /**
     free_fns: []
