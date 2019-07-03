@@ -2,7 +2,19 @@
 - Package:
     doc: ~
     name: EventHelper
-    classes: []
+    classes:
+      - doc: "This class exposes all Getters and Setters for trigger events.\n\tNote: As these functions simply wrap natives, they will only return proper values during event callbacks (actions/conditions).\n\tTo use these values in a subsequent closure, save the event data in a variable at the time the event was fired."
+        abstract_: false
+        name: EventData
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
     enums: []
     free_fns:
       - doc: ~

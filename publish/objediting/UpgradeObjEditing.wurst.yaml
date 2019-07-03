@@ -2,7 +2,857 @@
 - Package:
     doc: ~
     name: UpgradeObjEditing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: W3QDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getNewId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBaseId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getLevels
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: baseId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: levels
+              - typ: int
+                name: baseId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionX
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionY
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAppliesToAllUnits
+            params:
+              - typ: bool
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setClass
+            params:
+              - typ: UpgradeClass
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldCostBase
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldCostIncrement
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLevels
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberCostBase
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberCostIncrement
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRace
+            params:
+              - typ: Race
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTimeBase
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTimeIncrement
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTransferWithUnitOwnership
+            params:
+              - typ: bool
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIcon
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: Comma separated list of ids for tech requirements.
+            static_: false
+            extensor: ~
+            name: setRequirements
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: "Comma separated list of ints corresponding to list of tech requirements\n\t\tprovided by setRequirements."
+            static_: false
+            extensor: ~
+            name: setRequirementsLevels
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEditorSuffix
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHotkey
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setName
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltip
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipExtended
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetIcon
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: Comma separated list of ids for tech requirements.
+            static_: false
+            extensor: ~
+            name: presetRequirements
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: "Comma separated list of ints corresponding to list of tech requirements\n\t\tprovided by setRequirements."
+            static_: false
+            extensor: ~
+            name: presetRequirementsLevels
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetEditorSuffix
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetHotkey
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetName
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetTooltip
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetTooltipExtended
+            params:
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectType
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectBase
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectIncrement
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectCode
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+              - typ: string
+                name: codeId
+            returns: ~
+      - doc: "Use this class to create upgrade definitions. Constructors provide a \"Clean\"\n\tupgrade definition, without any research cost or effects. Using the\n\taddEffectXXX() methods will add additional effects, with a limit of 4\n\teffects. Do not use the setEffect methods from the W3Q baseclass."
+        abstract_: false
+        name: UpgradeDefinition
+        extends: W3QDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addNewEffectCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getEffectCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: cleanDef
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: levels
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectType
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectBase
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectIncrement
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectCode
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+              - typ: string
+                name: codeId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: internalSetEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: internalSetEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: internalSetEffect
+            params:
+              - typ: int
+                name: effectIndex
+              - typ: UpgradeEffectType
+                name: effectType
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+              - typ: string
+                name: codeId
+            returns: ~
+          - doc: Increases the level of an ability
+            static_: false
+            extensor: ~
+            name: addEffectAbilityLevelBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+              - typ: string
+                name: abilCode
+            returns: ~
+          - doc: Allows effected units to see as far at night as they see during the day.
+            static_: false
+            extensor: ~
+            name: addEffectAddUltravision
+            params: []
+            returns: ~
+          - doc: "Increases the base damage of units by their \"Attack Upgrade Bonus\" field"
+            static_: false
+            extensor: ~
+            name: addEffectApplyAttackUpgradeBonus
+            params: []
+            returns: ~
+          - doc: "Increases the defense of units by their \"Defense Upgrade Bonus\" field"
+            static_: false
+            extensor: ~
+            name: addEffectApplyDefenseUpgradeBonus
+            params: []
+            returns: ~
+          - doc: Bonus to base damage of attacks. Supports negative bonuses.
+            static_: false
+            extensor: ~
+            name: addEffectAttackDamageBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Increases the unit's damage loss by a set amount. This effects line or bounce attacks!"
+            static_: false
+            extensor: ~
+            name: addEffectAttackDamageLoss
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Increases the number of Attack Dice on attacks
+            static_: false
+            extensor: ~
+            name: addEffectAttackDiceBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Increases the attack range of attacks
+            static_: false
+            extensor: ~
+            name: addEffectAttackRangeBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Percentage increase on attack speed. Note: 0.1 = 10%."
+            static_: false
+            extensor: ~
+            name: addEffectAttackSpeedBonus
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: "Upgrades the distance \"Artillery (Line)\" attack types travel. For example\n\t\tGlaive Throwers use this."
+            static_: false
+            extensor: ~
+            name: addEffectAttackSpillDistanceBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Upgrades the radius of \"Artillery (Line)\" attack types (over the distance\n\t\tthey travel)."
+            static_: false
+            extensor: ~
+            name: addEffectAttackSpillRadiusBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Increases the number of attack targets that a Missile (bounce) weapon type will bounce to.
+            static_: false
+            extensor: ~
+            name: addEffectAttackTargetCountBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "This is used to increase the damage of Kodo's command auras in melee. Use\n\t\tat your own risk on other auras."
+            static_: false
+            extensor: ~
+            name: addEffectAuraDataBonus
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: "Changes the effected units' armor type by *adding or removing this value\n\t\tfrom their current armor type*.The following table describes the index\n\t\tfor each armor type:\n\t\t\tsmall = 0\n\t\t\tmedium = 1\n\t\t\tlarge = 2\n\t\t\tfortified = 3\n\t\t\tnormal = 4\n\t\t\thero = 5\n\t\t\tdivine = 6\n\t\t\tunarmored = 7\n\n\t\tResulting armor type indexes under 0 or greater than 7 will result in\n\t\tbroken unit armors. Negative integers also do work.\n\n\t\tExamples. Unit has \"Large\" armor. You upgrade a type change of 1, the unit\n\t\tnow has fortified armor (this is what Orc Reinforced Burrows does). Having\n\t\tan armor type of large and applying 7 to it will give the unit an undefined,\n\t\tbreaking their armor type."
+            static_: false
+            extensor: ~
+            name: addEffectDefenseTypeChange
+            params:
+              - typ: int
+                name: base
+            returns: ~
+          - doc: Changes the attacks enabled for the effected units.
+            static_: false
+            extensor: ~
+            name: addEffectEnableAttacks
+            params:
+              - typ: AttacksEnabled
+                name: base
+            returns: ~
+          - doc: Changes the attacks enabled for the effected units when rooted.
+            static_: false
+            extensor: ~
+            name: addEffectEnableAttacksRooted
+            params:
+              - typ: AttacksEnabled
+                name: base
+            returns: ~
+          - doc: Changes the attacks enabled for the effected units when rooted.
+            static_: false
+            extensor: ~
+            name: addEffectEnableAttacksUprooted
+            params:
+              - typ: AttacksEnabled
+                name: base
+            returns: ~
+          - doc: Increases gold harvested by Harvest abilities.
+            static_: false
+            extensor: ~
+            name: addEffectGoldHarvestBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Increases gold harvested by Gold Harvest Entangled abilities. Apply to the\n\t\tentangled mine."
+            static_: false
+            extensor: ~
+            name: addEffectGoldHarvestBonusEntangle
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Flat increase to hitpoints.
+            static_: false
+            extensor: ~
+            name: addEffectHitPointBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Percent increase to base hitpoints. Note: 0.1 = 10% increase"
+            static_: false
+            extensor: ~
+            name: addEffectHitPointBonusPercent
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: "Percent bonus increase to hitpoint regeneration. Note: 0.1 = 10% increase"
+            static_: false
+            extensor: ~
+            name: addEffectHitPointRegeneration
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: "Increases lumber capcity on \"gather\" type abilities."
+            static_: false
+            extensor: ~
+            name: addEffectLumberHarvestBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Adds magic immunity to unit's effected"
+            static_: false
+            extensor: ~
+            name: addEffectMagicImmunity
+            params: []
+            returns: ~
+          - doc: Flat bonus to max mana points.
+            static_: false
+            extensor: ~
+            name: addEffectManaPointBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Percent bonus to max mana. Note: 0.1 = 10%."
+            static_: false
+            extensor: ~
+            name: addEffectManaPointBonusPercent
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: "Percent bonus to mana regeneration. Note: 0.1 = 10%."
+            static_: false
+            extensor: ~
+            name: addEffectManaRegeneration
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: Flat bonus to movement speed.
+            static_: false
+            extensor: ~
+            name: addEffectMovementSpeedBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Percent bonus to base movement speed. Note: 0.1 = 10%."
+            static_: false
+            extensor: ~
+            name: addEffectMovementSpeedBonusPercent
+            params:
+              - typ: real
+                name: base
+              - typ: real
+                name: increment
+            returns: ~
+          - doc: Increases the lifetime of skeletons raised via the Raise Dead ability.
+            static_: false
+            extensor: ~
+            name: addEffectRaiseDeadDurationBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Increases sight range of units effected.
+            static_: false
+            extensor: ~
+            name: addEffectSightRangeBonus
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: Damage dealt by the Spiked Barricades ability to melee enemy attackers on attack.
+            static_: false
+            extensor: ~
+            name: addEffectSpikedBarricades
+            params:
+              - typ: int
+                name: base
+              - typ: int
+                name: increment
+            returns: ~
+          - doc: "Changes availabilty of units. Note: the unit MUST have this upgrade as\n\t\tan \"Upgrade Used\" or it will have no effect. Look at Troll Berserker upgrade\n\t\tfor an example of this usage."
+            static_: false
+            extensor: ~
+            name: addEffectUnitAvailabilityChange
+            params:
+              - typ: bool
+                name: available
+              - typ: string
+                name: unitId
+            returns: ~
     enums:
       - doc: ~
         name: UpgradeClass

@@ -57,7 +57,7 @@
           - typ: bool
             name: flag
         returns: ~
-      - doc: ~
+      - doc: "Returns if a specific pathingtype is set at the location.\n\t  Note: Returns true if the pathingtype is *not* set, false if it *is* set."
         static_: false
         extensor: vec2
         name: isTerrainPathable

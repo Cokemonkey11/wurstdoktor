@@ -2,6 +2,46 @@
 - Package:
     doc: ~
     name: LocalFiles
-    classes: []
+    classes:
+      - doc: "!DEPRECATED!\n\n\tAs of patch 1.30, this class is deprecated and doesn't do anything,\n\tbecause the Local Files restriction has been lifted."
+        abstract_: false
+        name: LocalFiles
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: isEnabled
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: isEnabled
+            params:
+              - typ: player
+                name: _who
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: isFallback
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: registerLocalFilesChecked
+            params:
+              - typ: LocalFilesCallback
+                name: cb
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: checkAll
+            params: []
+            returns: ~
     enums: []
     free_fns: []

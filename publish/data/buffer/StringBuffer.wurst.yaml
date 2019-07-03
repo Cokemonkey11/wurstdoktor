@@ -2,6 +2,132 @@
 - Package:
     doc: ~
     name: StringBuffer
-    classes: []
+    classes:
+      - doc: "Abstract class providing the scaffolding required to build\n\tyour own string-based serializer/deserializer.\n\n\tThis class is meant to produce/consume \"chunks\" of data of the specified\n\tlength, to be fed into IO primitives which expect strings under a certain length.\n\n\tWRITING:\n\tTo push raw string data into the buffer, use pushString().\n\tAfter finishing writing, call .flush() or .flushBuffer(), this will\n\tpush any remaining unchunked data into the buffer.\n\n\tREADING:\n\tUse popAll() to pop all data in the current chunk, and load the next chunk.\n\tUse popStringUntil() to return a string up until the specified character.\n\tUse popString() to return a string of a specific length.\n\n\tMISC:\n\tUse pushChunk() to push a serialized chunk of data as-is into the buffer, to be deserialized\n\tlater on.\n\tUse popChunk() to pop a serialized chunk of data as-is from the buffer, to be written into a file\n\tor elsewhere.\n\tUse hasChunk() to check if there are any chunks left."
+        abstract_: true
+        name: AbstractStringBuffer
+        extends: AbstractBuffer
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: maxSize
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: "Call this function once after you've finished writing to commit any pending data."
+            static_: false
+            extensor: ~
+            name: flush
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: flushBuffer
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: pushString
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isDataAvailable
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: canRead
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: checkDataAvailable
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: nextChunk
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popAll
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popStringUntil
+            params:
+              - typ: string
+                name: terminator
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popString
+            params:
+              - typ: int
+                name: length
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: pushChunk
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasChunk
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popChunk
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: moveTo
+            params:
+              - typ: Buffer
+                name: buffer
+            returns: ~
     enums: []
     free_fns: []

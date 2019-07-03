@@ -2,6 +2,144 @@
 - Package:
     doc: ~
     name: DialogBox
-    classes: []
+    classes:
+      - doc: "DialogBox lets you create dialogs more easily and associate its buttons with closures.\n\tWARNING: Dialogs cannot be displayed at map init!\n\n\tThe DialogBox should be destroyed after it is no longer needed.\n\tExample use:\n\t\tlet dBox = new DialogBox(\"Extra starting gold?\")\n\t\tdBox.addButton(\"Yes\") ->\n\t\t\tplayers[0].addGold(500)\n\t\t\tdestroy dBox\n\n\t\tdBox.addButton(\"No\", () -> destroy dBox)\n\t\t// Make sure to not call display at map initialization\n\t\tdBox.display(players[0], true)"
+        abstract_: false
+        name: DialogBox
+        extends: ~
+        implements: []
+        fns:
+          - doc: Creates a new DialogBox with a title.
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: title
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: runClickedButton
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addButton
+            params:
+              - typ: string
+                name: buttonText
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addButton
+            params:
+              - typ: string
+                name: buttonText
+              - typ: DialogBoxButtonClosure
+                name: cb
+            returns: ~
+          - doc: "Hotkey: use ASCII number of the capital letter."
+            static_: false
+            extensor: ~
+            name: addButton
+            params:
+              - typ: string
+                name: buttonText
+              - typ: int
+                name: hotkey
+            returns: ~
+          - doc: "Hotkey: use ASCII number of the capital letter."
+            static_: false
+            extensor: ~
+            name: addButton
+            params:
+              - typ: string
+                name: buttonText
+              - typ: int
+                name: hotkey
+              - typ: DialogBoxButtonClosure
+                name: cb
+            returns: ~
+          - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player."
+            static_: false
+            extensor: ~
+            name: addQuitButton
+            params:
+              - typ: boolean
+                name: doScoreScreen
+              - typ: string
+                name: buttonText
+            returns: ~
+          - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player."
+            static_: false
+            extensor: ~
+            name: addQuitButton
+            params:
+              - typ: boolean
+                name: doScoreScreen
+              - typ: string
+                name: buttonText
+              - typ: DialogBoxButtonClosure
+                name: cb
+            returns: ~
+          - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player.\n\tHotkey: use ASCII numbers of the capital letter."
+            static_: false
+            extensor: ~
+            name: addQuitButton
+            params:
+              - typ: boolean
+                name: doScoreScreen
+              - typ: string
+                name: buttonText
+              - typ: int
+                name: hotkey
+            returns: ~
+          - doc: "Adds a quit button to this dialog. If it is clicked, it ends the game for that player.\n\tHotkey: use ASCII numbers of the capital letter."
+            static_: false
+            extensor: ~
+            name: addQuitButton
+            params:
+              - typ: boolean
+                name: doScoreScreen
+              - typ: string
+                name: buttonText
+              - typ: int
+                name: hotkey
+              - typ: DialogBoxButtonClosure
+                name: cb
+            returns: ~
+          - doc: "Toggles visibility of the DialogBox for a player. Dialogs are invisible by default\n\t\tWARNING: Dialogs cannot be shown at map initialization"
+            static_: false
+            extensor: ~
+            name: display
+            params:
+              - typ: player
+                name: whichPlayer
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: Changes the title of the DialogBox.
+            static_: false
+            extensor: ~
+            name: setTitle
+            params:
+              - typ: string
+                name: title
+            returns: ~
+          - doc: Returns the title of the DialogBox.
+            static_: false
+            extensor: ~
+            name: getTitle
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
     enums: []
     free_fns: []

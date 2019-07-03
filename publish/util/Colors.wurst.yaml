@@ -85,7 +85,7 @@
           - typ: player
             name: p
         returns: color
-      - doc: ~
+      - doc: "Mixes two colors, s would be a number 0<=s<=1 that determines\n*\tthe weight given to color c2.\n*\n* \tc1.mix(c2,0)   = c1\n*\tc1.mix(c2,1)   = c2\n* \tc1.mix(c2,0.5) = Mixing the colors c1 and c2 in equal proportions."
         static_: false
         extensor: colorA
         name: mix

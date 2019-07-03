@@ -2,7 +2,519 @@
 - Package:
     doc: ~
     name: LinkedList
-    classes: []
+    classes:
+      - doc: "Doubly-linked list implementation that implements all common list, stack and queue operations.\n * Permits all elements (including null).\n * Use the Typecasting package if you require lists of warcraft handles.\n * LinkedLists should be generally used anywhere you need a list, because they are the most versatile\n * and fast in common operations. If you need faster contains or access operations on big lists,\n * use HashList. If you want to limit each element's occurance to one, consider HashSet."
+        abstract_: false
+        name: LinkedList<T>
+        extends: ~
+        implements: []
+        fns:
+          - doc: Create a new list by copying all elements from another list into it
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: thistype
+                name: base
+            returns: ~
+          - doc: Create a new empty list
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: add all elements from elems to the end of this list
+            static_: false
+            extensor: ~
+            name: addAll
+            params:
+              - typ: LinkedList<T>
+                name: elems
+            returns: ~
+          - doc: Returns the element at the specified index
+            static_: false
+            extensor: ~
+            name: get
+            params:
+              - typ: int
+                name: index
+            returns: T
+          - doc: "Returns the index of the specified element or -1 is it doesn't exist"
+            static_: false
+            extensor: ~
+            name: indexOf
+            params:
+              - typ: T
+                name: t
+            returns: int
+          - doc: Sets the element at the specified index
+            static_: false
+            extensor: ~
+            name: set
+            params:
+              - typ: int
+                name: index
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: "Add an element to the end of the list (top of stack, beginning of queue)"
+            static_: false
+            extensor: ~
+            name: push
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: Returns the first element in the list
+            static_: false
+            extensor: ~
+            name: getFirst
+            params: []
+            returns: T
+          - doc: Returns and removes the first added Element (FIFO)
+            static_: false
+            extensor: ~
+            name: dequeue
+            params: []
+            returns: T
+          - doc: Returns and removes the last added Element (LIFO)
+            static_: false
+            extensor: ~
+            name: pop
+            params: []
+            returns: T
+          - doc: Returns the lastly added Element
+            static_: false
+            extensor: ~
+            name: peek
+            params: []
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: contains
+            params:
+              - typ: T
+                name: elem
+            returns: boolean
+          - doc: Returns whether the lists contains the specified element
+            static_: false
+            extensor: ~
+            name: has
+            params:
+              - typ: T
+                name: elem
+            returns: boolean
+          - doc: "Removes the element and it's entry at the given index"
+            static_: false
+            extensor: ~
+            name: removeAt
+            params:
+              - typ: int
+                name: index
+            returns: T
+          - doc: Removes the first occurence of t from this list
+            static_: false
+            extensor: ~
+            name: remove
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getSize
+            params: []
+            returns: int
+          - doc: gets the size of the list (java-compat wrapper)
+            static_: false
+            extensor: ~
+            name: size
+            params: []
+            returns: int
+          - doc: checks whether this list is empty
+            static_: false
+            extensor: ~
+            name: isEmpty
+            params: []
+            returns: boolean
+          - doc: Returns a shallow copy of this map
+            static_: false
+            extensor: ~
+            name: copy
+            params: []
+            returns: LinkedList<T>
+          - doc: get the static iterator for this list
+            static_: false
+            extensor: ~
+            name: staticItr
+            params: []
+            returns: LLIterator<T>
+          - doc: get the static back iterator for this list
+            static_: false
+            extensor: ~
+            name: staticBackItr
+            params: []
+            returns: LLBackIterator<T>
+          - doc: get an iterator for this list
+            static_: false
+            extensor: ~
+            name: iterator
+            params: []
+            returns: LLIterator<T>
+          - doc: get a backiterator for this list
+            static_: false
+            extensor: ~
+            name: backiterator
+            params: []
+            returns: LLBackIterator<T>
+          - doc: adds an element to the beginning of the list
+            static_: false
+            extensor: ~
+            name: addtoStart
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: "replaces the first occurence of 'whichElement' with 'newElement'\n\t\treturns true when an element has been replaced,\n\t\tfalse if 'whichelement' is not contained in the list"
+            static_: false
+            extensor: ~
+            name: replace
+            params:
+              - typ: T
+                name: whichElement
+              - typ: T
+                name: newElement
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeWhen
+            params:
+              - typ: LinkedListPredicate<T>
+                name: predicate
+            returns: ~
+          - doc: Removes the element if the predicates returns true
+            static_: false
+            extensor: ~
+            name: removeIf
+            params:
+              - typ: LinkedListPredicate<T>
+                name: predicate
+            returns: ~
+          - doc: Executes the closure for each element
+            static_: false
+            extensor: ~
+            name: forEach
+            params:
+              - typ: LLItrClosure<T>
+                name: itr
+            returns: LinkedList<T>
+          - doc: Updates all elements
+            static_: false
+            extensor: ~
+            name: updateAll
+            params:
+              - typ: LinkedListUpdater<T>
+                name: f
+            returns: ~
+          - doc: Performs a Fisher–Yates shuffle on this list
+            static_: false
+            extensor: ~
+            name: shuffle
+            params: []
+            returns: ~
+          - doc: Adds the given element directly behind the element at the given index
+            static_: false
+            extensor: ~
+            name: addAt
+            params:
+              - typ: T
+                name: elem
+              - typ: int
+                name: index
+            returns: ~
+          - doc: Sorts the list according the the comparator using merge sort
+            static_: false
+            extensor: ~
+            name: sortWith
+            params:
+              - typ: Comparator<T>
+                name: comparator
+            returns: ~
+          - doc: Returns a new list of the elements that satisfy the predicate
+            static_: false
+            extensor: ~
+            name: filter
+            params:
+              - typ: LinkedListPredicate<T>
+                name: predicate
+            returns: LinkedList<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sort
+            params:
+              - typ: Comparator<T>
+                name: comparator
+              - typ: LLEntry<T>
+                name: e
+            returns: LLEntry<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sortMerge
+            params:
+              - typ: Comparator<T>
+                name: comparator
+              - typ: LLEntry<T>
+                name: pa
+              - typ: LLEntry<T>
+                name: pb
+            returns: LLEntry<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: split
+            params:
+              - typ: LLEntry<T>
+                name: e
+            returns: LLEntry<T>
+          - doc: Prints the content of the list
+            static_: false
+            extensor: ~
+            name: toString
+            params: []
+            returns: string
+          - doc: Removes all elements from the list
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getDummy
+            params: []
+            returns: LLEntry<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getEntry
+            params:
+              - typ: int
+                name: index
+            returns: LLEntry<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeEntry
+            params:
+              - typ: LLEntry<T>
+                name: entry
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: T
+                name: elem
+              - typ: LLEntry<T>
+                name: prev
+              - typ: LLEntry<T>
+                name: next
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: LLIterator<T>
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: LinkedList<T>
+                name: parent
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: LinkedList<T>
+                name: parent
+              - typ: bool
+                name: destroyOnClose
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: reset
+            params: []
+            returns: ~
+          - doc: "Removes from the list the last element that was returned by next() (optional operation).\n\t \tThis call can only be made once per call to next"
+            static_: false
+            extensor: ~
+            name: remove
+            params: []
+            returns: T
+          - doc: Modifies the last element that was returned by next() (optional operation).
+            static_: false
+            extensor: ~
+            name: modify
+            params:
+              - typ: T
+                name: newval
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasNext
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: next
+            params: []
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: lookahead
+            params: []
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: close
+            params: []
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: LLBackIterator<T>
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: LLEntry<T>
+                name: dummy
+              - typ: bool
+                name: destroyOnClose
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: LLEntry<T>
+                name: dummy
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: reset
+            params: []
+            returns: ~
+          - doc: Modifies the last element that was returned by next() (optional operation).
+            static_: false
+            extensor: ~
+            name: modify
+            params:
+              - typ: T
+                name: newval
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasNext
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: next
+            params: []
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: lookahead
+            params: []
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: close
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isTrueFor
+            params:
+              - typ: T
+                name: t
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: T
+                name: t
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: update
+            params:
+              - typ: T
+                name: t
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: T
+                name: t
+            returns: Q
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: T
+                name: t
+              - typ: Q
+                name: q
+            returns: Q
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: compare
+            params:
+              - typ: T
+                name: o1
+              - typ: T
+                name: o2
+            returns: int
     enums: []
     free_fns:
       - doc: ~

@@ -2,6 +2,362 @@
 - Package:
     doc: ~
     name: ItemObjEditing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: W3TDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getNewId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBaseId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: baseId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipExtended
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipBasic
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequirementsLevels
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequirements
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setName
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHotkey
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDescription
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionY
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionX
+            params:
+              - typ: int
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: ItemDefinition
+        extends: W3TDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAbilities
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArmorType
+            params:
+              - typ: ArmorType
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setClassification
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColor3Blue
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColor2Green
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColor1Red
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCooldownGroup
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDroppedWhenCarrierDies
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCanBeDropped
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setModelUsed
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHitPoints
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIgnoreCooldown
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLevel
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setValidTargetForTransformation
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLevelUnclassified
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPerishable
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIncludeAsRandomChoice
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUseAutomaticallyWhenAcquired
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPriority
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setScalingValue
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCanBeSoldByMerchants
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCanBeSoldToMerchants
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockMaximum
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockReplenishInterval
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockStartDelay
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setActivelyUsed
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNumberofCharges
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setInterfaceIcon
+            params:
+              - typ: string
+                name: data
+            returns: ~
     enums: []
     free_fns: []

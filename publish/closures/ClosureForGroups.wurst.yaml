@@ -31,7 +31,7 @@
           - typ: ForGroupCallback
             name: c
         returns: ~
-      - doc: ~
+      - doc: "Executes the given closure for every unit of the given player.\n\tCancels itself after *count* iterations"
         static_: false
         extensor: ~
         name: forUnitsOfTypeCounted
@@ -71,7 +71,7 @@
           - typ: ForGroupCallback
             name: c
         returns: ~
-      - doc: ~
+      - doc: "Executes the given closure for every unit in the given rect.\n\tCancels itself after *count* iterations"
         static_: false
         extensor: ~
         name: forUnitsInRectCounted
@@ -123,7 +123,7 @@
           - typ: ForGroupCallback
             name: c
         returns: ~
-      - doc: ~
+      - doc: "Executes the given closure for every unit in range of the given position\n\tCancels itself after *count* iterations"
         static_: false
         extensor: ~
         name: forUnitsInRangeCounted

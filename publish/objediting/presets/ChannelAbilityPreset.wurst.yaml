@@ -2,7 +2,109 @@
 - Package:
     doc: ~
     name: ChannelAbilityPreset
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: ChannelAbilityPreset
+        extends: AbilityDefinitionIllidanChannel
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getOrderString
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: lvls
+              - typ: boolean
+                name: removeChannelProperties
+              - typ: TooltipGenerator
+                name: tgen
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: lvls
+              - typ: boolean
+                name: removeChannelProperties
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setup
+            params:
+              - typ: int
+                name: lvls
+              - typ: boolean
+                name: removeChannelProperties
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: makeUnitSpell
+            params:
+              - typ: int
+                name: mana
+              - typ: real
+                name: cooldown
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeChannelProperties
+            params:
+              - typ: boolean
+                name: removeVisuals
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeChannelProperties
+            params:
+              - typ: boolean
+                name: removeVisuals
+              - typ: boolean
+                name: makeVisible
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetTargetTypes
+            params:
+              - typ: Targettype
+                name: ttype
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: presetOption
+            params:
+              - typ: Option
+                name: opt
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasOption
+            params:
+              - typ: Option
+                name: option
+            returns: boolean
     enums:
       - doc: ~
         name: Option

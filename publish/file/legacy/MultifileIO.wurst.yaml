@@ -2,9 +2,161 @@
 - Package:
     doc: ~
     name: MultifileIO
-    classes: []
+    classes:
+      - doc: "This is a file IO class supporting a special 'multifile' mode\n\tto circumvent the natural limitation of WC3's Preload API,\n\tallowing us to write as much data as we need to be later read\n\twith FileReader.\n\n\tKeep in mind, that single-file mode only supports PACKETS_PER_FILE\n\tmax lines.\n\n\tWriting is line-based, meaning we write line-by-line, and reading\n\talso works line-by-line.\n\n\tUsage:\n\t\t1. Create a new instance of the class, using the constructor you need\n\t\t\tlet writer = new FileWriter(\"path/to/folder\")\n\n\t\t2. Queue some data for writing\n\t\t\twriter.writeLine(\"abc\")\n\t\t\twriter.writeLine(\"cba\")\n\n\t\t3. Save the file, specifying a callback to be called when all data has been saved\n\t\t\twriter.save(() -> doStuffAfterSave())\n\n\t\t4. Destroy the instance\n\n\t\tNote: The class can be used again after saving once."
+        abstract_: false
+        name: FileWriter
+        extends: AbstractFile
+        implements: []
+        fns:
+          - doc: "If multiMode is true, then path should be the path to a folder where the data will be stored.\n\t\tOtherwise, the path should be a file path.\n\n\t\tDelay is the number of seconds to wait between each file write operation. You should use\n\t\tthis if you expect to write a lot of data to prevent players from lagging out."
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: boolean
+                name: multiMode
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: boolean
+                name: multiMode
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+            returns: ~
+          - doc: Queue a single line to be written to the file when .save() is called.
+            static_: false
+            extensor: ~
+            name: writeLine
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTerminator
+            params:
+              - typ: int
+                name: chunkId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveSingle
+            params:
+              - typ: int
+                name: chunkId
+            returns: ~
+          - doc: "Starts saving the queue data to disk, and specifies a callback when all data has been saved."
+            static_: false
+            extensor: ~
+            name: save
+            params:
+              - typ: FileSaveCallback
+                name: callback
+            returns: ~
+      - doc: "This is a file IO class supporting a special 'multifile' mode that allows\n\treading back multifiles written by FileWriter.\n\n\tReading is line-based.\n\n\tUsage:\n\t\t1. Create a new instance of the class\n\t\t\tlet reader = new FileReader(\"path/to/folder\")\n\n\t\t2. Load the data, and specify a callback when the file has loaded, and read the data\n\t\t\treader.load() ->\n\t\t\t\twhile reader.canRead()\n\t\t\t\t\tdoSomethingWithData(reader.readLine())\n\n\n\t\t3. Destroy the instance\n\t\t\tdestroy reader"
+        abstract_: false
+        name: FileReader
+        extends: AbstractFile
+        implements: []
+        fns:
+          - doc: "If multiMode is true, then path should be the path to a folder where the data will be read from.\n\t\tOtherwise, the path should be a file path.\n\n\t\tDelay is the number of seconds to wait between each file read operation. You should use\n\t\tthis if you expect to read a lot of data to prevent players from lagging out."
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: boolean
+                name: multiMode
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: boolean
+                name: multiMode
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: path
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readChunk
+            params:
+              - typ: int
+                name: chunkId
+            returns: ~
+          - doc: Starts loading the file and specifies a callback to be called when all data has loaded
+            static_: false
+            extensor: ~
+            name: load
+            params:
+              - typ: FileLoadCallback
+                name: callback
+            returns: ~
+          - doc: "Returns true if there's data to be read still"
+            static_: false
+            extensor: ~
+            name: canRead
+            params: []
+            returns: boolean
+          - doc: Reads one line as written by FileWriter.writeLine()
+            static_: false
+            extensor: ~
+            name: readLine
+            params: []
+            returns: string
     enums:
-      - doc: ~
+      - doc: "Represents the status of a file operation.\n\tNOT_ENABLED corresponds to Local Files not being enabled for the player."
         name: FileLoadStatus
         variants:
           - SUCCESS

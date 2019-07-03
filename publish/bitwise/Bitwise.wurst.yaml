@@ -5,7 +5,7 @@
     classes: []
     enums: []
     free_fns:
-      - doc: ~
+      - doc: "Selects the n-th byte from these bytes, starting from\n\t0 for the least significant byte and ending with\n\t3 for the most significant byte."
         static_: false
         extensor: byte4
         name: select
@@ -13,7 +13,7 @@
           - typ: int
             name: pos
         returns: int
-      - doc: ~
+      - doc: Replaces the byte in the n-th position with the provided one.
         static_: false
         extensor: byte4
         name: put
@@ -23,13 +23,13 @@
           - typ: int
             name: value
         returns: byte4
-      - doc: ~
+      - doc: Re-assembles these bytes into an integer.
         static_: false
         extensor: byte4
         name: toInt
         params: []
         returns: int
-      - doc: ~
+      - doc: "Turns this signed integer into an unsigned one if it is negative,\n\tremoving the first (sign) bit"
         static_: false
         extensor: int
         name: toUnsigned
@@ -61,37 +61,37 @@
           - typ: int
             name: isNegative
         returns: int
-      - doc: ~
+      - doc: De-composes an integer into 4 unsigned bytes.
         static_: false
         extensor: int
         name: bytes
         params: []
         returns: byte4
-      - doc: ~
+      - doc: "Produces a signed integer from the bitstring.\n\tInput string may contain whitespace for padding."
         static_: false
         extensor: string
         name: fromBitString
         params: []
         returns: int
-      - doc: ~
+      - doc: Produces a bistring from this integer.
         static_: false
         extensor: int
         name: toBitString
         params: []
         returns: string
-      - doc: ~
+      - doc: "8-bit NOT (~)\n\tNOTE: Assumes number is in the range [0, 255]\n\n\tnumber.not8() equivalent to (~number)"
         static_: false
         extensor: int
         name: not8
         params: []
         returns: int
-      - doc: ~
+      - doc: "32-bit NOT (~)\n\n\tnumber.not32() equivalent to (~number)"
         static_: false
         extensor: int
         name: not32
         params: []
         returns: int
-      - doc: ~
+      - doc: "8-bit AND (&)\n\tNOTE: Assumes both operands are in the range [0, 255]\n\n\tnumber.and8(other) equivalent to (number & other)"
         static_: false
         extensor: int
         name: and8
@@ -99,7 +99,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "32-bit AND (&)\n\n\tnumber.and32(other) equivalent to (number & other)"
         static_: false
         extensor: int
         name: and32
@@ -107,7 +107,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "8-bit OR (|)\n\tNOTE: Assumes both operands are in the range [0, 255]\n\n\tnumber.or8(other) equivalent to (number | other)"
         static_: false
         extensor: int
         name: or8
@@ -115,7 +115,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "32-bit OR (|)\n\n\tnumber.or32(other) equivalent to (number | other)"
         static_: false
         extensor: int
         name: or32
@@ -123,7 +123,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "8-bit XOR (^)\n\tNOTE: Assumes both operands are in the range [0, 255]\n\n\tnumber.xor8(other) equivalent to (number ^ other)"
         static_: false
         extensor: int
         name: xor8
@@ -131,7 +131,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "32-bit XOR (^)\n\n\tnumber.xor32(other) equivalent to (number ^ other)"
         static_: false
         extensor: int
         name: xor32
@@ -139,7 +139,7 @@
           - typ: int
             name: other
         returns: int
-      - doc: ~
+      - doc: "32-bit SHIFTL (<<)\n\n\tnumber.shiftl(amount) equivalent to (number << amount)"
         static_: false
         extensor: int
         name: shiftl
@@ -147,7 +147,7 @@
           - typ: int
             name: amount
         returns: int
-      - doc: ~
+      - doc: "32-bit SHIFTR (>>)\n\n\tnumber.shiftr(amount) equivalent to (number >> amount)"
         static_: false
         extensor: int
         name: shiftr

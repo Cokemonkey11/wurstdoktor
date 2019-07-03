@@ -61,7 +61,7 @@
           - typ: playerunitevent
             name: p
         returns: trigger
-      - doc: ~
+      - doc: PlayerEvent
         static_: false
         extensor: ~
         name: registerPlayerEvent

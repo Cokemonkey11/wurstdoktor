@@ -2,7 +2,99 @@
 - Package:
     doc: ~
     name: BigNum
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: BigNum_l
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: clean
+            params: []
+            returns: boolean
+      - doc: ~
+        abstract_: false
+        name: BigNum
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: base
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isZero
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: clean
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addSmall
+            params:
+              - typ: int
+                name: pcarry
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: mulSmall
+            params:
+              - typ: int
+                name: x
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: divSmall
+            params:
+              - typ: int
+                name: denom
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: lastDigit
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: dump
+            params: []
+            returns: string
     enums: []
     free_fns:
       - doc: ~

@@ -2,6 +2,40 @@
 - Package:
     doc: ~
     name: HashSet
-    classes: []
+    classes:
+      - doc: Generic set implementation
+        abstract_: false
+        name: HashSet<T>
+        extends: HashList<T>
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: remove
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeAt
+            params:
+              - typ: int
+                name: index
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
     enums: []
     free_fns: []

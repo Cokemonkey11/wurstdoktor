@@ -129,7 +129,7 @@
           - typ: real
             name: p
         returns: real
-      - doc: ~
+      - doc: "This function returns the derivate of the 3-Point-Bezier curve on certain point.\n\t(d(bezier3())/dt)"
         static_: false
         extensor: ~
         name: derivBezier3
@@ -197,7 +197,7 @@
           - typ: real
             name: p
         returns: real
-      - doc: ~
+      - doc: "This function returns the derivate of the 4-Point-Bezier curve on certain point.\n\t(d(bezier4())/dt)"
         static_: false
         extensor: ~
         name: derivBezier4

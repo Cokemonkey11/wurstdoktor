@@ -2,6 +2,26 @@
 - Package:
     doc: ~
     name: OrderStringFactory
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: OrderStringFactory
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getOrderString
+            params:
+              - typ: boolean
+                name: recycle
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: initS
+            params: []
+            returns: ~
     enums: []
     free_fns: []

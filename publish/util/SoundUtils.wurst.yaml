@@ -2,6 +2,150 @@
 - Package:
     doc: ~
     name: SoundUtils
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: SoundDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: file
+              - typ: boolean
+                name: looping
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: file
+              - typ: boolean
+                name: looping
+              - typ: boolean
+                name: is3D
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getSound
+            params: []
+            returns: SoundInstance
+          - doc: "Plays this sound for all Players with a default duration.\n\t\tUse this if you don't care when the SoundHandle gets recycled."
+            static_: false
+            extensor: ~
+            name: play
+            params: []
+            returns: SoundInstance
+          - doc: "Plays this sound for all Players with the given duration.\n\t\tThe duration should be close to the length of the soundfile.\n\t\tUse this to recycle soundhandles immeditely when they finish,\n\t\tallowing for rapid succession of sounds."
+            static_: false
+            extensor: ~
+            name: play
+            params:
+              - typ: int
+                name: duration
+            returns: SoundInstance
+          - doc: "Plays this sound for the given Player with a default duration.\n\t\tSee play() for more info"
+            static_: false
+            extensor: ~
+            name: playForPlayer
+            params:
+              - typ: player
+                name: p
+            returns: SoundInstance
+          - doc: "Plays this sound for the given Player with the given duration.\n\t\tSee play() for more info"
+            static_: false
+            extensor: ~
+            name: playForPlayer
+            params:
+              - typ: player
+                name: p
+              - typ: int
+                name: duration
+            returns: SoundInstance
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: playOnPoint
+            params:
+              - typ: vec3
+                name: target
+            returns: SoundInstance
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: playOnPoint
+            params:
+              - typ: vec3
+                name: target
+              - typ: int
+                name: duration
+            returns: SoundInstance
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: playSound
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: recycle
+            params: []
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: DynamicSound
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: SoundDefinition
+                name: soundHandle
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetPitch
+            params:
+              - typ: real
+                name: pitch
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: play
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAbsolutePitch
+            params:
+              - typ: real
+                name: pitch
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onTimedLoop
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
     enums: []
     free_fns: []

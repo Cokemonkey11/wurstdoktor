@@ -2,7 +2,49 @@
 - Package:
     doc: "If you import this package in any of your packages, each order\n\tany unit makes will be recorded and up to ORDERS_TO_HOLD will be saved.\n\tYou can access these old orders and reissue them using .getLastOrder()"
     name: LastOrder
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: Order
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: unit
+                name: ordered
+              - typ: int
+                name: orderId
+              - typ: OrderType
+                name: ordtype
+              - typ: widget
+                name: target
+              - typ: vec2
+                name: targetPos
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: "Reissues this order on the unit that originally received the order.\n\t\tIf you want the reissued order to be recorded as well,\n\t\tin a response to another order, i.e. chained, you need to wrap\n\t\tit inside using a nulltimer:\n\n\t\t\tlet ordr = caster.getLastOrder().prev\n\t\t\tnullTimer() ->\n\t\t\t\tordr.issue()"
+            static_: false
+            extensor: ~
+            name: issue
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: badOrderList
+            params:
+              - typ: int
+                name: id
+            returns: boolean
     enums:
       - doc: ~
         name: OrderType

@@ -2,7 +2,323 @@
 - Package:
     doc: ~
     name: BuffObjEditing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: BuffDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getNewId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBaseId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: baseId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setName
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEditorSuffix
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRace
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIconNormal
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: "Sets the icon's path for the buff obj, add \"@!!\" as prefix of the icon name to overide the default path by a custom path"
+            static_: false
+            extensor: ~
+            name: setIcon
+            params:
+              - typ: string
+                name: name
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCaster
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTarget
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArtTarget
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpecial
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArtSpecial
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffect
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAreaEffect
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMissileArt
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMissileSpeed
+            params:
+              - typ: int
+                name: level
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMissileArc
+            params:
+              - typ: int
+                name: level
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMissileHomingEnabled
+            params:
+              - typ: int
+                name: level
+              - typ: boolean
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachments
+            params:
+              - typ: int
+                name: level
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint0
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint1
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint2
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint3
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint4
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetAttachmentPoint5
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCasterAttachments
+            params:
+              - typ: int
+                name: level
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpecialAttachmentPoint
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipNormal
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipNormalExtended
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectSound
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setEffectSoundLooping
+            params:
+              - typ: int
+                name: level
+              - typ: string
+                name: value
+            returns: ~
     enums: []
     free_fns:
       - doc: Creates an ability and buff based on Tornado aura that allows to display a buff on units without side effects

@@ -2,7 +2,145 @@
 - Package:
     doc: ~
     name: ClosureTimers
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: true
+        name: CallbackSingle
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: call
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: start
+            params:
+              - typ: timer
+                name: whichTimer
+              - typ: real
+                name: time
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: staticCallback
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+      - doc: ~
+        abstract_: true
+        name: CallbackPeriodic
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: call
+            params:
+              - typ: thistype
+                name: cb
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: start
+            params:
+              - typ: timer
+                name: whichTimer
+              - typ: real
+                name: time
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: staticCallback
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+      - doc: ~
+        abstract_: true
+        name: CallbackCounted
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: call
+            params:
+              - typ: thistype
+                name: cb
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: start
+            params:
+              - typ: timer
+                name: whichTimer
+              - typ: real
+                name: time
+              - typ: int
+                name: callAmount
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isLast
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: stop
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: staticCallback
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: callAndCount
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: testDoAfter
+            params: []
+            returns: ~
     enums: []
     free_fns:
       - doc: "Execute an action after a certain time.\n\tThe callback object is automatically destroyed.\n\tMust be used on a timer acquired with `getTimer()`\n\n\tExample use:\n\t| someTimer.doAfter(10.0) ->\n\t|\t print(\"10 seconds later\")"

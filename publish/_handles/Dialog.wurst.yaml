@@ -5,7 +5,7 @@
     classes: []
     enums: []
     free_fns:
-      - doc: ~
+      - doc: "Dialogs are big dialog boxes at the center of the screen. The player can choose one button to click.\n\tWARNING: Dialogs cannot be displayed at map init! Dialogs pause the game in single player mode!\n\tIn multiplayer mode dialogs do not pause the game, but prevent players, who see the dialog from playing the game."
         static_: false
         extensor: ~
         name: createDialog

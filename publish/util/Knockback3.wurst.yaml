@@ -2,6 +2,110 @@
 - Package:
     doc: "Use the `Knockback3.add(..)` functions to apply 3D knockback to units.\n\tUsing angles:\n\t\timport Knockback3\n\t\t...\n\t\tlet u = ...\n\t\tKnockback3.add(u, 1000., 0 .fromDeg(), 45 .fromDeg())\n\n\tUsing a target position:\n\t\tlet caster = GetSpellAbilityUnit()\n\t\tlet target = getSpellTargetPos()\n\n\t\tKnockback3.add(caster, target, 500.)\n\n\tConfigure this system by overriding the @configurable globals and setting\n\tthe static class members:\n\n\t\tKnockback3.gravity = 25.\n\n\tBy default, this package allows units to collide with destructables and\n\tdestroy them. To disable this feature, make the global\n\tdestroyDestructableSpeedThreshold a very high value:\n\n\t   Knockback3.destroyDestructableSpeedThreshold = 999999999.\n\n\tThis value defaults to 300."
     name: Knockback3
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: Knockback3
+        extends: ~
+        implements: []
+        fns:
+          - doc: "Apply a knockback vector to unit u. `velocity` is initial speed in units\n\t \tper second. `groundAngle` and `airAngle` are the direction and trajectory\n\t \tparameters, respectively. Example:"
+            static_: true
+            extensor: ~
+            name: add
+            params:
+              - typ: unit
+                name: u
+              - typ: real
+                name: velocity
+              - typ: angle
+                name: groundAngle
+              - typ: angle
+                name: airAngle
+            returns: ~
+          - doc: "Apply a knockback vector to unit u. If the unit is stopped, this vector will\n\t\tthrow the unit to the position at vec2 `target`. Along the XY-plane, the\n\t\tunit will move `groundSpeed` units per second. Note that the more vertical\n\t\tangle will always be used from the pair of possible trajectories. Example:"
+            static_: true
+            extensor: ~
+            name: add
+            params:
+              - typ: unit
+                name: u
+              - typ: vec2
+                name: target
+              - typ: real
+                name: groundSpeed
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: setVel
+            params:
+              - typ: unit
+                name: u
+              - typ: real
+                name: velocity
+              - typ: angle
+                name: groundAngle
+              - typ: angle
+                name: airAngle
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: getVel
+            params:
+              - typ: unit
+                name: u
+            returns: vec3
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: tickNearGround
+            params:
+              - typ: Knockback3
+                name: knockback
+              - typ: vec3
+                name: newPos3
+              - typ: vec3
+                name: pos3
+              - typ: real
+                name: velXySquared
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: tickAboveGround
+            params:
+              - typ: Knockback3
+                name: knockback
+              - typ: vec3
+                name: newPos3
+              - typ: vec3
+                name: pos3
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: tickTryDestructable
+            params:
+              - typ: Knockback3
+                name: knockback
+              - typ: vec3
+                name: newPos3
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: tickUnitDone
+            params:
+              - typ: Knockback3
+                name: knockback
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: tick
+            params: []
+            returns: ~
     enums: []
     free_fns: []

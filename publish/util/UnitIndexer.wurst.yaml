@@ -2,7 +2,39 @@
 - Package:
     doc: ~
     name: UnitIndexer
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: UnitIndex
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getUnit
+            params: []
+            returns: unit
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getIndex
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: unit
+                name: whichUnit
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
     enums: []
     free_fns:
       - doc: ~

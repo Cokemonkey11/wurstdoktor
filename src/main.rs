@@ -106,37 +106,72 @@ fn cruft<'a>() -> Parser<'a, u8, ()> {
     ).discard()
 }
 
+fn class_cruft<'a>() -> Parser<'a, u8, ()> {
+    (
+        !class_declaration() *
+        !class_fn() *
+        !eenum() *
+        !free_function() *
+        take(1)
+    ).discard()
+}
+
 static PRIVATE: &'static [u8] = b"private";
 
 fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
     (
-        doc() + (
-            // Only match non-private free functions.
-            !seq(PRIVATE) *
-            seq(b"static ").opt().map(
-                |p| p.map(
-                    |s| std::str::from_utf8(
-                        s
-                    ).expect("Failed to unwrap a UTF8 string").to_string()
-                )
-            ) +
-            seq(b"function ") *
-            // Optionally match extension fns.
+        doc() -
+        one_of(b"\r\n\t ").repeat(0..) +
+        (
             (
-                none_of(b" (.").repeat(1..) - sym(b'.')
-            ).convert(String::from_utf8).opt() +
-            none_of(b" (.").repeat(1..).convert(String::from_utf8) -
-            sym(b'(')
-        ) + call(function_params) - sym(b')') + (
-            // Return value.
-            seq(b" returns ") *
-            none_of(b" ,\n").repeat(1..).convert(String::from_utf8)
-        ).opt()
-    ).map(|(((d, ((s, e), n)), p), r)| {
+                (
+                    // Only match non-private functions.
+                    !seq(PRIVATE) *
+                    seq(b"static ").opt().map(
+                        |p| p.map(
+                            |s| std::str::from_utf8(
+                                s
+                            ).expect(
+                                "Failed to unwrap a UTF8 string"
+                            ).to_string()
+                        )
+                    ) +
+                    (
+                        (
+                            seq(b"function ") *
+                            none_of(b" (.").repeat(1..).convert(
+                                String::from_utf8
+                            )
+                        ) | seq(b"construct").map(
+                            |s| std::str::from_utf8(s).expect(
+                                "Failed to unwrap UTF8"
+                            ).to_string()
+                        )
+                    ) -
+                    sym(b'(')
+                ) +
+                call(function_params) -
+                sym(b')') +
+                (
+                    // Return value.
+                    one_of(b"\t ").repeat(0..) *
+                    seq(b"returns ") *
+                    none_of(b" ,\n").repeat(1..).convert(String::from_utf8)
+                ).opt()
+            ) | (
+                seq(b"ondestroy").map(
+                    |s| std::str::from_utf8(s).expect(
+                        "Failed to unwrap UTF"
+                    ).to_string()
+                ).map(|n| (((None, n), vec![]), None))
+            )
+        ) -
+        one_of(b" \r\t\n").repeat(0..)
+    ).map(|(d, (((s, n), p), r))| {
         WurstFunction {
             doc: d,
             static_: s.is_some(),
-            extensor: e,
+            extensor: None,
             name: n,
             params: p,
             returns: r
@@ -147,14 +182,14 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
 fn class_declaration<'a>() -> Parser<
     'a,
     u8,
-    (Option<String>, (Option<String>, String))
+    (Option<String>, ((Option<String>, String), Option<String>))
 > {
     doc() + (
         // Only match public classes.
         (
             seq(b"public ") *
             seq(b"abstract ").opt() -
-            seq(b"class")
+            seq(b"class ")
         ).map(
             |p| p.map(
                 |slice| std::str::from_utf8(
@@ -162,7 +197,14 @@ fn class_declaration<'a>() -> Parser<
                 ).expect("Couldn't unwrap UTF8 string.").into()
             )
         ) +
-        none_of(b" (,").repeat(1..).convert(String::from_utf8) -
+        none_of(b" (,\n").repeat(1..).convert(String::from_utf8) +
+        (
+            one_of(b" \t").repeat(1..) *
+            seq(b"extends") *
+            one_of(b" \t").repeat(1..) *
+            none_of(b" \n\r\t").repeat(1..) -
+            one_of(b" \t").repeat(0..)
+        ).map(|s| std::str::from_utf8(&s).expect("UTF8 fail").into()).opt() -
         sym(b'\n')
     )
 }
@@ -170,16 +212,16 @@ fn class_declaration<'a>() -> Parser<
 fn class<'a>() -> Parser<'a, u8, WurstClass> {
     (
         class_declaration() +
-        cruft().repeat(0..) *
+        class_cruft().repeat(0..) *
         list(
             call(class_fn),
-            call(cruft).repeat(1..)
-        ) - call(cruft).repeat(0..)
-    ).map(|((d, (a, n)), f)| WurstClass {
+            call(class_cruft).repeat(1..)
+        )
+    ).map(|((d, ((a, n), e)), f)| WurstClass {
         doc: d,
         abstract_: a.is_some(),
         name: n,
-        extends: None,
+        extends: e,
         implements: vec![],
         fns: f
     })
@@ -252,14 +294,13 @@ fn doc<'a>() -> Parser<'a, u8, Option<String>> {
         seq(b"/**") *
         one_of(b" \n\t\r").repeat(0..) *
         (
-            one_of(b" \n\t\r").repeat(0..).convert(String::from_utf8) +
-            none_of(b" \n\r\t*/").repeat(1..).convert(String::from_utf8)
-        ).repeat(0..).map(|v| {
-            v.into_iter().map(|(w, t)| format!("{}{}", w, t)).collect()
-        }).map(|v: Vec<String>| v.join("")) -
-        one_of(b" \n\t\r").repeat(0..) *
-        seq(b"*/") -
-        one_of(b" \n\t\r").repeat(0..)
+            !seq(b"*/") * take(1)
+        ).repeat(0..).collect().map(
+            |v| std::str::from_utf8(v).expect("UTF8!").trim_matches(
+                |c| char::is_whitespace(c) || c == '*'
+            ).into()
+        ) -
+        seq(b"*/") - one_of(b" \n\t\r").repeat(0..)
     ).opt()
 }
 
@@ -1002,10 +1043,11 @@ mod tests {
         assert_eq!(
             class().parse(br#"
                 /**
-                * Foobar!
+                    Foobar!
                 */
                 public class Foobar
                     // Hello world.
+
             "#),
             Ok(WurstClass {
                 doc: Some("Foobar!".into()),
@@ -1015,6 +1057,98 @@ mod tests {
                 implements: vec![],
                 fns: vec![]
             })
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_just_class_fn() -> Result<(), ()> {
+        assert_eq!(
+            class_fn().parse(br#"
+                    /**
+                    * Own's this callable to prevent it from being freed automatically.
+                    * You must manually `destroy` this object to free it
+                    */
+                    function own() returns thistype
+                        owned = true
+                        return this
+            "#),
+            Ok(
+                WurstFunction {
+                    doc: Some("Own's this callable to prevent it from being freed automatically.\n                    * You must manually `destroy` this object to free it".into()),
+                    static_: false,
+                    extensor: None,
+                    name: "own".into(),
+                    params: vec![],
+                    returns: Some("thistype".into()),
+                }
+            )
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_class_extends() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                public class A extends Number
+                    int v
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Class(
+                        WurstClass {
+                            doc: None,
+                            abstract_: false,
+                            name: "A".into(),
+                            extends: Some("Number".into()),
+                            implements: vec![],
+                            fns: vec![],
+                        }
+                    ),
+                ]
+            )
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_two_classes() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                public class A
+                    int v
+
+                public class B
+                    bool w
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Class(
+                        WurstClass {
+                            doc: None,
+                            abstract_: false,
+                            name: "A".into(),
+                            extends: None,
+                            implements: vec![],
+                            fns: vec![],
+                        }
+                    ),
+                    WurstDok::Class(
+                        WurstClass {
+                            doc: None,
+                            abstract_: false,
+                            name: "B".into(),
+                            extends: None,
+                            implements: vec![],
+                            fns: vec![],
+                        }
+                    ),
+                ]
+            )
         );
 
         Ok(())
@@ -1069,7 +1203,7 @@ mod tests {
             Ok(vec![
                 WurstDok::Class(
                     WurstClass {
-                        doc: Some("Ownable object\n\nCan be \"owned\" to prevent being freed with the `.own()` method\nMethods in the lodash library will attempt to free callables that they are passed".into()),
+                        doc: Some("Ownable object\n                *\n                * Can be \"owned\" to prevent being freed with the `.own()` method\n                * Methods in the Lodash library will attempt to free callables that they are passed".into()),
                         abstract_: true,
                         name: "Ownable".into(),
                         extends: None,
@@ -1092,7 +1226,7 @@ mod tests {
                                 returns: None
                             },
                             WurstFunction {
-                                doc: Some("Own's this callable to prevent it from being freed automatically.\nYou must manually `destroy` this object to free it".into()),
+                                doc: Some("Own's this callable to prevent it from being freed automatically.\n                    * You must manually `destroy` this object to free it".into()),
                                 static_: false,
                                 extensor: None,
                                 name: "own".into(),
@@ -1121,6 +1255,187 @@ mod tests {
                     }
                 )
             ])
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_dialog_real() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+package Dialog
+import NoWurst
+import Wurstunit
+
+/**
+	Dialogs are big dialog boxes at the center of the screen. The player can choose one button to click.
+	WARNING: Dialogs cannot be displayed at map init! Dialogs pause the game in single player mode!
+	In multiplayer mode dialogs do not pause the game, but prevent players, who see the dialog from playing the game.
+**/
+
+public function createDialog() returns dialog
+	return DialogCreate()
+
+public function dialog.addButton(string buttonText) returns button
+	return this.addButton(buttonText, 0)
+
+/** Hotkey: use ASCII numbers of the capital letter. */
+public function dialog.addButton(string buttonText, int hotkey) returns button
+	return DialogAddButton(this, buttonText, hotkey)
+
+/** Adds a quit button to this dialog. If it is clicked, it ends the game for that player. */
+public function dialog.addQuitButton(boolean doScoreScreen, string buttonText) returns button
+	return this.addQuitButton(doScoreScreen, buttonText, 0)
+
+/** Adds a quit button to this dialog. If it is clicked, it ends the game for that player.
+Hotkey: use ASCII numbers of the capital letter. */
+public function dialog.addQuitButton(boolean doScoreScreen, string buttonText, int hotkey) returns button
+	return DialogAddQuitButton(this, doScoreScreen, buttonText, hotkey)
+
+/** Removes all buttons from a dialog */
+public function dialog.clear()
+	DialogClear(this)
+
+public function dialog.destr()
+	DialogDestroy(this)
+
+/** Toggles visibility of the dialog for a player. Dialogs are invisible by default
+Dialogs cannot be shown at map initialization */
+public function dialog.display(player whichPlayer, boolean flag)
+	DialogDisplay(whichPlayer, this, flag)
+
+public function dialog.setMessage(string messageText)
+	DialogSetMessage(this, messageText)
+
+@Test
+function testDialog()
+	let dia = createDialog()
+	dia..addButton("text")
+	..addQuitButton(true, "test")
+	..display(Player(0), true)
+	..clear()
+	..destr()
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Package(
+                        WurstPackage {
+                            doc: None,
+                            name: "Dialog".into(),
+                            classes: vec![],
+                            enums: vec![],
+                            free_fns: vec![
+                                WurstFunction {
+                                    doc: Some("Dialogs are big dialog boxes at the center of the screen. The player can choose one button to click.\n\tWARNING: Dialogs cannot be displayed at map init! Dialogs pause the game in single player mode!\n\tIn multiplayer mode dialogs do not pause the game, but prevent players, who see the dialog from playing the game.".into()),
+                                    static_: false,
+                                    extensor: None,
+                                    name: "createDialog".into(),
+                                    params: vec![],
+                                    returns: Some("dialog".into()),
+                                },
+                                WurstFunction {
+                                    doc: None,
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "addButton".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "string".into(),
+                                        name: "buttonText".into()
+                                    }],
+                                    returns: Some("button".into()),
+                                },
+                                WurstFunction {
+                                    doc: Some("Hotkey: use ASCII numbers of the capital letter.".into()),
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "addButton".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "string".into(),
+                                        name: "buttonText".into()
+                                    },WurstFnParam {
+                                        typ: "int".into(),
+                                        name: "hotkey".into()
+                                    }],
+                                    returns: Some("button".into()),
+                                },
+                                WurstFunction {
+                                    doc: Some("Adds a quit button to this dialog. If it is clicked, it ends the game for that player.".into()),
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "addQuitButton".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "boolean".into(),
+                                        name: "doScoreScreen".into()
+                                    },WurstFnParam {
+                                        typ: "string".into(),
+                                        name: "buttonText".into()
+                                    }],
+                                    returns: Some("button".into()),
+                                },
+                                WurstFunction {
+                                    doc: Some("Adds a quit button to this dialog. If it is clicked, it ends the game for that player.\nHotkey: use ASCII numbers of the capital letter.".into()),
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "addQuitButton".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "boolean".into(),
+                                        name: "doScoreScreen".into()
+                                    },WurstFnParam {
+                                        typ: "string".into(),
+                                        name: "buttonText".into()
+                                    },WurstFnParam {
+                                        typ: "int".into(),
+                                        name: "hotkey".into()
+                                    }],
+                                    returns: Some("button".into()),
+                                },
+                                WurstFunction {
+                                    doc: Some("Removes all buttons from a dialog".into()),
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "clear".into(),
+                                    params: vec![],
+                                    returns: None,
+                                },
+                                WurstFunction {
+                                    doc: None,
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "destr".into(),
+                                    params: vec![],
+                                    returns: None,
+                                },
+                                WurstFunction {
+                                    doc: Some("Toggles visibility of the dialog for a player. Dialogs are invisible by default\nDialogs cannot be shown at map initialization".into()),
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "display".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "player".into(),
+                                        name: "whichPlayer".into()
+                                    },WurstFnParam {
+                                        typ: "boolean".into(),
+                                        name: "flag".into()
+                                    }],
+                                    returns: None,
+                                },
+                                WurstFunction {
+                                    doc: None,
+                                    static_: false,
+                                    extensor: Some("dialog".into()),
+                                    name: "setMessage".into(),
+                                    params: vec![WurstFnParam {
+                                        typ: "string".into(),
+                                        name: "messageText".into()
+                                    }],
+                                    returns: None,
+                                },
+                            ],
+                        }
+                    ),
+                ]
+            )
         );
 
         Ok(())

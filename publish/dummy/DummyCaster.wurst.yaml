@@ -1,7 +1,19 @@
 ---
 - Package:
-    doc: ~
+    doc: "Dummy casters are commonly used in custom spells to cast abilities dynamically onto targets or points.\n * For example hexing all units in an AoE, or impaling in multiple directions.\n * If your spell's effect is entirely instant, you should use `InstantDummyCaster`.\n * For many spells however, InstantDummyCaster is not feasible, because they\n * \t - are of type impale or channel\n *   - attach effects to the caster, like chain lightning\n *\t - deal delayed damage (fireball, shockwave)\n * In all of these scenarios the unit has to stand in a place and the spell's effects are not instant.\n *\n * DummyCaster uses one dummy per cast, and only removes it after a set delay, to allow effects and damage to process\n * Example with long delay for blizzard:\n *\n *\t\tnew DummyCaster(casterPos)\n *\t\t\t..owner(caster)\n *\t\t\t..delay(15)\n *\t\t\t..castPoint('A000', 1, OrderIds.OrderIds.blizzard, target)\n *\n * The dummy caster will be recycled automatically, after the last spell's `delay` duration has expired.\n * You shouldn't destroy the object yourself. Just cast any amount of spells at once or shortly after and leave it.\n * Allocate DummyCasters dynamically on the spot and don't save them."
     name: DummyCaster
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: DummyCaster
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
     enums: []
     free_fns: []

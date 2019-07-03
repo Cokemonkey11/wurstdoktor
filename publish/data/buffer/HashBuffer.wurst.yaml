@@ -2,6 +2,164 @@
 - Package:
     doc: ~
     name: HashBuffer
-    classes: []
+    classes:
+      - doc: Implementation of Buffer backed by a hashtable. Primarily used in Network.
+        abstract_: false
+        name: HashBuffer
+        extends: AbstractBuffer
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeInt
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeReal
+            params:
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeString
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeBoolean
+            params:
+              - typ: bool
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readInt
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readReal
+            params: []
+            returns: real
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readString
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readBoolean
+            params: []
+            returns: bool
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readIntUnsafe
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readRealUnsafe
+            params: []
+            returns: real
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readStringUnsafe
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readBooleanUnsafe
+            params: []
+            returns: bool
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: resetRead
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getIntCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getRealCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBooleanCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getStringCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasInt
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasReal
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasBoolean
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasString
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getReadRemainingInts
+            params: []
+            returns: int
     enums: []
     free_fns: []

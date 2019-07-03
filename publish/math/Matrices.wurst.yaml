@@ -53,7 +53,7 @@
           - typ: mat2
             name: m
         returns: mat2
-      - doc: ~
+      - doc: Matrix multiplication is not commutative that means matrix * vect is not the same as vec * matrix.
         static_: false
         extensor: mat2
         name: op_mult
@@ -61,7 +61,7 @@
           - typ: vec2
             name: v
         returns: vec2
-      - doc: ~
+      - doc: Matrix multiplication is not commutative that means matrix * vect is not the same as vec * matrix.
         static_: false
         extensor: vec2
         name: op_mult
@@ -177,7 +177,7 @@
           - typ: mat3
             name: m
         returns: mat3
-      - doc: ~
+      - doc: Matrix multiplication is not commutative that means matrix * vect is not the same as vec * matrix.
         static_: false
         extensor: mat3
         name: op_mult

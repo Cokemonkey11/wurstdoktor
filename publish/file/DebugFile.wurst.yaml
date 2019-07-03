@@ -2,7 +2,43 @@
 - Package:
     doc: ~
     name: DebugFile
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: DebugFile
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: string
+                name: filename
+            returns: ~
+          - doc: Saves the File. If the map crashes all onsaved changes will be lost.
+            static_: false
+            extensor: ~
+            name: save
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeln
+            params:
+              - typ: string
+                name: s
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: write
+            params:
+              - typ: string
+                name: s
+            returns: ~
     enums: []
     free_fns:
       - doc: ~

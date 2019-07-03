@@ -2,6 +2,34 @@
 - Package:
     doc: ~
     name: ObjectIdGenerator
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: IdGenerator
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: start
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isInvalid
+            params:
+              - typ: int
+                name: char
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: next
+            params: []
+            returns: int
     enums: []
     free_fns: []

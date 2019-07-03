@@ -95,7 +95,7 @@
           - typ: string
             name: attachPointName
         returns: ~
-      - doc: ~
+      - doc: "Creates and immediatly destroys an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: flashEffect
@@ -107,7 +107,7 @@
           - typ: vec3
             name: pos
         returns: ~
-      - doc: ~
+      - doc: "Creates and immediatly destroys an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j)\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: flashEffect
@@ -119,7 +119,7 @@
           - typ: vec2
             name: pos
         returns: ~
-      - doc: ~
+      - doc: "Creates and immediatly destroys an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: flashEffect
@@ -165,7 +165,7 @@
           - typ: string
             name: attachPointName
         returns: effect
-      - doc: ~
+      - doc: "Creates an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: addEffect
@@ -177,7 +177,7 @@
           - typ: vec2
             name: pos
         returns: effect
-      - doc: ~
+      - doc: "Creates an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: addEffect
@@ -189,7 +189,7 @@
           - typ: vec3
             name: pos
         returns: effect
-      - doc: ~
+      - doc: "Creates an effect from the data defined in the ability's field \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: addEffect
@@ -359,7 +359,7 @@
           - typ: location
             name: loc
         returns: ~
-      - doc: ~
+      - doc: "Returns the data defined in the ability's field  \"Art - Caster/Target/Missile/Ligtning/etc.\" (full list in common.j).\nWorks for custom abilities."
         static_: false
         extensor: ~
         name: getAbilityEffect
@@ -469,7 +469,7 @@
           - typ: angle
             name: roll
         returns: ~
-      - doc: ~
+      - doc: Plays an animation such as birth/death/stand/etc. defined in constants ANIM_TYPE_BIRTH/ANIM_TYPE_DEATH/ANIM_TYPE_STAND/etc. (full list in common.j).
         static_: false
         extensor: effect
         name: playAnimation
@@ -477,7 +477,7 @@
           - typ: animtype
             name: whichAnim
         returns: ~
-      - doc: ~
+      - doc: Plays an animation such as birth/death/stand/etc. defined in constants ANIM_TYPE_BIRTH/ANIM_TYPE_DEATH/ANIM_TYPE_STAND/etc. (full list in common.j).
         static_: false
         extensor: effect
         name: playAnimation

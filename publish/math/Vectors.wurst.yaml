@@ -29,7 +29,7 @@
           - typ: vec2
             name: v
         returns: vec2
-      - doc: ~
+      - doc: Operator
         static_: false
         extensor: vec2
         name: op_mult
@@ -37,7 +37,7 @@
           - typ: real
             name: factor
         returns: vec2
-      - doc: ~
+      - doc: Operator
         static_: false
         extensor: real
         name: op_mult
@@ -53,7 +53,7 @@
           - typ: vec2
             name: v
         returns: vec2
-      - doc: ~
+      - doc: Operator
         static_: false
         extensor: vec2
         name: op_div
@@ -249,7 +249,7 @@
           - typ: vec2
             name: v2
         returns: real
-      - doc: ~
+      - doc: "Create a rect centered at `this` with side length 2 * `nominalRadius`."
         static_: false
         extensor: vec2
         name: withRadiusRect
@@ -301,7 +301,7 @@
           - typ: vec2
             name: v
         returns: vec3
-      - doc: ~
+      - doc: Operator
         static_: false
         extensor: vec3
         name: op_mult

@@ -5,7 +5,7 @@
     classes: []
     enums: []
     free_fns:
-      - doc: ~
+      - doc: "Returns the length of the hypotenuse of a right-angle triangle with the\n * given side lengths. Does not overflow or underflow as fast as\n * SquareRoot(x^2 + y^2) does."
         static_: false
         extensor: ~
         name: hypot

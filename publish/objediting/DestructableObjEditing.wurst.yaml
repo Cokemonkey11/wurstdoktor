@@ -2,6 +2,106 @@
 - Package:
     doc: ~
     name: DestructableObjEditing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: W3BDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getNewId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBaseId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: baseId
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: DestructableDefinition
+        extends: W3BDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newID
+              - typ: int
+                name: origID
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTexture
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTextureId
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCategory
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setName
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPath
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setModel
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSoundOnDestroy
+            params:
+              - typ: string
+                name: data
+            returns: ~
     enums: []
     free_fns: []

@@ -2,6 +2,88 @@
 - Package:
     doc: ~
     name: DummyRecycler
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: DummyRecycler
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: get
+            params:
+              - typ: vec2
+                name: pos
+              - typ: angle
+                name: a
+            returns: unit
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: recycle
+            params:
+              - typ: unit
+                name: u
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: recycle
+            params:
+              - typ: unit
+                name: u
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: enqueue
+            params:
+              - typ: unit
+                name: u
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: dequeue
+            params: []
+            returns: unit
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: unit
+                name: u
+              - typ: real
+                name: time
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: recycle
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: createDummy
+            params:
+              - typ: vec2
+                name: pos
+              - typ: player
+                name: owner
+              - typ: angle
+                name: facing
+            returns: unit
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: generateDummyUnit
+            params: []
+            returns: ~
     enums: []
     free_fns: []

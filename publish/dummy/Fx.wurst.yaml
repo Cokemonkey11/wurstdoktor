@@ -2,6 +2,278 @@
 - Package:
     doc: ~
     name: Fx
-    classes: []
+    classes:
+      - doc: "Fx * * * * * * * * * * * * * * * * *\n * An Fx-Object is basically just a moveable effect.  \t*\n * Up above you find the Fx-Class. By creating\t\t\t*\n * an instace of it, you recieve the mentioned,\t\t\t*\n * moveable effect.\t\t\t\t\t\t\t\t\t\t*\n * Constructors and functions defined as following,\t\t*\n * should be self-explanatory.\t\t\t\t\t\t\t*\n * Also features automatic recycling of Fx-instances\t*\n *\t\t\t\t\t\t\t\t\t\t\t\t\t\t*\n * Credits to Vexorian, Anitarf"
+        abstract_: false
+        name: Fx
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: real
+                name: x
+              - typ: real
+                name: y
+              - typ: angle
+                name: facing
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec2
+                name: pos
+              - typ: angle
+                name: facing
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec2
+                name: pos
+              - typ: string
+                name: fxpath
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec2
+                name: pos
+              - typ: angle
+                name: facing
+              - typ: string
+                name: fxpath
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec3
+                name: pos
+              - typ: angle
+                name: facing
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec3
+                name: pos
+              - typ: string
+                name: fxpath
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: vec3
+                name: pos
+              - typ: angle
+                name: facing
+              - typ: string
+                name: fxpath
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: playercolor
+                name: pc
+              - typ: vec3
+                name: pos
+              - typ: angle
+                name: facing
+              - typ: string
+                name: fxpath
+            returns: ~
+          - doc: Get the owner of this Fx Object
+            static_: false
+            extensor: ~
+            name: getOwner
+            params: []
+            returns: player
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlayerColor
+            params:
+              - typ: playercolor
+                name: pc
+            returns: ~
+          - doc: Set the owner of this Fx Object
+            static_: false
+            extensor: ~
+            name: setOwner
+            params:
+              - typ: player
+                name: p
+              - typ: boolean
+                name: changeColor
+            returns: ~
+          - doc: Set the playercolor of this Fx Object
+            static_: false
+            extensor: ~
+            name: setPlayercolor
+            params:
+              - typ: playercolor
+                name: c
+            returns: ~
+          - doc: Set the scale of this Fx Object
+            static_: false
+            extensor: ~
+            name: setScale
+            params:
+              - typ: real
+                name: value
+            returns: ~
+          - doc: Get the color (rgba)
+            static_: false
+            extensor: ~
+            name: getColor
+            params: []
+            returns: colorA
+          - doc: Get the dummyunit
+            static_: false
+            extensor: ~
+            name: getDummy
+            params: []
+            returns: unit
+          - doc: "Sets the color of the Fx object to the given color\n\tColor: 0 = no color - 255 = full color\n\tAlpha: 0 = transparent - 255 = visible"
+            static_: false
+            extensor: ~
+            name: setColor
+            params:
+              - typ: colorA
+                name: newColor
+            returns: ~
+          - doc: "\"flashes\" the given effect.\n\t\tFlashing plays the death animation of the effect at the fx's position."
+            static_: false
+            extensor: ~
+            name: flash
+            params:
+              - typ: string
+                name: fx
+            returns: ~
+          - doc: Get the xy angle
+            static_: false
+            extensor: ~
+            name: getXYAngle
+            params: []
+            returns: angle
+          - doc: Set the xy angle
+            static_: false
+            extensor: ~
+            name: setXYAngle
+            params:
+              - typ: angle
+                name: value
+            returns: ~
+          - doc: Creates a new dummy with the given facing in order to achieve instant turning.
+            static_: false
+            extensor: ~
+            name: setXYAngleInstant
+            params:
+              - typ: angle
+                name: value
+            returns: ~
+          - doc: Get the z angle
+            static_: false
+            extensor: ~
+            name: getZAngle
+            params: []
+            returns: angle
+          - doc: Set the z angle in radians
+            static_: false
+            extensor: ~
+            name: setZAngle
+            params:
+              - typ: angle
+                name: zangle
+            returns: ~
+          - doc: Get the z coordinate (fly height)
+            static_: false
+            extensor: ~
+            name: getZ
+            params: []
+            returns: real
+          - doc: Get the 2d position
+            static_: false
+            extensor: ~
+            name: getPos2
+            params: []
+            returns: vec2
+          - doc: Get the 3d position
+            static_: false
+            extensor: ~
+            name: getPos3
+            params: []
+            returns: vec3
+          - doc: Set the position to the given xy vector tuple
+            static_: false
+            extensor: ~
+            name: setXY
+            params:
+              - typ: vec2
+                name: pos
+            returns: ~
+          - doc: Set the position to the given xyz vector tuple
+            static_: false
+            extensor: ~
+            name: setXYZ
+            params:
+              - typ: vec3
+                name: pos
+            returns: ~
+          - doc: "Set the position to the given xyz vector tuple.\n\t * It is possible to ignore the terrain height when desired.\n\t * Use setXYheight when you never need terrain height."
+            static_: false
+            extensor: ~
+            name: setXYZ
+            params:
+              - typ: vec3
+                name: pos
+              - typ: boolean
+                name: ignoreTerrainHeight
+            returns: ~
+          - doc: Set the z coordinate (flyHeight)
+            static_: false
+            extensor: ~
+            name: setZ
+            params:
+              - typ: real
+                name: z
+            returns: ~
+          - doc: "Set the path to the sfx model that should be displayed.\n\tIf there is already a model displayed, it will be replaced with the new one."
+            static_: false
+            extensor: ~
+            name: setFx
+            params:
+              - typ: string
+                name: newpath
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: "Destroys the Fx object without showing the effect's death animation\n\t\tSort of a workaround by setting the position to the top right corner, hopefully not visible."
+            static_: false
+            extensor: ~
+            name: hiddenDestroy
+            params: []
+            returns: ~
     enums: []
     free_fns: []

@@ -5,7 +5,7 @@
     classes: []
     enums: []
     free_fns:
-      - doc: ~
+      - doc: Returns the unit that caused the enter/leave event to happen
         static_: false
         extensor: ~
         name: getEnterLeaveUnit

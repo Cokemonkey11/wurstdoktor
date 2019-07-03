@@ -2,6 +2,58 @@
 - Package:
     doc: ~
     name: HeroPreset
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: HeroPreset
+        extends: HeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+              - typ: string
+                name: name
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: buildHero
+            params: []
+            returns: ~
+          - doc: "Adds a proper Name to the Hero.\n\t\tRemember to call .buildHero() after you finished your changes"
+            static_: false
+            extensor: ~
+            name: addProperName
+            params:
+              - typ: string
+                name: name
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: buildProperNames
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addHeroAbility
+            params:
+              - typ: int
+                name: id
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: buildHeroAbilities
+            params: []
+            returns: ~
     enums: []
     free_fns: []

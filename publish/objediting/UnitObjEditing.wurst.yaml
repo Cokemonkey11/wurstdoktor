@@ -2,7 +2,2165 @@
 - Package:
     doc: ~
     name: UnitObjEditing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: W3UDefinition
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getNewId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getBaseId
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: baseId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipExtended
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipBasic
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequirementsLevels
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequirements
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setName
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHotkey
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDescription
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionY
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setButtonPositionX
+            params:
+              - typ: int
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: UnitOrBuildingOrHeroDefinition
+        extends: W3UDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newUnitId
+              - typ: int
+                name: origUnitId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setItemsSold
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUnitsSold
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHideMinimapDisplay
+            params:
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUseExtendedLineofSight
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUseClickHelper
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUpgradesUsed
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUnitSoundSet
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUnitClassification
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMovementType
+            params:
+              - typ: MovementType
+                name: mtype
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTurnRate
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColorBlue
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColorGreen
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTintingColorRed
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTilesets
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTeamColor
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTargetedAs
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTarget
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArtTarget
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockStartDelay
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockReplenishInterval
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStockMaximum
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpeedMinimum
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpeedMaximum
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpeedBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSpecial
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArtSpecial
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSleeps
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSightRadiusNight
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSightRadiusDay
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowTextureBuilding
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowImageWidth
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowImageUnit
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowImageHeight
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowImageCenterY
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setShadowImageCenterX
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSelectionScale
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSelectionCircleOnWater
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSelectionCircleHeight
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setScalingValue
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setScaleProjectiles
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequiredBoneNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequiredAttachmentLinkNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequiredAnimationNamesAttachments
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRequiredAnimationNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRepairTime
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRepairLumberCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRepairGoldCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRandomSound
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRace
+            params:
+              - typ: Race
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPropulsionWindowdegrees
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileLaunchZSwimming
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileLaunchZ
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileLaunchY
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileLaunchX
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileImpactZSwimming
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProjectileImpactZ
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPriority
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPointValue
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlaceableInEditor
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setOrientationInterpolation
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setOccluderHeight
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNormalAbilities
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNameEditorSuffix
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMovementSound
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setModelFileExtraVersions
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setModelFile
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMinimumAttackRange
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMaximumRollAngledegrees
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMaximumPitchAngledegrees
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setManaRegeneration
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setManaMaximum
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setManaInitialAmount
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSoundLoopingFadeOutRate
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSoundLoopingFadeInRate
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIsaBuilding
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIconScoreScreen
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIconGameInterface
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHitPointsRegenerationType
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHitPointsRegenerationRate
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHitPointsMaximumBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMovementHeightMinimum
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMovementHeight
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHasWaterShadow
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHasTilesetSpecificData
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldBountyAwardedSidesperDie
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldBountyAwardedNumberofDice
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGoldBountyAwardedBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberBountyAwardedSidesperDie
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberBountyAwardedNumberofDice
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLumberBountyAwardedBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setFoodProduced
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setFoodCost
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setFogOfWarSampleRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setElevationSampleRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setElevationSamplePoints
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDisplayasNeutralHostile
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDependencyEquivalents
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDefenseUpgradeBonus
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArmorType
+            params:
+              - typ: ArmorType
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDefenseBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDefaultActiveAbility
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDeathType
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setDeathTimeseconds
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCollisionSize
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCategorizationSpecial
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCategorizationCampaign
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCanFlee
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCanDropItemsOnDeath
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setBuildTime
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttacksEnabled
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2WeaponType
+            params:
+              - typ: WeaponType
+                name: wepType
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2WeaponSound
+            params:
+              - typ: WeaponSound
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2TargetsAllowed
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2ShowUI
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2RangeMotionBuffer
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2Range
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2ProjectileSpeed
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2ProjectileHomingEnabled
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2ProjectileArt
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2ProjectileArc
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2MaximumNumberofTargets
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageUpgradeAmount
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageSpillRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageSpillDistance
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageSidesperDie
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageNumberofDice
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageLossFactor
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageFactorSmall
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageFactorMedium
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2DamageBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2CooldownTime
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AttackType
+            params:
+              - typ: AttackType
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AreaofEffectTargets
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AreaofEffectSmallDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AreaofEffectMediumDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AreaofEffectFullDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AnimationDamagePoint
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack2AnimationBackswingPoint
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1WeaponType
+            params:
+              - typ: WeaponType
+                name: weaponType
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1WeaponSound
+            params:
+              - typ: WeaponSound
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1TargetsAllowed
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1ShowUI
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1RangeMotionBuffer
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1Range
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1ProjectileSpeed
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1ProjectileHomingEnabled
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1ProjectileArt
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1ProjectileArc
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1MaximumNumberofTargets
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageUpgradeAmount
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageSpillRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageSpillDistance
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageSidesperDie
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageNumberofDice
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageLossFactor
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageFactorSmall
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageFactorMedium
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1DamageBase
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1CooldownTime
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AttackType
+            params:
+              - typ: AttackType
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AreaofEffectTargets
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AreaofEffectSmallDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AreaofEffectMediumDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AreaofEffectFullDamage
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AnimationDamagePoint
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAttack1AnimationBackswingPoint
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setArmorSoundType
+            params:
+              - typ: ArmorSoundType
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAnimationWalkSpeed
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAnimationRunSpeed
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAnimationCastPoint
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAnimationCastBackswing
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAnimationBlendTimeseconds
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAllowCustomTeamColor
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAIPlacementType
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAIPlacementRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAcquisitionRange
+            params:
+              - typ: real
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: UnitOrHeroDefinition
+        extends: UnitOrBuildingOrHeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTransportedSize
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setLevel
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroupSeparationPriority
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroupSeparationParameter
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroupSeparationGroupNumber
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroupSeparationEnabled
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setFormationRank
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStructuresBuilt
+            params:
+              - typ: string
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: HeroDefinition
+        extends: UnitOrHeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hideHeroDeathMsg
+            params:
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hideHeroInterfaceIcon
+            params:
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hideHeroMinimapDisplay
+            params:
+              - typ: boolean
+                name: flag
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipRevive
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipAwaken
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStrengthPerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingStrength
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingIntelligence
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingAgility
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProperNamesUsed
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProperNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPrimaryAttribute
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIntelligencePerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHeroRevivalLocations
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHeroAbilities
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAgilityPerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: "sets the techtree requirements for a specific tier\n\t\tfor example use setRequierements"
+            static_: false
+            extensor: ~
+            name: setRequierementsForTier
+            params:
+              - typ: int
+                name: tier
+              - typ: string
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: UnitDefinition
+        extends: UnitOrHeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCasterUpgradeTips
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCasterUpgradeNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCasterUpgradeArt
+            params:
+              - typ: string
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: BuildingDefinition
+        extends: UnitOrBuildingOrHeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUpgradesTo
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUnitsTrained
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRevivesDeadHeros
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setResearchesAvailable
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementRequiresWaterRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementRequires
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementPreventedBy
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPathingMap
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNeutralBuildingValidAsRandomBuilding
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNeutralBuildingShowsMinimapIcon
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setItemsMade
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroundTexture
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setConstructionSound
+            params:
+              - typ: string
+                name: data
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: BuildingAndHeroDefinition
+        extends: UnitOrBuildingOrHeroDefinition
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: int
+                name: newId
+              - typ: int
+                name: origId
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUpgradesTo
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setUnitsTrained
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setRevivesDeadHeros
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setResearchesAvailable
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementRequiresWaterRadius
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementRequires
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPlacementPreventedBy
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPathingMap
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNeutralBuildingValidAsRandomBuilding
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setNeutralBuildingShowsMinimapIcon
+            params:
+              - typ: boolean
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setItemsMade
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setGroundTexture
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setConstructionSound
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipRevive
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setTooltipAwaken
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStrengthPerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingStrength
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingIntelligence
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setStartingAgility
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProperNamesUsed
+            params:
+              - typ: int
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setProperNames
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setPrimaryAttribute
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setIntelligencePerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHeroRevivalLocations
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setHeroAbilities
+            params:
+              - typ: string
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setAgilityPerLevel
+            params:
+              - typ: real
+                name: data
+            returns: ~
     enums:
       - doc: ~
         name: MovementType

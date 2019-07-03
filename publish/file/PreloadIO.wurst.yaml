@@ -1,7 +1,115 @@
 ---
 - Package:
-    doc: ~
+    doc: "This package is meant to provide a primitive wrapper around the\n\tPreload API of WC3 to be able to read and write files.\n\n\tThis package is not meant to handle Local Files setting in WC3,\n\tnor is it meant to handle 1.26 version adjustment.\n\n\tThis functionality is provided in the LocalFiles package,\n\tand is handled by other packages in the file subsystem.\n\n\tIf you want to read/write in 1.26 with local files,\n\tyou will need to prepend \"Logs\\\\\" to your paths."
     name: PreloadIO
-    classes: []
+    classes:
+      - doc: "Low-level static writer wrapper around the Preload API\n\tSupports writing directly to Preload, or can write\n\treadable \"packets\", max PACKETS_PER_FILE for a file,\n\teach up to MAX_PACKET_LENGTH characters.\n\n\tWARNING 1: Due to the way how WC3 handles file IO, you have to use\n\tthis class only in one place at once. Avoid using it over time, lest you\n\trisk causing conflicts with other clients of the class.\n\tWARNING 2: WC3 does not correctly handle recursive folder creation.\n\tIf you are creating a file that is nested deeper than one folder, e.g.\n\t\"a/b/c\", make sure to use IOWriter.createFolder(\"a/b/c\") before that."
+        abstract_: false
+        name: IOWriter
+        extends: ~
+        implements: []
+        fns:
+          - doc: This function prepares a new file for writing.
+            static_: true
+            extensor: ~
+            name: prepareWrite
+            params: []
+            returns: ~
+          - doc: "Simply writes a string as-is, without the possibility of reading it back."
+            static_: true
+            extensor: ~
+            name: write
+            params:
+              - typ: string
+                name: content
+            returns: ~
+          - doc: "Writes a readable 'packet' using SetPlayerName trick, allowing us to read it out of the file"
+            static_: true
+            extensor: ~
+            name: writePacket
+            params:
+              - typ: string
+                name: packet
+            returns: ~
+          - doc: Flushes a file and all written content to disk under the specified path.
+            static_: true
+            extensor: ~
+            name: flushFile
+            params:
+              - typ: string
+                name: path
+            returns: ~
+          - doc: Returns the amount of packets we can write to the current file.
+            static_: true
+            extensor: ~
+            name: getRemainingWrites
+            params: []
+            returns: int
+          - doc: Returns whether we can write to the current file anymore.
+            static_: true
+            extensor: ~
+            name: canWrite
+            params: []
+            returns: boolean
+          - doc: "Recursively creates the specified folder.\n\t\tNecessary because WC3 doesn't automatically\n\t\tcreate nested folders and fails silently."
+            static_: true
+            extensor: ~
+            name: createFolder
+            params:
+              - typ: string
+                name: path
+            returns: ~
+      - doc: "Low-level static reader wrapper around the Preload API\n\tSupports reading packets written by IOWriter,\n\tup to PACKETS_PER_FILE packets per file,\n\tup to MAX_PACKET_LENGTH characters per packet."
+        abstract_: false
+        name: IOReader
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: saveNames
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: restoreNames
+            params: []
+            returns: ~
+          - doc: "Loads the content of the specified file into IOReader's buffer,\n\t\tallowing it to be read with IOReader.readPacket() and IOReader.getPacket()."
+            static_: true
+            extensor: ~
+            name: load
+            params:
+              - typ: string
+                name: path
+            returns: ~
+          - doc: Returns the specified packet from the current loaded file.
+            static_: true
+            extensor: ~
+            name: getPacket
+            params:
+              - typ: int
+                name: i
+            returns: string
+          - doc: Reads the next packet from the current loaded file.
+            static_: true
+            extensor: ~
+            name: readPacket
+            params: []
+            returns: string
+          - doc: Returns the amount of packets available for reading from the currently loaded file.
+            static_: true
+            extensor: ~
+            name: getRemainingReads
+            params: []
+            returns: int
+          - doc: Returns whether there are any packets left to be read from the currently loaded file.
+            static_: true
+            extensor: ~
+            name: canRead
+            params: []
+            returns: boolean
     enums: []
     free_fns: []

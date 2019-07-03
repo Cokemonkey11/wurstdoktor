@@ -2,6 +2,176 @@
 - Package:
     doc: ~
     name: HashList
-    classes: []
+    classes:
+      - doc: "HashLists are used if you require quick contains operations\n * on a large list object. LinkedLists should be generally used, but are slow in this regard.\n * Removing elements from a HashList is slower than of LinkedLists."
+        abstract_: false
+        name: HashList<T>
+        extends: ~
+        implements: []
+        fns:
+          - doc: Returns the number of occurences of an element in this list
+            static_: false
+            extensor: ~
+            name: count
+            params:
+              - typ: T
+                name: elem
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: incrOccurences
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: decrOccurences
+            params:
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: Set an existing element at the given position to a new value
+            static_: false
+            extensor: ~
+            name: set
+            params:
+              - typ: int
+                name: index
+              - typ: T
+                name: elem
+            returns: ~
+          - doc: Add all elements from elems to this list
+            static_: false
+            extensor: ~
+            name: addAll
+            params:
+              - typ: HashList<T>
+                name: elems
+            returns: ~
+          - doc: Remove all elements from this list without destroying it
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeAll
+            params: []
+            returns: ~
+          - doc: Remove the element at the given index
+            static_: false
+            extensor: ~
+            name: removeAt
+            params:
+              - typ: int
+                name: index
+            returns: ~
+          - doc: Remove the first occurence of t from this list
+            static_: false
+            extensor: ~
+            name: remove
+            params:
+              - typ: T
+                name: t
+            returns: ~
+          - doc: Get the size of the list
+            static_: false
+            extensor: ~
+            name: size
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getSize
+            params: []
+            returns: int
+          - doc: Return whether the list is empty
+            static_: false
+            extensor: ~
+            name: isEmpty
+            params: []
+            returns: bool
+          - doc: Get the element at the given index from this list
+            static_: false
+            extensor: ~
+            name: get
+            params:
+              - typ: int
+                name: index
+            returns: T
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: contains
+            params:
+              - typ: T
+                name: elem
+            returns: bool
+          - doc: Return whether the element exists in the list
+            static_: false
+            extensor: ~
+            name: has
+            params:
+              - typ: T
+                name: elem
+            returns: bool
+          - doc: Return whether the element exists in the list
+            static_: false
+            extensor: ~
+            name: hasAt
+            params:
+              - typ: int
+                name: index
+            returns: bool
+          - doc: Get an iterator for this list
+            static_: false
+            extensor: ~
+            name: iterator
+            params: []
+            returns: HLIterator<T>
+          - doc: Returns a shallow copy of this map
+            static_: false
+            extensor: ~
+            name: copy
+            params: []
+            returns: HashList<T>
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+      - doc: ~
+        abstract_: false
+        name: HLIterator<Q>
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: HashList<Q>
+                name: list
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasNext
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: remove
+            params: []
+            returns: ~
     enums: []
     free_fns: []

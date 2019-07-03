@@ -2,6 +2,318 @@
 - Package:
     doc: ~
     name: InstantDummyCaster
-    classes: []
+    classes:
+      - doc: "Dummy caster for casting instant spells.\n *\tvec3 can be used for casterpos so that any effects/projectiles on/from caster will be on given height.\n *\n *\tCan't cast channeling spells or impale.\n *\tIf not specified otherwise, any damage from spells will be inflicted by DUMMY_PLAYER.\n *\tSpells are recommended to be 0 cooldown, 92083 cast range and 0 manacost."
+        abstract_: false
+        name: InstantDummyCaster
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: prepare
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: id
+              - typ: int
+                name: lvl
+              - typ: vec3
+                name: pos
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: finish
+            params:
+              - typ: int
+                name: id
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castImmediate
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: vec3
+                name: pos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: widget
+                name: target
+              - typ: vec3
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: vec2
+                name: targetPos
+              - typ: vec3
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: widget
+                name: target
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: vec2
+                name: targetPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castImmediate
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: vec3
+                name: pos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castImmediate
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: vec2
+                name: pos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castImmediate
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: vec2
+                name: pos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: widget
+                name: target
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: widget
+                name: target
+              - typ: vec3
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: widget
+                name: target
+              - typ: vec2
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castTarget
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: widget
+                name: target
+              - typ: vec2
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: vec2
+                name: targetPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: vec2
+                name: targetPos
+              - typ: vec3
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: string
+                name: order
+              - typ: vec2
+                name: targetPos
+              - typ: vec2
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: castPoint
+            params:
+              - typ: player
+                name: owner
+              - typ: int
+                name: abilityId
+              - typ: int
+                name: lvl
+              - typ: int
+                name: orderId
+              - typ: vec2
+                name: targetPos
+              - typ: vec2
+                name: casterPos
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: generateObject
+            params: []
+            returns: ~
     enums: []
     free_fns: []

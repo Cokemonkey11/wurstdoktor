@@ -1,8 +1,120 @@
 ---
 - Package:
-    doc: ~
+    doc: "Network library by MoriMori.\n\n\tBased on TriggerHappy's Sync library.\n\n\tOverview:\n\t\tIn multiplayer games, this package is for synchronizing data between game clients.\n\t\tIt's useful for when one player is the source of game data, such as from gamecache or file IO.\n\n\t\tLike SyncSimple, it depends on the fact that all network actions in WC3 are\n\t\tsequential, and are received by players in the same order that are sent in.\n\n\t\tIt uses the SyncStored* natives of the gamecache to send data to other players\n\t\tfrom the sender, and then uses SyncSimple to send a 'finish' event, that will\n\t\tonly be received by other players after they have also received all sync data.\n\n\t\tThe Network class provides 4 independent buffers of data:\n\t\t\tintegers,\n\t\t\treals,\n\t\t\tbooleans,\n\t\t\tstrings\n\n\t\teach of which can be written/read to using the relevant\n\t\tmethods of the HashBuffer class.\n\n\t\tBefore sending the data, the sender populates the HashBuffer with the data that\n\t\tthey want to send, then Network.start() is called, and data is received from\n\t\tthe same buffer inside the callback when it has all been transferred.\n\n\t\tRead SyncSimple docs for a slightly more in-depth overview of this particular\n\t\tpeculiarity of WC3.\n\n\tUsage:\n\t\tSending raw data:\n\t\t\t1. Create a new Network object using:\n\t\t\t\t// sender is the player to receive data from\n\t\t\t\tlet network = new Network(sender)\n\n\t\t\t2. Write some local data from one of the players, such as the contents of a file:\n\t\t\t\tif localPlayer == sender\n\t\t\t\t\tlet buffer = network.getData()\n\t\t\t\t\tbuffer.writeInt(...)\n\t\t\t\t\tbuffer.writeReal(...)\n\t\t\t\t\tbuffer.writeString(...)\n\t\t\t\t\t...\n\n\t\t\t3. Specify a callback for when Network has finished it's operation and\n\t\t\tall data is available for players to be read, and start the transmission.\n\t\t\tStatus will be set to NetworkResult.ABORTED if the player left during\n\t\t\tthe transmission, or is not present:\n\t\t\t\tnetwork.start() (status, buffer) ->\n\t\t\t\t\tvar int = buffer.readInt()\n\t\t\t\t\tvar real = buffer.readReal()\n\t\t\t\t\tvar string = buffer.readString()\n\t\t\t\t\t...\n\n\t\tSending objects implementing BufferSerializable:\n\t\t\tYou may find yourself sending not simply raw data, but some\n\t\t\tclass objects. In this case, your class can implement BufferSerializable\n\t\t\tto make your life easier.\n\n\t\t\tThe serialize method takes a buffer and should write the representation\n\t\t\tof the object to the buffer.\n\n\t\t\tThe deserialize method takes a buffer and should populate the object\n\t\t\twith the data from the buffer.\n\n\t\t\t0. Everything else is the same as previous example, only writing/reading is different.\n\n\t\t\t1. Make your class implement BufferSerializable:\n\t\t\t\tclass MyClass implements BufferSerializable\n\t\t\t\t\tvar field1 = 0\n\t\t\t\t\tvar field2 = 1\n\t\t\t\t\tvar field3 = true\n\t\t\t\t\tvar field4 = \"someString\"\n\n\t\t\t\t\t// this constructor is optional, however you\n\t\t\t\t\t// can use it to make new instances of a class easier\n\t\t\t\t\tconstruct(HashBuffer buffer)\n\t\t\t\t\t\tdeserialize(buffer)\n\n\t\t\t\t\tfunction serialize(buffer)\n\t\t\t\t\t\tbuffer.writeInt(field1)\n\t\t\t\t\t\tbuffer.writeInt(field2)\n\t\t\t\t\t\tbuffer.writeBoolean(field3)\n\t\t\t\t\t\tbuffer.writeString(field4)\n\n\t\t\t\t\tfunction deserialize(buffer)\n\t\t\t\t\t\tfield1 = buffer.readInt()\n\t\t\t\t\t\tfield2 = buffer.readInt()\n\t\t\t\t\t\tfield3 = buffer.readBoolean()\n\t\t\t\t\t\tfield4 = buffer.readString()\n\n\t\t\t2. Write instances of MyClass:\n\t\t\t\tif localPlayer == sender\n\t\t\t\t\tlet myClass = getMyClassInstance()\n\t\t\t\t\tlet buffer = network.getData()\n\n\t\t\t\t\tbuffer.write(myClass)\n\n\t\t\t3. Read instances of MyClass:\n\t\t\t\tnetwork.start() (status, buffer) ->\n\t\t\t\t\tlet myClass = new MyClass(buffer)\n\n\t\t\t\t\tdoSomethingWithMyClass(myClass)\n\n\n\t\t\t\t// or, without the constructor\n\n\t\t\t\tnetwork.start() (status, buffer) ->\n\t\t\t\t\t// get existing instance\n\t\t\t\t\tlet myClass = getOldMyClassInstance()\n\n\t\t\t\t\t// update it\n\t\t\t\t\tmyClass.deserialize(buffer)\n\n\n\t\tImportant notes:\n\t\t\t1. Upon creation, the HashBuffer object is locked in a write-only state.\n\t\t\tAttempts to read from it will result in an error.\n\t\t\tUpon calling Network.start(), the buffer will be locked in an immutable\n\t\t\tstate, and attempts to read/write to it will also result in an error.\n\t\t\tAfter finishing the transmission, it is locked in a read-only state,\n\t\t\tand likewise attempts to write to it will result in an error.\n\n\t\t\t2. You should always read and write to the buffer in the same order,\n\t\t\totherwise you are risking improperly reading your data.\n\n\t\t\t3. You should read all received data immediately as it is received,\n\t\t\tbecause the Network and associated HashBuffer objects get destroyed\n\t\t\tafter the callback finishes.\n\n\tImplementation overview:\n\t\tReference for various claims about performance and operation can be found here:\n\t\thttps://www.hiveworkshop.com/pastebin/3a4f7861cb884e21312168bd654330585801/\n\t\tOriginal research by TriggerHappy.\n\n\t\tThere are several core classes here:\n\t\t\tHashBuffer\n\t\t\tGamecacheBuffer\n\t\t\tStringEncoder\n\t\t\tGamecacheKeys\n\t\t\tNetwork\n\n\t\tHashBuffer is a hashtable-based container with buffer semantics for writing\n\t\tintegers, reals, booleans, strings and serializables.\n\t\tLonger gamecache keys take a longer time to synchronize (for each value synced,\n\t\twe also send it's keys), so we use keys of fixed length and send data in multiple\n\t\trounds. Because of this, we can't store all data immediately in the gamecache.\n\t\tWe also need to know the size of data being sent prior to starting the transmission,\n\t\tso we have to store all of it in an intermediate buffer, which is HashBuffer.\n\n\t\tPrior to sending, all strings in the HashBuffer are encoded into a buffer\n\t\tof integers, because SyncStoredString doesn't work. The responsible class is StringEncoder.\n\t\tAfter sending, they are decoded back into strings and written to the HashBuffer.\n\n\t\tGamecacheKeys provides int-string conversion for keys for usage in gamecaches.\n\n\t\tGamecacheBuffer is a gamecache-based container for writing\n\t\tintegers, reals and booleans. There is a GamecacheBuffer for each primitive type,\n\t\tint, bool, real and asciiInts.\n\n\t\tNetwork is the main class that coordinates HashBuffer and GamecacheBuffer and does\n\t\tall the heavy lifting.\n\n\t\tBefore starting the transmission, the HashBuffer is locked into an immutable state, in\n\t\twhich incorrect mutation attempts will print warnings, as long as safety checks are not disabled.\n\t\tThe maximum amount of data across all primitive buffers is calculated, and the amount of\n\t\trequired 'sync rounds' is calculated - that is, the amount of times we need to flush/sync\n\t\tdata out of the gamecaches to keep key sizes short.\n\n\t\tSince only the local player has any knowledge about the amount of data needed to be sent,\n\t\tand consequently, the amount of sync rounds required, we first send a pre-fetch \"metadata\"\n\t\tpayload with the amount of data in each buffer and the amount of sync rounds, using fixed\n\t\tkeys. At the same time, we also send the first payload.\n\n\t\tWhen a round is received, we write data to the HashBuffer, using the metadata to know when\n\t\tto stop, and start another sync round if necessary. If it is not necessary,\n\t\twe open the HashBuffer for reading and call the finish callback, and destroy the instance."
     name: Network
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: Network
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: player
+                name: sender
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getData
+            params: []
+            returns: HashBuffer
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: abort
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sendMetadata
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: receiveMetadata
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeInts
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readInts
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeReals
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readReals
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeBooleans
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readBooleans
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeStrings
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readStrings
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sendRound
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: receiveRound
+            params: []
+            returns: ~
+          - doc: "this is the function to start sending all data in the intermediate dataBuffer buffer, as well as specifying a callback"
+            static_: false
+            extensor: ~
+            name: start
+            params:
+              - typ: NetworkFinishedCallback
+                name: callback
+            returns: ~
     enums:
       - doc: ~
         name: NetworkResult

@@ -2,7 +2,19 @@
 - Package:
     doc: ~
     name: ClosureEvents
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: true
+        name: EventListener
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onEvent
+            params: []
+            returns: ~
     enums: []
     free_fns:
       - doc: ~

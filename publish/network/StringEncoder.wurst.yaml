@@ -2,6 +2,84 @@
 - Package:
     doc: ~
     name: StringEncoder
-    classes: []
+    classes:
+      - doc: Utility class to convert a string to/from a series of ints corellating to positions in STRING_ALPHABET.
+        abstract_: false
+        name: StringEncoder
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: encodeString
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: decodeString
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: encode
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: decode
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: pushString
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popString
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: pushInt
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: popInt
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getIntCount
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getStringCount
+            params: []
+            returns: int
     enums: []
     free_fns: []

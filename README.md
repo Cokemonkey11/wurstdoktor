@@ -16,7 +16,7 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [x] Use [pom](https://crates.io/crates/pom) for parsing
 - [x] Parse package-level docs
 - [x] Parse public enums
-- [ ] Parse public classes
+- [x] Parse public classes
 - [ ] version and publish to crates.io
 - [ ] Parse public interfaces
 - [x] Parse public functions

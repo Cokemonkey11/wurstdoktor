@@ -2,6 +2,62 @@
 - Package:
     doc: ~
     name: IOTaskExecutor
-    classes: []
+    classes:
+      - doc: "A task executor that immediately executes all tasks\n\tsubmitted to it when .start() is called."
+        abstract_: false
+        name: InstantIOTaskExecutor
+        extends: AbstractIOTaskExecutor
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: start
+            params: []
+            returns: ~
+      - doc: "A task executor that executes tasks over time, with a\n\tspecifiable delay between each task invocation.\n\tIn FileWriter and FileReader this is used to spread over\n\tthe lag from writing/loading to multiple files."
+        abstract_: false
+        name: TimedIOTaskExecutor
+        extends: AbstractIOTaskExecutor
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: real
+                name: delay
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: updateInstances
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: onStart
+            params: []
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: onStop
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: update
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: start
+            params: []
+            returns: ~
     enums: []
     free_fns: []

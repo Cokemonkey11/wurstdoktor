@@ -2,6 +2,38 @@
 - Package:
     doc: ~
     name: GamecacheKeys
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: GamecacheKeys
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: get
+            params:
+              - typ: int
+                name: i
+            returns: string
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: precompute
+            params:
+              - typ: string
+                name: prefix
+              - typ: int
+                name: depth
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: precompute
+            params:
+              - typ: int
+                name: length
+            returns: ~
     enums: []
     free_fns: []

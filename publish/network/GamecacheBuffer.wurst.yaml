@@ -2,7 +2,123 @@
 - Package:
     doc: ~
     name: GamecacheBuffer
-    classes: []
+    classes:
+      - doc: "This class is used as a buffer for sending data in each round.\n\tEach instance is restricted to only writing one type, to save\n\tus from keeping a crapton of counter variables at least here."
+        abstract_: false
+        name: GamecacheBuffer
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: gamecache
+                name: gc
+              - typ: string
+                name: parentKey
+              - typ: BufferType
+                name: bufferType
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getRemainingWrite
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getRemainingRead
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getSize
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: checkType
+            params:
+              - typ: BufferType
+                name: toCheck
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: advanceWriteIndex
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: advanceReadIndex
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeInt
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeReal
+            params:
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: writeBoolean
+            params:
+              - typ: bool
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readInt
+            params: []
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readReal
+            params: []
+            returns: real
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: readBoolean
+            params: []
+            returns: bool
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getSynchronizerFunction
+            params: []
+            returns: SynchronizerFunction
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sync
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: reset
+            params: []
+            returns: ~
     enums:
       - doc: ~
         name: BufferType

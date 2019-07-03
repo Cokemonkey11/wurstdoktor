@@ -2,6 +2,56 @@
 - Package:
     doc: ~
     name: Metadata
-    classes: []
+    classes:
+      - doc: "Simple wrapper class for Network-related metadata about the transmission.\n\tNecessary to let other clients know about the amount of data being sent."
+        abstract_: false
+        name: MetadataStore
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveValue
+            params:
+              - typ: string
+                name: key
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadValue
+            params:
+              - typ: string
+                name: key
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setCounts
+            params:
+              - typ: metadata
+                name: data
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getCounts
+            params: []
+            returns: metadata
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: sync
+            params: []
+            returns: ~
     enums: []
     free_fns: []

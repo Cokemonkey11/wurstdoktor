@@ -2,6 +2,716 @@
 - Package:
     doc: ~
     name: Table
-    classes: []
+    classes:
+      - doc: Wraps a hashtable to provide single key tables
+        abstract_: false
+        name: Table
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasInt
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasReal
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasBoolean
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasString
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: hasHandle
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeInt
+            params:
+              - typ: int
+                name: parentKey
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeReal
+            params:
+              - typ: int
+                name: parentKey
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeBoolean
+            params:
+              - typ: int
+                name: parentKey
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeString
+            params:
+              - typ: int
+                name: parentKey
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: removeHandle
+            params:
+              - typ: int
+                name: parentKey
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadInt
+            params:
+              - typ: int
+                name: parentKey
+            returns: int
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveInt
+            params:
+              - typ: int
+                name: parentKey
+              - typ: int
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadReal
+            params:
+              - typ: int
+                name: parentKey
+            returns: real
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveReal
+            params:
+              - typ: int
+                name: parentKey
+              - typ: real
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadBoolean
+            params:
+              - typ: int
+                name: parentKey
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveBoolean
+            params:
+              - typ: int
+                name: parentKey
+              - typ: boolean
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadString
+            params:
+              - typ: int
+                name: parentKey
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveString
+            params:
+              - typ: int
+                name: parentKey
+              - typ: string
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadPlayer
+            params:
+              - typ: int
+                name: parentKey
+            returns: player
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: savePlayer
+            params:
+              - typ: int
+                name: parentKey
+              - typ: player
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadWidget
+            params:
+              - typ: int
+                name: parentKey
+            returns: widget
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveWidget
+            params:
+              - typ: int
+                name: parentKey
+              - typ: widget
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadUnit
+            params:
+              - typ: int
+                name: parentKey
+            returns: unit
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveUnit
+            params:
+              - typ: int
+                name: parentKey
+              - typ: unit
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadDestructable
+            params:
+              - typ: int
+                name: parentKey
+            returns: destructable
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveDestructable
+            params:
+              - typ: int
+                name: parentKey
+              - typ: destructable
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadItem
+            params:
+              - typ: int
+                name: parentKey
+            returns: item
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveItem
+            params:
+              - typ: int
+                name: parentKey
+              - typ: item
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadAbility
+            params:
+              - typ: int
+                name: parentKey
+            returns: ability
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveAbility
+            params:
+              - typ: int
+                name: parentKey
+              - typ: ability
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadForce
+            params:
+              - typ: int
+                name: parentKey
+            returns: force
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveForce
+            params:
+              - typ: int
+                name: parentKey
+              - typ: force
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadGroup
+            params:
+              - typ: int
+                name: parentKey
+            returns: group
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveGroup
+            params:
+              - typ: int
+                name: parentKey
+              - typ: group
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadTrigger
+            params:
+              - typ: int
+                name: parentKey
+            returns: trigger
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTrigger
+            params:
+              - typ: int
+                name: parentKey
+              - typ: trigger
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadTriggerAction
+            params:
+              - typ: int
+                name: parentKey
+            returns: triggeraction
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTriggerAction
+            params:
+              - typ: int
+                name: parentKey
+              - typ: triggeraction
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadTriggerCondition
+            params:
+              - typ: int
+                name: parentKey
+            returns: triggercondition
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTriggerCondition
+            params:
+              - typ: int
+                name: parentKey
+              - typ: triggercondition
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadTimer
+            params:
+              - typ: int
+                name: parentKey
+            returns: timer
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTimer
+            params:
+              - typ: int
+                name: parentKey
+              - typ: timer
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadLocation
+            params:
+              - typ: int
+                name: parentKey
+            returns: location
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveLocation
+            params:
+              - typ: int
+                name: parentKey
+              - typ: location
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadRegion
+            params:
+              - typ: int
+                name: parentKey
+            returns: region
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveRegion
+            params:
+              - typ: int
+                name: parentKey
+              - typ: region
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadRect
+            params:
+              - typ: int
+                name: parentKey
+            returns: rect
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveRect
+            params:
+              - typ: int
+                name: parentKey
+              - typ: rect
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadSound
+            params:
+              - typ: int
+                name: parentKey
+            returns: sound
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveSound
+            params:
+              - typ: int
+                name: parentKey
+              - typ: sound
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadEffect
+            params:
+              - typ: int
+                name: parentKey
+            returns: effect
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveEffect
+            params:
+              - typ: int
+                name: parentKey
+              - typ: effect
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadFogState
+            params:
+              - typ: int
+                name: parentKey
+            returns: fogstate
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveFogState
+            params:
+              - typ: int
+                name: parentKey
+              - typ: fogstate
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadDialog
+            params:
+              - typ: int
+                name: parentKey
+            returns: dialog
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveDialog
+            params:
+              - typ: int
+                name: parentKey
+              - typ: dialog
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadButton
+            params:
+              - typ: int
+                name: parentKey
+            returns: button
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveButton
+            params:
+              - typ: int
+                name: parentKey
+              - typ: button
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadQuest
+            params:
+              - typ: int
+                name: parentKey
+            returns: quest
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveQuest
+            params:
+              - typ: int
+                name: parentKey
+              - typ: quest
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadQuestItem
+            params:
+              - typ: int
+                name: parentKey
+            returns: questitem
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveQuestItem
+            params:
+              - typ: int
+                name: parentKey
+              - typ: questitem
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadLeaderboard
+            params:
+              - typ: int
+                name: parentKey
+            returns: leaderboard
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveLeaderboard
+            params:
+              - typ: int
+                name: parentKey
+              - typ: leaderboard
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadMultiboard
+            params:
+              - typ: int
+                name: parentKey
+            returns: multiboard
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveMultiboard
+            params:
+              - typ: int
+                name: parentKey
+              - typ: multiboard
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadTrackable
+            params:
+              - typ: int
+                name: parentKey
+            returns: trackable
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveTrackable
+            params:
+              - typ: int
+                name: parentKey
+              - typ: trackable
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadLightning
+            params:
+              - typ: int
+                name: parentKey
+            returns: lightning
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveLightning
+            params:
+              - typ: int
+                name: parentKey
+              - typ: lightning
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadImage
+            params:
+              - typ: int
+                name: parentKey
+            returns: image
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveImage
+            params:
+              - typ: int
+                name: parentKey
+              - typ: image
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadUbersplat
+            params:
+              - typ: int
+                name: parentKey
+            returns: ubersplat
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveFrameHandle
+            params:
+              - typ: int
+                name: parentKey
+              - typ: framehandle
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadFrameHandle
+            params:
+              - typ: int
+                name: parentKey
+            returns: framehandle
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveUbersplat
+            params:
+              - typ: int
+                name: parentKey
+              - typ: ubersplat
+                name: value
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: loadHashtable
+            params:
+              - typ: int
+                name: parentKey
+            returns: hashtable
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: saveHashtable
+            params:
+              - typ: int
+                name: parentKey
+              - typ: hashtable
+                name: value
+            returns: ~
+          - doc: Remove all data from this table
+            static_: false
+            extensor: ~
+            name: flush
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
     enums: []
     free_fns: []

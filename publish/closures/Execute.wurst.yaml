@@ -5,7 +5,7 @@
     classes: []
     enums: []
     free_fns:
-      - doc: ~
+      - doc: "This function starts a new 'thread' inside the\n\tcallback closure, where the op limit is at zero, allowing us to bypass it.\n\tThis is extremely useful when you have expensive computations\n\twhich would otherwise crash the thread.\n\n\tIf the callback crashes due to an error or hitting the OP limit, it will\n\terror out as well.\n\n\tNote: Unlike timers and doAfter(), this method is synchronous, meaning\n\tthat it will wait for the called method to finish before continuing the in the current thread.\n\n\tNote: We use ForForce because it does not require a Trigger to be called, only an empty\n\tforce which is reusable, unlike TriggerEvaluate.\n\n\tNote: You may use this inside a local clause, like this:\n\t\tif localPlayer == caller\n\t\t\texecute(...)\n\tBut be warned that this will cause a desync, unless you are\n\tcalling this from within another execute(...) clause.\n\n\tThis will desync:\n\t\t// code called by a trigger\n\t\tif localPlayer == caller\n\t\t\texecute()\n\tThis will not desync:\n\t\texecute() ->\n\t\t\t// do some stuff here\n\n\t\t\tif localPlayer == caller\n\t\t\t\texecute(...)"
         static_: false
         extensor: ~
         name: execute
@@ -13,7 +13,7 @@
           - typ: ForForceCallback
             name: c
         returns: ~
-      - doc: ~
+      - doc: "This function works exactly the same as execute(), with\n\tthe only difference that it will allow you to inspect\n\tan error if one occured.\n\n\tIf an error occured, the return value will be false.\n\n\tIf the error is caused by error(), then you can inspect\n\tthe error message using lastError from ErrorHandling.\n\tIf the error is caused by another form of thread crash,\n\tsuch as zero division or OP limit, lastError will be empty.\n\n\tThe error will also be suppressed from being printed."
         static_: false
         extensor: ~
         name: try
@@ -21,7 +21,7 @@
           - typ: ForForceCallback
             name: c
         returns: boolean
-      - doc: ~
+      - doc: "This is a utility function which you can use to process arbitrarily large loops.\n\tIt functions like a while loop that will run action.run() while condition.check() == true,\n\thowever it will reset the OP limit each time after the specified amount of resetCount."
         static_: false
         extensor: ~
         name: executeWhile

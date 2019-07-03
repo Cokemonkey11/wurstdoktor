@@ -2,6 +2,12 @@
 - Package:
     doc: ~
     name: TargetsAllowed
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: TargetsAllowed
+        extends: ~
+        implements: []
+        fns: []
     enums: []
     free_fns: []

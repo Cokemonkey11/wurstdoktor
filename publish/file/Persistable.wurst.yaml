@@ -4,7 +4,7 @@
     name: Persistable
     classes: []
     enums:
-      - doc: ~
+      - doc: "Represents the various states of a persistable class load.\n\tSUCCESS - The class has successfully loaded from disk.\n\tFAIL_NOT_ENABLED - Local files have not been enabled for this user.\n\tFAIL_FILE_CORRUPT - Decoding failed due to a corrupted/tampered file.\n\tFAIL_DESERIALIZE - Decoding failed due to bad data in the file, meaning the .deserialize()\n\tfunction errored out due to missing/malformed data after it has been succesfully decoded.\n\tThis can also happen if the file is empty or doesn't exist.\n\tFAIL_NO_PLAYER - The player has left either during data transfer, or before."
         name: LoadStatus
         variants:
           - SUCCESS
@@ -12,7 +12,7 @@
           - FAIL_FILE_CORRUPT
           - FAIL_DESERIALIZE
           - FAIL_NO_PLAYER
-      - doc: ~
+      - doc: "Represents the various states of a persistable class save.\n\tSUCCESS - The class has successfully saved to disk.\n\tFAIL_NOT_ENABLED - Local files have not been enabled for this user.\n\tFAIL_NO_PLAYER - The player is not present."
         name: SaveStatus
         variants:
           - SUCCESS

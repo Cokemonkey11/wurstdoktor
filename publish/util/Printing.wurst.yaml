@@ -2,7 +2,61 @@
 - Package:
     doc: ~
     name: Printing
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: Log
+        extends: ~
+        implements: []
+        fns:
+          - doc: Prints a trace logmessage
+            static_: true
+            extensor: ~
+            name: trace
+            params:
+              - typ: string
+                name: msg
+            returns: ~
+          - doc: Prints a debug logmessage
+            static_: true
+            extensor: ~
+            name: debug
+            params:
+              - typ: string
+                name: msg
+            returns: ~
+          - doc: Prints a info logmessage
+            static_: true
+            extensor: ~
+            name: info
+            params:
+              - typ: string
+                name: msg
+            returns: ~
+          - doc: Prints a warning logmessage
+            static_: true
+            extensor: ~
+            name: warn
+            params:
+              - typ: string
+                name: msg
+            returns: ~
+          - doc: Prints a warning logmessage
+            static_: true
+            extensor: ~
+            name: error
+            params:
+              - typ: string
+                name: msg
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: setLevel
+            params:
+              - typ: Loglevel
+                name: lvl
+            returns: ~
     enums:
       - doc: ~
         name: Loglevel

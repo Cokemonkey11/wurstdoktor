@@ -2,7 +2,69 @@
 - Package:
     doc: ~
     name: Simulate3dSound
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: Sim3DSound
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: expire
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSoundPosition
+            params:
+              - typ: vec2
+                name: pos
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setSoundPosition
+            params:
+              - typ: unit
+                name: u
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: sound
+                name: s
+              - typ: real
+                name: x
+              - typ: real
+                name: y
+              - typ: real
+                name: minDist
+              - typ: real
+                name: maxDist
+              - typ: real
+                name: distCutoff
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: sound
+                name: s
+              - typ: unit
+                name: u
+              - typ: real
+                name: minDist
+              - typ: real
+                name: maxDist
+              - typ: real
+                name: distCutoff
+            returns: ~
     enums: []
     free_fns:
       - doc: ~

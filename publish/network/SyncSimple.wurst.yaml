@@ -1,7 +1,75 @@
 ---
 - Package:
-    doc: ~
+    doc: "SyncSimple library by MoriMori.\n\n\tBased on TriggerHappy's SyncInteger library.\n\n\tOverview:\n\t\tThis library can be used to send a 'synchronize' network event that will fire\n\t\tfor all players after all previous network events have also been received\n\t\tby all players.\n\t\tExamples of such events include:\n\t\t\t- Unit selection\n\t\t\t- Unit orders\n\t\t\t- Chat messages\n\t\t\t- Gamecache synchronization\n\t\t\t- Keyboard events\n\n\t\tFor example, this can be used in conjunction with gamecache synchronization\n\t\tto send 'local' values from one player to the rest, such as camera position,\n\t\tdata from files, and so on. For a package implementing this functionality,\n\t\tsee Network.\n\n\t\tIt depends on the fact that all network events in WC3 are fired sequentially,\n\t\tmeaning that they arrrive for other players in the order that they were\n\t\tsent in.\n\t\tIt also depends on the fact that the EVENT_PLAYER_UNIT_SELECTED fires\n\t\tsynchronously for all players at the same time, allowing us to know for\n\t\tcertain when other players have acknowledged our unit selection, as well\n\t\tas all network events that have been fired before it.\n\n\t\tBy calling the .sync() method, we queue a network action (specifically,\n\t\ta unit selection event) that will only be delivered after all previously\n\t\tqueued network actions have also been delivered.\n\t\tThe primary use of this library is in conjunction with gamecache's Sync\n\t\tnatives, because they also fire sequential network events. When we call\n\t\t.sync() after a series of Sync natives, we ensure that the .onSynced()\n\t\tcallback will only be called after all players have received the data.\n\n\t\tThis way, we can send local data from one player to the rest, such as\n\t\tcamera position, data from files, and so on.\n\n\t\tThere may be other usages related to async network events as well.\n\n\tUsage:\n\t\t1. Create a new SimpleSynchronizer using:\n\t\t\tlet synchronizer = new SimpleSynchronizer()\n\n\t\t2. Send some network events on one (or more) player using the gamecache Sync natives\n\t\t\tif sender == localPlayer\n\t\t\t\t// value1 and value2 are some local values only known to localPlayer\n\t\t\t\tgc.syncInteger(mkey, vkey1, value1)\n\t\t\t\tgc.syncInteger(mkey, vkey1, value1)\n\n\t\t3. Set a callback to be called after all players have synchronized and read the data\n\t\t\tsynchronizer.onSynced() ->\n\t\t\t\tlet value1 = LoadInteger(gc, mkey, vkey1)\n\t\t\t\tlet value2 = LoadInteger(gc, mkey, vkey2)\n\n\t\t\t\t// here, value1 and value2 are integers received from sender\n\t\t\t\t...\n\n\t\t4. Call .sync() on all game clients, after having called the Sync natives.\n\t\t\tsynchronizer.sync()\n\n\t\t5. A SimpleSynchronizer can only be used once, and gets destroyed automatically after all players have synced.\n\t\tTo synchronize again, create a new SimpleSynchronizer"
     name: SyncSimple
-    classes: []
+    classes:
+      - doc: ~
+        abstract_: false
+        name: SimpleSynchronizer
+        extends: ~
+        implements: []
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: Signals that the local player is ready to continue.
+            static_: false
+            extensor: ~
+            name: sync
+            params: []
+            returns: ~
+          - doc: Specifies the callback to be called when all players have called .sync()
+            static_: false
+            extensor: ~
+            name: onSynced
+            params:
+              - typ: SynchronizationCallback
+                name: callback
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addOfflinePlayers
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: areAllPlayersSynced
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onPlayerFinishedSync
+            params:
+              - typ: player
+                name: who
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onPlayerLeave
+            params:
+              - typ: player
+                name: who
+            returns: ~
+          - doc: ~
+            static_: true
+            extensor: ~
+            name: getSynchronizer
+            params:
+              - typ: unit
+                name: what
+            returns: thistype
     enums: []
     free_fns: []
