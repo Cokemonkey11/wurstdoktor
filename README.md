@@ -17,7 +17,7 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [x] Parse package-level docs
 - [x] Parse public enums
 - [x] Parse public classes
-- [ ] version and publish to crates.io
+- [x] version and publish to crates.io
 - [ ] Parse public interfaces
 - [x] Parse public functions
 - [x] Parse document with multiple public elements
@@ -29,3 +29,11 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [ ] emit json
 - [ ] consume published stdlib2 doktor
 - [ ] support non-function public class members
+- [ ] sample html in lexical order
+- [ ] sample html icons could look better
+- [ ] sample html don't print "null"
+- [ ] sample html indents stuff inside classes
+- [ ] sample html better css
+- [ ] alt sample html w/o js
+- [ ] sample html queryable from IRC
+- [ ] sample html link to element
