@@ -23,3 +23,4 @@
           - typ: DamageElement
             name: e
         returns: string
+    interfaces: []

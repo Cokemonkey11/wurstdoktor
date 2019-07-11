@@ -155,3 +155,4 @@
           - typ: int
             name: amount
         returns: int
+    interfaces: []

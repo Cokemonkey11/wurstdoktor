@@ -33,3 +33,4 @@
         name: enableDamageDetect
         params: []
         returns: ~
+    interfaces: []

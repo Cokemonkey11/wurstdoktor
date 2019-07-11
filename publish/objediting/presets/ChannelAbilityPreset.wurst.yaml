@@ -129,3 +129,4 @@
         name: toString
         params: []
         returns: string
+    interfaces: []

@@ -2,7 +2,102 @@
 - Package:
     doc: ~
     name: BufferInterface
-    classes: []
+    classes:
+      - doc: "Abstract class implementing read/wri\n\tAbstract class implementing read/write protection for buffers, as well\n\tas a generic \"failed\" state."
+        abstract_: true
+        name: AbstractBuffer
+        extends: ~
+        implements:
+          - Buffer
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: checkFailed
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: fail
+            params:
+              - typ: BufferFailureMode
+                name: mode
+              - typ: string
+                name: message
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: setMode
+            params:
+              - typ: BufferMode
+                name: newMode
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getMode
+            params: []
+            returns: BufferMode
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isWriteable
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isReadable
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isValid
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getFailure
+            params: []
+            returns: BufferFailureMode
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getErrorMessage
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: checkWrite
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: checkRead
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: write
+            params:
+              - typ: BufferSerializable
+                name: object
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: read
+            params:
+              - typ: BufferSerializable
+                name: object
+            returns: ~
     enums: []
     free_fns:
       - doc: ~
@@ -11,3 +106,148 @@
         name: toString
         params: []
         returns: string
+    interfaces:
+      - doc: "Interface to be implemented by classes that wish to be directly\n\twritten to classes implementing Buffer."
+        name: BufferSerializable
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: serialize
+            params:
+              - typ: Buffer
+                name: buffer
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: deserialize
+            params:
+              - typ: Buffer
+                name: buffer
+            returns: ~
+      - doc: "Generic buffer interface with operations to read/write\n\tintegers, booleans, reals and strings in sequential order."
+        name: Buffer
+        fns:
+          - doc: Reads an int from the buffer
+            static_: false
+            extensor: ~
+            name: readInt
+            params: []
+            returns: int
+          - doc: Reads a boolean from the buffer
+            static_: false
+            extensor: ~
+            name: readBoolean
+            params: []
+            returns: boolean
+          - doc: Reads a real from the buffer
+            static_: false
+            extensor: ~
+            name: readReal
+            params: []
+            returns: real
+          - doc: Reads a string from the buffer
+            static_: false
+            extensor: ~
+            name: readString
+            params: []
+            returns: string
+          - doc: Writes an int to the buffer
+            static_: false
+            extensor: ~
+            name: writeInt
+            params:
+              - typ: int
+                name: value
+            returns: ~
+          - doc: Writes a boolean to the buffer
+            static_: false
+            extensor: ~
+            name: writeBoolean
+            params:
+              - typ: boolean
+                name: value
+            returns: ~
+          - doc: Writes a real to the buffer
+            static_: false
+            extensor: ~
+            name: writeReal
+            params:
+              - typ: real
+                name: value
+            returns: ~
+          - doc: Writes a string to the buffer
+            static_: false
+            extensor: ~
+            name: writeString
+            params:
+              - typ: string
+                name: value
+            returns: ~
+          - doc: Writes an object implementing BufferSerializable to the buffer.
+            static_: false
+            extensor: ~
+            name: write
+            params:
+              - typ: BufferSerializable
+                name: value
+            returns: ~
+          - doc: "Reads an object implementing BufferSerializable from the buffer.\n\tIt mutates the object passed to the method instead of\n\treturning a new instance."
+            static_: false
+            extensor: ~
+            name: read
+            params:
+              - typ: BufferSerializable
+                name: value
+            returns: ~
+          - doc: Clears the buffer of any data
+            static_: false
+            extensor: ~
+            name: clear
+            params: []
+            returns: ~
+          - doc: Returns the current buffer mode.
+            static_: false
+            extensor: ~
+            name: getMode
+            params: []
+            returns: BufferMode
+          - doc: Sets the current buffer mode.
+            static_: false
+            extensor: ~
+            name: setMode
+            params:
+              - typ: BufferMode
+                name: mode
+            returns: ~
+          - doc: Tests whether the buffer is writeable.
+            static_: false
+            extensor: ~
+            name: isWriteable
+            params: []
+            returns: boolean
+          - doc: Returns whether the buffer is readable.
+            static_: false
+            extensor: ~
+            name: isReadable
+            params: []
+            returns: boolean
+          - doc: "Returns whether the buffer is in a valid state, and no errors occured"
+            static_: false
+            extensor: ~
+            name: isValid
+            params: []
+            returns: boolean
+          - doc: "Returns the set failure mode, if any"
+            static_: false
+            extensor: ~
+            name: getFailure
+            params: []
+            returns: BufferFailureMode
+          - doc: "Returns the last error message, if any"
+            static_: false
+            extensor: ~
+            name: getErrorMessage
+            params: []
+            returns: string

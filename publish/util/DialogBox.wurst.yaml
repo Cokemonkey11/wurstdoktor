@@ -143,3 +143,13 @@
             returns: ~
     enums: []
     free_fns: []
+    interfaces:
+      - doc: ~
+        name: DialogBoxButtonClosure
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params: []
+            returns: ~

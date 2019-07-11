@@ -99,3 +99,4 @@
           - typ: bool
             name: isInitialDamage
         returns: ~
+    interfaces: []

@@ -127,3 +127,4 @@
           - REAL
           - BOOLEAN
     free_fns: []
+    interfaces: []

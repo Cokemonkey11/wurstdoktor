@@ -273,3 +273,4 @@
           - typ: quat
             name: expected
         returns: ~
+    interfaces: []

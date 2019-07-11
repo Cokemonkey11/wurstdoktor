@@ -177,3 +177,4 @@
         name: getName
         params: []
         returns: string
+    interfaces: []

@@ -18,7 +18,7 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [x] Parse public enums
 - [x] Parse public classes
 - [x] version and publish to crates.io
-- [ ] Parse public interfaces
+- [x] Parse public interfaces
 - [x] Parse public functions
 - [x] Parse document with multiple public elements
 - [x] Generate yaml result set
@@ -37,3 +37,4 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [ ] alt sample html w/o js
 - [ ] sample html queryable from IRC
 - [ ] sample html link to element
+- [ ] publish documentation

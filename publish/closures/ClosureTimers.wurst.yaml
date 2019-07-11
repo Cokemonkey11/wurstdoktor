@@ -239,3 +239,4 @@
           - typ: CallbackCounted
             name: cb
         returns: CallbackCounted
+    interfaces: []

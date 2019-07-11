@@ -183,3 +183,26 @@
           - typ: ForGroupCallbackD
             name: c
         returns: ~
+    interfaces:
+      - doc: ~
+        name: ForGroupCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: callback
+            params:
+              - typ: unit
+                name: u
+            returns: ~
+      - doc: ~
+        name: ForGroupCallbackD
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: callback
+            params:
+              - typ: destructable
+                name: d
+            returns: ~

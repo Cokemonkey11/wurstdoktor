@@ -113,3 +113,4 @@
             returns: boolean
     enums: []
     free_fns: []
+    interfaces: []

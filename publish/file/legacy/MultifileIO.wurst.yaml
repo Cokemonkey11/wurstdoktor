@@ -162,3 +162,24 @@
           - SUCCESS
           - NOT_ENABLED
     free_fns: []
+    interfaces:
+      - doc: ~
+        name: FileLoadCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: FileLoadStatus
+                name: status
+            returns: ~
+      - doc: ~
+        name: FileSaveCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params: []
+            returns: ~

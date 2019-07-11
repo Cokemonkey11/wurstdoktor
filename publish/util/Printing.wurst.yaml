@@ -189,3 +189,4 @@
           - typ: player
             name: p
         returns: ~
+    interfaces: []

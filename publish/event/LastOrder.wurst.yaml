@@ -71,3 +71,4 @@
         name: abortOrder
         params: []
         returns: boolean
+    interfaces: []

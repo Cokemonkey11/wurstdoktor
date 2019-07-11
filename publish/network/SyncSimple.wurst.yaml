@@ -73,3 +73,13 @@
             returns: thistype
     enums: []
     free_fns: []
+    interfaces:
+      - doc: ~
+        name: SynchronizationCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onSynchronized
+            params: []
+            returns: ~

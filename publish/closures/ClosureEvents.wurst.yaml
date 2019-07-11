@@ -39,3 +39,4 @@
           - typ: int
             name: id
         returns: ~
+    interfaces: []

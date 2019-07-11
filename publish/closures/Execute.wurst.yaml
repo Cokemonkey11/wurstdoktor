@@ -33,3 +33,13 @@
           - typ: LimitedExecuteAction
             name: action
         returns: ~
+    interfaces:
+      - doc: "This package exposes a single function execute(),\n\tthe primary use of which is to reset the OP limit."
+        name: ForForceCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params: []
+            returns: ~

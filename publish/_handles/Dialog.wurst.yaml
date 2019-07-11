@@ -81,3 +81,4 @@
           - typ: string
             name: messageText
         returns: ~
+    interfaces: []

@@ -2268,3 +2268,4 @@
         name: toObjectString
         params: []
         returns: string
+    interfaces: []

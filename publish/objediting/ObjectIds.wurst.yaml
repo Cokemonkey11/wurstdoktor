@@ -49,3 +49,4 @@
         name: toRawCode
         params: []
         returns: string
+    interfaces: []

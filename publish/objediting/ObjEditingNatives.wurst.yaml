@@ -263,3 +263,48 @@
           - typ: BooleanLevelClosure
             name: lc
         returns: ~
+    interfaces:
+      - doc: ~
+        name: StringLevelClosure
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: int
+                name: lvl
+            returns: string
+      - doc: ~
+        name: IntLevelClosure
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: int
+                name: lvl
+            returns: int
+      - doc: ~
+        name: RealLevelClosure
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: int
+                name: lvl
+            returns: real
+      - doc: ~
+        name: BooleanLevelClosure
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params:
+              - typ: int
+                name: lvl
+            returns: boolean

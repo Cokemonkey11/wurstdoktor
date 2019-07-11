@@ -42979,3 +42979,25 @@
         name: setDummyAbility
         params: []
         returns: AbilityDefinition
+    interfaces:
+      - doc: ~
+        name: TooltipGenerator
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: addProperty
+            params:
+              - typ: string
+                name: title
+              - typ: StringLevelClosure
+                name: lc
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: applyToDef
+            params:
+              - typ: AbilityDefinition
+                name: def
+            returns: ~

@@ -139,3 +139,4 @@
           - typ: real
             name: distCut
         returns: Sim3DSound
+    interfaces: []

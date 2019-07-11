@@ -111,3 +111,4 @@
           - typ: real
             name: scalar
         returns: angle
+    interfaces: []

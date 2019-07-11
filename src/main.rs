@@ -40,13 +40,13 @@ struct Opt {
     sqlitedb: bool,
 }
 
-#[derive(Serialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Debug, PartialEq)]
 struct WurstFnParam {
     typ: String,
     name: String
 }
 
-#[derive(Serialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Debug, PartialEq)]
 struct WurstClass {
     doc: Option<String>,
     abstract_: bool,
@@ -56,7 +56,14 @@ struct WurstClass {
     fns: Vec<WurstFunction>
 }
 
-#[derive(Serialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Debug, PartialEq)]
+struct WurstInterface {
+    doc: Option<String>,
+    name: String,
+    fns: Vec<WurstFunction>,
+}
+
+#[derive(Clone, Serialize, Debug, PartialEq)]
 struct WurstEnum {
     doc: Option<String>,
     name: String,
@@ -70,9 +77,10 @@ struct WurstPackage {
     classes: Vec<WurstClass>,
     enums: Vec<WurstEnum>,
     free_fns: Vec<WurstFunction>,
+    interfaces: Vec<WurstInterface>,
 }
 
-#[derive(Serialize, Debug, PartialEq)]
+#[derive(Clone, Serialize, Debug, PartialEq)]
 struct WurstFunction {
     doc: Option<String>,
     static_: bool,
@@ -88,6 +96,7 @@ enum WurstDok {
     Class(WurstClass),
     Enum(WurstEnum),
     FreeFunction(WurstFunction),
+    Interface(WurstInterface),
     Nothing
 }
 
@@ -95,6 +104,57 @@ enum FunctionOrClassTemporary {
     Function(WurstFunction),
     Class(WurstClass),
     Enum(WurstEnum),
+    Interface(WurstInterface),
+}
+
+fn whitespace<'a>() -> Parser<'a, u8, Vec<u8>> {
+    one_of(b" \t\n\r").repeat(1..)
+}
+
+fn maybe_whitespace<'a>() -> Parser<'a, u8, Vec<u8>> {
+    one_of(b" \t\r\n").repeat(0..)
+}
+
+fn maybe_endofline_space<'a>() -> Parser<'a, u8, ()> {
+    maybe_sep() * maybe_linebreak()
+}
+
+fn sep<'a>() -> Parser<'a, u8, Vec<u8>> {
+    one_of(b" \t").repeat(1..)
+}
+
+fn maybe_sep<'a>() -> Parser<'a, u8, Vec<u8>> {
+    one_of(b" \t").repeat(0..)
+}
+
+fn linebreak<'a>() -> Parser<'a, u8, ()> {
+    sym(b'\r').opt() * sym(b'\n').discard()
+}
+
+fn maybe_linebreak<'a>() -> Parser<'a, u8, ()> {
+    one_of(b"\n\r").repeat(0..).discard()
+}
+
+fn maybe_emptylines<'a>() -> Parser<'a, u8, ()> {
+    (
+        one_of(b" \t").repeat(0..) *
+        linebreak()
+    ).repeat(0..).discard()
+}
+
+fn empty<'a>() -> Parser<'a, u8, ()> {
+    one_of(b" \t").repeat(0..).discard() - linebreak()
+}
+
+fn name<'a>() -> Parser<'a, u8, String> {
+    none_of(b" (.,\t\r\n").repeat(1..).convert(String::from_utf8)
+}
+
+fn indented<'a>() -> Parser<'a, u8, Vec<u8>> {
+    (
+        seq(b"\t") |
+        seq(b"    ")
+    ) * none_of(b"\n\r").repeat(1..) - linebreak()
 }
 
 fn cruft<'a>() -> Parser<'a, u8, ()> {
@@ -102,6 +162,7 @@ fn cruft<'a>() -> Parser<'a, u8, ()> {
         !class_declaration() *
         !free_function() *
         !eenum() *
+        !interface() *
         take(1)
     ).discard()
 }
@@ -112,6 +173,14 @@ fn class_cruft<'a>() -> Parser<'a, u8, ()> {
         !class_fn() *
         !eenum() *
         !free_function() *
+        // !interface() *
+        take(1)
+    ).discard()
+}
+
+fn interface_cruft<'a>() -> Parser<'a, u8, ()> {
+    (
+        !class_fn() *
         take(1)
     ).discard()
 }
@@ -121,7 +190,7 @@ static PRIVATE: &'static [u8] = b"private";
 fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
     (
         doc() -
-        one_of(b"\r\n\t ").repeat(0..) +
+        maybe_whitespace() +
         (
             (
                 (
@@ -139,9 +208,7 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
                     (
                         (
                             seq(b"function ") *
-                            none_of(b" (.").repeat(1..).convert(
-                                String::from_utf8
-                            )
+                            name()
                         ) | seq(b"construct").map(
                             |s| std::str::from_utf8(s).expect(
                                 "Failed to unwrap UTF8"
@@ -154,7 +221,7 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
                 sym(b')') +
                 (
                     // Return value.
-                    one_of(b"\t ").repeat(0..) *
+                    maybe_sep() *
                     seq(b"returns ") *
                     none_of(b" ,\n").repeat(1..).convert(String::from_utf8)
                 ).opt()
@@ -166,7 +233,7 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
                 ).map(|n| (((None, n), vec![]), None))
             )
         ) -
-        one_of(b" \r\t\n").repeat(0..)
+        maybe_whitespace()
     ).map(|(d, (((s, n), p), r))| {
         WurstFunction {
             doc: d,
@@ -182,7 +249,7 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
 fn class_declaration<'a>() -> Parser<
     'a,
     u8,
-    (Option<String>, ((Option<String>, String), Option<String>))
+    (Option<String>, (((Option<String>, String), Option<String>), Vec<String>))
 > {
     doc() + (
         // Only match public classes.
@@ -197,14 +264,23 @@ fn class_declaration<'a>() -> Parser<
                 ).expect("Couldn't unwrap UTF8 string.").into()
             )
         ) +
-        none_of(b" (,\n").repeat(1..).convert(String::from_utf8) +
+        name() +
         (
-            one_of(b" \t").repeat(1..) *
+            sep() *
             seq(b"extends") *
-            one_of(b" \t").repeat(1..) *
-            none_of(b" \n\r\t").repeat(1..) -
-            one_of(b" \t").repeat(0..)
-        ).map(|s| std::str::from_utf8(&s).expect("UTF8 fail").into()).opt() -
+            sep() *
+            name() -
+            maybe_sep()
+        ).opt() +
+        (
+            sep() *
+            seq(b"implements") *
+            sep() *
+            list(
+                name(),
+                (sep() | one_of(b",").repeat(1..1)).repeat(1..)
+            )
+        ).opt().map(|p| p.unwrap_or_else(|| vec![])) -
         sym(b'\n')
     )
 }
@@ -217,37 +293,40 @@ fn class<'a>() -> Parser<'a, u8, WurstClass> {
             call(class_fn),
             call(class_cruft).repeat(1..)
         )
-    ).map(|((d, ((a, n), e)), f)| WurstClass {
+    ).map(|((d, (((a, n), e), i)), f)| WurstClass {
         doc: d,
         abstract_: a.is_some(),
         name: n,
         extends: e,
-        implements: vec![],
+        implements: i,
         fns: f
     })
 }
 
 fn package_declaration<'a>() -> Parser<'a, u8, String> {
     seq(b"package ") *
-    none_of(b" (,\n\r").repeat(1..).convert(String::from_utf8) -
-    sym(b'\n')
+    name() -
+    linebreak()
 }
 
-fn package<'a>() -> Parser<'a, u8, WurstPackage> {
+fn package_contents<'a>() -> Parser<
+    'a,
+    u8,
+    (Vec<WurstClass>, Vec<WurstFunction>, Vec<WurstEnum>, Vec<WurstInterface>)
+> {
     (
-        doc() + (
-            package_declaration() +
-            cruft().repeat(0..) *
-            list(
-                class().map(|c| FunctionOrClassTemporary::Class(c)) |
-                free_function().map(|f| FunctionOrClassTemporary::Function(f)) |
-                eenum().map(|e| FunctionOrClassTemporary::Enum(e)),
-                cruft().repeat(0..)
-            ) - cruft().repeat(0..)
-        )
-    ).map(|(doc, (package_name, members))| {
-        let (classes, fns, enums) = members.into_iter().fold(
-            (vec![], vec![], vec![]),
+        cruft().repeat(0..) *
+        list(
+            class().map(|c| FunctionOrClassTemporary::Class(c)) |
+            free_function().map(|f| FunctionOrClassTemporary::Function(f)) |
+            eenum().map(|e| FunctionOrClassTemporary::Enum(e)) |
+            interface().map(|i| FunctionOrClassTemporary::Interface(i)),
+            cruft().repeat(0..)
+        ) -
+        cruft().repeat(0..)
+    ).map(
+        |members| members.into_iter().fold(
+            (vec![], vec![], vec![], vec![]),
             |acc, x| match x {
                 FunctionOrClassTemporary::Class(class) => {
                     (
@@ -255,7 +334,8 @@ fn package<'a>() -> Parser<'a, u8, WurstPackage> {
                             vec![class].into_iter()
                         ).collect(),
                         acc.1,
-                        acc.2
+                        acc.2,
+                        acc.3
                     )
                 },
                 FunctionOrClassTemporary::Function(func) => {
@@ -264,7 +344,8 @@ fn package<'a>() -> Parser<'a, u8, WurstPackage> {
                         acc.1.into_iter().chain(
                             vec![func].into_iter()
                         ).collect(),
-                        acc.2
+                        acc.2,
+                        acc.3
                     )
                 },
                 FunctionOrClassTemporary::Enum(eenum) => {
@@ -274,25 +355,69 @@ fn package<'a>() -> Parser<'a, u8, WurstPackage> {
                         acc.2.into_iter().chain(
                             vec![eenum].into_iter()
                         ).collect(),
+                        acc.3
+                    )
+                },
+                FunctionOrClassTemporary::Interface(interface) => {
+                    (
+                        acc.0,
+                        acc.1,
+                        acc.2,
+                        acc.3.into_iter().chain(
+                            vec![interface].into_iter()
+                        ).collect()
                     )
                 }
             }
-        );
-        WurstPackage {
-            doc: doc,
-            name: package_name,
-            classes: classes,
-            free_fns: fns,
-            enums: enums,
+        )
+    )
+}
+
+fn package<'a>() -> Parser<'a, u8, WurstPackage> {
+    doc() +
+    package_declaration() +
+    // Contents of a package can be on the same line, or all indented.
+    // First, assume contents are indented.  If there are no parsed results,
+    // try again without indentation.
+    (
+        indented() |
+        empty().map(|()| vec![])
+    ).repeat(0..).map(
+        |lines| lines.into_iter().filter(
+            |line| line.len() > 0
+        ).fold(
+            vec![],
+            |accum, line| accum.into_iter().chain(
+                line.into_iter().chain(vec![b'\n'].into_iter())
+            ).collect()
+        )
+    ) >> |((doc, name), lines)| match lines.len() {
+        0 => package_contents().map(
+            move |sub_parse| ((doc.clone(), name.clone()), sub_parse)
+        ),
+        _ => {
+            let sub_parse = package_contents().parse(
+                &lines
+            ).expect("subparse");
+
+            take(0).map(
+                move |_nil| ((doc.clone(), name.clone()), sub_parse.clone())
+            )
         }
+    }.map(|((doc, name), (classes, free_fns, enums, interfaces))| WurstPackage {
+        doc,
+        name,
+        classes,
+        free_fns,
+        enums,
+        interfaces,
     })
 }
 
 fn doc<'a>() -> Parser<'a, u8, Option<String>> {
     (
-        one_of(b" \n\t\r").repeat(0..) *
+        maybe_emptylines() *
         seq(b"/**") *
-        one_of(b" \n\t\r").repeat(0..) *
         (
             !seq(b"*/") * take(1)
         ).repeat(0..).collect().map(
@@ -300,19 +425,19 @@ fn doc<'a>() -> Parser<'a, u8, Option<String>> {
                 |c| char::is_whitespace(c) || c == '*'
             ).into()
         ) -
-        seq(b"*/") - one_of(b" \n\t\r").repeat(0..)
+        seq(b"*/") - maybe_endofline_space()
     ).opt()
 }
 
 fn function_params<'a>() -> Parser<'a, u8, Vec<WurstFnParam>> {
-    one_of(b" \t\r\n").repeat(0..) *
+    maybe_whitespace() *
     list(
         // Parameters.
         none_of(b") ,").repeat(1..).convert(String::from_utf8) -
         sym(b' ').repeat(1..) +
         none_of(b") ,\r\n\t").repeat(1..).convert(String::from_utf8),
         sym(b',') *
-        one_of(b" \r\t\n").repeat(0..)
+        maybe_whitespace()
     ).map(|v| v.into_iter().map(|(t, n)| WurstFnParam {
         typ: t,
         name: n
@@ -322,26 +447,26 @@ fn function_params<'a>() -> Parser<'a, u8, Vec<WurstFnParam>> {
 fn free_function<'a>() -> Parser<'a, u8, WurstFunction> {
     (
         doc() -
-        one_of(b"\r\n\t ").repeat(0..) +
+        maybe_whitespace() +
         (
             // Only match public free functions.
             seq(b"public function ") *
             // Optionally match extension fns.
             (
-                none_of(b" (.").repeat(1..) - sym(b'.')
-            ).convert(String::from_utf8).opt() +
-            none_of(b" (.").repeat(1..).convert(String::from_utf8) -
+                name() - sym(b'.')
+            ).opt() +
+            name() -
             sym(b'(')
         ) +
         call(function_params) -
         sym(b')') +
         (
             // Return value.
-            one_of(b"\t ").repeat(0..) *
+            maybe_sep() *
             seq(b"returns ") *
             none_of(b" ,\n").repeat(1..).convert(String::from_utf8)
         ).opt() -
-        one_of(b" \r\t\n").repeat(0..)
+        maybe_whitespace()
     ).map(|(((d, (e, n)), p), r)| WurstFunction {
         doc: d,
         static_: false,
@@ -355,18 +480,18 @@ fn free_function<'a>() -> Parser<'a, u8, WurstFunction> {
 fn eenum<'a>() -> Parser<'a, u8, WurstEnum> {
     (
         doc() -
-        one_of(b"\r\n\t ").repeat(0..) +
+        maybe_whitespace() +
         (
             seq(b"public enum ") *
             none_of(b"\r\n").repeat(1..)
         ).convert(String::from_utf8) -
-        one_of(b" \r\t\n").repeat(1..) +
+        whitespace() +
         (
-            one_of(b" \t").repeat(0..) *
+            maybe_sep() *
             none_of(b" \t\r\n/").repeat(1..) -
             one_of(b"\r\n").repeat(1..)
         ).convert(String::from_utf8).repeat(1..) -
-        one_of(b" \r\t\n").repeat(0..)
+        maybe_whitespace()
     ).map(|((d, n), v)| WurstEnum {
         doc: d,
         name: n,
@@ -374,10 +499,50 @@ fn eenum<'a>() -> Parser<'a, u8, WurstEnum> {
     })
 }
 
+fn interface_body<'a>() -> Parser<'a, u8, Vec<WurstFunction>> {
+    interface_cruft().repeat(0..) *
+    list(
+        call(class_fn),
+        call(interface_cruft).repeat(0..)
+    )
+}
+
+fn interface<'a>() -> Parser<'a, u8, WurstInterface> {
+    (
+        doc() -
+        maybe_whitespace() *
+        seq(b"public interface") *
+        sep() +
+        name() +
+        (
+            indented() |
+            empty().map(|()| vec![])
+        ).repeat(0..).map(
+            |lines| lines.into_iter().filter(
+                |line| line.len() > 0
+            ).fold(
+                vec![],
+                |accum, line| accum.into_iter().chain(
+                    line.into_iter().chain(vec![b'\n'].into_iter())
+                ).collect()
+            )
+        ).map(move |lines| {
+            interface_body().parse(
+                &lines
+            ).expect("subparse!")
+        })
+    ).map(|((d, n), f)| WurstInterface {
+        doc: d,
+        name: n,
+        fns: f
+    })
+}
+
 fn wurstdok<'a>() -> Parser<'a, u8, WurstDok> {
     package().map(|p| WurstDok::Package(p)) |
     eenum().map(|e| WurstDok::Enum(e)) |
     class().map(|c| WurstDok::Class(c)) |
+    interface().map(|i| WurstDok::Interface(i)) |
     free_function().map(|f| WurstDok::FreeFunction(f))
 }
 
@@ -582,6 +747,7 @@ mod tests {
                         name: "GameTimer".into(),
                         classes: vec![],
                         enums: vec![],
+                        interfaces: vec![],
                         free_fns: vec![
                             WurstFunction {
                                 doc: None,
@@ -649,6 +815,7 @@ mod tests {
                         name: "Test".into(),
                         classes: vec![],
                         free_fns: vec![],
+                        interfaces: vec![],
                         enums: vec![
                             WurstEnum {
                                 doc: Some("Dude".into()),
@@ -690,6 +857,7 @@ mod tests {
                         doc: None,
                         name: "Test".into(),
                         classes: vec![],
+                        interfaces: vec![],
                         free_fns: vec![
                             WurstFunction {
                                 extensor: Some("A".into()),
@@ -721,21 +889,22 @@ mod tests {
     fn test_pkg_two_fns() -> Result<(), ()> {
         assert_eq!(
             wurstdoktor().parse(br#"
-                /** A test package that fucks the what. */
-                package test
-                public function braap(unit q)
-                    q.kill()
+/** A test package that bla bla bla. */
+package test
+public function braap(unit q)
+    q.kill()
 
-                public function goth(unit g)
-                    g.remove()
+public function goth(unit g)
+    g.remove()
             "#),
             Ok(vec![
                 WurstDok::Package(
                     WurstPackage {
-                        doc: Some("A test package that fucks the what.".into()),
+                        doc: Some("A test package that bla bla bla.".into()),
                         name: "test".into(),
                         classes: vec![],
                         enums: vec![],
+                        interfaces: vec![],
                         free_fns: vec![
                             WurstFunction {
                                 doc: None,
@@ -858,12 +1027,12 @@ mod tests {
     }
 
     #[test]
-    fn hotdoc() -> Result<(), ()> {
+    fn test_hotdoc() -> Result<(), ()> {
         assert_eq!(
             doc().parse(br#"
-                /**
-                    Hello world!
-                */
+/**
+    Hello world!
+*/
             "#),
             Ok(Some("Hello world!".into()))
         );
@@ -1039,14 +1208,14 @@ mod tests {
     }
 
     #[test]
-    fn empty_class() -> Result<(), ()> {
+    fn test_empty_class() -> Result<(), ()> {
         assert_eq!(
             class().parse(br#"
-                /**
-                    Foobar!
-                */
-                public class Foobar
-                    // Hello world.
+/**
+    Foobar!
+*/
+public class Foobar
+    // Hello world.
 
             "#),
             Ok(WurstClass {
@@ -1066,17 +1235,17 @@ mod tests {
     fn test_just_class_fn() -> Result<(), ()> {
         assert_eq!(
             class_fn().parse(br#"
-                    /**
-                    * Own's this callable to prevent it from being freed automatically.
-                    * You must manually `destroy` this object to free it
-                    */
-                    function own() returns thistype
-                        owned = true
-                        return this
+/**
+* Own's this callable to prevent it from being freed automatically.
+* You must manually `destroy` this object to free it
+*/
+function own() returns thistype
+    owned = true
+    return this
             "#),
             Ok(
                 WurstFunction {
-                    doc: Some("Own's this callable to prevent it from being freed automatically.\n                    * You must manually `destroy` this object to free it".into()),
+                    doc: Some("Own's this callable to prevent it from being freed automatically.\n* You must manually `destroy` this object to free it".into()),
                     static_: false,
                     extensor: None,
                     name: "own".into(),
@@ -1158,52 +1327,52 @@ mod tests {
     fn test_class() -> Result<(), ()> {
         assert_eq!(
             wurstdoktor().parse(br#"
-                /**
-                * Ownable object
-                *
-                * Can be "owned" to prevent being freed with the `.own()` method
-                * Methods in the Lodash library will attempt to free callables that they are passed
-                */
-                public abstract class Ownable
-                    static var count = 0
-                    var owned = false
+/**
+* Ownable object
+*
+* Can be "owned" to prevent being freed with the `.own()` method
+* Methods in the Lodash library will attempt to free callables that they are passed
+*/
+public abstract class Ownable
+    static var count = 0
+    var owned = false
 
-                    construct()
-                        count += 1
+    construct()
+        count += 1
 
-                    ondestroy
-                        count -= 1
+    ondestroy
+        count -= 1
 
-                    /**
-                    * Own's this callable to prevent it from being freed automatically.
-                    * You must manually `destroy` this object to free it
-                    */
-                    function own() returns thistype
-                        owned = true
-                        return this
+    /**
+    * Own's this callable to prevent it from being freed automatically.
+    * You must manually `destroy` this object to free it
+    */
+    function own() returns thistype
+        owned = true
+        return this
 
-                    /**
-                    * Destroys this callable if it has not been owned
-                    */
-                    function maybeFree() returns bool
-                        if not owned
-                            destroy this
-                            return true
-                        return false
+    /**
+    * Destroys this callable if it has not been owned
+    */
+    function maybeFree() returns bool
+        if not owned
+            destroy this
+            return true
+        return false
 
-                /**
-                * Represents a range of numbers
-                */
-                public class Range extends Ownable
-                    let incr = 1
-                    let start = 0
-                    let finish = INT_MAX
-                    var curr = start
+/**
+* Represents a range of numbers
+*/
+public class Range extends Ownable
+    let incr = 1
+    let start = 0
+    let finish = INT_MAX
+    var curr = start
             "#),
             Ok(vec![
                 WurstDok::Class(
                     WurstClass {
-                        doc: Some("Ownable object\n                *\n                * Can be \"owned\" to prevent being freed with the `.own()` method\n                * Methods in the Lodash library will attempt to free callables that they are passed".into()),
+                        doc: Some("Ownable object\n*\n* Can be \"owned\" to prevent being freed with the `.own()` method\n* Methods in the Lodash library will attempt to free callables that they are passed".into()),
                         abstract_: true,
                         name: "Ownable".into(),
                         extends: None,
@@ -1226,7 +1395,7 @@ mod tests {
                                 returns: None
                             },
                             WurstFunction {
-                                doc: Some("Own's this callable to prevent it from being freed automatically.\n                    * You must manually `destroy` this object to free it".into()),
+                                doc: Some("Own's this callable to prevent it from being freed automatically.\n    * You must manually `destroy` this object to free it".into()),
                                 static_: false,
                                 extensor: None,
                                 name: "own".into(),
@@ -1255,6 +1424,89 @@ mod tests {
                     }
                 )
             ])
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_implements() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+                public class Zed implements Ownable
+                    real v
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Class(
+                        WurstClass {
+                            doc: None,
+                            abstract_: false,
+                            name: "Zed".into(),
+                            extends: None,
+                            implements: vec!["Ownable".into()],
+                            fns: vec![],
+                        }
+                    )
+                ]
+            )
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_interface() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+package Q
+
+/** Hello world */
+public interface Boom
+    function a()
+
+    function b()
+
+function irrelevant()
+    let v = 5
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Package(
+                        WurstPackage {
+                            doc: None,
+                            name: "Q".into(),
+                            free_fns: vec![],
+                            classes: vec![],
+                            enums: vec![],
+                            interfaces: vec![
+                                WurstInterface {
+                                    doc: Some("Hello world".into()),
+                                    name: "Boom".into(),
+                                    fns: vec![
+                                        WurstFunction {
+                                            doc: None,
+                                            static_: false,
+                                            extensor: None,
+                                            name: "a".into(),
+                                            params: vec![],
+                                            returns: None
+                                        },
+                                        WurstFunction {
+                                            doc: None,
+                                            static_: false,
+                                            extensor: None,
+                                            name: "b".into(),
+                                            params: vec![],
+                                            returns: None
+                                        }
+                                    ]
+                                }
+                            ],
+                        }
+                    )
+                ]
+            )
         );
 
         Ok(())
@@ -1325,6 +1577,7 @@ function testDialog()
                             name: "Dialog".into(),
                             classes: vec![],
                             enums: vec![],
+                            interfaces: vec![],
                             free_fns: vec![
                                 WurstFunction {
                                     doc: Some("Dialogs are big dialog boxes at the center of the screen. The player can choose one button to click.\n\tWARNING: Dialogs cannot be displayed at map init! Dialogs pause the game in single player mode!\n\tIn multiplayer mode dialogs do not pause the game, but prevent players, who see the dialog from playing the game.".into()),

@@ -35,3 +35,4 @@
           - typ: int
             name: v
         returns: bitset
+    interfaces: []

@@ -499,3 +499,4 @@
           - typ: player
             name: whichPlayer
         returns: ~
+    interfaces: []

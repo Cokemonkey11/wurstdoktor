@@ -371,3 +371,4 @@
           - typ: buffTuple
             name: buffT
         returns: buffTuple
+    interfaces: []

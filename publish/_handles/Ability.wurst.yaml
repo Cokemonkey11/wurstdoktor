@@ -365,3 +365,4 @@
           - typ: string
             name: value
         returns: bool
+    interfaces: []

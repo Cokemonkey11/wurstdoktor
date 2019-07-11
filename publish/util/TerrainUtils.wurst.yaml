@@ -207,3 +207,4 @@
           - typ: bool
             name: flag
         returns: ~
+    interfaces: []

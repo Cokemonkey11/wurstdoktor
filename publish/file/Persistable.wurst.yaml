@@ -2,7 +2,136 @@
 - Package:
     doc: ~
     name: Persistable
-    classes: []
+    classes:
+      - doc: "This class provides you the ability, by extending it, to save and load\n\tdata in a safe, synchronous manner"
+        abstract_: true
+        name: Persistable
+        extends: ~
+        implements:
+          - BufferSerializable
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: player
+                name: owner
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getClassId
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getId
+            params: []
+            returns: string
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: supplyDefault
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onLoaded
+            params:
+              - typ: LoadStatus
+                name: _status
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onSaved
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getIODelay
+            params: []
+            returns: real
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: getPath
+            params: []
+            returns: string
+          - doc: Saves this Persistable to disk
+            static_: false
+            extensor: ~
+            name: save
+            params: []
+            returns: ~
+          - doc: Saves this Persistable to disk and calls the callback when it finishes
+            static_: false
+            extensor: ~
+            name: save
+            params:
+              - typ: PersistableSaveCallback
+                name: callback
+            returns: ~
+          - doc: "Loads and syncs this Persistable from owner's disk"
+            static_: false
+            extensor: ~
+            name: load
+            params: []
+            returns: ~
+          - doc: "Loads and syncs this Persistable from owner's disk and calls the callback when it finishes"
+            static_: false
+            extensor: ~
+            name: load
+            params:
+              - typ: PersistableLoadCallback
+                name: callback
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: construct
+            params:
+              - typ: Persistable
+                name: entity
+              - typ: player
+                name: owner
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: finishWithStatus
+            params:
+              - typ: LoadStatus
+                name: status
+              - typ: PersistableLoadCallback
+                name: callback
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: load
+            params:
+              - typ: PersistableLoadCallback
+                name: callback
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: save
+            params:
+              - typ: PersistableSaveCallback
+                name: callback
+            returns: ~
     enums:
       - doc: "Represents the various states of a persistable class load.\n\tSUCCESS - The class has successfully loaded from disk.\n\tFAIL_NOT_ENABLED - Local files have not been enabled for this user.\n\tFAIL_FILE_CORRUPT - Decoding failed due to a corrupted/tampered file.\n\tFAIL_DESERIALIZE - Decoding failed due to bad data in the file, meaning the .deserialize()\n\tfunction errored out due to missing/malformed data after it has been succesfully decoded.\n\tThis can also happen if the file is empty or doesn't exist.\n\tFAIL_NO_PLAYER - The player has left either during data transfer, or before."
         name: LoadStatus
@@ -19,3 +148,24 @@
           - FAIL_NOT_ENABLED
           - FAIL_NO_PLAYER
     free_fns: []
+    interfaces:
+      - doc: Functional interface for optional lambda callback in Persistable.load()
+        name: PersistableLoadCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onLoaded
+            params:
+              - typ: LoadStatus
+                name: status
+            returns: ~
+      - doc: Functional interface for optional lambda callback in Persistable.save()
+        name: PersistableSaveCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onSaved
+            params: []
+            returns: ~

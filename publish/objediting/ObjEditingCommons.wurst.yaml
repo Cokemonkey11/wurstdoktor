@@ -38,3 +38,4 @@
         name: toObjectInt
         params: []
         returns: int
+    interfaces: []

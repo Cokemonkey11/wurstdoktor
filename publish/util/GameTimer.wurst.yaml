@@ -11,3 +11,4 @@
         name: getElapsedGameTime
         params: []
         returns: real
+    interfaces: []

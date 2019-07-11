@@ -149,3 +149,15 @@
           - typ: string
             name: replacementChar
         returns: string
+    interfaces:
+      - doc: ~
+        name: ForStringSplitCallback
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: callback
+            params:
+              - typ: string
+                name: str
+            returns: ~

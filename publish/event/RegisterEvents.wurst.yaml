@@ -93,3 +93,4 @@
           - typ: code
             name: onCast
         returns: ~
+    interfaces: []

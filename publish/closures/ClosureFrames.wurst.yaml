@@ -133,3 +133,4 @@
           - typ: FrameHandleListener
             name: listener
         returns: FrameHandleListener
+    interfaces: []

@@ -49,3 +49,4 @@
           - typ: string
             name: s
         returns: ~
+    interfaces: []

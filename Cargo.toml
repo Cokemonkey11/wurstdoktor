@@ -1,12 +1,15 @@
 [package]
 name = "wurstdoktor"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Cokemonkey11"]
 edition = "2018"
 description = "A wurst to yaml parser for public sourcecode documentation"
 license = "MIT OR Apache-2.0"
 homepage = "https://cokemonkey11.github.io/wurstdoktor/"
 repository = "https://github.com/Cokemonkey11/wurstdoktor"
+readme = "README.md"
+keywords = ["wurst", "pom", "parser", "yaml", "sqlite"]
+categories = ["command-line-utilities", "development-tools", "parser-implementations"]
 
 [features]
 sqlitedb = ["rusqlite", "serde_rusqlite"]

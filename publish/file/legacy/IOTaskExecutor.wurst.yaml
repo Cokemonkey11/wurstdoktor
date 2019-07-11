@@ -3,6 +3,47 @@
     doc: ~
     name: IOTaskExecutor
     classes:
+      - doc: Provides common functionality for executors for storing and processing a task queue.
+        abstract_: true
+        name: AbstractIOTaskExecutor
+        extends: ~
+        implements:
+          - IOTaskExecutor
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: ondestroy
+            params: []
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: submit
+            params:
+              - typ: IOTask
+                name: task
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: onComplete
+            params:
+              - typ: IOTask
+                name: task
+            returns: ~
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: isFinished
+            params: []
+            returns: boolean
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: executeNext
+            params: []
+            returns: ~
       - doc: "A task executor that immediately executes all tasks\n\tsubmitted to it when .start() is called."
         abstract_: false
         name: InstantIOTaskExecutor
@@ -61,3 +102,44 @@
             returns: ~
     enums: []
     free_fns: []
+    interfaces:
+      - doc: Simple interface of an IO task
+        name: IOTask
+        fns:
+          - doc: ~
+            static_: false
+            extensor: ~
+            name: run
+            params: []
+            returns: ~
+      - doc: "Interface for an IO task executor. Tasks are meant to run in the same\n\torder that they are submitted. When there are no more tasks in the queue\n\tto process, the callback specified in .onComplete() will be called\n\tand .isFinished() will return true."
+        name: IOTaskExecutor
+        fns:
+          - doc: Submits the task to this executor.
+            static_: false
+            extensor: ~
+            name: submit
+            params:
+              - typ: IOTask
+                name: task
+            returns: ~
+          - doc: "Starts processing the currently queued tasks in this processor according to it's strategy."
+            static_: false
+            extensor: ~
+            name: start
+            params: []
+            returns: ~
+          - doc: Specifies a callback to be invoked when a task queue has finished processing.
+            static_: false
+            extensor: ~
+            name: onComplete
+            params:
+              - typ: IOTask
+                name: task
+            returns: ~
+          - doc: "Returns whether the task executor has finished it's current task queue."
+            static_: false
+            extensor: ~
+            name: isFinished
+            params: []
+            returns: boolean

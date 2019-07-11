@@ -31,3 +31,4 @@
         name: release
         params: []
         returns: ~
+    interfaces: []

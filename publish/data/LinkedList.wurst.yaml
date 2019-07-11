@@ -559,3 +559,4 @@
         name: join
         params: []
         returns: string
+    interfaces: []
