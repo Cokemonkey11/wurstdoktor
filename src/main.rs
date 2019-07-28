@@ -150,6 +150,16 @@ fn name<'a>() -> Parser<'a, u8, String> {
     none_of(b" (.,\t\r\n").repeat(1..).convert(String::from_utf8)
 }
 
+fn name_parameterised<'a>() -> Parser<'a, u8, String> {
+    is_a(u8::is_ascii_alphanumeric).repeat(1..) + (
+        sym(b'<') + (
+            call(name_parameterised) |
+            whitespace().convert(String::from_utf8) |
+            seq(b",").convert(String::from_utf8)
+        ).repeat(1..) + sym(b'>')
+    ).opt()
+}
+
 fn indented<'a>() -> Parser<'a, u8, Vec<u8>> {
     (
         seq(b"\t") |
@@ -1446,6 +1456,75 @@ public class Range extends Ownable
                             extends: None,
                             implements: vec!["Ownable".into()],
                             fns: vec![],
+                        }
+                    )
+                ]
+            )
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_iface_type_params() -> Result<(), ()> {
+        assert_eq!(
+            wurstdoktor().parse(br#"
+package Something
+public interface CoolPredicate<K>
+    function isCool(Classifier<K> c) returns bool
+
+public interface BiPredicate<K, V>
+    function bi(Pair<K, V> p)
+            "#),
+            Ok(
+                vec![
+                    WurstDok::Package(
+                        WurstPackage {
+                            doc: None,
+                            name: "Something".into(),
+                            enums: vec![],
+                            free_fns: vec![],
+                            classes: vec![],
+                            interfaces: vec![
+                                WurstInterface {
+                                    doc: None,
+                                    name: "CoolPredicate<K>".into(),
+                                    fns: vec![
+                                        WurstFunction {
+                                            doc: None,
+                                            extensor: None,
+                                            name: "isCool".into(),
+                                            static_: false,
+                                            params: vec![
+                                                WurstFnParam {
+                                                    name: "c".into(),
+                                                    typ: "Classifier<K>".into(),
+                                                }
+                                            ],
+                                            returns: Some("bool".into()),
+                                        }
+                                    ],
+                                },
+                                WurstInterface {
+                                    doc: None,
+                                    name: "BiPredicate<K, V>".into(),
+                                    fns: vec![
+                                        WurstFunction {
+                                            doc: None,
+                                            extensor: None,
+                                            name: "bi".into(),
+                                            static_: false,
+                                            params: vec![
+                                                WurstFnParam {
+                                                    name: "p".into(),
+                                                    typ: "Pair<K, V>".into(),
+                                                }
+                                            ],
+                                            returns: Some("bool".into()),
+                                        }
+                                    ],
+                                },
+                            ],
                         }
                     )
                 ]

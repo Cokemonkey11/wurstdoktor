@@ -38,3 +38,5 @@ A parser for public [wurstlang](https://wurstlang.org) docs.
 - [ ] sample html queryable from IRC
 - [ ] sample html link to element
 - [ ] publish documentation
+- [ ] pandoc templates for readme
+- [ ] interface type parameters
