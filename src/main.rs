@@ -1,24 +1,18 @@
-extern crate pom;
-extern crate serde_yaml;
-extern crate structopt;
-
-#[macro_use] extern crate failure;
-#[macro_use] extern crate serde_derive;
-
+use anyhow::Error;
 use pom::parser::*;
-
-use structopt::StructOpt;
+use serde::Serialize;
+use thiserror::Error;
+use clap::StructOpt;
 
 use std::io::Read;
 
-#[derive(Debug, Fail)]
-#[fail(display = "Wurstdoktor error")]
+#[derive(Debug, Error)]
 #[allow(dead_code)]
 enum WurstdoktorError {
-    #[fail(display = "can't use sqlite without the feature enabled")]
+    #[error("can't use sqlite without the feature enabled")]
     SqliteUnavailable,
 
-    #[fail(display = "couldn't decide which format to write")]
+    #[error("couldn't decide which format to write")]
     BadOutputArguments,
 }
 
@@ -150,15 +144,28 @@ fn name<'a>() -> Parser<'a, u8, String> {
     none_of(b" (.,\t\r\n").repeat(1..).convert(String::from_utf8)
 }
 
+fn name_generics<'a>() -> Parser<'a, u8, String> {
+    (
+      none_of(b" (.,\t\r\n<").repeat(1..)
+      + (
+        sym(b'<')
+        + (list(is_a(|u: u8| u8::is_ascii_alphanumeric(&u)).repeat(1..) /* call(name_generics) */, sym(b',') + sym(b' ').repeat(0..)))
+        + sym(b'>')
+      ).opt()
+    ).collect().convert(|st| String::from_utf8(st.to_vec()))
+}
+
+/*
 fn name_parameterised<'a>() -> Parser<'a, u8, String> {
     is_a(u8::is_ascii_alphanumeric).repeat(1..) + (
         sym(b'<') + (
             call(name_parameterised) |
             whitespace().convert(String::from_utf8) |
-            seq(b",").convert(String::from_utf8)
+            seq(b",").convert(|bytes| String::from_utf8(bytes.to_vec()))
         ).repeat(1..) + sym(b'>')
     ).opt()
 }
+*/
 
 fn indented<'a>() -> Parser<'a, u8, Vec<u8>> {
     (
@@ -218,7 +225,7 @@ fn class_fn<'a>() -> Parser<'a, u8, WurstFunction> {
                     (
                         (
                             seq(b"function ") *
-                            name()
+                            name_generics()
                         ) | seq(b"construct").map(
                             |s| std::str::from_utf8(s).expect(
                                 "Failed to unwrap UTF8"
@@ -523,7 +530,7 @@ fn interface<'a>() -> Parser<'a, u8, WurstInterface> {
         maybe_whitespace() *
         seq(b"public interface") *
         sep() +
-        name() +
+        name_generics() +
         (
             indented() |
             empty().map(|()| vec![])
@@ -566,7 +573,7 @@ fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
     })
 }
 
-fn main() -> Result<(), failure::Error> {
+fn main() -> Result<(), Error> {
     let opt = Opt::from_args();
 
     let stdin_buf: String = {
@@ -579,7 +586,7 @@ fn main() -> Result<(), failure::Error> {
         buf
     };
 
-    let result: Result<(), failure::Error> = match (
+    let result: Result<(), Error> = match (
         opt.yaml, opt.sqlite, opt.sqlitedb
     ) {
         (false, false, true) => {
@@ -1460,6 +1467,16 @@ public class Range extends Ownable
                     )
                 ]
             )
+        );
+
+        Ok(())
+    }
+
+    #[test]
+    fn test_name_generics() -> Result<(), ()> {
+        assert_eq!(
+            name_generics().parse(br#"Hello<World>"#),
+            Ok("Hello<World>".into())
         );
 
         Ok(())
