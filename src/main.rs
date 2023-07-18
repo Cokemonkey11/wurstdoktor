@@ -2,7 +2,7 @@ use anyhow::Error;
 use pom::parser::*;
 use serde::Serialize;
 use thiserror::Error;
-use clap::StructOpt;
+use clap::{Parser as CParser};
 
 use std::io::Read;
 
@@ -18,19 +18,19 @@ enum WurstdoktorError {
 
 /// Wurstdoktor consumes wurst code via stdin, and produces structured data for
 /// the public documentation found via stdout.
-#[derive(StructOpt, Debug)]
-#[structopt(name = "wurstdoktor")]
+#[derive(CParser, Debug)]
+#[command(name = "wurstdoktor")]
 struct Opt {
     /// Write the parsed contents as YAML (default).
-    #[structopt(long = "yaml", group = "outfmt")]
+    #[arg(long = "yaml", group = "outfmt")]
     yaml: bool,
 
     /// Write the parsed contents as SQL commands.
-    #[structopt(long = "sqlite", group = "outfmt")]
+    #[arg(long = "sqlite", group = "outfmt")]
     sqlite: bool,
 
     /// Write the parsed contents as a sqlite database (needs sqlitedb feature).
-    #[structopt(long = "sqlitedb", group = "outfmt")]
+    #[arg(long = "sqlitedb", group = "outfmt")]
     sqlitedb: bool,
 }
 
@@ -574,7 +574,7 @@ fn wurstdoktor<'a>() -> Parser<'a, u8, Vec<WurstDok>> {
 }
 
 fn main() -> Result<(), Error> {
-    let opt = Opt::from_args();
+    let opt = Opt::parse();
 
     let stdin_buf: String = {
         let mut buf = String::new();
