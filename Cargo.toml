@@ -16,7 +16,7 @@ sqlitedb = ["rusqlite", "serde_rusqlite"]
 
 [dependencies]
 anyhow         = "1.0"
-clap = { version = "3.2.22", features = ["derive"] }
+clap = { version = "3.2.25", features = ["derive"] }
 pom            = "3.0.2"
 rusqlite       = { version = "0.28.0", features = ["bundled"], optional = true }
 serde          = { version = "1.0", features = ["derive"] }
